@@ -1,0 +1,815 @@
+\documentclass[11pt]{article}
+
+% --------------------------------------------------------------------
+% Packages
+% --------------------------------------------------------------------
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{cleveref}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  urlcolor=blue,
+  citecolor=blue
+}
+
+\title{Phase Mirror Governance and Proof-Anchor Integration\\[0.25em]
+\large L0-8, Audit Ledger, and Bridge Contract v0.1.2}
+\author{Multiplicity Foundation --- Phase Mirror Project}
+\date{April 2026}
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+
+\newpage
+
+% ====================================================================
+% 1. Executive Summary
+% ====================================================================
+
+\section{Executive Summary}
+
+This report documents the design and implementation of a new governance feature set in the Phase Mirror ecosystem: the proof-anchor ledger entries, the L0-8 constitutional invariant, and the v0.1.2 update to the cross-repository Governance Bridge Contract.\cite{cite:41,cite:46,cite:47} These changes complete the ADR-008 (proof-anchor validator) v0.2 milestone and align both the HQ and MVP repositories on a shared definition of \emph{FULLY LAWFUL} proposals.\cite{cite:41,cite:46,cite:47}
+
+At a high level, the work establishes a cryptographically anchored audit path between an off-chain cryptographic proof engine (HQ) and the behavioral governance daemon (MVP), while preserving a clear separation between pure invariant checking and side-effectful ledger operations.\cite{cite:41,cite:46,cite:47} The new L0-8 invariant introduces a \emph{warn-only} phase at version v0.2 and explicitly defers a hard gate to v1.0 pending resolution of ledger durability (ADR-007), keeping governance, infra, and protocol safety in visible tension.\cite{cite:41,cite:42,cite:46,cite:47}
+
+From a mathematical perspective, the audit ledger is formalized as a hash-chained sequence of entries, with a dedicated \texttt{PROOF\_ANCHOR} entry type that records a native proof digest \(\pi_{\mathrm{native}}\) consistent with a fixed pattern (``0x'' plus 64 hexadecimal characters).\cite{cite:41} The constitution layer remains a pure Pydantic model enforcing L0 invariants over a proposal state, now extended with an optional proof-anchor field and an internal warning apparatus that accumulates non-blocking governance signals.\cite{cite:40,cite:41,cite:42}
+
+The Governance Bridge Contract is revised to v0.1.2 in both repositories, explicitly marking L0-8 v0.2 as implemented and clarifying that v1.0's strict enforcement of proof anchors is gated on a durable ledger backend.\cite{cite:44,cite:46,cite:47} This keeps technical debt and governance promises synchronized at the documentation level, ensuring that operational claims never outpace enforceable code.
+
+% ====================================================================
+% 2. System Overview
+% ====================================================================
+
+\section{System Overview}
+
+\subsection{Phase Mirror Layers}
+
+The Phase Mirror system is split into two tightly coupled but separately governed layers:\cite{cite:44,cite:46,cite:47}
+\begin{itemize}[nosep]
+  \item \textbf{MVP Layer} (\texttt{MultiplicityFoundation/Phase-Mirror}): a behavioral governance daemon implementing proposal evaluation, constitutional invariants, and a local audit ledger.
+  \item \textbf{HQ Layer} (\texttt{MultiplicityFoundation/PhaseMirror-HQ}): a cryptographic proof engine producing \(\mathrm{MultiplicityProofEnvelope}\) objects and emitting proof anchors via an HTTP bridge.
+\end{itemize}
+The Governance Bridge Contract in each repository defines how these layers interact and what conditions must hold for a proposal to be deemed \emph{FULLY LAWFUL}.\cite{cite:44,cite:46,cite:47}
+
+\subsection{FULLY LAWFUL Condition}
+
+The bridge contract states that a proposal is \emph{FULLY LAWFUL} if and only if all three of the following conditions are satisfied:\cite{cite:44,cite:46,cite:47}
+\begin{enumerate}[nosep]
+  \item The MVP constitution model validates with no L0 violations:
+  \[
+    \mathrm{ConstitutionModel}(\text{state}) \text{ raises no ConstitutionViolation},
+  \]
+  so all L0 invariants (now L0-1 through L0-8) hold on the proposed state.\cite{cite:40,cite:41,cite:42}
+  \item An HQ \(\mathrm{MultiplicityProofEnvelope}\) exists for the same proposal identifier.
+  \item The envelope's native proof digest \(\pi_{\mathrm{native}}\) is recorded in the audit ledger as a \texttt{PROOF\_ANCHOR} entry.\cite{cite:41,cite:44,cite:46,cite:47}
+\end{enumerate}
+While (1) is enforced at all times, conditions (2)--(3) are phased in across versions v0.1, v0.2, and v1.0 via the new L0-8 invariant and the proof-anchor HTTP endpoint.\cite{cite:41,cite:44,cite:46,cite:47}
+
+% ====================================================================
+% 3. Mathematical Governance Model
+% ====================================================================
+
+\section{Mathematical Governance Model}
+
+\subsection{Constitutional State Space}
+
+Let \(\mathcal{S}\) denote the space of constitutional states of a Phase Mirror proposal. In the current implementation, a state \(s \in \mathcal{S}\) is represented by an instance of \texttt{ConstitutionModel}, with fields:\cite{cite:40,cite:41}
+\begin{align*}
+  s &= \bigl(
+    \texttt{state\_norm},
+    \texttt{drift\_rate},
+    \texttt{critique\_results},
+    \texttt{prime\_gates},\\
+    &\quad\ \texttt{contractivity\_score},
+    \texttt{kill\_switch\_active},
+    \texttt{rollback\_anchor\_sha},
+    \texttt{consecutive\_failures},
+    \texttt{proof\_anchor}
+  \bigr).
+\end{align*}
+Here:
+\begin{itemize}[nosep]
+  \item \(\texttt{state\_norm} \in \mathbb{R}_{>0}\) is the L2 norm of the system state.\cite{cite:40}
+  \item \(\texttt{drift\_rate} \in \mathbb{R}_{\ge 0}\) is an ethical drift rate constrained by a threshold \(\Lambda_m\).\cite{cite:40}
+  \item \(\texttt{critique\_results}\) is a fixed-length list of ten boolean gate results with optional reasons, encoding Art. III critique gates.\cite{cite:40}
+  \item \(\texttt{prime\_gates}\) is a list of actions and prime-valued gate indices.\cite{cite:40}
+  \item \(\texttt{contractivity\_score}\in(0,1]\) is a Lipschitz-style contractivity measure.\cite{cite:40}
+  \item \(\texttt{kill\_switch\_active}\in\{\mathrm{False},\mathrm{True}\}\) encodes a global halt state.\cite{cite:40}
+  \item \(\texttt{rollback\_anchor\_sha}\) is an optional Git commit anchor for rollbacks.\cite{cite:40}
+  \item \(\texttt{consecutive\_failures} \in \mathbb{N}\) feeds a circuit breaker threshold.\cite{cite:40}
+  \item \(\texttt{proof\_anchor}\in\{\text{None}\}\cup\Sigma\) is an optional hexadecimal string recording an HQ-origin proof anchor.\cite{cite:41}
+\end{itemize}
+
+\subsection{L0 Invariants as Constraints}
+
+Each L0 invariant \(L0\text{-}k\) is implemented as a Pydantic \texttt{@model\_validator} acting on the full state and either returning the state unchanged or raising a \texttt{ConstitutionViolation} with an invariant identifier and detail string.\cite{cite:40,cite:41,cite:42}
+
+Formally, let \(V_k : \mathcal{S}\rightarrow\{0,1\}\) denote the boolean predicate corresponding to invariant \(L0\text{-}k\). For example:\cite{cite:40}
+\begin{itemize}[nosep]
+  \item L0-1 (state norm bounded):
+  \[
+    V_1(s) = 1 \iff \texttt{state\_norm} \text{ is finite and } \texttt{state\_norm} > 0.
+  \]
+  \item L0-2 (drift bounded):
+  \[
+    V_2(s) = 1 \iff \texttt{drift\_rate} < \Lambda_m,
+  \]
+  where \(\Lambda_m\) is the constant \texttt{LAMBDA\_M\_THRESHOLD}.\cite{cite:40}
+  \item L0-4 (prime-gate values prime): the predicate requires that all declared gate values are prime numbers, implemented via a local primality check.\cite{cite:40}
+\end{itemize}
+The constitution accepts a state if and only if all such predicates hold:
+\[
+  \bigwedge_{k=1}^8 V_k(s) = 1.
+\]
+Violations are reported by raising an exception containing the specific \(L0\text{-}k\) label, which is used downstream for logging and governance decision-making.\cite{cite:40,cite:42}
+
+\subsection{L0-8 Proof-Anchor Invariant}
+
+The new L0-8 invariant is defined in terms of the optional \texttt{proof\_anchor} field and a pattern constraint on the proof digest string.\cite{cite:41} A shared helper in \texttt{governance/proof\_anchor.py} defines a compiled regular expression
+\[
+  \texttt{PI\_NATIVE\_PATTERN} = \texttt{re.compile(r``$0x[0-9a-fA-F]{64}$'')},
+\]
+encoding the requirement that a native proof digest be a ``0x'' prefix followed by exactly 64 hexadecimal characters.\cite{cite:41}
+
+The L0-8 invariant \(V_8\) at version v0.2 has asymmetric behavior:
+\begin{itemize}[nosep]
+  \item If \(\texttt{proof\_anchor} = \text{None}\), no exception is raised; instead, the model records a non-blocking warning.
+  \item If \(\texttt{proof\_anchor}\neq\text{None}\) and the pattern fails, a \texttt{ConstitutionViolation} with invariant label ``L0-8'' is raised.\cite{cite:41}
+\end{itemize}
+This can be written as:
+\[
+  V_8(s) =
+  \begin{cases}
+    1, & \text{if anchor is absent (with warning) or present and well-formed},\\
+    0, & \text{if anchor is present but malformed}.
+  \end{cases}
+\]
+The strict requirement that a malformed anchor always be a hard failure ensures that once a proof anchor exists, its integrity is non-negotiable, while still allowing a transitional period where absence is only a soft governance signal.\cite{cite:41,cite:46,cite:47}
+
+% ====================================================================
+% 4. Audit Ledger and Proof Anchors
+% ====================================================================
+
+\section{Audit Ledger and Proof Anchors}
+
+\subsection{Hash-Chained Audit Ledger}
+
+The governance ledger is implemented as a hash-chained audit log in \texttt{governance/ledger.py}.\cite{cite:41} Conceptually, it is a sequence of entries \((e_i)_{i\ge 0}\) where each entry \(e_i\) contains:
+\begin{itemize}[nosep]
+  \item a monotonically increasing transaction identifier \(tx_i\in\mathbb{N}\),
+  \item a type tag \(t_i\in T\) for some finite set of entry types,
+  \item a payload \(p_i\) (e.g., proposal metadata, proof anchor, signer state),
+  \item a hash \(h_i\) defined as
+  \[
+    h_i = H(e_i, h_{i-1}),
+  \]
+  where \(H\) is a secure hash function and \(h_{-1}\) is a fixed genesis value.
+\end{itemize}
+This defines a one-dimensional multiplicity chain: each new entry is recursively generated from its predecessor via hash concatenation, creating a tamper-evident structure analogous to a blockchain but scoped to governance events.
+
+\subsection{PROOF\_ANCHOR Entry Type}
+
+An additional entry type \texttt{PROOF\_ANCHOR} is introduced to record the existence of an HQ proof envelope.\cite{cite:41} A \texttt{PROOF\_ANCHOR} entry stores, at minimum:
+\begin{itemize}[nosep]
+  \item the proposal identifier,
+  \item the native proof digest \(\pi_{\mathrm{native}}\) constrained by \texttt{PI\_NATIVE\_PATTERN},
+  \item metadata such as circuit name and timestamp.
+\end{itemize}
+The ledger API exposes an \texttt{append\_proof\_anchor} helper that validates and appends such entries in a single step.\cite{cite:41}
+
+\subsection{HTTP Proof-Anchor Bridge}
+
+The HQ \(\rightarrow\) MVP bridge is implemented in \texttt{mcp\_server/http\_transport.py} as an HTTP endpoint:\cite{cite:41}
+\begin{verbatim}
+POST /governance/proof-anchor
+Content-Type: application/json
+
+{
+  "pi_native":   "0x<64-hex-chars>",
+  "circuit":     "root" | "recovery" | "millerRabin" | "deviceAttest",
+  "proposal_id": "<string>"
+}
+\end{verbatim}
+The route performs the following:
+\begin{itemize}[nosep]
+  \item Validates \texttt{pi\_native} format against \texttt{PI\_NATIVE\_PATTERN}, returning HTTP 422 on mismatch.\cite{cite:41}
+  \item Invokes the audit ledger to append a \texttt{PROOF\_ANCHOR} entry and returns the resulting transaction identifier and entry hash on success.\cite{cite:41}
+  \item Returns HTTP 500 if the ledger write fails.\cite{cite:41}
+\end{itemize}
+This endpoint is explicitly constrained to single-instance deployments in the bridge contract, because the current ledger is a process-local singleton backed by a JSON file; multi-worker deployments would fragment the hash chain.\cite{cite:44,cite:46,cite:47}
+
+% ====================================================================
+% 5. L0-8 Implementation Details
+% ====================================================================
+
+\section{L0-8 Implementation Details}
+
+\subsection{ConstitutionModel Extensions}
+
+The constitution model in \texttt{governance/constitution.py} is extended with three key elements:\cite{cite:40,cite:41}
+\begin{enumerate}[nosep]
+  \item An optional \texttt{proof\_anchor} field carrying the HQ proof digest.
+  \item A \texttt{warnings: list[str]} field used to collect non-blocking constitutional warnings, excluded from schema and serialization.
+  \item A private \texttt{\_add\_warning(invariant, detail)} method that appends formatted warning entries to the list.
+\end{enumerate}
+Warnings are initialized per instance using \texttt{model\_post\_init} to avoid shared mutable defaults.\cite{cite:41}
+
+\subsection{L0-8 Validator Logic}
+
+The L0-8 validator is implemented as an \texttt{@model\_validator(mode='after')} method named \texttt{l0\_8\_proof\_anchor}, with the behavior summarized informally as:\cite{cite:41}
+\begin{itemize}[nosep]
+  \item If \texttt{proof\_anchor is None}, call
+  \[
+    \_add\_warning(\text{``L0-8''}, \text{``proof\_anchor absent...''}),
+  \]
+  and return the state.
+  \item If \texttt{proof\_anchor} is not None and fails \texttt{PI\_NATIVE\_PATTERN}, raise
+  \[
+    \mathrm{ConstitutionViolation}(\text{``L0-8''}, \text{``proof\_anchor present but malformed...''}).
+  \]
+  \item Otherwise, accept silently.
+\end{itemize}
+Crucially, the validator imports the pattern from \texttt{governance.proof\_anchor} to maintain a single source of truth for the format constraint while avoiding circular imports.\cite{cite:41}
+
+\subsection{Status Semantics}
+
+The \texttt{constitutional\_summary()} method is updated to incorporate both the proof anchor and the warnings list:\cite{cite:41}
+\begin{itemize}[nosep]
+  \item If \texttt{proof\_anchor} is present and \texttt{warnings} is empty, the status is reported as \texttt{``FULLY LAWFUL''}.
+  \item Otherwise (no anchor or any warnings), the status is \texttt{``LAWFUL''}.
+\end{itemize}
+This implements the bridge contract's distinction between baseline constitutional legality and the stronger FULLY LAWFUL condition tied to cross-layer proof anchoring.\cite{cite:44,cite:46,cite:47}
+
+% ====================================================================
+% 6. Test Suite and CI Guarantees
+% ====================================================================
+
+\section{Test Suite and CI Guarantees}
+
+\subsection{Constitution Tests}
+
+The MVP test suite in \texttt{mvp/tests/test\_constitution.py} is extended to cover all eight L0 invariants, including L0-8.\cite{cite:42, cite:43} In particular, a new \texttt{TestL0\_8\_ProofAnchor} class verifies:
+\begin{itemize}[nosep]
+  \item Absence of \texttt{proof\_anchor} produces at least one warning mentioning L0-8, while still yielding a \texttt{``LAWFUL''} status.\cite{cite:43}
+  \item The warning text includes references to \texttt{FULLY LAWFUL} status and the planned v1.0 promotion to a hard gate, ensuring documentation and code stay aligned.\cite{cite:43}
+  \item A well-formed anchor results in no L0-8 warnings and a \texttt{``FULLY LAWFUL''} status; the summary echoes the anchor back.\cite{cite:43}
+  \item Various malformed anchors (wrong length, missing \texttt{0x} prefix, non-hex characters) each raise a \texttt{ConstitutionViolation} matching L0-8.\cite{cite:43}
+  \item The warnings list is not shared between instances, guarding against subtle bugs in model initialization.\cite{cite:43}
+\end{itemize}
+
+\subsection{Ledger and HTTP Tests}
+
+The HQ repository adds governance-level tests for proof anchors in \texttt{governance/tests/test\_proof\_anchor\_ledger.py} and HTTP-level tests in \texttt{mcp\_server/tests/test\_gate\_f\_http\_transport.py}.\cite{cite:41} These tests ensure:
+\begin{itemize}[nosep]
+  \item \texttt{append\_proof\_anchor} correctly validates and appends entries to the ledger.
+  \item The HTTP endpoint returns 422 for invalid anchor formats and 200 with a valid transaction identifier and entry hash otherwise.
+  \item Ledger interactions and HTTP transport changes are covered before deployment.\cite{cite:41}
+\end{itemize}
+
+\subsection{CI-Completeness of ADR-008 v0.2}
+
+The ADR-008 v0.2 checklist is now fully enforced by tests:\cite{cite:41,cite:43}
+\begin{itemize}[nosep]
+  \item L0-8 exists with warn-only semantics for absent proofs and hard-fail behavior for malformed anchors.
+  \item There is an explicit code path for \texttt{PROOF\_ANCHOR} ledger entries and the HTTP bridge.
+  \item Both constitution-layer and ledger-layer behaviors are under test, preventing regressions in future governance refactors.
+\end{itemize}
+
+% ====================================================================
+% 7. Governance Bridge v0.1.2
+% ====================================================================
+
+\section{Governance Bridge v0.1.2}
+
+\subsection{Version Table Update}
+
+The Governance Bridge Contract in \texttt{governance/GOVERNANCE-BRIDGE.md} is updated to version v0.1.2 in both repositories, with a version table summarizing enforcement states:\cite{cite:44,cite:46,cite:47}
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+Version & Enforcement of Conditions 2+3 \\
+\midrule
+v0.1 & Not enforced in code; documented intent only. \\
+v0.2 & L0-8 warn-only: absent anchor $\rightarrow$ audit warning; malformed $\rightarrow$ violation (implemented). \\
+v1.0 & L0-8 hard gate: absent anchor $\rightarrow$ violation, contingent on ADR-007. \\
+\bottomrule
+\end{tabular}
+\end{center}
+The v0.2 row explicitly references the concrete implementation in \texttt{constitution.py} and the constitution test suite.\cite{cite:46,cite:47}
+
+\subsection{Layer Ownership and Open ADRs}
+
+The Layer Ownership table now reflects that the constitution enforces L0-1 through L0-8, and the Open ADRs table adds explicit status columns:\cite{cite:46,cite:47}
+\begin{itemize}[nosep]
+  \item ADR-006 (multi-signer quorum) remains proposed/undecided and blocks adoption of BLS aggregate root commits.
+  \item ADR-007 (shared durable ledger) remains proposed/undecided and blocks multi-worker deployments and the v1.0 L0-8 hard gate.
+  \item ADR-008 (L0-8 proof-anchor validator) is marked v0.2-implemented, with v1.0 explicitly gated on ADR-007.\cite{cite:46,cite:47}
+\end{itemize}
+This keeps the roadmap's governance, infra, and cryptography dependencies explicit and machine-auditable at the documentation level.
+
+\subsection{Change Log}
+
+The change log adds entries for v0.1.1 and v0.1.2:\cite{cite:44,cite:46,cite:47}
+\begin{itemize}[nosep]
+  \item v0.1.1 introduces the single-instance deployment constraint, the enforcement version table, and the Open ADRs table.
+  \item v0.1.2 records the implementation of ADR-008 v0.2 (L0-8 warn-only), the addition of tests, and the update of Layer Ownership to reflect eight L0 invariants.
+\end{itemize}
+
+% ====================================================================
+% 8. Code Snippets
+% ====================================================================
+
+\section{Illustrative Code Snippets}
+
+This section includes representative snippets (slightly abbreviated for clarity) to ground the discussion.
+
+\subsection{L0-8 Validator (Pseudocode)}
+
+\begin{verbatim}
+class ConstitutionModel(BaseModel):
+    proof_anchor: Optional[str] = Field(
+        default=None,
+        description=(
+            "HQ MultiplicityProofEnvelope pi_native recorded in AuditLedger. "
+            "Must be '0x' + 64 hex chars when present. "
+            "Required for FULLY LAWFUL status."
+        ),
+    )
+
+    warnings: List[str] = Field(default_factory=list, exclude=True)
+
+    def model_post_init(self, __context: object) -> None:
+        object.__setattr__(self, "warnings", [])
+
+    def _add_warning(self, invariant: str, detail: str) -> None:
+        self.warnings.append(f"[{invariant}] {detail}")
+
+    @model_validator(mode="after")
+    def l0_8_proof_anchor(self) -> "ConstitutionModel":
+        from governance.proof_anchor import PI_NATIVE_PATTERN
+
+        anchor = self.proof_anchor
+        if anchor is None:
+            self._add_warning(
+                "L0-8",
+                (
+                    "proof_anchor absent — FULLY LAWFUL conditions not met. "
+                    "Will be a hard ConstitutionViolation at v1.0 once ADR-007 resolves."
+                ),
+            )
+        elif not PI_NATIVE_PATTERN.match(anchor):
+            raise ConstitutionViolation(
+                "L0-8",
+                f"proof_anchor present but malformed — must be '0x' + 64 hex chars, got: {anchor!r}",
+            )
+        return self
+\end{verbatim}
+
+\subsection{Constitutional Summary}
+
+\begin{verbatim}
+def constitutional_summary(self) -> dict:
+    return {
+        "status": "FULLY LAWFUL" if self.proof_anchor and not self.warnings else "LAWFUL",
+        "state_norm": self.state_norm,
+        "drift_rate": self.drift_rate,
+        "contractivity_score": self.contractivity_score,
+        "critiques_passed": len(self.critique_results),
+        "prime_gates_declared": len(self.prime_gates),
+        "rollback_anchor_sha": self.rollback_anchor_sha,
+        "consecutive_failures": self.consecutive_failures,
+        "kill_switch_active": self.kill_switch_active,
+        "proof_anchor": self.proof_anchor,
+        "warnings": self.warnings,
+    }
+\end{verbatim}
+
+\subsection{Proof-Anchor HTTP Endpoint (Sketch)}
+
+\begin{verbatim}
+from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel
+from governance.ledger import append_proof_anchor
+from governance.proof_anchor import validate_pi_native
+
+app = FastAPI()
+
+class ProofAnchorRequest(BaseModel):
+    pi_native: str
+    circuit: str
+    proposal_id: str
+
+@app.post("/governance/proof-anchor")
+def post_proof_anchor(req: ProofAnchorRequest):
+    try:
+        validate_pi_native(req.pi_native)  # raises ValueError if malformed
+    except ValueError as e:
+        raise HTTPException(status_code=422, detail=str(e))
+
+    try:
+        tx_id, entry_hash = append_proof_anchor(
+            pi_native=req.pi_native,
+            circuit=req.circuit,
+            proposal_id=req.proposal_id,
+        )
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+    return {"tx_id": tx_id, "entry_hash": entry_hash}
+\end{verbatim}
+
+These snippets capture the essence of the proof-anchor validation pipeline while omitting auxiliary details for brevity.
+
+% ====================================================================
+% 9. Recommendations and Future Work
+% ====================================================================
+
+\section{Recommendations and Future Work}
+
+\subsection{ADR Roadmap Tensions}
+
+The developments described here sit at the intersection of several tensions:
+\begin{itemize}[nosep]
+  \item \textbf{Autonomy vs.\ Governance}: HQ proves cryptographic properties; MVP enforces behavioral constraints. L0-8 ties them together without collapsing the separation of concerns.
+  \item \textbf{Accuracy vs.\ Compliance}: Warn-only L0-8 balances immediate accuracy of proof anchoring against the compliance risk of hard-failing proposals when the ledger is not yet durable.
+  \item \textbf{Velocity vs.\ Safety}: v0.2 enables proof-anchor instrumentation without requiring a multi-worker-safe ledger, keeping development moving while surfacing the safety gap.
+  \item \textbf{Local vs.\ Cloud}: The current single-instance ledger implementation is explicitly bounded; ADR-007 must address distributed deployments.
+\end{itemize}
+
+\subsection{Short-Term Recommendations}
+
+\begin{itemize}[nosep]
+  \item Maintain L0-8 in warn-only mode until ADR-007 delivers a shared durable ledger backend (e.g., SQLite WAL, Redis+AOF, or Postgres), as already sketched in the bridge contract.\cite{cite:44,cite:46,cite:47}
+  \item Expand the \texttt{constitutional\_summary} consumers to surface L0-8 warnings prominently in user- and operator-facing interfaces, making the absence of proof anchors a visible governance signal.
+  \item Treat the presence of L0-8 warnings as a metric in governance dashboards (e.g., proportion of proposals that are merely LAWFUL vs.\ FULLY LAWFUL over time).
+\end{itemize}
+
+\subsection{Medium-Term: ADR-006 and ADR-007}
+
+\begin{itemize}[nosep]
+  \item \textbf{ADR-006 (Quorum Enforcement)}: Introduce multi-signer root commits with BLS aggregate signatures and corresponding L0-style invariants to prevent single-signer capture.
+  \item \textbf{ADR-007 (Ledger Durability)}: Migrate the audit ledger backend to a durable store suitable for multi-worker and multi-node deployments, enabling the L0-8 v1.0 hard gate and deployment behind load balancers.\cite{cite:44,cite:46,cite:47}
+\end{itemize}
+
+\subsection{Long-Term: Multiplicity-Theoretic Framing}
+
+In the language of multiplicity theory, the audit ledger and constitution define a recursively generated multiplicity space of governance trajectories, indexed by primes (via prime gates) and anchored by cryptographic proofs. Future work could:
+\begin{itemize}[nosep]
+  \item Model the ledger as a prime-labeled multiplicity chain where each entry contributes to an emergent pattern of proposals, approvals, and rollbacks across scales.
+  \item Formalize the interplay between behavioral and cryptographic invariants as a coupled system of constraints, with feedback loops mediated by L0 warnings, proof anchors, and council decisions.
+\end{itemize}
+
+\appendix
+\section*{Mathematical Appendix}
+\addcontentsline{toc}{section}{Mathematical Appendix}
+
+This appendix collects explicit mathematical statements and proofs for the invariants and bounds encoded in the Phase Mirror constitution and governance ledger implementation.\cite{cite:40,cite:41,cite:42,cite:43,cite:44,cite:46,cite:47} 
+The aim is to make the operator norm bounds, drift constraints, and hash-chain properties fully explicit, so they can be referenced independently of the implementation.
+
+Throughout, we consider:
+\begin{itemize}
+  \item a state space \(\mathcal{S}\) of constitutional states instantiated as \texttt{ConstitutionModel} objects,\cite{cite:40}
+  \item a sequence of governance ledger entries forming a hash chain,\cite{cite:41}
+  \item scalar constants \(L_{\mathrm{M}}\) (drift threshold), \(C_{\min}, C_{\max}\) (contractivity bounds), and \(F_{\max}\) (circuit-breaker threshold) corresponding to the parameters \texttt{LAMBDA\_M\_THRESHOLD}, \texttt{CONTRACTIVITY\_LOWER}, \texttt{CONTRACTIVITY\_UPPER}, and \texttt{CIRCUIT\_BREAKER\_THRESHOLD} in the code.\cite{cite:40}
+\end{itemize}
+
+% --------------------------------------------------------------------
+\section{State Norm Boundedness (L0-1)}
+% --------------------------------------------------------------------
+
+\subsection{Setup}
+
+Let \(S(t)\in\mathbb{R}^d\) denote the system state at time \(t\), and let
+\[
+  \lVert S(t)\rVert_2 = \sqrt{S(t)^\top S(t)}
+\]
+denote its Euclidean (L2) norm. The constitution stores a scalar \texttt{state\_norm} which, in the intended semantics, equals \(\lVert S(t)\rVert_2\).\cite{cite:40}
+
+In the implementation, the L0-1 validator enforces:
+\begin{enumerate}
+  \item \texttt{state\_norm} is strictly greater than zero via a field constraint \(\texttt{Field}(gt=0.0)\).\cite{cite:40}
+  \item \texttt{state\_norm} is finite by checking \texttt{math.isfinite(self.state\_norm)} and raising a \texttt{ConstitutionViolation} if it fails.\cite{cite:40}
+\end{enumerate}
+
+\subsection{Proposition and Proof}
+
+\paragraph{Proposition 1 (Finite, non-zero state norm).}
+For any constitutionally valid state \(s\in\mathcal{S}\), the stored value \(\texttt{state\_norm}(s)\) satisfies
+\[
+  0 < \texttt{state\_norm}(s) < \infty.
+\]
+
+\paragraph{Proof.}
+Instantiation of \texttt{ConstitutionModel} enforces a schema-level constraint \(\texttt{state\_norm} > 0\) via a field declaration \(\texttt{Field}(gt=0.0).\)\cite{cite:40}
+If this constraint is violated, a Pydantic \texttt{ValidationError} is raised, and the model is not constructed.\cite{cite:40, cite:42}
+If the value is not finite (NaN or infinities), the L0-1 validator raises a \texttt{ConstitutionViolation} and construction again fails.\cite{cite:40, cite:42}
+Therefore any successfully constructed instance must satisfy both strict positivity and finiteness, establishing the bound. \(\square\)
+
+\paragraph{Corollary 1 (Implicit operator norm bound).}
+If the state vector \(S(t)\) is always stored with its Euclidean norm in \texttt{state\_norm}, then for every constitutionally valid state \(s\) we have
+\[
+  0 < \lVert S(t)\rVert_2 < \infty.
+\]
+In particular, any underlying linear operator \(A\) that maps admissible states to admissible states must satisfy
+\[
+  \sup_{\lVert S(t)\rVert_2 = 1} \lVert A S(t)\rVert_2 < \infty,
+\]
+so that \(\lVert A\rVert_{\mathrm{op}} < \infty\).
+
+% --------------------------------------------------------------------
+\section{Drift-Rate Bound and Ethical Expansion (L0-2)}
+% --------------------------------------------------------------------
+
+\subsection{Setup}
+
+Let \(\Psi(t)\) denote an abstract ethical state, and let \(d\Psi/dt\) denote its drift rate. The constitution encodes this as a scalar field \texttt{drift\_rate}, with the invariant L0-2 enforcing:\cite{cite:40,cite:42}
+\[
+  \texttt{drift\_rate} < L_{\mathrm{M}},
+\]
+where \(L_{\mathrm{M}} = \texttt{LAMBDA\_M\_THRESHOLD}\) is a constant (e.g., \(0.1\)).\cite{cite:40}
+
+\subsection{Proposition and Proof}
+
+\paragraph{Proposition 2 (No exponential ethical drift).}
+Assume \(\Psi(t)\) evolves according to
+\[
+  \frac{d\Psi}{dt} = f(\Psi, t)
+\]
+and the scalar \(\texttt{drift\_rate}\) used in the constitution is a bound on the effective growth rate,
+\[
+  \left\lVert \frac{d\Psi}{dt} \right\rVert \le \texttt{drift\_rate}.
+\]
+If the L0-2 invariant holds, then over any finite interval \([t_0, t_1]\),
+\[
+  \lVert \Psi(t_1) - \Psi(t_0)\rVert \le L_{\mathrm{M}} (t_1 - t_0),
+\]
+and in particular the system does not exhibit unbounded exponential drift at rate \(\ge L_{\mathrm{M}}\).
+
+\paragraph{Proof.}
+By assumption, for all \(t\),
+\[
+  \left\lVert \frac{d\Psi}{dt} \right\rVert \le \texttt{drift\_rate} < L_{\mathrm{M}}.
+\]
+Integrating on \([t_0, t_1]\) and applying the triangle inequality, we obtain
+\[
+  \lVert \Psi(t_1) - \Psi(t_0)\rVert
+  = \left\lVert \int_{t_0}^{t_1} \frac{d\Psi}{dt} \, dt \right\rVert
+  \le \int_{t_0}^{t_1} \left\lVert \frac{d\Psi}{dt} \right\rVert dt
+  \le \int_{t_0}^{t_1} L_{\mathrm{M}} dt
+  = L_{\mathrm{M}} (t_1 - t_0).
+\]
+Thus the norm difference grows at most linearly with slope \(L_{\mathrm{M}}\), preventing exponential divergence at or above that rate.\(\square\)
+
+\paragraph{Interpretation.}
+The invariant L0-2 implements an operator norm bound on the generator of ethical drift: if the dynamical operator \(G\) governing \(\Psi\) satisfies \(\lVert G\rVert_{\mathrm{op}} \le L_{\mathrm{M}}\), then the trajectory cannot exhibit catastrophic exponential divergence in the relevant time scale.
+
+% --------------------------------------------------------------------
+\section{Prime-Gate Constraint and Operator Selectivity (L0-4)}
+% --------------------------------------------------------------------
+
+\subsection{Setup}
+
+Each prime-gated action is represented as a pair \((\alpha, p)\), with action name \(\alpha\) and gate value \(p\in\mathbb{N}\). The constitution requires that all gate values be prime numbers, enforced by a local primality function in L0-4.\cite{cite:40,cite:42}
+
+\subsection{Proposition and Proof}
+
+\paragraph{Proposition 3 (Prime-indexed action constraints).}
+Let \(\mathcal{A}\) be the set of declared prime-gated actions and \(\mathcal{P}\subset\mathbb{N}\) the set of prime numbers. The L0-4 invariant enforces that the index map
+\[
+  g : \mathcal{A} \rightarrow \mathbb{N},\qquad g(\alpha) = p
+\]
+has image contained in \(\mathcal{P}\):
+\[
+  g(\mathcal{A}) \subseteq \mathcal{P}.
+\]
+
+\paragraph{Proof.}
+The validator computes the set of violating actions
+\[
+  \{\alpha \mid (\alpha, p) \in \mathcal{A},\ \texttt{is\_prime}(p) = \mathrm{False}\},
+\]
+and raises a \texttt{ConstitutionViolation} if it is non-empty.\cite{cite:40,cite:42} 
+Therefore, a state passes validation only if every declared gate value \(p\) satisfies \texttt{is\_prime}(p) = \mathrm{True}, i.e.\ \(p\in\mathcal{P}\). This is equivalent to the claimed inclusion. \(\square\)
+
+\paragraph{Operator selectivity.}
+Interpreting gate values as indices in a multiplicity-theoretic decomposition, the prime constraint forces each action to occupy an irreducible slot in the space of control operators: composite indices must be factored into prime-labeled sub-actions, enhancing modularity and preventing ambiguous overlaps.
+
+% --------------------------------------------------------------------
+\section{Contractivity Bounds and Lipschitz Constraint (L0-5)}
+% --------------------------------------------------------------------
+
+\subsection{Setup}
+
+Let \(F : \mathcal{X}\rightarrow\mathcal{X}\) be a state-update operator acting on a metric space \((\mathcal{X}, d)\). The constitution stores a scalar \texttt{contractivity\_score} which is intended to approximate a Lipschitz constant \(L\) such that
+\[
+  d(F(x), F(y)) \le L\, d(x,y)\quad\forall x,y\in\mathcal{X}.
+\]
+The L0-5 invariant enforces:\cite{cite:40,cite:42}
+\[
+  0 < \texttt{contractivity\_score} \le 1,
+\]
+with explicit checks that values \(\le 0\) or \(>1\) trigger a violation.
+
+\subsection{Proposition and Proof}
+
+\paragraph{Proposition 4 (Contraction map bound).}
+Assume \texttt{contractivity\_score} stores a valid Lipschitz constant \(L\) for the operator \(F\). If the L0-5 invariant holds, then \(F\) is non-expansive, and strictly contractive wherever \(L<1\):
+\[
+  d(F(x),F(y)) \le L\, d(x,y) \le d(x,y)\quad\forall x,y\in\mathcal{X}.
+\]
+In particular, if \(\mathcal{X}\) is complete and \(0<L<1\), then \(F\) has a unique fixed point and iterates \(F^n(x)\) converge to it.
+
+\paragraph{Proof.}
+By definition of the Lipschitz constant and L0-5,
+\[
+  0 < L = \texttt{contractivity\_score} \le 1.
+\]
+Thus for all \(x,y\),
+\[
+  d(F(x),F(y)) \le L\, d(x,y) \le d(x,y),
+\]
+showing non-expansiveness. When \(L<1\) strictly, \(F\) is a contraction mapping. If \(\mathcal{X}\) is complete, the Banach fixed-point theorem guarantees a unique fixed point \(x^\star\) and convergence \(F^n(x)\rightarrow x^\star\) for any starting point \(x\).\(\square\)
+
+\paragraph{Interpretation.}
+In the governance context, \texttt{contractivity\_score} acts as an operator norm bound in a chosen metric, ensuring that repeated application of the state-update operator does not amplify perturbations and, under strict contractivity, tends to a stable configuration.
+
+% --------------------------------------------------------------------
+\section{Circuit Breaker and Failure Counting (L0-7)}
+% --------------------------------------------------------------------
+
+\subsection{Setup}
+
+Let \(f_n\) denote the number of consecutive failed proposals at step \(n\). The constitution tracks this via \texttt{consecutive\_failures} and enforces a threshold \(F_{\max}\) through L0-7:\cite{cite:40,cite:42}
+\[
+  \texttt{consecutive\_failures} < F_{\max},
+\]
+where \(F_{\max} = \texttt{CIRCUIT\_BREAKER\_THRESHOLD}\) (e.g.\ 3).
+
+\subsection{Proposition and Proof}
+
+\paragraph{Proposition 5 (Bounded failure streaks).}
+Under the L0-7 invariant, any sequence of proposals that are evaluated under the constitution cannot contain a streak of \(F_{\max}\) or more consecutive failures without triggering a \texttt{ConstitutionViolation}.
+
+\paragraph{Proof.}
+Consider a process that maintains \texttt{consecutive\_failures} and increments it by one each time a proposal fails. If a state with \(\texttt{consecutive\_failures} \ge F_{\max}\) is submitted, the L0-7 validator raises a \texttt{ConstitutionViolation} and the state is rejected.\cite{cite:40,cite:42}
+Thus, the system can never advance to a valid state with \(f_n \ge F_{\max}\). Any attempt to do so halts and requires external intervention, proving the bound on failure streaks.\(\square\)
+
+\paragraph{Control-theoretic view.}
+The failure counter is a discrete-time guard that enforces a bound on the effective operator norm of the ``failure propagation'' dynamics: a high rate of consecutive failures forces a switch to human-in-the-loop control rather than allowing unbounded autonomous attempts.
+
+% --------------------------------------------------------------------
+\section{Proof-Anchor Pattern and Hash-Chain Integrity}
+% --------------------------------------------------------------------
+
+\subsection{Proof-Anchor Format}
+
+The HQ layer emits a native proof digest \(\pi_{\mathrm{native}}\) expected to satisfy a stringent format constraint:
+\[
+  \pi_{\mathrm{native}} \in \{ \text{``0x''} \}\times\{0,\dots,9,a,\dots,f,A,\dots,F\}^{64}.
+\]
+This is captured in code by a compiled regular expression \texttt{PI\_NATIVE\_PATTERN = r``\^0x[0-9a-fA-F]\{64\}\$''}.\cite{cite:41}
+The L0-8 invariant enforces that any present \texttt{proof\_anchor} respects this pattern, with malformed strings provoking a \texttt{ConstitutionViolation}.\cite{cite:41,cite:43}
+
+\paragraph{Proposition 6 (Uniqueness of anchor representation).}
+Assuming a hash function \(H\) that is collision resistant on the space of proofs, the mapping from raw proofs to \(\pi_{\mathrm{native}}\) and then to \texttt{proof\_anchor} is injective up to the usual cryptographic assumptions: no two distinct proofs \(P_1\neq P_2\) are expected to share the same \(\pi_{\mathrm{native}}\).
+
+\paragraph{Proof (informal).}
+By design, \(\pi_{\mathrm{native}}\) is a digest of the full proof object, usually via a cryptographic hash. Collision resistance of \(H\) implies that it is computationally infeasible to find distinct \(P_1,P_2\) such that \(H(P_1)=H(P_2)\). The pattern constraint restricts \(\pi_{\mathrm{native}}\) to a canonical hexadecimal representation. Therefore the mapping from proofs to proof-anchor strings is injective modulo standard cryptographic assumptions. \(\square\)
+
+\subsection{Hash-Chain Property of the Audit Ledger}
+
+Consider a sequence of ledger entries \((e_i)_{i\ge 0}\), with each entry \(e_i\) containing payload data and a hash \(h_i\) defined by
+\[
+  h_i = H(e_i, h_{i-1}),\qquad i\ge 0,
+\]
+with a fixed genesis \(h_{-1}\).\cite{cite:41}
+Here \(H\) is a cryptographic hash function applied to the concatenation or structured encoding of \(e_i\) and \(h_{i-1}\).
+
+\paragraph{Proposition 7 (Tamper-evidence of the hash chain).}
+Assuming collision resistance of \(H\), for any index \(k\), modifying the payload of entry \(e_k\) while holding all subsequent hashes \(\{h_i\}_{i\ge k}\) and entries fixed is computationally infeasible.
+
+\paragraph{Proof.}
+Suppose an adversary modifies \(e_k\) to \(e_k'\neq e_k\) but wishes to keep the hash \(h_k\) unchanged:
+\[
+  h_k = H(e_k,h_{k-1}) = H(e_k', h_{k-1}).
+\]
+By collision resistance, finding such distinct inputs \((e_k,h_{k-1})\neq(e_k',h_{k-1})\) with \(H\) output identical is computationally infeasible. Thus any change to the payload must also change \(h_k\), and consequently all successor hashes \(h_{k+1}, h_{k+2},\dots\), breaking the chain. \(\square\)
+
+\paragraph{Corollary 2 (Anchored proofs are auditable).}
+If a \texttt{PROOF\_ANCHOR} entry with payload \(\pi_{\mathrm{native}}\) is present at position \(j\), then any attempt to modify or remove that anchor without changing subsequent hashes would contradict collision resistance. Therefore, such anchors provide a stable cryptographic link between HQ proofs and MVP governance history.
+
+% --------------------------------------------------------------------
+\section{Warn-Only vs.\ Hard-Gate Phasing (L0-8)}
+% --------------------------------------------------------------------
+
+\subsection{Warn-Only Phase Semantics}
+
+In v0.2, L0-8 behaves as follows:\cite{cite:41,cite:43,cite:46,cite:47}
+\begin{itemize}
+  \item If \texttt{proof\_anchor} is absent (\(\texttt{None}\)), L0-8 adds a warning but does not raise a violation.
+  \item If \texttt{proof\_anchor} is present and malformed, L0-8 raises a \texttt{ConstitutionViolation}.
+\end{itemize}
+We can express this as a map
+\[
+  W : \mathcal{S} \rightarrow \mathcal{P}(\mathsf{Warnings}),
+\]
+and a violation predicate \(V_8 : \mathcal{S}\rightarrow\{0,1\}\), such that
+\[
+  V_8(s) =
+  \begin{cases}
+    0 & \text{if \texttt{proof\_anchor} present and malformed},\\
+    1 & \text{otherwise},
+  \end{cases}
+\]
+and
+\[
+  W(s) =
+  \begin{cases}
+    \{\text{L0-8 warning}\} & \text{if \texttt{proof\_anchor} is None},\\
+    \emptyset & \text{otherwise}.
+  \end{cases}
+\]
+
+\paragraph{Proposition 8 (Phase-consistent status semantics).}
+Let \(\mathrm{status}(s)\in\{\text{``LAWFUL''},\text{``FULLY LAWFUL''}\}\) be the status computed by \texttt{constitutional\_summary()}.\cite{cite:41,cite:43}
+Under v0.2 semantics:
+\begin{enumerate}
+  \item If \(V_k(s)=1\) for all \(k\in\{1,\dots,8\}\) and \(W(s) = \emptyset\), then \(\mathrm{status}(s) = \text{``FULLY LAWFUL''}\).
+  \item If \(V_k(s)=1\) for all \(k\in\{1,\dots,8\}\) and \(W(s) \neq \emptyset\), then \(\mathrm{status}(s) = \text{``LAWFUL''}\).
+  \item If any \(V_k(s)=0\), the constitution raises a violation and no status is produced.
+\end{enumerate}
+
+\paragraph{Proof.}
+By inspection of the implementation, \texttt{constitutional\_summary()} computes:\cite{cite:41}
+\[
+  \mathrm{status}(s) = 
+  \begin{cases}
+    \text{``FULLY LAWFUL''} & \text{if \texttt{proof\_anchor} present and \texttt{warnings} empty},\\
+    \text{``LAWFUL''} & \text{otherwise}.
+  \end{cases}
+\]
+When all invariants pass, either the warnings list is empty (case 1) or not (case 2). If any invariant fails, construction raises an exception and no summary is returned (case 3). This matches the claimed semantics. \(\square\)
+
+\subsection{Towards v1.0 Hard Gate}
+
+In v1.0, the planned semantics are:
+\begin{itemize}
+  \item Both absence and malformation of \texttt{proof\_anchor} become hard violations.
+  \item Warnings may still be used for more granular governance signals, but they no longer mark the presence/absence of anchors.
+\end{itemize}
+At that point, L0-8 will behave like a standard invariant:
+\[
+  V_8^{(1.0)}(s) = 1 \iff \texttt{proof\_anchor} \text{ present and well-formed}.
+\]
+This upgrade is explicitly gated on ADR-007 to ensure that proof-anchor writes are durable across multi-worker deployments.\cite{cite:44,cite:46,cite:47}
+
+% --------------------------------------------------------------------
+\section{Summary of Norm Bounds}
+% --------------------------------------------------------------------
+
+For quick reference, we summarize the key bounds:
+
+\begin{itemize}
+  \item \textbf{State norm}:
+  \[
+    0 < \texttt{state\_norm} < \infty
+  \]
+  ensures the implicit operator norm of state transformations remains finite.\cite{cite:40,cite:42}
+  \item \textbf{Drift rate}:
+  \[
+    \left\lVert \frac{d\Psi}{dt} \right\rVert \le \texttt{drift\_rate} < L_{\mathrm{M}}
+  \]
+  bounds ethical drift and prevents exponential divergence at or above \(L_{\mathrm{M}}\).\cite{cite:40,cite:42}
+  \item \textbf{Contractivity}:
+  \[
+    0 < \texttt{contractivity\_score} \le 1
+  \]
+  constrains the Lipschitz constant of the state-update operator, ensuring non-expansiveness and contraction when strictly less than one.\cite{cite:40,cite:42}
+  \item \textbf{Failure streak}:
+  \[
+    \texttt{consecutive\_failures} < F_{\max}
+  \]
+  limits the effective gain of a ``failure propagator'' by forcing escalation after at most \(F_{\max}-1\) consecutive failures.\cite{cite:40,cite:42}
+  \item \textbf{Proof anchor format}:
+  \[
+    \pi_{\mathrm{native}} \in \{ \text{``0x''} \}\times\{0,\dots,9,a,\dots,f,A,\dots,F\}^{64}
+  \]
+  guarantees a canonical digest representation for cryptographic linking.\cite{cite:41,cite:43}
+\end{itemize}
+
+Together, these constraints define a bounded operator regime in which the governance dynamics are stable, auditable, and capable of incorporating cryptographically anchored proofs without sacrificing the purity of the invariant layer.
+
+\nocite{*}
+\bibliographystyle{unsrt}  
+\bibliography{references}
+\end{document}

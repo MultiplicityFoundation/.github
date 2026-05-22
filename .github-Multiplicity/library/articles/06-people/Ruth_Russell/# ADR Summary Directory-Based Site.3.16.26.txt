@@ -1,0 +1,81 @@
+# ADR Summary: Directory-Based Site Isolation and Orchestration Router
+# Branch: copilot/implement-directory-based-isolation
+# Date: 2026-03-16
+---
+## What Was Decided and Built
+### ADR-060 — Site as Tenant Governance Namespace
+A "site" is the smallest independently-governed namespace.  Every state root,
+audit ledger, twin snapshot, and rollback artifact is scoped to a site.
+`"local"` is the default site for development and CI.
+### ADR-061 — Directory-Based Site Isolation
+Each site owns a subtree under `state/<site_id>/` with fixed sub-directories:
+`audit/`, `twin/`, `checkpoints/`, `rollback/`, `ledger/`, `daemon/`.
+No tool may read or write another site's subtree.
+### ADR-062 — Contract-Owned Site Registry
+`contracts/shared/sites.yaml` is the single source of truth for site
+definitions.  The loader (`contracts/shared/sites.py`) is fail-closed: unknown
+or path-traversal site IDs raise `SiteRegistryError` before any I/O occurs.
+### ADR-063 — Site-Aware MCP Tools
+`daemon_heartbeat`, `checkpoint_write`, `rollback_status`, and
+`rollback_execute` all accept an optional `site_id` parameter.  Omitting it
+defaults to `"local"` — fully backward-compatible.  All state paths route
+through `site_cfg.state_root`.
+### ADR-064 — Site Bootstrap and Health
+`site_bootstrap` creates the required directory structure idempotently.
+`site_health` returns a `PASS / WARN / FAIL` report verifying all surfaces
+exist.  Both tools are registered in `mcp_server/tool_registry.yaml`.
+### ADR-065 — Site Registry Location
+The registry lives in `contracts/shared/` (not `state/` or `mcp_server/`) so
+open-core code can import it without touching runtime or MCP state.
+### Governance Hardening
+`contracts/shared/sites.yaml` and `contracts/shared/sites.py` added to
+`contracts/system_invariants.yaml`.  The site registry is now part of the
+Merkle-root immutable file set — changes require a governance action.
+### Orchestration Router (ADR-023 Phase 3)
+`orchestration/router.py` is the single authoritative dispatch surface for all
+state-mutating tool calls.  Every call flows:
+  1. Site resolution (`get_site`)
+  2. Phase Mirror policy gate (blockable; skippable for read-only tools)
+  3. Tool invocation
+  4. Audit ledger write (always, even on exception)
+  5. `DispatchOutcome` returned to caller
+---
+## Test Coverage
+| Test file | Count | What it proves |
+|-----------|------:|----------------|
+| `test_sites_registry.py` | 25 | Loader defaults, error paths, path-traversal guard |
+| `test_site_aware_tools.py` | 12 | Site isolation, path routing per tool |
+| `test_site_bootstrap.py` | 14 | Bootstrap idempotency, PASS/WARN/FAIL health gate |
+| `test_orchestration_router.py` | 11 | Policy gate, audit on success/fail, metadata |
+| **Total** | **62** | |
+---
+## Next Steps (priority order)
+### 1. Wire tools through the Orchestration Router (immediate)
+Update `mcp_server/server.py` dispatch loop to call
+`orchestration.dispatch(DispatchContext(...))` instead of invoking tool
+callables directly.  This activates the policy gate and audit chain for every
+production call without changing any tool implementation.
+### 2. Phase Mirror policy stub → live (Gate D, Q4 2026)
+Replace the stub evaluator in `policy/phase_mirror/__init__.py` with real
+semantic checks (ADR-030 typed modes: expression vs. state-transition).  Once
+live, `require_policy_pass=True` calls on `checkpoint_write` and
+`rollback_execute` will actually block unsafe operations.
+### 3. Add `site_health` as a CI gate (short-term)
+In `.github/workflows/`, add a step that runs `python -c "from
+mcp_server.tools.tool_site_health import site_health; r = site_health(); assert
+r['status'] == 'PASS'"` after bootstrap.  This makes the `local` site a
+verified pre-condition for every PR.
+### 4. Digital Twin Wave 2 enforcement (ADR-032 – ADR-035, Q1 2027)
+Implement `digital_twin/wave2.py` legitimacy predicates and PR snapshot
+admissibility checks.  The twin becomes an active enforcement surface that
+rejects state transitions before they reach the runtime.
+### 5. Multi-site integration test (Phase 5)
+Write a test that creates two separate sites (`site_a`, `site_b`), runs
+`checkpoint_write` and `daemon_heartbeat` against each, and asserts zero
+file overlap between `state/site_a/` and `state/site_b/`.  This is the
+definitive proof of isolation correctness.
+### 6. Recompute governance Merkle root
+`contracts/shared/sites.yaml` and `contracts/shared/sites.py` are now in
+the immutable file set but the Merkle root stored in the ledger predates their
+addition.  Run `daemon/bootstrap_governance_root.py` to compute a new root and
+update `GOVERNANCE_MERKLE_ROOT_TX_ID` in `contracts/shared/constants.py`

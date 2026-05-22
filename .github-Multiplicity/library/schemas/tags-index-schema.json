@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Tags index",
+  "type": "object",
+  "required": ["generated", "tags"],
+  "properties": {
+    "generated": { "type": "string" },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["slug", "name", "count"],
+        "properties": {
+          "slug": { "type": "string" },
+          "name": { "type": "string" },
+          "count": { "type": "integer", "minimum": 0 }
+        }
+      }
+    }
+  }
+}

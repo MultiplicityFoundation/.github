@@ -1,0 +1,63 @@
+Final ADR. projct. phase.1
+
+# ADR-0XX: Define "Site" as a Tenant/Governance Namespace
+
+- **Date:** 2026-03-16
+- **Status:** Accepted
+- **Deciders:** Core maintainers
+- **Related:** MCP tool registry (`mcp_server/tool_registry.yaml`), governance ledger, rollback, digital twin, Phase Mirror policy gating
+
+## Context
+
+The system contains multiple orchestration subsystems (daemon, rollback, digital twin, governance audit). We need a first-class concept of a "site" to support internal orchestration integrations and safe scaling, including introducing new sites with minimal and controlled changes.
+
+Three candidate meanings exist for "site":
+1. deployment environment (local/staging/prod)
+2. tenant / governance namespace
+3. physical region (us-east-1, eu-west-1)
+
+The project emphasizes governance epochs, auditable changes, rollback, and policy gating. These concerns map most directly to a tenant/governance namespace with explicit isolation boundaries.
+
+## Decision
+
+A **site** is defined as a **tenant / governance namespace**, i.e., a sovereign scope that owns and isolates:
+- governed state roots
+- audit ledger namespace and audit artifacts
+- rollback inventory and checkpoints
+- digital twin storage/snapshots
+- policy-related audit traces for orchestration
+
+Deployment environment and physical region are treated as **metadata** on a site (not the identity of a site).
+
+## Consequences
+
+### Positive
+- Clean isolation boundaries for state, audit, rollback, and twin artifacts.
+- New sites can be introduced deterministically and governed.
+- Enables multi-site orchestration scenarios without state contamination.
+
+### Negative / Tradeoffs
+- Tools and storage surfaces must accept `site_id` (or default it) and route paths accordingly.
+- Requires contract-level discipline: the site registry becomes a governed interface.
+
+## Alternatives considered
+
+1. **Site as deployment environment**
+   - Rejected: environments tend to be configuration profiles and do not inherently enforce isolation.
+2. **Site as physical region**
+   - Rejected for now: introduces networking/replication concerns too early; better as metadata later.
+3. **No site abstraction**
+   - Rejected: internal orchestration integrations would require ad hoc path/env rules and risk cross-contamination.
+
+## Acceptance criteria
+
+- `site_id` deterministically maps to isolated state and audit artifacts.
+- Running equivalent orchestration actions under two distinct `site_id`s does not cross-contaminate state.
+- Default behavior remains functional when `site_id` is omitted (defaults to `local`).
+
+## Rollout plan
+
+1. Add a contract-owned site registry and loader.
+2. Centralize path resolution via `site_paths`.
+3. Make stateful MCP tools accept `site_id?` and route via `site_paths`.
+4. Add tests that prove cross-site isolation.

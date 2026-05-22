@@ -1,0 +1,66 @@
+# ADR-012: Webhook Notifications via Daemon-Managed Subscriptions
+
+- Status: Proposed
+- Date: 2026-03-21
+- Phase/Segment: Segment 12 — Event / Webhook Notifications
+- Owners:
+  - Subscription source-of-truth: `MultiplicityFoundation/PhaseMirror-HQ` → `daemon/` (@PhaseMirror)
+  - Delivery engine: `RRussell11/AIISTECH-Backend` (this Go service)
+
+## Context
+
+`AIISTECH-Backend` currently behaves as a passive event/audit store: clients write events and later retrieve them. The next project phase requires turning the service into an active notifier: when events are written, downstream systems must be notified.
+
+At the same time, this service is part of a broader MultiplicityFoundation system. The "main project" (`MultiplicityFoundation/PhaseMirror-HQ`) will manage webhook subscriptions via an API. Therefore, webhook subscription CRUD and policy/RBAC should live in PhaseMirror-HQ, not in this Go backend.
+
+We also want the design to remain compatible with upcoming work:
+- Segment 13 (OpenAPI/contract generation)
+- Segment 14 (multi-tenancy & RBAC)
+
+## Decision
+
+### Summary
+
+Implement outbound webhook delivery in `AIISTECH-Backend` as an asynchronous delivery engine that fetches webhook subscriptions from an API managed by PhaseMirror-HQ (`daemon/`).
+
+### Subscription Source-of-Truth
+
+PhaseMirror-HQ (daemon) will provide a read API:
+
+- **Endpoint:** `GET /api/webhook-subscriptions`
+- **Query params:**
+  - `service` (required) — e.g. `aiistech-backend`
+  - `event_type` (optional) — e.g. `audit.write`
+  - `tenant_id` (optional; reserved for Segment 14)
+- **Auth:** `Authorization: Bearer <SERVICE_TOKEN>` (service-to-service)
+- **Response shape (v1):**
+  ```json
+  {
+    "data": [
+      {
+        "id": "sub_123",
+        "service": "aiistech-backend",
+        "url": "https://example.com/webhooks/audit",
+        "enabled": true,
+        "events": ["audit.write"],
+        "secret": "optional-hmac-secret",
+        "tenant_id": "optional",
+        "created_at": "2026-03-21T00:00:00Z",
+        "updated_at": "2026-03-21T00:00:00Z"
+      }
+    ]
+  }
+  ```
+
+### Delivery Engine Behavior (AIISTECH-Backend)
+
+When a local event/audit record is successfully written, the service will:
+1. Identify matching subscriptions from its cached subscription list (enabled + event match + tenant match when available).
+2. Enqueue delivery jobs into an internal queue.
+3. Deliver webhooks via HTTP `POST` asynchronously.
+
+#### Delivery Semantics
+
+- **Delivery guarantee:** at-least-once (best effort with retries; duplicates possible).
+- **Non-blocking writes:** event storage success MUST NOT depend on webhook delivery success.
+- **Retries:** limited attempts with exponential backoff (configurable), retry on network errors/timeouts and `HTTP 429` / `HTTP >= 500`

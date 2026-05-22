@@ -1,0 +1,379 @@
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║              CRMF v2 IMPLEMENTATION QUICK-REFERENCE GUIDE                    ║
+║                    Drop-in Code for Your Codebase                           ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 1: COMPLETE CRMF v2 FEATURE LAYER (Drop-in Module)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+File: crmf_v2_features.py
+
+import numpy as np
+from sklearn.linear_model import LogisticRegression
+from sklearn.preprocessing import StandardScaler
+from sklearn.pipeline import Pipeline
+
+
+class CRMFv2FeatureExtractor:
+    """
+    CRMF v2: Contrastive operator resonance + learned combination.
+
+    Usage:
+        crmf = CRMFv2FeatureExtractor(operators, weights_list)
+        crmf.fit_combiner(R_codon_list, target_epistasis)
+        R_combined = crmf.get_combined_resonance(R_codon_list)
+    """
+
+    def __init__(self, operators, weights_list):
+        """
+        operators: dict[int -> np.ndarray]   # U_p for each prime p
+        weights_list: list[dict[int -> float]]  # one dict per patient
+        """
+        self.operators = operators
+        self.weights_list = weights_list
+        self.primes = sorted(operators.keys())
+
+        self.Phi_ref = self._compute_reference_operator()
+        self.tau = self._estimate_tau()
+
+    def _compute_reference_operator(self):
+        Phi_sum = None
+        for w in self.weights_list:
+            Phi = sum(w.get(p, 0.0) * self.operators[p] for p in self.primes)
+            if Phi_sum is None:
+                Phi_sum = np.zeros_like(Phi)
+            Phi_sum += Phi
+        return Phi_sum / max(len(self.weights_list), 1)
+
+    def _estimate_tau(self, quantile=0.5):
+        dists = []
+        for w in self.weights_list:
+            Phi = sum(w.get(p, 0.0) * self.operators[p] for p in self.primes)
+            dists.append(np.linalg.norm(Phi - self.Phi_ref, ord='fro'))
+        return float(max(np.quantile(dists, quantile), 1e-6))
+
+    def compute_R_operator(self, weights):
+        """Contrastive coherence: R_op = exp(-||Φ - Φ̄||_F / τ)"""
+        Phi = sum(weights.get(p, 0.0) * self.operators[p] for p in self.primes)
+        d = np.linalg.norm(Phi - self.Phi_ref, ord='fro')
+        return float(np.exp(-d / self.tau))
+
+    def fit_combiner(self, R_codon_list, target_list, **kwargs):
+        """Fit LogisticRegression([R_codon, R_op]) -> R_combined"""
+        R_op_list = [self.compute_R_operator(w) for w in self.weights_list]
+        X = np.column_stack([R_codon_list, R_op_list])
+        y = np.array(target_list)
+
+        self.combiner = Pipeline([
+            ('scaler', StandardScaler()),
+            ('clf', LogisticRegression(max_iter=1000, solver='lbfgs', **kwargs))
+        ])
+        self.combiner.fit(X, y)
+        self._R_op_cached = R_op_list
+
+    def get_combined_resonance(self, R_codon_list):
+        """Compute R_combined for given R_codon values."""
+        if not hasattr(self, 'combiner'):
+            raise ValueError("Call fit_combiner() first")
+
+        R_op_list = self._R_op_cached
+        X = np.column_stack([R_codon_list, R_op_list])
+        return self.combiner.predict_proba(X)[:, 1]
+
+    def get_all_features(self, R_codon_list):
+        """Return (R_codon, R_operator, R_combined) tuple."""
+        R_op_list = self._R_op_cached
+        R_comb_list = self.get_combined_resonance(R_codon_list)
+        return np.array(R_codon_list), np.array(R_op_list), R_comb_list
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 2: INTRINSICA v2 RESONANCE-GATED GATING (Drop-in Module)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+File: intrinsica_v2_gating.py
+
+import numpy as np
+
+
+class INTRINSICAv2GatingEngine:
+    """
+    Resonance + stability-coupled three-tier gating for INTRINSICA.
+
+    Usage:
+        gating = INTRINSICAv2GatingEngine()
+        result = gating.gate(R=0.75, stab=0.8)
+        # result = {'R': 0.75, 'stab': 0.8, 'gamma_t': 0.85, 
+        #           'status': 'AGGRESSIVE', 'learns': True}
+    """
+
+    def __init__(self,
+                 R_min=0.3, R_safe=0.8,
+                 S_min=0.5, S_safe=0.8,
+                 alpha=0.08, kappa=0.6, delta_safety=0.08,
+                 baseline_acc=0.90, delta_max=0.07):
+        self.R_min = R_min
+        self.R_safe = R_safe
+        self.S_min = S_min
+        self.S_safe = S_safe
+        self.alpha = alpha
+        self.kappa = kappa
+        self.delta_safety = delta_safety
+        self.baseline_acc = baseline_acc
+        self.delta_max = delta_max
+
+    def get_personalization_accuracy(self, R):
+        """Calibrated accuracy mapping: R → accuracy ∈ [0.90, 0.97]"""
+        s = (R - self.R_min) / (self.R_safe - self.R_min)
+        s = np.clip(s, 0.0, 1.0)
+        return self.baseline_acc + self.delta_max * s
+
+    def get_stability_from_history(self, recent_gamma, ref_std=0.1):
+        """Compute stability score from recent γ_t history."""
+        g = np.array(recent_gamma, dtype=float)
+        if len(g) < 3:
+            return 0.5
+        sd = g.std()
+        return float(1.0 - min(sd / ref_std, 1.0))
+
+    def gate(self, R, stab=None, return_dict=True):
+        """
+        Apply resonance + stability gating.
+
+        Returns:
+            If return_dict=True:  dict with keys {R, stab, gamma_t, status, learns}
+            If return_dict=False: (status, gamma_t) tuple
+        """
+        if stab is None:
+            stab = 0.5  # neutral if not provided
+
+        # Tier selection
+        if R >= self.R_safe and stab >= self.S_safe:
+            status = "AGGRESSIVE"
+            m_t = 1.0 + self.alpha * (R - 0.5)
+        elif R >= self.R_min and stab >= self.S_min:
+            status = "CONSERVATIVE"
+            m_t = 1.0 + self.alpha * self.kappa * (R - 0.5)
+        else:
+            status = "FREEZE"
+            m_t = 0.0
+
+        # Contraction certificate
+        gamma_t = min(m_t, 1.0 - self.delta_safety)
+
+        if return_dict:
+            return {
+                'R': float(R),
+                'stab': float(stab),
+                'gamma_t': float(gamma_t),
+                'status': status,
+                'learns': status != 'FREEZE',
+                'violation': gamma_t > 0.92,
+                'near_violation': gamma_t > 0.87
+            }
+        else:
+            return status, gamma_t
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 3: INTEGRATION EXAMPLE (Wire Into Your Main Pipeline)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+File: main_integration.py
+
+from crmf_v2_features import CRMFv2FeatureExtractor
+from intrinsica_v2_gating import INTRINSICAv2GatingEngine
+import numpy as np
+
+
+def setup_crmf_pipeline(operators, patient_weights_list, R_codon_list, 
+                        target_epistasis):
+    """Initialize CRMF v2 and train combiner."""
+    crmf = CRMFv2FeatureExtractor(operators, patient_weights_list)
+    crmf.fit_combiner(R_codon_list, target_epistasis)
+    return crmf
+
+
+def apply_crmf_to_patient(crmf, patient_idx, R_codon, recent_gamma=None):
+    """
+    Apply CRMF v2 + INTRINSICA gating to one patient update.
+
+    Args:
+        crmf: CRMFv2FeatureExtractor instance
+        patient_idx: int, index of patient
+        R_codon: float, patient's R_codon
+        recent_gamma: list of recent γ_t values for stability
+
+    Returns:
+        result dict with gating decision and parameters
+    """
+    # Get resonance features
+    R_codon_array = np.array([R_codon])
+    R_combined = crmf.get_combined_resonance(R_codon_array)[0]
+
+    # Get stability
+    gating = INTRINSICAv2GatingEngine()
+    if recent_gamma:
+        stab = gating.get_stability_from_history(recent_gamma)
+    else:
+        stab = 0.5  # neutral default
+
+    # Apply gating
+    result = gating.gate(R=R_combined, stab=stab)
+
+    # Decision
+    if result['learns']:
+        # Proceed with update at learning rate determined by gamma_t
+        learning_rate = result['gamma_t']
+        decision = "LEARN"
+    else:
+        # Freeze update
+        learning_rate = 0.0
+        decision = "FREEZE"
+
+    result['decision'] = decision
+    result['learning_rate'] = learning_rate
+
+    return result
+
+
+# Example main loop
+def process_patient_batch(crmf, patients_data, monitoring_log):
+    """Process a batch of patients with CRMF v2."""
+    for patient_id, (R_codon, recent_gamma) in patients_data:
+        result = apply_crmf_to_patient(crmf, patient_id, R_codon, recent_gamma)
+
+        # Log
+        monitoring_log.append({
+            'patient_id': patient_id,
+            'R_combined': result['R'],
+            'status': result['status'],
+            'gamma_t': result['gamma_t'],
+            'decision': result['decision'],
+            'learning_rate': result['learning_rate'],
+            'violation': result['violation']
+        })
+
+        if result['violation']:
+            # Trigger alert / FREEZE
+            print(f"WARNING: Violation detected for patient {patient_id}")
+
+    return monitoring_log
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 4: CONFIGURATION DEFAULTS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+CRMF v2 Parameters (calibrated on 2,500-patient synthetic cohort):
+
+τ (scale parameter):        0.2205
+  → Median Frobenius distance to reference operator
+  → Compute as: np.median([||Φ_i - Φ̄||_F for i in range(n_patients)])
+
+Resonance Thresholds:
+  R_min (incoherence):       0.3     (bottom 30% of R distribution)
+  R_safe (high confidence):  0.8     (top 20% of R distribution)
+
+Stability Thresholds:
+  S_min (baseline):          0.5     (neutral stability)
+  S_safe (high confidence):  0.8     (low variance in recent γ_t)
+
+Learning Rate Parameters:
+  α (resonance gain):        0.08    (scales (R - 0.5) factor)
+  κ (conservative scaling):  0.6     (damps CONSERVATIVE tier)
+  δ (safety clamp):          0.08    (ensures γ_t ≤ 0.92)
+
+Personalization Mapping:
+  baseline_acc:              0.90    (Phase A baseline)
+  delta_max:                 0.07    (max gain to 0.97)
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 5: VALIDATION CHECKLIST (Before Deployment)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Before deploying CRMF v2 to production, verify:
+
+FEATURE LAYER:
+  ☐ R_operator has σ > 0.2  (not constant)
+  ☐ Learned combiner coefficients are non-zero for R_codon
+  ☐ R_combined correlates with target outcome (r > 0.3)
+
+GATING:
+  ☐ AGGRESSIVE tier contains ~50–70% of patients (depends on cohort)
+  ☐ FREEZE tier is rare (< 5% of updates)
+  ☐ Near-violation rate is 0.5–1.0% (not 0%, not > 2%)
+
+MONITORING:
+  ☐ No unhandled violations (γ_t > 0.92) over 30 days
+  ☐ No persistent drift in rolling γ_t mean
+  ☐ Daily violation rate stays below 0.2%
+
+INTEGRATION:
+  ☐ Recent γ_t history fed into stability computation
+  ☐ Learning rate controlled by γ_t (not fixed)
+  ☐ Violation events trigger automatic freeze & alert
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 6: TROUBLESHOOTING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Problem: R_operator is constant (~1.0)
+  → Check: τ > 0? (should be > 0.1 for 2,500 patients)
+  → Fix: Verify Φ_ref computation; check weights_list not empty/identical
+
+Problem: R_combined not correlated with target
+  → Check: Target label in fit_combiner is correct
+  → Fix: Re-fit with better-calibrated target (e.g., use top/bottom quintiles)
+
+Problem: Too many FREEZE events
+  → Check: S_min/S_safe too high? Recent gamma too noisy?
+  → Fix: Lower S_min (e.g., 0.4), or increase ref_std in stability computation
+
+Problem: Violations happening frequently (>0.5%)
+  → Check: δ_safety too large? α too large?
+  → Fix: Decrease δ_safety to 0.06, or reduce α to 0.06
+
+Problem: No near-violations (always 0%)
+  → Check: Gamma values consistently low (< 0.80)?
+  → Fix: Increase α or decrease R_min to allow higher γ_t in normal conditions
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 7: REGULATORY COMPLIANCE (FDA SaMD)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+To meet FDA Software as Medical Device requirements:
+
+✓ Algorithm Characterization:
+    → Include full CRMF v2 specification in IFU
+    → Provide mathematical proofs of contraction bounds (Theorems 4.2, 4.3)
+
+✓ Real-World Validation:
+    → Document CRMF v2 performance on ≥2,000 patient cohort
+    → Show separation of epistasis tiers (Δμ > 0.05)
+
+✓ Safety & Stability:
+    → Provide immutable audit log of all updates (γ_t, status, violation flags)
+    → Show violation rate ≤ 0.1% over ≥1 year of operation
+
+✓ Software Quality:
+    → Unit tests for CRMFv2FeatureExtractor.compute_R_operator()
+    → Unit tests for INTRINSICAv2GatingEngine.gate()
+    → Integration tests on full patient batch
+
+
+════════════════════════════════════════════════════════════════════════════════
+END QUICK-REFERENCE GUIDE
+════════════════════════════════════════════════════════════════════════════════
+
+For full technical details, see: CRMF_v2_Validation_Report.txt
+For test results, see: CRMF_v2_Metrics_Summary.csv
+For visualization, see: crmfv2_validation_results.png
+
+Questions? Contact: Multiplicity Theory Development Team

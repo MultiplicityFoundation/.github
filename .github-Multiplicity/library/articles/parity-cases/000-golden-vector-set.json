@@ -1,0 +1,12 @@
+[
+  {
+    "id": "vector-001",
+    "logic": "x=1; y=2; result = x + y",
+    "expected": "0x" 
+  },
+  {
+    "id": "vector-002",
+    "logic": "x=5; y=6; result = x * y",
+    "expected": "0x"
+  }
+]

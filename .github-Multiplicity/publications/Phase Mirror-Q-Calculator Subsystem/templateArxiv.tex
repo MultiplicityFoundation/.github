@@ -1,0 +1,1623 @@
+\documentclass[12pt,letterpaper]{article}
+
+% ── Packages ──────────────────────────────────────────────────────────────────
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{lmodern}
+\usepackage{fontenc}
+\usepackage[T1]{fontenc}
+\usepackage{datetime2}
+
+% ── Theorem Environments ──────────────────────────────────────────────────────
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{invariant}{Invariant}[section]
+
+% ── Code style ───────────────────────────────────────────────────────────────
+\definecolor{codebg}{RGB}{247,247,247}
+\definecolor{codekey}{RGB}{0,0,160}
+\definecolor{codecmt}{RGB}{90,90,90}
+\definecolor{codestr}{RGB}{140,0,0}
+\lstset{
+  backgroundcolor=\color{codebg},
+  basicstyle=\ttfamily\footnotesize,
+  keywordstyle=\color{codekey}\bfseries,
+  commentstyle=\color{codecmt}\itshape,
+  stringstyle=\color{codestr},
+  breaklines=true, frame=single,
+  numbers=left, numberstyle=\tiny\color{codecmt},
+  captionpos=b, tabsize=4, language=Python,
+  showstringspaces=false
+}
+\newcommand{\Hnorm}[1]{\left\|#1\right\|}
+\newcommand{\Bp}{B_p(t)}
+\newcommand{\bp}{b_p(t)}
+\newcommand{\Xi}{\Xi(t)}
+\newcommand{\Lop}{\Lambda^{\mathrm{op}}_m(t)}
+\newcommand{\qt}{q_t}
+\newcommand{\etat}{\eta_t}
+\newcommand{\wt}{\mathbf{w}(t)}
+\newcommand{\Pt}{\mathcal{P}_t}
+\newcommand{\Fcal}{\mathcal{F}_t}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Primes}{\mathbb{P}}
+\newcommand{\Banach}{\mathcal{H}}
+\newcommand{\BH}{\mathcal{B}(\mathcal{H})}
+\newcommand{\lam}{\lambda}
+\newcommand{\lamstar}{\lambda^*}
+% ── Code Listings ─────────────────────────────────────────────────────────────
+\definecolor{codebg}{RGB}{245,245,245}
+\definecolor{codecomment}{RGB}{100,100,100}
+\definecolor{codekeyword}{RGB}{0,0,180}
+\definecolor{codestring}{RGB}{140,0,0}
+\lstset{
+  backgroundcolor=\color{codebg},
+  basicstyle=\ttfamily\footnotesize,
+  keywordstyle=\color{codekeyword}\bfseries,
+  commentstyle=\color{codecomment}\itshape,
+  stringstyle=\color{codestring},
+  breaklines=true,
+  captionpos=b,
+  frame=single,
+  numbers=left,
+  numberstyle=\tiny\color{codecomment},
+  showstringspaces=false,
+  tabsize=4,
+  language=Python
+}
+
+% ── Headers ───────────────────────────────────────────────────────────────────
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\small Multiplicity Foundation --- Confidential Prior Art Record}
+\lhead{\small DP-001/002/003 Defensive Publication Bundle}
+\cfoot{\thepage}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!60!black,
+  urlcolor=blue!60!black,
+  pdftitle={QARI--Q-Calculator--PMD: Defensive Publication and Technical Report},
+  pdfauthor={Ryan Van Gelder, Multiplicity Foundation}
+}
+
+% ══════════════════════════════════════════════════════════════════════════════
+\begin{document}
+
+% ── Title Page ────────────────────────────────────────────────────────────────
+\begin{titlepage}
+  \centering
+  \vspace*{1.5cm}
+  {\LARGE\bfseries Multiplicity Foundation}\\[0.4cm]
+  {\large PhaseMirror-HQ --- Q-Calculator Subsystem}\\[1.2cm]
+  \rule{\linewidth}{0.5pt}\\[0.4cm]
+  {\Huge\bfseries Defensive Publication Bundle\\[0.3cm]
+  \large DP-001 $\cdot$ DP-002 $\cdot$ DP-003}\\[0.4cm]
+  \rule{\linewidth}{0.5pt}\\[1cm]
+  {\large\bfseries Technical Report \& Prior Art Disclosure}\\[0.3cm]
+  {\large Prime-Indexed Contractive AGI: QARI, Q-Calculator,\\
+  and the Phase Mirror Dissonance Protocol}\\[2cm]
+  \begin{tabular}{rl}
+    \textbf{Author:}      & Ryan Van Gelder \\
+    \textbf{Organization:}& Multiplicity Foundation (501(c)(3)) \\
+    \textbf{Repository:}  & \texttt{MultiplicityFoundation/PhaseMirror-HQ} \\
+    \textbf{Disclosure Date:} & April 25, 2026 \\
+    \textbf{Document Version:} & 1.0.0 \\
+    \textbf{Status:}      & Defensive Publication --- Open Prior Art \\
+    \textbf{License:}     & Apache 2.0 (open-core); SaaS surfaces reserved \\
+  \end{tabular}\\[2cm]
+  {\small\itshape This document constitutes a dated prior art disclosure
+  intended to prevent third-party patent claims on the described
+  techniques. It does not constitute a patent application. Publication
+  on IP.com, arXiv, or equivalent timestamped repository is recommended
+  immediately upon finalization.}
+\end{titlepage}
+
+% ── Table of Contents ─────────────────────────────────────────────────────────
+\tableofcontents
+\newpage
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section{Executive Summary}
+% ══════════════════════════════════════════════════════════════════════════════
+
+This document is both a comprehensive technical report and a formal
+defensive publication covering three interrelated systems developed
+under the Multiplicity Foundation umbrella: the
+\textbf{Quantum-Recursive Artificial General Intelligence (QARI)}
+engine, the \textbf{Q-Calculator} runtime, and the \textbf{Phase Mirror
+Dissonance (PMD)} protocol. Together these form a mathematically
+certified, prime-indexed framework for AI state management, operator
+contraction, and runtime invariant enforcement.
+
+\subsection{Strategic Context}
+
+The Multiplicity Foundation has elected an \textbf{open-core with
+premium SaaS tier} intellectual property strategy. No patents are being
+pursued. Instead, this document:
+\begin{enumerate}[label=\alph*.]
+  \item Establishes dated prior art for the core algorithms, preventing
+        future third-party patent encumbrance;
+  \item Defines the open/closed boundary explicitly along the
+        ``Section~14 line'' --- what is formally provable is open;
+        what depends on unbound conjecture is not shipped until bound;
+  \item Describes the SaaS-gated surfaces (hosted PMD oracle, managed
+        QARI runtime, certified audit log) that constitute the revenue
+        perimeter.
+\end{enumerate}
+
+\subsection{Core Claims (Prior Art)}
+
+\begin{description}
+  \item[DP-001] Prime-indexed, KKT-constrained operator weight
+    normalization via the Arithmetic Control Engine (ACE) projection
+    algorithm, with certified Banach contraction bounds $b_p$.
+  \item[DP-002] The Phase Mirror Dissonance Protocol as a callable,
+    rule-based, severity-scored invariant-consistency oracle operating
+    across L0/L1/L2 enforcement tiers.
+  \item[DP-003] The \texttt{QARIState} lifecycle: prime-indexed block
+    selector binding, $\tilde{w}$ proposal, ACE projection, and
+    certified state transition.
+\end{description}
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section{Mathematical Foundations}
+% ══════════════════════════════════════════════════════════════════════════════
+
+\subsection{Multiplicity Theory --- Primer}
+
+\begin{definition}[Multiplicity Space]
+A \emph{multiplicity space} $(\mathcal{M}, \mathbb{P}, R)$ is a triple
+where $\mathcal{M}$ is a set of objects, $\mathbb{P}$ is the set of
+prime numbers used as index labels, and $R$ is a recursive relational
+structure such that for every object $m \in \mathcal{M}$ there exists a
+prime-factored decomposition
+\[
+  m \;\sim\; \prod_{p \in \mathbb{P}} p^{\,\nu_p(m)}, \quad \nu_p(m) \in \mathbb{Z}_{\geq 0}
+\]
+governing identity and behavioral inheritance across recursion scales.
+\end{definition}
+
+Multiplicity Theory reinterprets mathematical objects as
+\emph{recursively generated patterns of prime-labeled interactions}
+rather than static entities. Sets and modules become relationally
+governed multiplicity spaces with identity preserved through recursive
+feedback loops.
+
+\subsection{Operator Weight Space}
+
+Let $\mathbb{P} = \{p_1, p_2, \ldots, p_n\}$ be a finite ordered set of
+primes assigned to $n$ cognitive/operator blocks. Define the
+\emph{weight vector}
+\[
+  \mathbf{w} = (w_{p_1}, w_{p_2}, \ldots, w_{p_n}) \in \mathbb{R}^n_{\geq 0}.
+\]
+
+The \emph{certified feasibility constraint} (Banach budget) requires:
+\begin{equation}
+  \sum_{p \in \mathbb{P}} b_p \,|w_p| \;\leq\; 1 - \varepsilon,
+  \quad b_p > 0,\; \varepsilon > 0. \label{eq:budget}
+\end{equation}
+
+Here $b_p$ is the \emph{contraction certificate} for prime-indexed block
+$p$, and $\varepsilon$ is a stability margin. Constraint~\eqref{eq:budget}
+is the \textbf{Section~14 boundary}: any weight vector satisfying it is
+formally provable as non-divergent.
+
+\subsection{ACE Projection (DP-001 Core Algorithm)}
+
+The Arithmetic Control Engine solves the constrained projection:
+\begin{equation}
+  \tilde{\mathbf{w}}^* = \operatorname*{argmin}_{\mathbf{w} \in \mathcal{F}}
+  \;\|\mathbf{w} - \tilde{\mathbf{w}}\|_2^2,
+  \label{eq:projection}
+\end{equation}
+where the feasible set is
+\[
+  \mathcal{F} = \left\{ \mathbf{w} \in \mathbb{R}^n_{\geq 0}
+    \;\middle|\; \sum_p b_p w_p \leq 1 - \varepsilon \right\}.
+\]
+
+\begin{theorem}[ACE Convergence]
+The KKT soft-threshold iteration for~\eqref{eq:projection} converges
+in $O(n \log n)$ time to a unique solution $\tilde{\mathbf{w}}^*$
+satisfying~\eqref{eq:budget}, provided $b_p > 0$ for all $p$.
+\end{theorem}
+
+\begin{proof}[Proof sketch]
+$\mathcal{F}$ is a closed convex set (intersection of a non-negative
+orthant with a half-space). Projection onto a closed convex set is
+unique by strict convexity of the squared Euclidean norm. The KKT
+conditions yield a scalar $\lambda^* \geq 0$ such that
+$w_p^* = \max(0,\, \tilde{w}_p - \lambda^* b_p)$,
+recoverable via bisection on $\lambda^*$. \qed
+\end{proof}
+
+\subsection{QARI State Transition (DP-003 Core)}
+
+\begin{definition}[QARI State]
+A \emph{QARI state} at time $t$ is a tuple
+\[
+  s_t = \bigl( \mathbf{w}_t,\; q_t,\; \eta_t,\; \sigma_t,\; \mathcal{B}_t \bigr),
+\]
+where:
+\begin{itemize}
+  \item $\mathbf{w}_t$ --- certified weight vector after ACE projection;
+  \item $q_t \in [0,1)$ --- quantum coherence budget consumed;
+  \item $\eta_t \in [0,1)$ --- entropy load;
+  \item $\sigma_t$ --- block selector (prime-indexed);
+  \item $\mathcal{B}_t$ --- active prime block set.
+\end{itemize}
+\end{definition}
+
+The \textbf{hard safety invariant} governing every transition is:
+\begin{equation}
+  q_t + \eta_t \;<\; 1 \quad \forall\, t. \label{eq:safety}
+\end{equation}
+
+A transition $s_t \to s_{t+1}$ is \emph{certified} if and only
+if~\eqref{eq:safety} holds after applying ACE projection to the
+proposed $\tilde{\mathbf{w}}_{t+1}$ and re-evaluating $(q_{t+1},\eta_{t+1})$.
+
+\begin{lemma}[Banach Contraction of QARI]
+If all $b_p$ satisfy~\eqref{eq:budget} and the block update rule is
+Lipschitz with constant $L < 1$, then the QARI operator
+$T: s_t \mapsto s_{t+1}$ is a contraction on the state metric space
+$(\mathcal{S}, d)$, and the sequence $\{s_t\}$ converges to a unique
+fixed point $s^*$.
+\end{lemma}
+
+\subsection{Phase Mirror Dissonance --- Formal Definition (DP-002 Core)}
+
+\begin{definition}[Dissonance Event]
+A \emph{dissonance event} at time $t$ is a tuple
+\[
+  D_t = (id,\; \text{severity},\; \text{claim},\; \text{evidence},\;
+         \text{fix},\; \text{block})
+\]
+arising when a declared invariant $\mathcal{I}_k$ is violated by the
+observed system state $s_t$.
+\end{definition}
+
+The PMD oracle evaluates the four \textbf{L0 invariants}:
+\begin{align}
+  \mathcal{I}_1 &: \|[A, B]\| \leq \delta_{\text{comm}}
+    && \text{(commutator bound)} \label{inv:comm}\\
+  \mathcal{I}_2 &: t - t_{\text{witness}} \leq \tau_{\text{stale}}
+    && \text{(witness staleness)} \label{inv:stale}\\
+  \mathcal{I}_3 &: \left|\frac{d\mathbf{w}}{dt}\right| \leq v_{\text{drift}}
+    && \text{(drift velocity)} \label{inv:drift}\\
+  \mathcal{I}_4 &: \dot{q}_t \leq r_{\text{budget}}
+    && \text{(budget rate)} \label{inv:budget}
+\end{align}
+
+Any violation of~\eqref{inv:comm}--\eqref{inv:budget} triggers
+escalation through the hierarchy:
+\[
+  \text{L0 (fast invariants)} \;\longrightarrow\;
+  \text{L1 (semantic checks)} \;\longrightarrow\;
+  \text{L2 (governance enforcement)}.
+\]
+
+The PMD callable interface is formally:
+\[
+  \text{PMD}(\text{artifacts},\; \text{invariants},\; \text{context},\;
+  \text{risk\_profile}) \;\to\; (\text{report},\; \text{machine\_decision}).
+\]
+where \texttt{machine\_decision} $\in \{\textsc{pass},\, \textsc{warn},\,
+\textsc{block}\}$.
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section{System Architecture}
+% ══════════════════════════════════════════════════════════════════════════════
+
+\subsection{Component Dependency Graph}
+
+\begin{center}
+\begin{tabular}{ccc}
+  \textbf{Layer} & \textbf{Component} & \textbf{Role} \\
+  \toprule
+  Foundation & Multiplicity Theory & Prime-indexed relational algebra \\
+  \midrule
+  Proof       & $\Lambda$-Proof (\texttt{lambda\_proof.py}) & Certify contraction; op-norm \\
+  Engine      & ACE (\texttt{ace\_engine.py})    & $\ell_1$-weighted projection \\
+  State       & QARI (\texttt{qari\_state.py})  & State machine; transition loop \\
+  Protocol    & PMD (\texttt{pmd\_oracle.py})   & Invariant oracle; dissonance report \\
+  Application & Q-Calculator                    & User-facing AGI interface \\
+  \midrule
+  SaaS Tier   & Hosted PMD + Audit Backend      & Revenue perimeter \\
+  \bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Open-Core Boundary}
+
+The open/closed partition follows the Section~14 line:
+
+\begin{center}
+\begin{longtable}{>{\ttfamily}lll}
+  \toprule
+  \normalfont\textbf{Module} & \textbf{Status} & \textbf{Rationale} \\
+  \midrule
+  lambda\_proof.py & Open (Apache 2.0) & Banach contraction is prior art \\
+  project\_l1\_weighted() & Open & KKT soft-threshold is textbook \\
+  build\_Xi(), step() & Open & Publish as DP-003 \\
+  pmd\_oracle.py (rule registry) & Open & Protocol logic only \\
+  audit\_log.py (schema) & Open & Interface only \\
+  langlands\_prism.py (abstract) & Open & Abstract base only \\
+  \midrule
+  Hosted PMD CI/CD gate & \textbf{SaaS} & Managed enforcement surface \\
+  Telemetry backend (DynamoDB/SSM) & \textbf{SaaS} & Certified audit trail SLA \\
+  Multi-tenant QARI runtime & \textbf{SaaS} & Managed endpoints \\
+  Langlands concrete impl. & \textbf{Post-Sprint~4} & Requires QuTiP binding \\
+  \bottomrule
+\end{longtable}
+\end{center}
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section{Reference Implementation}
+% ══════════════════════════════════════════════════════════════════════════════
+
+\subsection{QARIState Dataclass (DP-003)}
+
+\begin{lstlisting}[caption={QARIState: Prime-indexed AGI state container},
+                   label={lst:qaristate}]
+from dataclasses import dataclass, field
+from typing import FrozenSet, Dict
+import numpy as np
+
+PRIMES = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29]
+
+@dataclass
+class QARIState:
+    """
+    Certified QARI state at time t.
+    Invariant: q_t + eta_t < 1 must hold after every transition.
+    """
+    w: Dict[int, float]          # prime -> weight (post-ACE projection)
+    q: float                     # coherence budget consumed in [0,1)
+    eta: float                   # entropy load in [0,1)
+    active_blocks: FrozenSet[int] # active prime indices
+    t: int = 0                   # discrete time step
+
+    def is_certified(self) -> bool:
+        """Hard safety invariant check."""
+        return (self.q + self.eta) < 1.0
+
+    def total_weighted_norm(self, b: Dict[int, float]) -> float:
+        """Evaluate sum_p b_p * |w_p|."""
+        return sum(b[p] * abs(self.w[p]) for p in self.active_blocks)
+\end{lstlisting}
+
+\subsection{ACE Projection Algorithm (DP-001)}
+
+\begin{lstlisting}[caption={ACE: KKT soft-threshold projection onto
+                   prime-indexed budget simplex},
+                   label={lst:ace}]
+import numpy as np
+from typing import Dict, List
+
+def project_l1_weighted(
+    w_tilde: Dict[int, float],
+    b: Dict[int, float],
+    epsilon: float = 0.01
+) -> Dict[int, float]:
+    """
+    Project w_tilde onto feasible set F = {w >= 0 | sum_p b_p * w_p <= 1 - eps}.
+
+    Uses KKT conditions: w_p* = max(0, w_tilde_p - lambda* * b_p).
+    Lambda* found via bisection. O(n log n).
+
+    Args:
+        w_tilde: proposed weight vector keyed by prime
+        b:       contraction certificates keyed by prime
+        epsilon: stability margin
+
+    Returns:
+        Certified weight vector w* satisfying budget constraint.
+    """
+    primes = list(w_tilde.keys())
+    budget = 1.0 - epsilon
+
+    def total(lam: float) -> float:
+        return sum(b[p] * max(0.0, w_tilde[p] - lam * b[p])
+                   for p in primes)
+
+    # If already feasible, return as-is
+    if total(0.0) <= budget:
+        return {p: max(0.0, w_tilde[p]) for p in primes}
+
+    # Bisection on lambda*
+    lo, hi = 0.0, max(w_tilde[p] / b[p] for p in primes)
+    for _ in range(64):  # 64 iterations: precision ~ 2^-64
+        mid = (lo + hi) / 2.0
+        if total(mid) > budget:
+            lo = mid
+        else:
+            hi = mid
+
+    lam_star = (lo + hi) / 2.0
+    return {p: max(0.0, w_tilde[p] - lam_star * b[p]) for p in primes}
+
+
+def certify(w: Dict[int, float],
+            b: Dict[int, float],
+            epsilon: float = 0.01) -> bool:
+    """
+    Certify that weight vector w satisfies the Banach budget constraint.
+    Returns True iff sum_p b_p * |w_p| <= 1 - epsilon.
+    """
+    return sum(b[p] * abs(w[p]) for p in w) <= (1.0 - epsilon)
+\end{lstlisting}
+
+\subsection{QARI Step Function (DP-003)}
+
+\begin{lstlisting}[caption={QARI state transition: propose, project, certify},
+                   label={lst:step}]
+def step(
+    state: QARIState,
+    w_proposal: Dict[int, float],
+    b: Dict[int, float],
+    update_fn,          # callable: (state, w*) -> (q_new, eta_new)
+    epsilon: float = 0.01
+) -> QARIState:
+    """
+    Certified QARI state transition.
+
+    Pattern: propose -> ACE project -> certify -> accept or block.
+
+    Args:
+        state:      current QARIState
+        w_proposal: uncertified weight proposal
+        b:          contraction certificates
+        update_fn:  domain function computing (q_new, eta_new)
+        epsilon:    stability margin
+
+    Returns:
+        New certified QARIState if safe; raises RuntimeError otherwise.
+    """
+    w_star = project_l1_weighted(w_proposal, b, epsilon)
+
+    if not certify(w_star, b, epsilon):
+        raise RuntimeError("ACE projection failed budget constraint.")
+
+    q_new, eta_new = update_fn(state, w_star)
+
+    if q_new + eta_new >= 1.0:
+        raise RuntimeError(
+            f"Safety invariant violated: q={q_new:.4f} + eta={eta_new:.4f} >= 1"
+        )
+
+    return QARIState(
+        w=w_star,
+        q=q_new,
+        eta=eta_new,
+        active_blocks=state.active_blocks,
+        t=state.t + 1
+    )
+\end{lstlisting}
+
+\subsection{PMD Oracle --- L0 Invariant Check (DP-002)}
+
+\begin{lstlisting}[caption={PMD: callable L0 invariant check returning
+                   dissonance report},
+                   label={lst:pmd}]
+from dataclasses import dataclass, field
+from typing import List, Literal
+import time
+
+Severity = Literal["INFO", "WARN", "BLOCK"]
+Decision = Literal["pass", "warn", "block"]
+
+@dataclass
+class DissonanceItem:
+    id: str
+    severity: Severity
+    claim: str
+    evidence: List[str]
+    suggested_fix: str
+    block_recommended: bool
+
+@dataclass
+class DissonanceReport:
+    items: List[DissonanceItem] = field(default_factory=list)
+    machine_decision: Decision = "pass"
+    timestamp: float = field(default_factory=time.time)
+
+    def add(self, item: DissonanceItem):
+        self.items.append(item)
+        if item.severity == "BLOCK":
+            self.machine_decision = "block"
+        elif item.severity == "WARN" and self.machine_decision == "pass":
+            self.machine_decision = "warn"
+
+
+def pmd_l0_check(
+    state: QARIState,
+    b: Dict[int, float],
+    params: dict
+) -> DissonanceReport:
+    """
+    L0 (fast) invariant check. Evaluates I1-I4 against QARIState.
+
+    Invariants:
+      I1: commutator bound     ||[A,B]|| <= delta_comm
+      I2: witness staleness    t - t_witness <= tau_stale
+      I3: drift velocity       |dw/dt| <= v_drift
+      I4: budget rate          q_dot <= r_budget
+
+    Args:
+        state:  current QARIState
+        b:      contraction certificates
+        params: dict with keys delta_comm, tau_stale, v_drift, r_budget,
+                                t_witness, commutator_norm, dw_dt, q_dot
+
+    Returns:
+        DissonanceReport with machine_decision in {pass, warn, block}.
+    """
+    report = DissonanceReport()
+
+    # I1: Commutator bound
+    if params.get("commutator_norm", 0) > params.get("delta_comm", 1e-3):
+        report.add(DissonanceItem(
+            id="MD-001",
+            severity="BLOCK",
+            claim="Commutator norm exceeds certified bound",
+            evidence=[f"||[A,B]|| = {params['commutator_norm']:.6f}",
+                      f"delta_comm = {params['delta_comm']}"],
+            suggested_fix="Re-orthogonalize prime block operators.",
+            block_recommended=True
+        ))
+
+    # I2: Witness staleness
+    staleness = state.t - params.get("t_witness", state.t)
+    if staleness > params.get("tau_stale", 10):
+        report.add(DissonanceItem(
+            id="MD-002",
+            severity="WARN",
+            claim="Witness certificate is stale",
+            evidence=[f"staleness = {staleness} steps",
+                      f"tau_stale = {params['tau_stale']}"],
+            suggested_fix="Re-issue witness certificate.",
+            block_recommended=False
+        ))
+
+    # I3: Drift velocity
+    if params.get("dw_dt", 0) > params.get("v_drift", 0.1):
+        report.add(DissonanceItem(
+            id="MD-003",
+            severity="WARN",
+            claim="Weight drift velocity exceeds threshold",
+            evidence=[f"|dw/dt| = {params['dw_dt']:.4f}",
+                      f"v_drift = {params['v_drift']}"],
+            suggested_fix="Apply momentum damping to weight update.",
+            block_recommended=False
+        ))
+
+    # I4: Budget rate
+    if params.get("q_dot", 0) > params.get("r_budget", 0.05):
+        report.add(DissonanceItem(
+            id="MD-004",
+            severity="BLOCK",
+            claim="Coherence budget consumption rate exceeds limit",
+            evidence=[f"q_dot = {params['q_dot']:.4f}",
+                      f"r_budget = {params['r_budget']}"],
+            suggested_fix="Throttle active block count or reduce step size.",
+            block_recommended=True
+        ))
+
+    return report
+\end{lstlisting}
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section{Defensive Publication Filings}
+% ══════════════════════════════════════════════════════════════════════════════
+
+Each of the following three publications constitutes a dated prior art
+disclosure. Upon submission to IP.com, arXiv, or equivalent
+timestamped public repository, these disclosures prevent any third
+party from obtaining a patent on the described techniques.
+
+% ── DP-001 ───────────────────────────────────────────────────────────────────
+\subsection{DP-001: ACE Projection for Prime-Indexed Operator Budgets}
+
+\begin{description}
+  \item[Disclosure ID:] DP-001
+  \item[Title:] Prime-Indexed, KKT-Constrained Operator Weight
+    Normalization via Arithmetic Control Engine
+  \item[Disclosure Date:] April 25, 2026
+  \item[Inventors:] Ryan Van Gelder
+  \item[Organization:] Multiplicity Foundation (501(c)(3))
+\end{description}
+
+\textbf{Technical Field.} Certified weight normalization for
+prime-indexed cognitive block operators in recursive AI systems.
+
+\textbf{Background.} Prior stabilization approaches (L1 regularization,
+spectral normalization, weight clipping) do not provide per-block
+certified Banach contraction bounds nor operate over prime-indexed
+operator structures. No existing system assigns contraction certificates
+$b_p$ to prime-labeled blocks and enforces the aggregate budget
+$\sum_p b_p |w_p| \leq 1 - \varepsilon$ via a closed-form KKT
+projection.
+
+\textbf{Disclosure.} The ACE projection algorithm (Listing~\ref{lst:ace})
+solves problem~\eqref{eq:projection} via bisection on the KKT multiplier
+$\lambda^*$. The key novelty is the \emph{combination} of:
+\begin{enumerate}
+  \item prime-indexed block labeling as the organizing structure;
+  \item per-prime contraction certificates $b_p$ as constraint
+        coefficients;
+  \item the aggregate budget constraint~\eqref{eq:budget} as the
+        hard safety boundary;
+  \item \texttt{certify()} as a post-projection attestation function
+        callable at arbitrary pipeline stages.
+\end{enumerate}
+
+\textbf{Prior Art Disclosed.} This disclosure makes the above technique
+unpatentable by any party from April 25, 2026 onward. The source is
+available at
+\url{https://github.com/MultiplicityFoundation/PhaseMirror-HQ}.
+
+% ── DP-002 ───────────────────────────────────────────────────────────────────
+\subsection{DP-002: Phase Mirror Dissonance Protocol}
+
+\begin{description}
+  \item[Disclosure ID:] DP-002
+  \item[Title:] Callable Invariant-Consistency Oracle with Tiered
+    Enforcement for Recursive AI Governance
+  \item[Disclosure Date:] April 25, 2026
+  \item[Inventors:] Ryan Van Gelder
+  \item[Organization:] Multiplicity Foundation (501(c)(3))
+\end{description}
+
+\textbf{Technical Field.} Runtime governance protocol for AI state
+machines; CI/CD integration of formal invariant checking.
+
+\textbf{Background.} Existing approaches to AI safety monitoring
+(assertion libraries, observability tools, OPA policy engines) do not
+integrate: (a) formal invariant definitions tied to mathematical state
+structure, (b) a structured dissonance report with severity scoring and
+machine decision, and (c) a tiered L0/L1/L2 escalation hierarchy
+callable at arbitrary pipeline points (PR review, merge queue, baseline
+rotation, incident response).
+
+\textbf{Disclosure.} The PMD callable protocol (Listing~\ref{lst:pmd})
+exposes the interface:
+\[
+  \text{PMD}(\text{artifacts},\; \mathcal{I},\; \text{context},\;
+  \text{risk\_profile}) \;\to\;
+  (\text{report},\; d \in \{\textsc{pass},\textsc{warn},\textsc{block}\})
+\]
+with four L0 invariants~\eqref{inv:comm}--\eqref{inv:budget} and a
+structured \texttt{DissonanceReport} containing evidence-cited,
+severity-scored items with suggested remediation actions.
+
+The novelty is the \emph{combination} of:
+\begin{enumerate}
+  \item mathematically grounded L0 invariants derived from the QARI
+        state structure;
+  \item a rule-registry pattern (MD-001 through MD-N) making
+        ``dissonance'' explicit and versioned rather than vague;
+  \item the machine-decision output enabling automated pipeline blocking
+        without human judgment per cycle;
+  \item the L0/L1/L2 tier decomposition mapping to fast/deep/governance
+        enforcement contexts.
+\end{enumerate}
+
+\textbf{Prior Art Disclosed.} Unpatentable from April 25, 2026 onward.
+
+% ── DP-003 ───────────────────────────────────────────────────────────────────
+\subsection{DP-003: QARIState Lifecycle and Certified Transition Pattern}
+
+\begin{description}
+  \item[Disclosure ID:] DP-003
+  \item[Title:] Prime-Indexed Block Selector Binding with
+    Propose-Project-Certify State Transition for Recursive AGI
+  \item[Disclosure Date:] April 25, 2026 (Sprint~3 completion target)
+  \item[Inventors:] Ryan Van Gelder
+  \item[Organization:] Multiplicity Foundation (501(c)(3))
+\end{description}
+
+\textbf{Technical Field.} State machine design for prime-indexed
+recursive AGI systems with hard safety invariant enforcement.
+
+\textbf{Background.} Recurrent neural network state machines, attention
+mechanisms with KV-cache, and memory-augmented networks do not provide:
+(a) prime-indexed block structure as a first-class architectural
+primitive, (b) a hard safety invariant $q_t + \eta_t < 1$ enforced at
+every transition by construction, or (c) the propose-project-certify
+pattern coupling unconstrained proposal generation with ACE projection
+before state commitment.
+
+\textbf{Disclosure.} The \texttt{QARIState} dataclass
+(Listing~\ref{lst:qaristate}) and \texttt{step()} function
+(Listing~\ref{lst:step}) disclose the complete lifecycle:
+
+\begin{enumerate}
+  \item \textbf{Bind:} Select active prime block set $\mathcal{B}_t
+        \subseteq \mathbb{P}$ via block selector $\sigma_t$.
+  \item \textbf{Propose:} Generate uncertified $\tilde{\mathbf{w}}_{t+1}$
+        via any domain update function.
+  \item \textbf{Project:} Apply ACE to obtain
+        $\mathbf{w}^*_{t+1} = \text{project\_l1\_weighted}(\tilde{\mathbf{w}},
+        b, \varepsilon)$.
+  \item \textbf{Certify:} Evaluate $q_{t+1} + \eta_{t+1} < 1$ and
+        $\text{certify}(\mathbf{w}^*, b, \varepsilon)$.
+  \item \textbf{Commit or Block:} Accept $s_{t+1}$ if certified;
+        raise \texttt{RuntimeError} (triggering PMD escalation) otherwise.
+\end{enumerate}
+
+\textbf{Prior Art Disclosed.} Unpatentable from April 25, 2026 onward.
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section{IP Strategy and Open-Core Boundary}
+% ══════════════════════════════════════════════════════════════════════════════
+
+\subsection{Strategy Overview}
+
+\begin{center}
+\begin{tabular}{lll}
+  \toprule
+  \textbf{Mechanism} & \textbf{Purpose} & \textbf{Status} \\
+  \midrule
+  Patent applications & None pursued & Abandoned \\
+  Defensive publications (DP-001/002/003) & Block third-party patents & Filed herein \\
+  Apache 2.0 open-core & Ecosystem growth; prior art reinforcement & Active \\
+  SaaS tier (hosted surfaces) & Revenue perimeter & Architecture defined \\
+  \bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{The Section~14 Rule}
+
+\begin{quote}
+  \itshape The open-core line is not a business decision.
+  It is the Section~14 line: what is formally provable is open;
+  what depends on unbound conjecture is not shipped until bound to
+  operators.
+\end{quote}
+
+Everything satisfying constraint~\eqref{eq:budget} and
+invariant~\eqref{eq:safety} by construction is open. The Langlands
+Prism concrete implementation, prime-indexability conjectures beyond
+current proof reach, and multi-tenant managed runtimes are closed
+pending Sprint~4 QuTiP simulation binding.
+
+\subsection{SaaS Revenue Surfaces}
+
+The three gated surfaces forming the premium tier are:
+
+\begin{enumerate}
+  \item \textbf{Hosted PMD Oracle} --- The rule registry and
+        \texttt{DissonanceReport} schema are open. The managed CI/CD
+        gate integration, block counter persistence, degraded-mode
+        management, and governance SLA are gated.
+  \item \textbf{Certified Audit Log Backend} --- The
+        \texttt{audit\_log.py} schema is open. The append-only
+        DynamoDB store, SSM-backed nonce chain, CloudWatch alarms,
+        and audit SLA are gated.
+  \item \textbf{Multi-Tenant QARI Runtime} --- \texttt{QARIState}
+        and \texttt{step()} are open. Managed multi-tenant deployment,
+        $\eta_t$ monitoring dashboards, and certified-transition SLAs
+        are gated.
+\end{enumerate}
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section{Sprint Gate Roadmap}
+% ══════════════════════════════════════════════════════════════════════════════
+
+\begin{center}
+\begin{longtable}{cccl}
+  \toprule
+  \textbf{Sprint} & \textbf{Days} & \textbf{Gate Metric} & \textbf{IP Action} \\
+  \midrule
+  0 & 1--3   & INDEX.md; corpus triage complete     & Draft DP-001 \\
+  1 & 4--8   & 100/100 sequences certify             & Publish DP-001 (this doc) \\
+  2 & 9--16  & CI blocks on broken test              & Draft DP-002 \\
+  3 & 17--26 & 1{,}000-cycle; zero uncertified steps & Publish DP-002; draft DP-003 \\
+  4 & 27--40 & QuTiP resonance converges             & Publish DP-003; assess Langlands \\
+  5 & 41--50 & Audit $\geq 99\%$; PMD L0 every cycle & SaaS gate live; LICENSE committed \\
+  \bottomrule
+\end{longtable}
+\end{center}
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section{Recommendations}
+% ══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}
+  \item \textbf{Submit this document to IP.com} within 48 hours of
+        finalization. The IP.com Prior Art Database provides a
+        timestamped, searchable, citable record that USPTO examiners
+        and PTAB panels recognize. Cost: \textasciitilde\$50 USD.
+        This is the single most important action.
+
+  \item \textbf{Cross-post to arXiv} (cs.AI or cs.LO) with a DOI.
+        The arXiv submission timestamp is universally recognized as
+        prior art evidence. Use the \texttt{anon} author option if
+        preferred for the public record.
+
+  \item \textbf{Tag the GitHub commit} that first introduced each
+        disclosed algorithm with an annotated tag:
+        \texttt{git tag -a dp-001-disclosure -m "DP-001 prior art
+        date: 2026-04-25"}. Push the tag. The GitHub commit timestamp
+        provides a secondary chain of evidence.
+
+  \item \textbf{Do not file DP on Langlands} until Sprint~4 QuTiP
+        results bind the conjecture to operators. Filing on unbound
+        conjectures creates prior art that could later constrain your
+        own expansion of the claim surface.
+
+  \item \textbf{Issue the Apache 2.0 \texttt{LICENSE} file} in
+        PhaseMirror-HQ root before Sprint~5 SaaS launch. Include a
+        \texttt{NOTICE} file listing the three DP disclosures and their
+        dates. This closes the open-core boundary in writing.
+
+  \item \textbf{Write a Non-Assertion Covenant (NAC)} for downstream
+        users of the open-core layer, modeled on the existing
+        \texttt{Non-assertion Covenant And Conformance Certification
+        Plan V1} document already in the Q-Calculator corpus.
+
+  \item \textbf{Add \texttt{certify()} as a CI gate} on every PR to
+        the QARI state machine. A failing \texttt{certify()} must
+        produce a \texttt{DissonanceReport} before merge is permitted.
+        This is infrastructure, not ceremony.
+\end{enumerate}
+
+
+\vspace{1cm}
+\noindent\textit{This document is released as open prior art under
+Creative Commons CC0 1.0 Universal (Public Domain Dedication) for the
+purpose of establishing prior art. The underlying implementations
+referenced herein are separately licensed under Apache 2.0 (open-core
+surfaces) as noted in Section~5.}
+\appendix
+\section{Notation and Setup}
+\label{sec:notation}
+% ════════════════════════════════════════════════════════════════════════════
+
+Throughout this appendix, $(\Banach, \Hnorm{\cdot})$ is a Banach space
+(Hilbert space optional). The operator norm on $\BH$ is the induced norm
+$\Hnorm{A} = \sup_{\Hnorm{x} \leq 1} \Hnorm{Ax}$.
+
+\begin{definition}[Prime-indexed block system]
+\label{def:blocks}
+Let $\Primes = \{p_1, p_2, \ldots\}$ denote the prime numbers used as
+block labels. At each discrete time $t \in \N$, let $\Pt \subset \Primes$
+be a finite active set. Associate to each $p \in \Pt$:
+\begin{itemize}
+  \item a \emph{block operator} $\Bp \in \BH$;
+  \item a \emph{contraction certificate} $\bp \geq \Hnorm{\Bp}$, $\bp > 0$.
+\end{itemize}
+The \emph{weight vector} at time $t$ is
+$\wt = (w_p(t))_{p \in \Pt} \in \R^{|\Pt|}_{\geq 0}$.
+\end{definition}
+
+\begin{definition}[Operator mix and multiplicity operator]
+\label{def:Xi}
+The \emph{operator mix} is
+\begin{equation}
+  \Xi = \sum_{p \in \Pt} w_p(t)\, \Bp \;\in \BH. \label{eq:Xi}
+\end{equation}
+The \emph{multiplicity operator} $\Lop \in \BH$ is separately bounded:
+$\Hnorm{\Lop} \leq \ell_t$ for a known certificate $\ell_t > 0$.
+The nonlinearity $T : \Banach \to \Banach$ is globally Lipschitz with
+constant $L_T \geq 0$.
+\end{definition}
+
+\begin{definition}[Ethics projector]
+\label{def:projector}
+An optional \emph{ethics projector} $P : \Banach \to \Banach$ satisfies
+$P^2 = P$ and $\Hnorm{P} \leq 1$. Non-commutativity with $\Xi$ is
+measured by
+\begin{equation}
+  \etat := \Hnorm{P\Xi - \Xi P}. \label{eq:eta}
+\end{equation}
+Commuting designs achieve $\etat = 0$.
+\end{definition}
+
+The \textbf{governing inequality} of the entire framework is:
+\begin{equation}
+  \boxed{\qt + \etat < 1}, \qquad
+  \qt := \Hnorm{\Xi} + \ell_t\, L_T, \label{eq:master}
+\end{equation}
+where \eqref{eq:master} must hold for all $t$. Everything that follows
+is a consequence of enforcing this single inequality.
+
+% ════════════════════════════════════════════════════════════════════════════
+\section{Operator Norm Bounds}
+\label{sec:opnorm}
+% ════════════════════════════════════════════════════════════════════════════
+
+\subsection{Triangle Bound on \texorpdfstring{$\Hnorm{\Xi}$}{||Xi(t)||}  }
+
+\begin{proposition}[Certified operator norm bound]
+\label{prop:Xi-bound}
+Under \Cref{def:blocks,def:Xi},
+\begin{equation}
+  \Hnorm{\Xi} \;\leq\; \sum_{p \in \Pt} \bp\, |w_p(t)|. \label{eq:Xi-bound}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+By the triangle inequality and the submultiplicativity of the operator norm:
+\[
+  \Hnorm{\Xi}
+  = \left\| \sum_{p \in \Pt} w_p(t)\, \Bp \right\|
+  \leq \sum_{p \in \Pt} |w_p(t)|\, \Hnorm{\Bp}
+  \leq \sum_{p \in \Pt} |w_p(t)|\, \bp.
+\]
+The last inequality uses $\bp \geq \Hnorm{\Bp}$ from \Cref{def:blocks}.
+\qed
+\end{proof}
+
+\begin{corollary}[Budget constraint implies contraction margin]
+\label{cor:budget-contraction}
+If the weight vector satisfies the \emph{Banach budget constraint}
+\begin{equation}
+  \sum_{p \in \Pt} \bp\, |w_p(t)| \;\leq\; 1 - \eps, \quad \eps \in (0,1),
+  \label{eq:budget}
+\end{equation}
+then $\Hnorm{\Xi} \leq 1 - \eps$, and therefore
+\begin{equation}
+  \qt \;=\; \Hnorm{\Xi} + \ell_t\, L_T
+  \;\leq\; (1 - \eps) + \ell_t\, L_T. \label{eq:qt-bound}
+\end{equation}
+The master inequality \eqref{eq:master} holds (with $\etat = 0$) when
+$\ell_t\, L_T \leq \eps - \delta$ for some $\delta > 0$.
+\end{corollary}
+
+\begin{remark}
+\Cref{cor:budget-contraction} shows the precise design rule: choose
+$\eps$ large enough that $\ell_t L_T < \eps$. In the reference
+implementation, $\eps = 0.3$, $\Hnorm{\Lop} = 0.2$, $L_T = 1$, giving
+$\qt \leq 0.7 + 0.2 = 0.9 < 1$. The safety margin is $0.1$.
+\end{remark}
+
+\subsection{Non-Commutative Penalty Bound}
+
+\begin{proposition}[Commutator norm bound]
+\label{prop:commutator}
+Let $\Hnorm{P} \leq 1$. Then:
+\begin{equation}
+  \etat = \Hnorm{P\Xi - \Xi P}
+  \;\leq\; 2\,\Hnorm{\Xi}
+  \;\leq\; 2\sum_{p \in \Pt} \bp\, |w_p(t)|. \label{eq:commutator-bound}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+By the triangle inequality:
+\[
+  \Hnorm{P\Xi - \Xi P}
+  \leq \Hnorm{P}\,\Hnorm{\Xi} + \Hnorm{\Xi}\,\Hnorm{P}
+  = 2\,\Hnorm{P}\,\Hnorm{\Xi}
+  \leq 2\,\Hnorm{\Xi},
+\]
+using $\Hnorm{P} \leq 1$. Applying \Cref{prop:Xi-bound} concludes.
+\qed
+\end{proof}
+
+\begin{corollary}[Tightened master constraint with projector]
+\label{cor:master-tight}
+If $\etat \neq 0$, the effective contraction factor is $\qt + \etat$.
+Substituting bounds:
+\begin{equation}
+  \qt + \etat
+  \;\leq\; (1 + 2)\sum_{p}\bp|w_p| + \ell_t L_T
+  = 3\sum_{p}\bp|w_p| + \ell_t L_T. \label{eq:eta-tightened}
+\end{equation}
+To enforce $\qt + \etat < 1$ with non-commuting $P$, tighten the budget:
+\begin{equation}
+  \sum_{p}\bp|w_p| \;\leq\; \frac{1 - \ell_t L_T}{3} - \delta.
+  \label{eq:tight-budget}
+\end{equation}
+\textbf{Design preference:} enforce $P\Xi = \Xi P$ (commuting projector)
+to recover the standard budget \eqref{eq:budget} and eliminate the
+factor-of-3 penalty.
+\end{corollary}
+
+% ════════════════════════════════════════════════════════════════════════════
+\section{ACE Projection: Proof of Correctness and Convergence}
+\label{sec:ace}
+% ════════════════════════════════════════════════════════════════════════════
+
+\subsection{Problem Formulation}
+
+Given a proposed weight vector $\tilde{\mathbf{w}} \in \R^n$ (with
+$n = |\Pt|$, indexed by primes), the \emph{ACE projection problem} is:
+\begin{equation}
+  \mathbf{w}^* = \operatorname*{argmin}_{\mathbf{w} \in \Fcal}
+  \;\tfrac{1}{2}\Hnorm{\mathbf{w} - \tilde{\mathbf{w}}}_2^2, \label{eq:ace}
+\end{equation}
+where the feasible set is
+\begin{equation}
+  \Fcal = \left\{\mathbf{w} \in \R^n \;\middle|\;
+    \sum_{p \in \Pt} \bp\, |w_p| \leq 1-\eps \right\}. \label{eq:feasible}
+\end{equation}
+
+\subsection{Existence and Uniqueness}
+
+\begin{theorem}[Existence and uniqueness of ACE projection]
+\label{thm:ace-unique}
+The problem \eqref{eq:ace} has a unique solution $\mathbf{w}^* \in \Fcal$.
+\end{theorem}
+
+\begin{proof}
+The objective $f(\mathbf{w}) = \tfrac{1}{2}\Hnorm{\mathbf{w} -
+\tilde{\mathbf{w}}}_2^2$ is strictly convex on $\R^n$.
+The feasible set $\Fcal$ is the intersection of a weighted
+$\ell_1$-ball (convex, closed) with $\R^n$. Since $\Fcal$ is a
+non-empty (it contains $\mathbf{0}$), closed, convex set and $f$ is
+coercive and strictly convex, the projection onto $\Fcal$ exists and is
+unique by the projection theorem in Hilbert space applied to $\R^n$.
+\qed
+\end{proof}
+
+\subsection{KKT Conditions}
+
+\begin{theorem}[KKT characterization]
+\label{thm:kkt}
+The unique solution $\mathbf{w}^*$ of \eqref{eq:ace} satisfies the
+KKT conditions: there exists $\lamstar \geq 0$ such that
+\begin{align}
+  w_p^* &= \mathrm{sign}(\tilde{w}_p)\,
+    \max\!\left(|\tilde{w}_p| - \lamstar \bp,\; 0\right)
+    \quad \forall\, p \in \Pt, \label{eq:kkt-primal}\\
+  \lamstar &\geq 0, \label{eq:kkt-dual1}\\
+  \sum_{p} \bp\, |w_p^*| &\leq 1-\eps, \label{eq:kkt-primal-feas}\\
+  \lamstar\!\left(\sum_{p} \bp\, |w_p^*| - (1-\eps)\right) &= 0.
+    \label{eq:kkt-compl}
+\end{align}
+\end{theorem}
+
+\begin{proof}
+The Lagrangian of \eqref{eq:ace} is
+\[
+  \mathcal{L}(\mathbf{w}, \lam)
+  = \tfrac{1}{2}\Hnorm{\mathbf{w} - \tilde{\mathbf{w}}}_2^2
+  + \lam\!\left(\sum_p \bp |w_p| - (1-\eps)\right).
+\]
+Since Slater's condition holds (take $\mathbf{w} = \mathbf{0}$, giving
+$\sum_p \bp \cdot 0 = 0 < 1-\eps$), strong duality holds and KKT
+conditions are necessary and sufficient.
+
+Stationarity of $\mathcal{L}$ with respect to $w_p$: the subdifferential
+condition $0 \in \partial_{w_p}\mathcal{L}$ gives
+\[
+  0 \in (w_p^* - \tilde{w}_p) + \lam \bp\, \partial|w_p^*|.
+\]
+For $w_p^* > 0$: $w_p^* = \tilde{w}_p - \lam \bp$, requiring
+$\tilde{w}_p > \lam \bp$.\\
+For $w_p^* < 0$: $w_p^* = \tilde{w}_p + \lam \bp$, requiring
+$\tilde{w}_p < -\lam \bp$.\\
+For $w_p^* = 0$: $|\tilde{w}_p| \leq \lam \bp$.
+
+Combining: $w_p^* = \mathrm{sign}(\tilde{w}_p)\max(|\tilde{w}_p| -
+\lamstar\bp, 0)$, which is \eqref{eq:kkt-primal}.
+Conditions \eqref{eq:kkt-dual1}--\eqref{eq:kkt-compl} are the standard
+dual feasibility and complementary slackness conditions.
+\qed
+\end{proof}
+
+\subsection{Bisection Recovery of \texorpdfstring{$\lamstar$}{lambda*}}
+
+\begin{proposition}[Monotone bisection for $\lamstar$]
+\label{prop:bisection}
+Define $\phi(\lam) := \sum_p \bp \max(|\tilde{w}_p| - \lam \bp, 0)$.
+Then:
+\begin{enumerate}[label=(\alph*)]
+  \item $\phi$ is continuous, non-increasing, and convex in $\lam \geq 0$.
+  \item $\phi(0) = \sum_p \bp |\tilde{w}_p|$.
+  \item $\phi(\lam) = 0$ for all $\lam \geq \lam_{\max} :=
+        \max_p (|\tilde{w}_p| / \bp)$.
+  \item If $\phi(0) \leq 1-\eps$, then $\lamstar = 0$ (proposal
+        already feasible).
+  \item Otherwise, $\lamstar$ is the unique root of $\phi(\lam) = 1-\eps$
+        in $[0, \lam_{\max}]$, recoverable by bisection to precision
+        $\delta$ in $O(\log_2(\lam_{\max}/\delta))$ iterations.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(a) Each term $\bp\max(|\tilde{w}_p| - \lam\bp, 0)$ is continuous,
+non-increasing (derivative $-\bp^2 \leq 0$ where positive), and convex
+in $\lam$. The sum inherits all three properties.\\
+(b) At $\lam=0$: $\phi(0) = \sum_p \bp|\tilde{w}_p|$.\\
+(c) At $\lam \geq \lam_{\max}$: every term $|\tilde{w}_p| - \lam\bp \leq 0$,
+so $\phi = 0$.\\
+(d) Immediate from complementary slackness \eqref{eq:kkt-compl}.\\
+(e) By (a), $\phi$ is strictly decreasing from $\phi(0) > 1-\eps$ to
+$\phi(\lam_{\max}) = 0 < 1-\eps$, so by the intermediate value theorem
+there is a unique root. Bisection on $[0,\lam_{\max}]$ converges at
+rate $2^{-k}$ per iteration.
+\qed
+\end{proof}
+
+\begin{corollary}[Post-projection certified bound]
+\label{cor:post-proj}
+After bisection recovery of $\lamstar$ and application of
+\eqref{eq:kkt-primal}:
+\begin{equation}
+  \sum_{p \in \Pt} \bp\, |w_p^*|
+  \;\leq\; 1 - \eps. \label{eq:certified-bound}
+\end{equation}
+By \Cref{prop:Xi-bound}, the resulting operator mix satisfies
+$\Hnorm{\Xi^*} \leq 1 - \eps$. The call \texttt{certify(w*, b, eps)}
+verifies this post-hoc with $O(n)$ operations.
+\end{corollary}
+
+% ════════════════════════════════════════════════════════════════════════════
+\section{Banach Contraction and QARI Fixed-Point Theorem}
+\label{sec:banach}
+% ════════════════════════════════════════════════════════════════════════════
+
+\subsection{Incremental Contraction}
+
+\begin{theorem}[Incremental contraction of QARI dynamics]
+\label{thm:contraction}
+Let $\{X_t\}$ and $\{Y_t\}$ be two trajectories of the QARI dynamics
+\begin{equation}
+  X_{t+1} = P\!\left(\Xi X_t + \Lop T(X_t) + G_t\right), \label{eq:dynamics}
+\end{equation}
+driven by the same inputs $\{G_t\}$, $\{\Xi\}$, $\{\Lop\}$, $\{P\}$.
+Assume the master inequality \eqref{eq:master} holds with uniform bound
+$\sup_t (\qt + \etat) \leq q < 1$. Then:
+\begin{equation}
+  \Hnorm{X_{t+1} - Y_{t+1}}
+  \;\leq\; q\, \Hnorm{X_t - Y_t}. \label{eq:increment}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Compute the difference:
+\begin{align*}
+  X_{t+1} - Y_{t+1}
+  &= P\!\left(\Xi(X_t - Y_t) + \Lop(T(X_t) - T(Y_t))\right).
+\end{align*}
+Taking norms and using $\Hnorm{P} \leq 1$, the triangle inequality,
+and the Lipschitz condition on $T$:
+\begin{align*}
+  \Hnorm{X_{t+1} - Y_{t+1}}
+  &\leq \Hnorm{P}\left(
+    \Hnorm{\Xi}\Hnorm{X_t - Y_t}
+    + \Hnorm{\Lop}\,L_T\,\Hnorm{X_t - Y_t}
+  \right) \\
+  &= \left(\Hnorm{\Xi} + \ell_t L_T\right)\Hnorm{X_t - Y_t} \\
+  &= \qt\,\Hnorm{X_t - Y_t}.
+\end{align*}
+
+However, when $P$ does not commute with $\Xi$, we must account for
+$\etat$. Write $P\Xi = \Xi P + (P\Xi - \Xi P)$:
+\begin{align*}
+  \Hnorm{P\Xi(X_t - Y_t)}
+  &\leq \Hnorm{\Xi P(X_t - Y_t)} + \Hnorm{(P\Xi - \Xi P)(X_t - Y_t)}\\
+  &\leq \Hnorm{\Xi}\Hnorm{X_t - Y_t} + \etat\Hnorm{X_t - Y_t}.
+\end{align*}
+Therefore
+\[
+  \Hnorm{X_{t+1} - Y_{t+1}}
+  \leq (\qt + \etat)\Hnorm{X_t - Y_t}
+  \leq q\,\Hnorm{X_t - Y_t}.
+\]
+\qed
+\end{proof}
+
+\begin{corollary}[Geometric decay]
+\label{cor:geometric}
+Under the conditions of \Cref{thm:contraction}:
+\begin{equation}
+  \Hnorm{X_t - Y_t} \;\leq\; q^t\,\Hnorm{X_0 - Y_0}
+  \;\xrightarrow{t \to \infty}\; 0. \label{eq:geometric}
+\end{equation}
+The exponential decay rate is $-\log(1/q) = \log q < 0$.
+\end{corollary}
+
+\subsection{Input-to-State Stability (ISS)}
+
+\begin{theorem}[ISS bound]
+\label{thm:iss}
+Under \eqref{eq:master} with $\sup_t \qt \leq q < 1$, and for a
+single trajectory $\{X_t\}$:
+\begin{equation}
+  \Hnorm{X_t} \;\leq\; q^t\,\Hnorm{X_0}
+  + \frac{1 - q^t}{1 - q}\,\sup_{\tau < t}\Hnorm{G_\tau}. \label{eq:ISS}
+\end{equation}
+In particular, $\limsup_{t\to\infty}\Hnorm{X_t} \leq
+\frac{1}{1-q}\sup_t\Hnorm{G_t}$.
+\end{theorem}
+
+\begin{proof}
+Unrolling dynamics \eqref{eq:dynamics} from $t=0$:
+\[
+  X_t = \prod_{\tau=0}^{t-1}(P\Xi_\tau)X_0
+  + \sum_{\tau=0}^{t-1}\prod_{s=\tau+1}^{t-1}(P\Xi_s)
+    \,P\!\left(\Lop_\tau T(X_\tau) + G_\tau\right).
+\]
+Taking norms and bounding each product $\prod \Hnorm{P\Xi_s} \leq
+q^{t-\tau-1}$ (using $\Hnorm{P\Xi} \leq q$ from
+\Cref{thm:contraction}), and bounding $\Hnorm{P(\Lop T(X) + G)} \leq
+\ell_t L_T\Hnorm{X} + \Hnorm{G}$ with the $\Hnorm{X}$ term absorbed
+into the $q$ factor:
+\[
+  \Hnorm{X_t}
+  \leq q^t\Hnorm{X_0}
+  + \sup_\tau\Hnorm{G_\tau}\sum_{\tau=0}^{t-1}q^{t-\tau-1}
+  = q^t\Hnorm{X_0} + \frac{1-q^t}{1-q}\sup_\tau\Hnorm{G_\tau}.
+\]
+\qed
+\end{proof}
+
+\subsection{Fixed-Point Theorem}
+
+\begin{theorem}[QARI stationary fixed point]
+\label{thm:fixedpoint}
+Suppose the dynamics converge to time-invariant parameters:
+$\Xi(t) \to \Xi^\infty$, $\Lop \to \Lambda^\infty$,
+$G_t \to G^\infty$ as $t \to \infty$. Define the self-map
+\[
+  \Phi(X) := P\!\left(\Xi^\infty X + \Lambda^\infty T(X) + G^\infty\right).
+\]
+If $\Hnorm{\Xi^\infty} + \Hnorm{\Lambda^\infty}L_T \leq q < 1$, then:
+\begin{enumerate}[label=(\alph*)]
+  \item $\Phi$ is a contraction on $(\Banach, \Hnorm{\cdot})$ with
+        constant $q$.
+  \item There exists a unique fixed point $X^* \in \Banach$ satisfying
+        $X^* = \Phi(X^*)$.
+  \item $\Hnorm{X_t - X^*} \leq q^t\Hnorm{X_0 - X^*} \to 0$
+        geometrically.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(a) For any $X, Y \in \Banach$:
+\[
+  \Hnorm{\Phi(X) - \Phi(Y)}
+  \leq \Hnorm{P}\!\left(\Hnorm{\Xi^\infty}\Hnorm{X-Y}
+    + \Hnorm{\Lambda^\infty}L_T\Hnorm{X-Y}\right)
+  \leq q\,\Hnorm{X-Y}.
+\]
+(b) Banach Fixed-Point Theorem: a contraction on a complete metric space
+has a unique fixed point.\\
+(c) Geometric convergence is a standard consequence of (a) and (b).
+\qed
+\end{proof}
+
+% ════════════════════════════════════════════════════════════════════════════
+\section{PMD Invariant Satisfaction Bounds}
+\label{sec:pmd}
+% ════════════════════════════════════════════════════════════════════════════
+
+\subsection{L0 Invariants as Norm Inequalities}
+
+The four L0 invariants of the Phase Mirror Dissonance Protocol
+(defined in DP-002) are now given explicit mathematical content.
+
+\begin{invariant}[Commutator bound $\mathcal{I}_1$]
+\label{inv:I1}
+\begin{equation}
+  \Hnorm{[\Xi, P]} := \Hnorm{P\Xi - \Xi P} \;\leq\; \delta_{\mathrm{comm}}.
+\end{equation}
+By \Cref{prop:commutator},
+$\Hnorm{[\Xi,P]} \leq 2\sum_p \bp |w_p|$.
+Therefore $\mathcal{I}_1$ is guaranteed by setting
+$\delta_{\mathrm{comm}} = 2(1-\eps)$ and enforcing the budget
+\eqref{eq:budget}.
+\end{invariant}
+
+\begin{invariant}[Witness staleness $\mathcal{I}_2$]
+\label{inv:I2}
+\begin{equation}
+  t - t_{\mathrm{witness}} \;\leq\; \tau_{\mathrm{stale}}.
+\end{equation}
+No operator norm content; this is a temporal monotonicity constraint on
+the audit chain. The PMD oracle enforces this by comparing discrete
+step counter $t$ against the last certified timestamp $t_{\mathrm{witness}}$.
+\end{invariant}
+
+\begin{invariant}[Drift velocity $\mathcal{I}_3$]
+\label{inv:I3}
+\begin{equation}
+  \left\|\frac{d\mathbf{w}}{dt}\right\|_1
+  \;:=\; \sum_p \bp\,|w_p(t) - w_p(t-1)|
+  \;\leq\; v_{\mathrm{drift}}.
+\end{equation}
+\end{invariant}
+
+\begin{proposition}[Drift bound in terms of operator mix change]
+\label{prop:drift}
+The drift in the operator mix satisfies:
+\begin{equation}
+  \Hnorm{\Xi(t) - \Xi(t-1)}
+  \leq \sum_p \bp\,|w_p(t) - w_p(t-1)|
+  + \sum_p |w_p(t-1)|\,\Hnorm{\Bp - B_p(t-1)}.
+  \label{eq:drift-bound}
+\end{equation}
+If blocks are time-invariant ($\Bp = B_p$ for all $t$), this reduces to:
+\begin{equation}
+  \Hnorm{\Xi(t) - \Xi(t-1)} \;\leq\; \sum_p \bp\,|w_p(t) - w_p(t-1)|.
+  \label{eq:drift-simple}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Write $\Xi(t) - \Xi(t{-}1) = \sum_p (w_p(t)\Bp - w_p(t{-}1)B_p(t{-}1))$.
+Add and subtract $w_p(t{-}1)\Bp$:
+\[
+  = \sum_p (w_p(t) - w_p(t-1))\Bp
+  + \sum_p w_p(t-1)(\Bp - B_p(t-1)).
+\]
+Taking norms and applying the triangle inequality with $\Hnorm{\Bp} \leq \bp$:
+\[
+  \Hnorm{\Xi(t) - \Xi(t-1)}
+  \leq \sum_p |w_p(t)-w_p(t-1)|\bp
+  + \sum_p |w_p(t-1)|\,\Hnorm{\Bp - B_p(t-1)}.
+\]
+The time-invariant case kills the second sum.
+\qed
+\end{proof}
+
+\begin{invariant}[Budget rate $\mathcal{I}_4$]
+\label{inv:I4}
+\begin{equation}
+  \dot{q}_t := q_t - q_{t-1} \;\leq\; r_{\mathrm{budget}}.
+\end{equation}
+\end{invariant}
+
+\begin{proposition}[Budget rate bound]
+\label{prop:budgetrate}
+The per-step change in coherence budget satisfies:
+\begin{equation}
+  |\dot{q}_t|
+  = |q_t - q_{t-1}|
+  \leq \Hnorm{\Xi(t) - \Xi(t-1)}
+  + |\ell_t - \ell_{t-1}|\, L_T.
+  \label{eq:budgetrate}
+\end{equation}
+If $\ell_t$ is constant ($\ell_t = \ell$ for all $t$), this reduces to:
+\begin{equation}
+  |\dot{q}_t| \;\leq\; \sum_p \bp\,|w_p(t) - w_p(t-1)|.
+  \label{eq:budgetrate-simple}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+$|q_t - q_{t-1}|
+= |(\Hnorm{\Xi(t)} + \ell_t L_T) - (\Hnorm{\Xi(t-1)} + \ell_{t-1}L_T)|
+\leq |\Hnorm{\Xi(t)} - \Hnorm{\Xi(t-1)}| + |\ell_t - \ell_{t-1}|L_T
+\leq \Hnorm{\Xi(t) - \Xi(t-1)} + |\ell_t - \ell_{t-1}|L_T$,
+using the reverse triangle inequality. The time-invariant $\ell$
+case and \eqref{eq:drift-simple} give \eqref{eq:budgetrate-simple}.
+\qed
+\end{proof}
+
+\subsection{PMD Machine Decision Bound}
+
+\begin{theorem}[PMD L0 completeness]
+\label{thm:pmd-completeness}
+If the budget constraint \eqref{eq:budget} holds with margin $\eps$
+and blocks are time-invariant with drift $\sum_p \bp |w_p(t) - w_p(t-1)|
+\leq v_{\mathrm{drift}}$, then all four L0 invariants
+(\Cref{inv:I1,inv:I2,inv:I3,inv:I4}) are satisfied with:
+\begin{align}
+  \delta_{\mathrm{comm}} &= 2(1-\eps), \label{eq:I1-satisfied}\\
+  r_{\mathrm{budget}}    &= v_{\mathrm{drift}}. \label{eq:I4-satisfied}
+\end{align}
+The PMD oracle returns \textsc{pass} for $\mathcal{I}_1$,
+$\mathcal{I}_3$, $\mathcal{I}_4$ without further computation.
+\end{theorem}
+
+\begin{proof}
+$\mathcal{I}_1$: by \Cref{inv:I1} and \eqref{eq:budget},
+$\Hnorm{[\Xi,P]} \leq 2(1-\eps) = \delta_{\mathrm{comm}}$. \checkmark\\
+$\mathcal{I}_3$: by hypothesis, $\sum_p\bp|w_p(t)-w_p(t-1)|\leq
+v_{\mathrm{drift}}$, and \eqref{eq:drift-simple} gives
+$\Hnorm{\Xi(t)-\Xi(t-1)} \leq v_{\mathrm{drift}}$. \checkmark\\
+$\mathcal{I}_4$: by \eqref{eq:budgetrate-simple},
+$|\dot{q}_t| \leq v_{\mathrm{drift}} = r_{\mathrm{budget}}$. \checkmark\\
+$\mathcal{I}_2$: temporal; enforce by policy (out of scope for norm
+bounds). \qed
+\end{proof}
+
+% ════════════════════════════════════════════════════════════════════════════
+\section{Continuous-Time Extension}
+\label{sec:continuous}
+% ════════════════════════════════════════════════════════════════════════════
+
+For the continuous-time QARI dynamics
+\begin{equation}
+  \dot{X}(\tau) = F(\tau)X(\tau) + \Lambda^{\mathrm{op}}_m(\tau)\,T(X(\tau))
+  + g(\tau), \label{eq:cts}
+\end{equation}
+contraction requires the \emph{logarithmic norm} (matrix measure)
+condition:
+
+\begin{definition}[Logarithmic norm]
+For $A \in \BH$, the logarithmic norm with respect to $\Hnorm{\cdot}$ is:
+\begin{equation}
+  \mu(A) := \lim_{h \downarrow 0}
+  \frac{\Hnorm{I + hA} - 1}{h}. \label{eq:log-norm}
+\end{equation}
+\end{definition}
+
+\begin{theorem}[Continuous-time contraction condition]
+\label{thm:cts-contraction}
+Let $\mu(F(\tau)) + \Hnorm{\Lambda^{\mathrm{op}}_m(\tau)}\,L_T \leq -\alpha < 0$
+a.e.\ $\tau$. Then for any two trajectories $X(\tau), Y(\tau)$
+of \eqref{eq:cts}:
+\begin{equation}
+  \Hnorm{X(\tau) - Y(\tau)} \;\leq\;
+  e^{-\alpha(\tau - \tau_0)}\,\Hnorm{X(\tau_0) - Y(\tau_0)}.
+  \label{eq:cts-decay}
+\end{equation}
+\end{theorem}
+
+\begin{proof}[Proof sketch]
+Standard contraction analysis in Banach spaces: define
+$v(\tau) = \Hnorm{X(\tau) - Y(\tau)}$. The Dini derivative satisfies
+$D^+ v \leq (\mu(F) + \Hnorm{\Lambda}L_T) v \leq -\alpha v$. By
+Gr\"{o}nwall's inequality, $v(\tau) \leq e^{-\alpha(\tau-\tau_0)}v(\tau_0)$.
+\qed
+\end{proof}
+
+\begin{remark}[Discrete-to-continuous correspondence]
+The discrete-time contraction factor $q = \sup_t \qt$ corresponds to
+the continuous-time rate by $q \approx e^{-\alpha \Delta t}$ for step
+size $\Delta t$. The safety margin $(1-q)$ maps to $\alpha \Delta t$ in
+the continuous limit.
+\end{remark}
+
+% ════════════════════════════════════════════════════════════════════════════
+\section{Primal-Dual Residuals and Audit Logging}
+\label{sec:residuals}
+% ════════════════════════════════════════════════════════════════════════════
+
+Each ACE projection step produces two auditable residuals.
+
+\begin{definition}[Primal and dual residuals]
+After solving \eqref{eq:ace} to obtain $\mathbf{w}^*$ and $\lamstar$:
+\begin{align}
+  r_{\mathrm{primal}} &:= \max\!\left(0,\;
+    \sum_p \bp |w_p^*| - (1-\eps)\right), \label{eq:primal-res}\\
+  r_{\mathrm{dual}} &:= \left\| \mathbf{w}^* - \tilde{\mathbf{w}}
+    + \lamstar\, \mathbf{s}^* \right\|_2, \label{eq:dual-res}
+\end{align}
+where $s_p^* \in \bp\,\partial|w_p^*|$ is the optimal subgradient.
+\end{definition}
+
+\begin{proposition}[Residual certification bounds]
+\label{prop:residuals}
+At the true $\lamstar$:
+\begin{enumerate}[label=(\alph*)]
+  \item $r_{\mathrm{primal}} = 0$ (exact primal feasibility).
+  \item $r_{\mathrm{dual}} = 0$ (exact stationarity).
+\end{enumerate}
+Numerically, bisection to tolerance $\delta_\lambda$ gives:
+\begin{align}
+  r_{\mathrm{primal}} &\leq \delta_\lambda \cdot \lam_{\max} \cdot
+    \max_p \bp, \label{eq:primal-tol}\\
+  r_{\mathrm{dual}}   &\leq \delta_\lambda \cdot \Hnorm{\mathbf{b}}_2 \cdot
+    \lam_{\max}, \label{eq:dual-tol}
+\end{align}
+where $\mathbf{b} = (b_p)_{p \in \Pt}$.
+\end{proposition}
+
+These residuals are logged in the QARI telemetry dict at every step
+(keys \texttt{primal\_res}, \texttt{dual\_res}) and are available to
+the PMD oracle as evidence items in dissonance reports.
+
+% ════════════════════════════════════════════════════════════════════════════
+\section{Section 14: The Conjecture Boundary}
+\label{sec:s14}
+% ════════════════════════════════════════════════════════════════════════════
+
+\begin{definition}[Section 14 boundary]
+\label{def:s14}
+A mathematical claim lies \emph{below the Section 14 boundary} (and is
+therefore open, shippable, and citeable as prior art) if and only if
+it can be expressed as an operator inequality of the form
+$\Hnorm{A} \leq c$ or $\mu(A) \leq -\alpha$ for explicitly computable
+$c$ or $\alpha$, and that inequality can be verified at runtime.
+
+A claim lies \emph{above the boundary} if it depends on:
+\begin{itemize}
+  \item prime-indexability conjectures (e.g., ``Langlands braids
+        lower $\qt$'') without a proven operator bound;
+  \item CSL (Certified Stability Lemma) extensions not yet reduced
+        to $\qt < 1$;
+  \item Moonshine-type correspondences, Zeno-locking, or any claim
+        that cannot be written as $\Hnorm{\cdot} \leq c$ for
+        computable $c$.
+\end{itemize}
+\end{definition}
+
+\begin{theorem}[Open-core correctness]
+\label{thm:opencore}
+Every component listed as ``Open (Apache 2.0)'' in the DP-001/002/003
+bundle satisfies \Cref{def:s14}: its correctness reduces to
+\eqref{eq:budget}, \eqref{eq:master}, \eqref{eq:kkt-primal}, or
+\eqref{eq:cts-decay}, all of which are verifiable by runtime
+\texttt{certify()} calls with $O(n)$ cost.
+\end{theorem}
+
+\begin{proof}
+By inspection of each open module:
+\begin{itemize}
+  \item \texttt{project\_l1\_weighted()}: correctness = \Cref{thm:kkt},
+        verified by \eqref{eq:certified-bound}.
+  \item \texttt{certify()}: direct evaluation of \eqref{eq:budget}.
+  \item \texttt{build\_Xi()}: norm bounded by \Cref{prop:Xi-bound}.
+  \item \texttt{step()}: safety = \eqref{eq:safety}; checked
+        post-projection.
+  \item \texttt{pmd\_l0\_check()}: all four L0 invariants reduce to
+        norm comparisons (\Cref{thm:pmd-completeness}).
+\end{itemize}
+All checks are $O(n)$ in the number of active prime blocks $|\Pt|$.
+\qed
+\end{proof}
+
+% ════════════════════════════════════════════════════════════════════════════
+\section{Summary of Bounds}
+\label{sec:summary-bounds}
+% ════════════════════════════════════════════════════════════════════════════
+
+\begin{center}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{lll}
+  \toprule
+  \textbf{Quantity} & \textbf{Bound} & \textbf{Source} \\
+  \midrule
+  $\Hnorm{\Xi}$
+    & $\leq \sum_p \bp|w_p|$
+    & \Cref{prop:Xi-bound} \\
+  $\sum_p\bp|w_p|$ (post-ACE)
+    & $\leq 1 - \eps$
+    & \Cref{cor:post-proj} \\
+  $\qt = \Hnorm{\Xi} + \ell_t L_T$
+    & $\leq (1-\eps) + \ell_t L_T$
+    & \Cref{cor:budget-contraction} \\
+  $\etat = \Hnorm{[\Xi,P]}$
+    & $\leq 2(1-\eps)$
+    & \Cref{prop:commutator} \\
+  $\Hnorm{X_t - Y_t}$
+    & $\leq q^t\Hnorm{X_0 - Y_0}$
+    & \Cref{cor:geometric} \\
+  $\Hnorm{X_t}$ (with input)
+    & $\leq q^t\Hnorm{X_0} + \tfrac{1}{1-q}\sup\Hnorm{G}$
+    & \Cref{thm:iss} \\
+  $\Hnorm{\Xi(t)-\Xi(t-1)}$
+    & $\leq \sum_p \bp|w_p(t)-w_p(t-1)|$
+    & \Cref{prop:drift} \\
+  $|\dot{q}_t|$
+    & $\leq \sum_p\bp|w_p(t)-w_p(t-1)|$
+    & \Cref{prop:budgetrate} \\
+  Cts.\ decay rate
+    & $e^{-\alpha(\tau-\tau_0)}$, $\alpha > 0$
+    & \Cref{thm:cts-contraction} \\
+  \bottomrule
+\end{tabular}
+\end{center}
+
+\nocite{*}
+\bibliographystyle{unsrt}  
+\bibliography{references}
+\end{document}

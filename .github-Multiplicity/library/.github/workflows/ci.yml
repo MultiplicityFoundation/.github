@@ -1,0 +1,80 @@
+name: ci
+
+on:
+  pull_request:
+  push:
+    branches: [ main ]
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install python deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install pyyaml jsonschema
+
+      - name: Install node deps
+        run: |
+          npm init -y
+          npm install -D markdownlint-cli
+
+      - name: Markdown lint
+        run: npx markdownlint "**/*.md"
+
+      - name: Install shellcheck (koalaman action)
+        uses: koalaman/shellcheck-action@v1
+
+      - name: Validate 'run' blocks with shellcheck
+        run: |
+          python - << 'PY'
+            import yaml, glob, subprocess
+            idx=0
+            errs=0
+            for y in glob.glob('.github/workflows/*.yml'):
+              with open(y) as fh:
+                try:
+                  data = yaml.safe_load(fh)
+                except Exception:
+                  continue
+              def extract(node):
+                global idx, errs
+                if isinstance(node, dict):
+                  for k, v in node.items():
+                    if k == 'run' and isinstance(v, str):
+                      path = f'/tmp/runblock-{idx}.sh'
+                      with open(path, 'w') as out:
+                        out.write(v)
+                      try:
+                        subprocess.run(['shellcheck', path], check=True)
+                      except subprocess.CalledProcessError:
+                        errs += 1
+                      idx += 1
+                    else:
+                      extract(v)
+                elif isinstance(node, list):
+                  for i in node:
+                    extract(i)
+              extract(data)
+            if errs:
+              raise SystemExit(2)
+            print('Shellcheck runblocks OK')
+          PY
+
+      - name: Validate frontmatter
+        run: python scripts/validate_frontmatter.py
+
+      - name: Link check
+        uses: lycheeverse/lychee-action@7cd0af4c74a61395d455af97419279d86aafaede  # v2.0.2
+        with:
+          args: --verbose --no-progress "**/*.md"

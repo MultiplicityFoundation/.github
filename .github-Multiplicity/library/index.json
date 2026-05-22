@@ -1,0 +1,58 @@
+{
+  "generated_utc": "2025-12-07T06:17:15Z",
+  "version": "1",
+  "articles": [
+    {
+      "slug": "sample-foundation",
+      "path": "articles/00-foundations/sample-article.md",
+      "title": "Sample Foundation Article",
+      "status": "stable",
+      "version": "0.1.0",
+      "tags": [
+        "Multiplicity",
+        "foundations"
+      ],
+      "created": "2025-12-06",
+      "updated": "2025-12-06",
+      "stratum": "S0",
+      "operator_class": "operator",
+      "xi_domain": "Xi",
+      "csl_role": "dictionary-entry"
+    },
+    {
+      "slug": "introduction-multiplicity-theory",
+      "path": "articles/00-foundations/intro.md",
+      "title": "Introduction to Multiplicity Theory",
+      "status": "stable",
+      "version": "1.0.0",
+      "tags": [
+        "Multiplicity",
+        "Foundations"
+      ],
+      "created": "2025-12-06",
+      "updated": "2025-12-07",
+      "stratum": "0",
+      "operator_class": "",
+      "xi_domain": "",
+      "csl_role": ""
+    },
+    {
+      "slug": "xi-inference-engine-overview",
+      "path": "articles/01-operators/xi-engine.md",
+      "title": "Ξ-Inference Engine Overview",
+      "status": "review",
+      "version": "0.1.0",
+      "tags": [
+        "Multiplicity",
+        "Ξ(t)",
+        "operators"
+      ],
+      "created": "2025-12-06",
+      "updated": "2025-12-07",
+      "stratum": "13+1",
+      "operator_class": "",
+      "xi_domain": "",
+      "csl_role": ""
+    }
+  ]
+}

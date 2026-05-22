@@ -1,0 +1,147 @@
+name: math-check
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  math_fix:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install Python
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065  # v5
+        with:
+          python-version: "3.11"
+
+      - name: Install required libs
+        run: pip install sympy
+
+      - name: Install shellcheck (koalaman action)
+        uses: koalaman/shellcheck-action@v1
+
+      - name: Validate 'run' blocks with shellcheck
+        run: |
+          python - << 'PY'
+            import yaml, glob, subprocess
+            idx=0
+            errs=0
+            for y in glob.glob('.github/workflows/*.yml'):
+              with open(y) as fh:
+                try:
+                  data = yaml.safe_load(fh)
+                except Exception:
+                  continue
+              def extract(node):
+                global idx, errs
+                if isinstance(node, dict):
+                  for k, v in node.items():
+                    if k == 'run' and isinstance(v, str):
+                      path = f'/tmp/runblock-{idx}.sh'
+                      with open(path, 'w') as out:
+                        out.write(v)
+                      try:
+                        subprocess.run(['shellcheck', path], check=True)
+                      except subprocess.CalledProcessError:
+                        errs += 1
+                      idx += 1
+                    else:
+                      extract(v)
+                elif isinstance(node, list):
+                  for i in node:
+                    extract(i)
+              extract(data)
+            if errs:
+              raise SystemExit(2)
+            print('Shellcheck runblocks OK')
+          PY
+          # no-op; shellcheck-action already validates common shell scripts
+
+      - name: Run math corrector (if present)
+        run: |
+          if [ -f scripts/math_corrector.py ]; then
+            python scripts/math_corrector.py
+          else
+            echo "No math_corrector.py found; skipping math correction."
+          fi
+
+      - name: Determine changed files
+        id: changed
+        run: |
+          set -e
+          BASE_REF=${{ github.event.repository.default_branch }}
+          echo "Base ref: $BASE_REF"
+          git fetch origin $BASE_REF --depth=1 || true
+          CHANGED=$(git diff --name-only origin/$BASE_REF...HEAD | grep -E '\.md$' || true)
+          echo "Changed markdown files:\n$CHANGED"
+          if [ -z "$CHANGED" ]; then
+            echo "files=" >> $GITHUB_OUTPUT
+          else
+            echo "files=$(echo "$CHANGED" | paste -sd ',' -)" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Run build-index and write paths file (if changes)
+        id: build_index
+        run: |
+          FILES="${{ steps.changed.outputs.files }}"
+          mkdir -p tmp
+          if [ -z "$FILES" ]; then
+            python3 scripts/build_index.py --paths-file tmp/processed_paths.txt || true
+          else
+            # Only process changed files (pass CSV list)
+            python3 scripts/build_index.py --only "$FILES" --paths-file tmp/processed_paths.txt || true
+          fi
+
+
+
+      - name: Prepare Git remote and GH CLI
+        run: |
+          gh --version || (sudo apt-get update && sudo apt-get install -y gh)
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+
+      - name: Create PR (if changes)
+        run: |
+          branch="math-correct-$(date +%Y%m%d%H%M%S)"
+          git checkout -b "$branch"
+          git add -A
+          if git status --porcelain | grep .; then
+            git commit -m "fix: auto-corrected math in articles"
+            git push origin "$branch"
+            # Build PR body based on processed paths file if present or changed files otherwise
+            if [ -f tmp/processed_paths.txt ]; then
+              NAV=$(sed 's/^/- /' tmp/processed_paths.txt | sed ':a;N;$!ba;s/\n/\\n/g')
+              BODY="Automated math normalization and correction. Human review required.\n\nProcessed files:\n${NAV}"
+            else
+              FILES="${{ steps.changed.outputs.files }}"
+              if [ -z "$FILES" ]; then
+                BODY="Automated math normalization and correction. Human review required."
+              else
+                BODY="Automated math normalization and correction. Files changed:\n$(echo "$FILES" | tr ',' '\n')"
+              fi
+            fi
+            PR_URL=$(gh pr create \
+              --title "Math auto-correction: $branch" \
+              --body "$BODY" \
+              --base ${{ github.event.repository.default_branch }} \
+              --head "$branch" \
+              --label "autofix" \
+              --assignee "${{ github.actor }}")
+            PR_NUM=$(basename "$PR_URL")
+            echo "PR URL: $PR_URL";
+            echo "PR NUM: $PR_NUM";
+            # Assign reviewers based on mapping
+            python3 scripts/assign_reviewers.py --pr "$PR_NUM" --mapping .github/reviewer-mapping.yml
+          else
+            echo "No math correction needed."
+          fi
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

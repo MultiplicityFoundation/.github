@@ -1,0 +1,609 @@
+%% ============================================================
+%% references.bib
+%% Phase Mirror Governance Oracle — Complete Reference Database
+%% Covers: main defensive publication + Mathematical Appendix
+%% Last updated: 2026-04-26
+%% ============================================================
+
+%% ─── I. CRYPTOGRAPHIC FOUNDATIONS ───────────────────────────
+
+@inproceedings{krawczyk2010hkdf,
+  author    = {Hugo Krawczyk},
+  title     = {Cryptographic Extraction and Key Derivation: The {HKDF} Scheme},
+  booktitle = {Advances in Cryptology --- {CRYPTO} 2010},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {6223},
+  pages     = {631--648},
+  publisher = {Springer},
+  year      = {2010},
+  doi       = {10.1007/978-3-642-14623-7_34}
+}
+
+@inproceedings{krawczyk2003hmac,
+  author    = {Hugo Krawczyk and Mihir Bellare and Ran Canetti},
+  title     = {{HMAC}: Keyed-Hashing for Message Authentication},
+  booktitle = {{RFC} 2104},
+  organization = {Internet Engineering Task Force},
+  year      = {1997},
+  url       = {https://www.rfc-editor.org/rfc/rfc2104}
+}
+
+@techreport{rfc5869,
+  author      = {Hugo Krawczyk and Pasi Eronen},
+  title       = {{HMAC}-based Extract-and-Expand Key Derivation Function ({HKDF})},
+  institution = {Internet Engineering Task Force},
+  type        = {{RFC}},
+  number      = {5869},
+  year        = {2010},
+  url         = {https://www.rfc-editor.org/rfc/rfc5869}
+}
+
+@inproceedings{bellare2006nmac,
+  author    = {Mihir Bellare},
+  title     = {New Proofs for {NMAC} and {HMAC}: Security without
+               Collision-Resistance},
+  booktitle = {Advances in Cryptology --- {CRYPTO} 2006},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {4117},
+  pages     = {602--619},
+  publisher = {Springer},
+  year      = {2006},
+  doi       = {10.1007/11818175_36}
+}
+
+@inproceedings{rogaway2002nonce,
+  author    = {Phillip Rogaway},
+  title     = {Nonce-Based Symmetric Encryption},
+  booktitle = {Fast Software Encryption --- {FSE} 2004},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {3017},
+  pages     = {348--359},
+  publisher = {Springer},
+  year      = {2004},
+  doi       = {10.1007/978-3-540-25937-4_22}
+}
+
+@inproceedings{rogaway2004ocb,
+  author    = {Phillip Rogaway and Mihir Bellare and John Black},
+  title     = {{OCB}: A Block-Cipher Mode of Operation for Efficient
+               Authenticated Encryption},
+  journal   = {{ACM} Transactions on Information and System Security},
+  volume    = {6},
+  number    = {3},
+  pages     = {365--403},
+  year      = {2003},
+  doi       = {10.1145/937527.937529}
+}
+
+@techreport{nist-aes-gcm,
+  author      = {Morris Dworkin},
+  title       = {Recommendation for Block Cipher Modes of Operation:
+                 Galois/Counter Mode ({GCM}) and {GMAC}},
+  institution = {National Institute of Standards and Technology},
+  type        = {{NIST} Special Publication},
+  number      = {800-38D},
+  year        = {2007},
+  url         = {https://doi.org/10.6028/NIST.SP.800-38D}
+}
+
+@inproceedings{pedersen1991commitment,
+  author    = {Torben P.\ Pedersen},
+  title     = {Non-Interactive and Information-Theoretic Secure Verifiable
+               Secret Sharing},
+  booktitle = {Advances in Cryptology --- {CRYPTO} 1991},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {576},
+  pages     = {129--140},
+  publisher = {Springer},
+  year      = {1992},
+  doi       = {10.1007/3-540-46766-1_9}
+}
+
+@article{diffie1976new,
+  author  = {Whitfield Diffie and Martin E.\ Hellman},
+  title   = {New Directions in Cryptography},
+  journal = {{IEEE} Transactions on Information Theory},
+  volume  = {22},
+  number  = {6},
+  pages   = {644--654},
+  year    = {1976},
+  doi     = {10.1109/TIT.1976.1055638}
+}
+
+%% ─── II. QUANTUM KEY DISTRIBUTION AND POST-QUANTUM ──────────
+
+@article{bennett1984qkd,
+  author  = {Charles H.\ Bennett and Gilles Brassard},
+  title   = {Quantum Cryptography: Public Key Distribution and Coin Tossing},
+  journal = {Proceedings of {IEEE} International Conference on Computers,
+             Systems and Signal Processing},
+  pages   = {175--179},
+  year    = {1984},
+  note    = {Reprinted in Theoretical Computer Science 560 (2014) 7--11}
+}
+
+@article{ekert1991qkd,
+  author  = {Artur K.\ Ekert},
+  title   = {Quantum Cryptography Based on {Bell}'s Theorem},
+  journal = {Physical Review Letters},
+  volume  = {67},
+  number  = {6},
+  pages   = {661--663},
+  year    = {1991},
+  doi     = {10.1103/PhysRevLett.67.661}
+}
+
+@techreport{nist-pqc-2024,
+  author      = {{National Institute of Standards and Technology}},
+  title       = {Post-Quantum Cryptography Standards: {FIPS} 203, 204, 205},
+  institution = {NIST},
+  year        = {2024},
+  url         = {https://csrc.nist.gov/projects/post-quantum-cryptography}
+}
+
+%% ─── III. FUNCTIONAL ANALYSIS AND OPERATOR THEORY ───────────
+
+@book{banach1922fixedpoint,
+  author    = {Stefan Banach},
+  title     = {Sur les op\'{e}rations dans les ensembles abstraits et leur
+               application aux \'{e}quations int\'{e}grales},
+  journal   = {Fundamenta Mathematicae},
+  volume    = {3},
+  pages     = {133--181},
+  year      = {1922},
+  doi       = {10.4064/fm-3-1-133-181}
+}
+
+@book{reed1980functional,
+  author    = {Michael Reed and Barry Simon},
+  title     = {Methods of Modern Mathematical Physics, Vol.~{I}:
+               Functional Analysis},
+  publisher = {Academic Press},
+  year      = {1980},
+  isbn      = {978-0-12-585050-6}
+}
+
+@book{kreyszig1978introductory,
+  author    = {Erwin Kreyszig},
+  title     = {Introductory Functional Analysis with Applications},
+  publisher = {Wiley},
+  year      = {1978},
+  isbn      = {978-0-471-50731-4}
+}
+
+@book{rudin1991functional,
+  author    = {Walter Rudin},
+  title     = {Functional Analysis},
+  edition   = {2nd},
+  publisher = {McGraw-Hill},
+  year      = {1991},
+  isbn      = {978-0-07-054236-5}
+}
+
+@book{conway1990course,
+  author    = {John B.\ Conway},
+  title     = {A Course in Functional Analysis},
+  edition   = {2nd},
+  series    = {Graduate Texts in Mathematics},
+  volume    = {96},
+  publisher = {Springer},
+  year      = {1990},
+  doi       = {10.1007/978-1-4757-4383-8}
+}
+
+%% ─── IV. METRIC SPACES, TOPOLOGY, AND LATTICE THEORY ────────
+
+@book{munkres2000topology,
+  author    = {James R.\ Munkres},
+  title     = {Topology},
+  edition   = {2nd},
+  publisher = {Prentice Hall},
+  year      = {2000},
+  isbn      = {978-0-13-181629-9}
+}
+
+@book{birkhoff1940lattice,
+  author    = {Garrett Birkhoff},
+  title     = {Lattice Theory},
+  publisher = {American Mathematical Society},
+  edition   = {3rd},
+  year      = {1967},
+  series    = {{AMS} Colloquium Publications},
+  volume    = {25}
+}
+
+@book{davey2002introduction,
+  author    = {Brian A.\ Davey and Hilary A.\ Priestley},
+  title     = {Introduction to Lattices and Order},
+  edition   = {2nd},
+  publisher = {Cambridge University Press},
+  year      = {2002},
+  doi       = {10.1017/CBO9780511809088}
+}
+
+%% ─── V. NUMBER THEORY AND PRIME NUMBERS ─────────────────────
+
+@book{hardy1979introduction,
+  author    = {Godfrey H.\ Hardy and Edward M.\ Wright},
+  title     = {An Introduction to the Theory of Numbers},
+  edition   = {5th},
+  publisher = {Oxford University Press},
+  year      = {1979},
+  isbn      = {978-0-19-853171-5}
+}
+
+@book{apostol1976introduction,
+  author    = {Tom M.\ Apostol},
+  title     = {Introduction to Analytic Number Theory},
+  publisher = {Springer},
+  year      = {1976},
+  series    = {Undergraduate Texts in Mathematics},
+  doi       = {10.1007/978-1-4757-5579-4}
+}
+
+@book{crandall2005primes,
+  author    = {Richard Crandall and Carl Pomerance},
+  title     = {Prime Numbers: A Computational Perspective},
+  edition   = {2nd},
+  publisher = {Springer},
+  year      = {2005},
+  doi       = {10.1007/0-387-28979-8}
+}
+
+@article{miller1976riemann,
+  author  = {Gary L.\ Miller},
+  title   = {Riemann's Hypothesis and Tests for Primality},
+  journal = {Journal of Computer and System Sciences},
+  volume  = {13},
+  number  = {3},
+  pages   = {300--317},
+  year    = {1976},
+  doi     = {10.1016/S0022-0000(76)80043-8}
+}
+
+@article{rabin1980probabilistic,
+  author  = {Michael O.\ Rabin},
+  title   = {Probabilistic Algorithm for Testing Primality},
+  journal = {Journal of Number Theory},
+  volume  = {12},
+  number  = {1},
+  pages   = {128--138},
+  year    = {1980},
+  doi     = {10.1016/0022-314X(80)90084-0}
+}
+
+%% ─── VI. SET SIMILARITY, JACCARD DISTANCE, AND TOKENS ───────
+
+@article{jaccard1901etude,
+  author  = {Paul Jaccard},
+  title   = {{\'E}tude comparative de la distribution florale dans une
+             portion des {A}lpes et des {J}ura},
+  journal = {Bulletin del la Soci\'{e}t\'{e} Vaudoise des Sciences Naturelles},
+  volume  = {37},
+  pages   = {547--579},
+  year    = {1901}
+}
+
+@article{levandowsky1971distance,
+  author  = {Michael Levandowsky and David Winter},
+  title   = {Distance between Sets},
+  journal = {Nature},
+  volume  = {234},
+  pages   = {34--35},
+  year    = {1971},
+  doi     = {10.1038/234034a0}
+}
+
+@article{broder1997resemblance,
+  author  = {Andrei Z.\ Broder},
+  title   = {On the Resemblance and Containment of Documents},
+  booktitle = {Proceedings of the Compression and Complexity of Sequences 1997},
+  pages   = {21--29},
+  year    = {1997},
+  doi     = {10.1109/SEQUEN.1997.666900}
+}
+
+%% ─── VII. AI SAFETY, ALIGNMENT, AND GOVERNANCE ──────────────
+
+@article{amodei2016concrete,
+  author  = {Dario Amodei and Chris Olah and Jacob Steinhardt and
+             Paul Christiano and John Schulman and Dan Man\'{e}},
+  title   = {Concrete Problems in {AI} Safety},
+  journal = {arXiv preprint},
+  volume  = {arXiv:1606.06565},
+  year    = {2016},
+  url     = {https://arxiv.org/abs/1606.06565}
+}
+
+@inproceedings{leike2018scalable,
+  author    = {Jan Leike and David Krueger and Tom Everitt and
+               Miljan Martic and Vishal Maini and Shane Legg},
+  title     = {Scalable Agent Alignment via Reward Modeling: A Research
+               Direction},
+  booktitle = {arXiv preprint},
+  volume    = {arXiv:1811.07871},
+  year      = {2018},
+  url       = {https://arxiv.org/abs/1811.07871}
+}
+
+@article{bai2022constitutional,
+  author  = {Yuntao Bai and Saurav Kadavath and Sandipan Kundu and
+             Amanda Askell and Jackson Kernion and Andy Jones and others},
+  title   = {Constitutional {AI}: Harmlessness from {AI} Feedback},
+  journal = {arXiv preprint},
+  volume  = {arXiv:2212.08073},
+  year    = {2022},
+  url     = {https://arxiv.org/abs/2212.08073}
+}
+
+@article{hadfield2016cooperative,
+  author  = {Dylan Hadfield-Menell and Anca Dragan and Pieter Abbeel and
+             Stuart Russell},
+  title   = {Cooperative Inverse Reinforcement Learning},
+  booktitle = {Advances in Neural Information Processing Systems 29},
+  year    = {2016},
+  url     = {https://proceedings.neurips.cc/paper/2016/hash/
+             c3395dd46c34fa7fd8d729d8cf88b7a8-Abstract.html}
+}
+
+@inproceedings{perez2022red,
+  author    = {Ethan Perez and Saffron Huang and Francis Song and
+               Trevor Cai and Roman Ring and John Aslanides and
+               Amelia Glaese and Nat McAleese and Geoffrey Irving},
+  title     = {Red Teaming Language Models with Language Models},
+  booktitle = {arXiv preprint},
+  volume    = {arXiv:2202.03286},
+  year      = {2022},
+  url       = {https://arxiv.org/abs/2202.03286}
+}
+
+%% ─── VIII. DISTRIBUTED SYSTEMS AND CONSENSUS ────────────────
+
+@article{lamport1982byzantine,
+  author  = {Leslie Lamport and Robert Shostak and Marshall Pease},
+  title   = {The Byzantine Generals Problem},
+  journal = {{ACM} Transactions on Programming Languages and Systems},
+  volume  = {4},
+  number  = {3},
+  pages   = {382--401},
+  year    = {1982},
+  doi     = {10.1145/357172.357176}
+}
+
+@inproceedings{castro1999pbft,
+  author    = {Miguel Castro and Barbara Liskov},
+  title     = {Practical Byzantine Fault Tolerance},
+  booktitle = {Proceedings of the 3rd Symposium on Operating Systems
+               Design and Implementation ({OSDI} '99)},
+  pages     = {173--186},
+  year      = {1999},
+  url       = {https://pmg.csail.mit.edu/papers/osdi99.pdf}
+}
+
+@inproceedings{oki1988viewstamped,
+  author    = {Brian M.\ Oki and Barbara H.\ Liskov},
+  title     = {Viewstamped Replication: A New Primary Copy Method to
+               Support Highly-Available Distributed Systems},
+  booktitle = {Proceedings of the 7th {ACM} Symposium on Principles of
+               Distributed Computing ({PODC} '88)},
+  pages     = {8--17},
+  year      = {1988},
+  doi       = {10.1145/62546.62549}
+}
+
+%% ─── IX. TYPE THEORY AND FORMAL VERIFICATION ─────────────────
+
+@book{pierce2002types,
+  author    = {Benjamin C.\ Pierce},
+  title     = {Types and Programming Languages},
+  publisher = {{MIT} Press},
+  year      = {2002},
+  isbn      = {978-0-262-16209-8}
+}
+
+@book{martin-lof1984intuitionistic,
+  author    = {Per Martin-L\"{o}f},
+  title     = {Intuitionistic Type Theory},
+  publisher = {Bibliopolis},
+  year      = {1984},
+  series    = {Studies in Proof Theory, Lecture Notes},
+  volume    = {1}
+}
+
+@inproceedings{moura2021lean4,
+  author    = {Leonardo de Moura and Sebastian Ullrich},
+  title     = {The {Lean 4} Theorem Prover and Programming Language},
+  booktitle = {Automated Deduction --- {CADE} 28},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {12699},
+  pages     = {625--635},
+  publisher = {Springer},
+  year      = {2021},
+  doi       = {10.1007/978-3-030-79876-5_37}
+}
+
+@inproceedings{norell2009dependently,
+  author    = {Ulf Norell},
+  title     = {Dependently Typed Programming in {Agda}},
+  booktitle = {Advanced Functional Programming},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {5832},
+  pages     = {230--266},
+  publisher = {Springer},
+  year      = {2009},
+  doi       = {10.1007/978-3-642-04652-0_5}
+}
+
+%% ─── X. INFORMATION THEORY AND ENTROPY ──────────────────────
+
+@book{shannon1949mathematical,
+  author    = {Claude E.\ Shannon and Warren Weaver},
+  title     = {The Mathematical Theory of Communication},
+  publisher = {University of Illinois Press},
+  year      = {1949},
+  isbn      = {978-0-252-72548-7}
+}
+
+@book{cover2006elements,
+  author    = {Thomas M.\ Cover and Joy A.\ Thomas},
+  title     = {Elements of Information Theory},
+  edition   = {2nd},
+  publisher = {Wiley-Interscience},
+  year      = {2006},
+  isbn      = {978-0-471-24195-9}
+}
+
+%% ─── XI. ZERO-KNOWLEDGE PROOFS ───────────────────────────────
+
+@inproceedings{goldwasser1989knowledge,
+  author    = {Shafi Goldwasser and Silvio Micali and Charles Rackoff},
+  title     = {The Knowledge Complexity of Interactive Proof Systems},
+  journal   = {{SIAM} Journal on Computing},
+  volume    = {18},
+  number    = {1},
+  pages     = {186--208},
+  year      = {1989},
+  doi       = {10.1137/0218012}
+}
+
+@inproceedings{groth2016size,
+  author    = {Jens Groth},
+  title     = {On the Size of Pairing-Based Non-interactive Arguments},
+  booktitle = {Advances in Cryptology --- {EUROCRYPT} 2016},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {9666},
+  pages     = {305--326},
+  publisher = {Springer},
+  year      = {2016},
+  doi       = {10.1007/978-3-662-49896-5_11}
+}
+
+@inproceedings{bn254,
+  author    = {Paulo S.\ L.\ M.\ Barreto and Michael Naehrig},
+  title     = {Pairing-Friendly Elliptic Curves of Prime Order},
+  booktitle = {Selected Areas in Cryptography --- {SAC} 2005},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {3897},
+  pages     = {319--331},
+  publisher = {Springer},
+  year      = {2006},
+  doi       = {10.1007/11693383_22}
+}
+
+%% ─── XII. SOFTWARE ARCHITECTURE AND MCP ─────────────────────
+
+@misc{mcp2024spec,
+  author       = {Anthropic},
+  title        = {Model Context Protocol Specification},
+  year         = {2024},
+  url          = {https://modelcontextprotocol.io/specification},
+  note         = {Version 2024-11-05}
+}
+
+@book{bass2021software,
+  author    = {Len Bass and Paul Clements and Rick Kazman},
+  title     = {Software Architecture in Practice},
+  edition   = {4th},
+  publisher = {Addison-Wesley},
+  year      = {2021},
+  isbn      = {978-0-13-688521-5}
+}
+
+@article{nygard2007adr,
+  author  = {Michael Nygard},
+  title   = {Documenting Architecture Decisions},
+  journal = {Cognitect Blog},
+  year    = {2011},
+  url     = {https://cognitect.com/blog/2011/11/15/
+             documenting-architecture-decisions}
+}
+
+%% ─── XIII. PROCESS SECURITY AND ENVIRONMENT ISOLATION ───────
+
+@book{kerrisk2010linux,
+  author    = {Michael Kerrisk},
+  title     = {The {Linux} Programming Interface},
+  publisher = {No Starch Press},
+  year      = {2010},
+  isbn      = {978-1-59327-220-3}
+}
+
+@techreport{posix2017,
+  author      = {{IEEE} and {The Open Group}},
+  title       = {The Open Group Base Specifications Issue 7, 2018 Edition
+                 ({POSIX.1-2017})},
+  institution = {{IEEE}},
+  year        = {2018},
+  url         = {https://pubs.opengroup.org/onlinepubs/9699919799/}
+}
+
+%% ─── XIV. AUDIT LOGS AND IMMUTABLE LEDGERS ──────────────────
+
+@inproceedings{schneier1999secure,
+  author    = {Bruce Schneier and John Kelsey},
+  title     = {Secure Audit Logs to Support Computer Forensics},
+  journal   = {{ACM} Transactions on Information and System Security},
+  volume    = {2},
+  number    = {2},
+  pages     = {159--176},
+  year      = {1999},
+  doi       = {10.1145/317087.317089}
+}
+
+@inproceedings{nakamoto2008bitcoin,
+  author  = {Satoshi Nakamoto},
+  title   = {Bitcoin: A Peer-to-Peer Electronic Cash System},
+  year    = {2008},
+  url     = {https://bitcoin.org/bitcoin.pdf}
+}
+
+%% ─── XV. THE PHASE MIRROR PROJECT ITSELF ────────────────────
+
+@misc{vangelder2026phasemirror,
+  author       = {R.\ Van Gelder},
+  title        = {Phase Mirror Governance Oracle: A Prime-Indexed,
+                  Recursively Stable Dissonance Evaluation Framework
+                  for {AI} Expression Governance},
+  howpublished = {Defensive Publication, Multiplicity Foundation},
+  year         = {2026},
+  month        = {April},
+  note         = {Commit \texttt{ece9421c},
+                  \texttt{github.com/MultiplicityTheory/PhaseMirror-HQ}}
+}
+
+@misc{vangelder2026appendix,
+  author       = {R.\ Van Gelder},
+  title        = {Mathematical Appendix: Explicit Proofs and Operator Norm
+                  Bounds for the Phase Mirror Dissonance Framework},
+  howpublished = {Amendment to Defensive Publication, Multiplicity Foundation},
+  year         = {2026},
+  month        = {April}
+}
+
+@misc{phasemirror-hq,
+  author       = {R.\ Van Gelder and R.\ Russell},
+  title        = {{PhaseMirror-HQ}: Phase Mirror Governance Oracle Repository},
+  howpublished = {GitHub},
+  year         = {2026},
+  url          = {https://github.com/MultiplicityTheory/PhaseMirror-HQ}
+}
+
+@misc{adr012,
+  author       = {R.\ Van Gelder},
+  title        = {{ADR-012}: Prime Contractivity Scaling Scope Binding},
+  howpublished = {Architecture Decision Record,
+                  \texttt{governance/adrs/},
+                  \texttt{MultiplicityTheory/PhaseMirror-HQ}},
+  year         = {2026},
+  month        = {April}
+}
+
+@misc{adr013,
+  author       = {R.\ Van Gelder},
+  title        = {{ADR-013}: {QKD} Pipeline Wiring and Composition Root},
+  howpublished = {Architecture Decision Record,
+                  \texttt{governance/adrs/},
+                  \texttt{MultiplicityTheory/PhaseMirror-HQ}},
+  year         = {2026},
+  month        = {April}
+}

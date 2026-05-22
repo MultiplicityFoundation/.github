@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Master articles index",
+  "type": "object",
+  "required": ["generated", "total", "articles"],
+  "properties": {
+    "generated": { "type": "string" },
+    "total": { "type": "integer", "minimum": 0 },
+    "articles": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["path", "title", "status"],
+        "properties": {
+          "path": { "type": "string" },
+          "title": { "type": "string" },
+          "status": { "type": "string" },
+          "tags": { "type": "array", "items": { "type": "string" } },
+          "created": { "type": "string" },
+          "updated": { "type": "string" },
+          "stratum": { "type": "string" },
+          "operator_class": { "type": "string" },
+          "xi_domain": { "type": "string" },
+          "csl_role": { "type": "string" }
+        }
+      }
+    }
+  }
+}

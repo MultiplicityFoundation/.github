@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Repository library index",
+  "type": "object",
+  "required": ["generated_utc", "version", "articles"],
+  "properties": {
+    "generated_utc": { "type": "string", "format": "date-time" },
+    "version": { "type": "string" },
+    "articles": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["title", "slug", "status", "path"],
+        "properties": {
+          "title": { "type": "string" },
+          "slug": { "type": "string" },
+          "status": { "type": "string" },
+          "path": { "type": "string" },
+          "tags": { "type": "array", "items": { "type": "string" } },
+          "version": { "type": "string" },
+          "created": { "type": "string" },
+          "updated": { "type": "string" },
+          "operator_class": { "type": "string" },
+          "stratum": { "type": "string" },
+          "xi_domain": { "type": "string" },
+          "csl_role": { "type": "string" }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Per-article JSON generated file schema",
+  "type": "object",
+  "required": ["slug", "path", "title", "status"],
+  "properties": {
+    "slug": { "type": "string" },
+    "path": { "type": "string" },
+    "title": { "type": "string" },
+    "status": { "type": "string" },
+    "version": { "type": "string" },
+    "tags": { "type": "array", "items": { "type": "string" } },
+    "created": { "type": "string" },
+    "updated": { "type": "string" },
+    "stratum": { "type": "string" },
+    "operator_class": { "type": "string" },
+    "xi_domain": { "type": "string" },
+    "csl_role": { "type": "string" }
+  }
+}

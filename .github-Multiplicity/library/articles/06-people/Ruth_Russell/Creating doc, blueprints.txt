@@ -1,0 +1,5 @@
+Creating doc, blueprints
+through GPt
+phase 2
+once you have a blueprint you can upload it to the docs and have copilot create an ADR development plan for it and it will create gated steps to complete it.
+006-010 are already in there and need to be completed so copilot will adapt whatever you add to whats already in there.

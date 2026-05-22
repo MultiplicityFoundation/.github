@@ -1,0 +1,784 @@
+% ════════════════════════════════════════════════════════════════════════════
+% references.bib
+% Bibliography for:
+%   "Prime-Indexed Contractive AGI: QARI, Q-Calculator, and PMD"
+%   DP-001/002/003 Defensive Publication Bundle + Mathematical Appendix
+%
+% Author:  Ryan Van Gelder, Multiplicity Foundation (501(c)(3))
+% Date:    April 25, 2026
+% Version: 1.0.0
+%
+% Organization:
+%   A.  Banach Space Theory and Fixed-Point Theorems
+%   B.  Contraction Mappings and Dynamical Systems
+%   C.  Convex Optimization and KKT Theory
+%   D.  Operator Theory and Logarithmic Norms
+%   E.  Input-to-State Stability
+%   F.  Sparse Optimization and L1 Projection
+%   G.  Prime Number Theory and Arithmetic Structures
+%   H.  Langlands Program and Automorphic Forms
+%   I.  Quantum Mechanics and Operator Algebras
+%   J.  AI Safety, Governance, and Formal Verification
+%   K.  Multiplicity Theory and Prior Art (This Work)
+% ════════════════════════════════════════════════════════════════════════════
+
+
+% ────────────────────────────────────────────────────────────────────────────
+% A. BANACH SPACE THEORY AND FIXED-POINT THEOREMS
+% ────────────────────────────────────────────────────────────────────────────
+
+@book{banach1932theorie,
+  author    = {Banach, Stefan},
+  title     = {Th{\'e}orie des Op{\'e}rations Lin{\'e}aires},
+  publisher = {Monografje Matematyczne},
+  address   = {Warsaw},
+  year      = {1932},
+  note      = {Original source of the Banach Fixed-Point (Contraction Mapping)
+               Theorem. The foundational result underlying all QARI convergence
+               guarantees.}
+}
+
+@book{dunford1958linear,
+  author    = {Dunford, Nelson and Schwartz, Jacob T.},
+  title     = {Linear Operators, Part {I}: General Theory},
+  publisher = {Interscience Publishers},
+  address   = {New York},
+  year      = {1958},
+  note      = {Canonical reference for operator norms, the operator algebra
+               $\mathcal{B}(\mathcal{H})$, and spectral theory used throughout
+               the appendix.}
+}
+
+@book{kreyszig1978introductory,
+  author    = {Kreyszig, Erwin},
+  title     = {Introductory Functional Analysis with Applications},
+  publisher = {Wiley},
+  address   = {New York},
+  year      = {1978},
+  note      = {Primary reference for Hilbert/Banach space projection theorems,
+               the Riesz representation theorem, and closed convex set
+               projections used in ACE correctness proofs.}
+}
+
+@book{megginson1998introduction,
+  author    = {Megginson, Robert E.},
+  title     = {An Introduction to {Banach} Space Theory},
+  publisher = {Springer},
+  address   = {New York},
+  year      = {1998},
+  series    = {Graduate Texts in Mathematics},
+  volume    = {183},
+  doi       = {10.1007/978-1-4612-0603-3},
+  note      = {Rigorous treatment of operator norms, submultiplicativity,
+               and the triangle inequality used in Propositions 2.1 and 2.2
+               of the appendix.}
+}
+
+@book{reed1980functional,
+  author    = {Reed, Michael and Simon, Barry},
+  title     = {Methods of Modern Mathematical Physics, {Vol.\ I}:
+               Functional Analysis},
+  publisher = {Academic Press},
+  address   = {New York},
+  edition   = {revised},
+  year      = {1980},
+  note      = {Operator algebra on Hilbert spaces; spectral norm bounds;
+               commutator estimates used in the PMD commutator bound
+               (Proposition 2.3).}
+}
+
+
+% ────────────────────────────────────────────────────────────────────────────
+% B. CONTRACTION MAPPINGS AND DYNAMICAL SYSTEMS
+% ────────────────────────────────────────────────────────────────────────────
+
+@book{lohmiller1998contraction,
+  author    = {Lohmiller, Winfried and Slotine, Jean-Jacques E.},
+  title     = {On Contraction Analysis for Non-linear Systems},
+  journal   = {Automatica},
+  volume    = {34},
+  number    = {6},
+  pages     = {683--696},
+  year      = {1998},
+  doi       = {10.1016/S0005-1098(98)00019-3},
+  note      = {Seminal paper on contraction analysis for nonlinear systems;
+               directly informs the QARI incremental contraction theorem
+               (Theorem 4.1) and the continuous-time logarithmic norm
+               condition (Theorem 6.1).}
+}
+
+@article{pavlov2006convergent,
+  author    = {Pavlov, Alexey and van de Wouw, Nathan and Nijmeijer, Henk},
+  title     = {Uniform Output Regulation of Nonlinear Systems:
+               A Convergent Dynamics Approach},
+  publisher = {Birkh{\"a}user},
+  address   = {Boston},
+  year      = {2006},
+  doi       = {10.1007/978-0-8176-4445-2},
+  note      = {Convergent systems and incremental stability; used in the
+               ISS bound derivation (Theorem 4.2) and fixed-point analysis
+               (Theorem 4.3).}
+}
+
+@article{sontag1989smooth,
+  author    = {Sontag, Eduardo D.},
+  title     = {Smooth Stabilization Implies Coprime Factorization},
+  journal   = {IEEE Transactions on Automatic Control},
+  volume    = {34},
+  number    = {4},
+  pages     = {435--443},
+  year      = {1989},
+  doi       = {10.1109/9.28018},
+  note      = {Origin of input-to-state stability (ISS) framework; Theorem
+               4.2 of the appendix is an operator-algebraic instantiation of
+               ISS for the QARI dynamics.}
+}
+
+@book{vidyasagar2002nonlinear,
+  author    = {Vidyasagar, Mathukumalli},
+  title     = {Nonlinear Systems Analysis},
+  publisher = {SIAM},
+  address   = {Philadelphia},
+  edition   = {2nd},
+  year      = {2002},
+  doi       = {10.1137/1.9780898719185},
+  note      = {Lyapunov stability and contraction mappings for discrete-time
+               systems; geometric decay (Corollary 4.1.1) parallels the
+               proof structure here.}
+}
+
+@article{rugh1996linear,
+  author    = {Rugh, Wilson J.},
+  title     = {Linear System Theory},
+  publisher = {Prentice-Hall},
+  address   = {Upper Saddle River, NJ},
+  edition   = {2nd},
+  year      = {1996},
+  note      = {Linear time-varying (LTV) affine systems; the QARI core is
+               formulated as an LTV affine system with a nonlinear correction.
+               Chapter 4 covers stability of discrete LTV systems.}
+}
+
+
+% ────────────────────────────────────────────────────────────────────────────
+% C. CONVEX OPTIMIZATION AND KKT THEORY
+% ────────────────────────────────────────────────────────────────────────────
+
+@book{boyd2004convex,
+  author    = {Boyd, Stephen and Vandenberghe, Lieven},
+  title     = {Convex Optimization},
+  publisher = {Cambridge University Press},
+  address   = {Cambridge},
+  year      = {2004},
+  url       = {https://web.stanford.edu/~boyd/cvxbook/},
+  note      = {Primary reference for KKT conditions (Chapter 5), Slater's
+               constraint qualification, strong duality, and the projection
+               theorem (Section 8.1.1). Theorems 3.2--3.4 of the appendix
+               rely directly on this material.}
+}
+
+@book{rockafellar1970convex,
+  author    = {Rockafellar, R. Tyrrell},
+  title     = {Convex Analysis},
+  publisher = {Princeton University Press},
+  address   = {Princeton, NJ},
+  year      = {1970},
+  note      = {Subdifferential calculus for $|w_p|$; the KKT stationarity
+               condition in Theorem 3.2 uses the subdifferential
+               $\partial|w_p^*|$ from this work.}
+}
+
+@book{bertsekas1999nonlinear,
+  author    = {Bertsekas, Dimitri P.},
+  title     = {Nonlinear Programming},
+  publisher = {Athena Scientific},
+  address   = {Belmont, MA},
+  edition   = {2nd},
+  year      = {1999},
+  note      = {Lagrangian duality, complementary slackness, and bisection
+               methods for dual variable recovery; Proposition 3.3 on
+               monotone bisection for $\lambda^*$ follows Chapter 3.}
+}
+
+@article{duchi2008efficient,
+  author    = {Duchi, John and Shalev-Shwartz, Shai and Singer, Yoram
+               and Chandra, Tushar},
+  title     = {Efficient Projections onto the $\ell_1$-Ball for Learning
+               in High Dimensions},
+  booktitle = {Proceedings of the 25th International Conference on Machine
+               Learning (ICML)},
+  pages     = {272--279},
+  year      = {2008},
+  doi       = {10.1145/1390156.1390191},
+  note      = {The unweighted $\ell_1$-ball projection algorithm; the ACE
+               projection (DP-001) generalizes this to a weighted budget
+               $\sum_p b_p|w_p| \leq R$ with per-prime certificates $b_p$.
+               Proposition 3.3 extends the bisection argument from this paper.}
+}
+
+@article{condat2016fast,
+  author    = {Condat, Laurent},
+  title     = {Fast Projection onto the Simplex and the $\ell_1$ Ball},
+  journal   = {Mathematical Programming},
+  volume    = {158},
+  number    = {1},
+  pages     = {575--585},
+  year      = {2016},
+  doi       = {10.1007/s10107-015-0946-6},
+  note      = {Efficient $O(n)$ average-case projection onto $\ell_1$ ball;
+               the bisection approach in ACE achieves $O(n \log n)$ worst case,
+               reducible to $O(n)$ with sorting. Directly informs the
+               complexity claim in Theorem 3.1.}
+}
+
+
+% ────────────────────────────────────────────────────────────────────────────
+% D. OPERATOR THEORY AND LOGARITHMIC NORMS
+% ────────────────────────────────────────────────────────────────────────────
+
+@article{dahlquist1958stability,
+  author    = {Dahlquist, Germund},
+  title     = {Stability and Error Bounds in the Numerical Integration
+               of Ordinary Differential Equations},
+  journal   = {Transactions of the Royal Institute of Technology},
+  volume    = {130},
+  year      = {1958},
+  address   = {Stockholm},
+  note      = {Original introduction of the logarithmic norm (matrix measure)
+               $\mu(A)$; the continuous-time contraction condition in Theorem
+               6.1 directly uses this concept.}
+}
+
+@book{strom1975logarithmic,
+  author    = {Str{\"o}m, Tore},
+  title     = {On Logarithmic Norms},
+  journal   = {SIAM Journal on Numerical Analysis},
+  volume    = {12},
+  number    = {5},
+  pages     = {741--753},
+  year      = {1975},
+  doi       = {10.1137/0712055},
+  note      = {Systematic treatment of logarithmic norms in various matrix
+               norms and their application to differential equation stability;
+               grounds Definition 6.1 and Theorem 6.1.}
+}
+
+@book{halmos1982hilbert,
+  author    = {Halmos, Paul R.},
+  title     = {A Hilbert Space Problem Book},
+  publisher = {Springer},
+  address   = {New York},
+  edition   = {2nd},
+  year      = {1982},
+  series    = {Graduate Texts in Mathematics},
+  volume    = {19},
+  doi       = {10.1007/978-1-4684-9330-6},
+  note      = {Orthogonal projectors $P$ with $P^2 = P$, $\|P\| \leq 1$;
+               the ethics projector (Definition 1.3) and its non-commutativity
+               penalty derive from results in this text.}
+}
+
+@article{golub1996matrix,
+  author    = {Golub, Gene H. and Van Loan, Charles F.},
+  title     = {Matrix Computations},
+  publisher = {Johns Hopkins University Press},
+  address   = {Baltimore},
+  edition   = {3rd},
+  year      = {1996},
+  note      = {Spectral norm (largest singular value) computation via SVD;
+               the \texttt{op\_norm()} function in the reference implementation
+               computes $\|A\|_2 = \sigma_{\max}(A)$ as per Chapter 2 of
+               this reference.}
+}
+
+
+% ────────────────────────────────────────────────────────────────────────────
+% E. INPUT-TO-STATE STABILITY
+% ────────────────────────────────────────────────────────────────────────────
+
+@article{sontag1995characterizations,
+  author    = {Sontag, Eduardo D. and Wang, Yuan},
+  title     = {On Characterizations of the Input-to-State Stability Property},
+  journal   = {Systems \& Control Letters},
+  volume    = {24},
+  number    = {5},
+  pages     = {351--359},
+  year      = {1995},
+  doi       = {10.1016/0167-6911(94)00050-6},
+  note      = {Lyapunov characterization of ISS; the ISS bound in Theorem
+               4.2 is an operator-norm instantiation of the KL+gamma
+               characterization from this paper.}
+}
+
+@book{sontag1998mathematical,
+  author    = {Sontag, Eduardo D.},
+  title     = {Mathematical Control Theory: Deterministic Finite Dimensional
+               Systems},
+  publisher = {Springer},
+  address   = {New York},
+  edition   = {2nd},
+  year      = {1998},
+  series    = {Texts in Applied Mathematics},
+  volume    = {6},
+  doi       = {10.1007/978-1-4612-0577-7},
+  note      = {Comprehensive ISS treatment; the QARI ISS bound (Theorem 4.2)
+               follows the discrete-time Gronwall argument in Chapter 7.}
+}
+
+
+% ────────────────────────────────────────────────────────────────────────────
+% F. SPARSE OPTIMIZATION AND L1 PROJECTION
+% ────────────────────────────────────────────────────────────────────────────
+
+@article{tibshirani1996regression,
+  author    = {Tibshirani, Robert},
+  title     = {Regression Shrinkage and Selection via the Lasso},
+  journal   = {Journal of the Royal Statistical Society: Series B},
+  volume    = {58},
+  number    = {1},
+  pages     = {267--288},
+  year      = {1996},
+  doi       = {10.1111/j.2517-6161.1996.tb02080.x},
+  note      = {Lasso regularization and $\ell_1$ penalization; establishes the
+               soft-threshold operator $\mathrm{sign}(x)\max(|x|-\lambda, 0)$
+               used in the KKT solution \eqref{eq:kkt-primal}.}
+}
+
+@article{beck2009fast,
+  author    = {Beck, Amir and Teboulle, Marc},
+  title     = {A Fast Iterative Shrinkage-Thresholding Algorithm for
+               Linear Inverse Problems},
+  journal   = {SIAM Journal on Imaging Sciences},
+  volume    = {2},
+  number    = {1},
+  pages     = {183--202},
+  year      = {2009},
+  doi       = {10.1137/080716542},
+  note      = {FISTA proximal gradient; the ACE projection is the proximal
+               operator of the weighted $\ell_1$ norm, related to the
+               shrinkage-thresholding step in this paper.}
+}
+
+@article{parikh2014proximal,
+  author    = {Parikh, Neal and Boyd, Stephen},
+  title     = {Proximal Algorithms},
+  journal   = {Foundations and Trends in Optimization},
+  volume    = {1},
+  number    = {3},
+  pages     = {127--239},
+  year      = {2014},
+  doi       = {10.1561/2400000003},
+  note      = {Comprehensive survey of proximal operators; the ACE projection
+               is the proximal operator $\mathrm{prox}_{\lambda f}$ for
+               $f(\mathbf{w}) = \sum_p b_p|w_p|$, as described in Section 6.3.}
+}
+
+@article{moreau1965proximite,
+  author    = {Moreau, Jean-Jacques},
+  title     = {Proximit{\'e} et dualit{\'e} dans un espace hilbertien},
+  journal   = {Bulletin de la Soci{\'e}t{\'e} Math{\'e}matique de France},
+  volume    = {93},
+  pages     = {273--299},
+  year      = {1965},
+  doi       = {10.24033/bsmf.1625},
+  note      = {Original definition of the proximal operator; Theorem 3.1
+               (existence and uniqueness of ACE projection) is a direct
+               corollary of Moreau's projection theorem in Hilbert space.}
+}
+
+
+% ────────────────────────────────────────────────────────────────────────────
+% G. PRIME NUMBER THEORY AND ARITHMETIC STRUCTURES
+% ────────────────────────────────────────────────────────────────────────────
+
+@book{hardy1979introduction,
+  author    = {Hardy, Godfrey Harold and Wright, Edward Maitland},
+  title     = {An Introduction to the Theory of Numbers},
+  publisher = {Oxford University Press},
+  address   = {Oxford},
+  edition   = {5th},
+  year      = {1979},
+  note      = {Foundational number theory reference; prime factorization,
+               unique factorization theorem, and the distribution of primes
+               underlying the prime-indexed block structure in Definition 1.1.}
+}
+
+@book{apostol1976introduction,
+  author    = {Apostol, Tom M.},
+  title     = {Introduction to Analytic Number Theory},
+  publisher = {Springer},
+  address   = {New York},
+  year      = {1976},
+  series    = {Undergraduate Texts in Mathematics},
+  doi       = {10.1007/978-1-4757-5579-4},
+  note      = {Dirichlet series, L-functions, and multiplicative functions;
+               provides the analytic number-theoretic foundation for the
+               prime-indexed weight structure and the Multiplicity Theory
+               framework.}
+}
+
+@book{ireland1990classical,
+  author    = {Ireland, Kenneth and Rosen, Michael},
+  title     = {A Classical Introduction to Modern Number Theory},
+  publisher = {Springer},
+  address   = {New York},
+  edition   = {2nd},
+  year      = {1990},
+  series    = {Graduate Texts in Mathematics},
+  volume    = {84},
+  doi       = {10.1007/978-1-4757-2103-4},
+  note      = {Algebraic number theory and the arithmetic of prime ideals;
+               provides structural background for prime-indexed multiplicative
+               decompositions in Multiplicity Theory.}
+}
+
+@article{riemann1859ueber,
+  author    = {Riemann, Bernhard},
+  title     = {{\"U}ber die Anzahl der Primzahlen unter einer gegebenen
+               Gr{\"o}{\ss}e},
+  journal   = {Monatsberichte der Berliner Akademie},
+  year      = {1859},
+  note      = {The Riemann zeta function $\zeta(s)$ and its connection to prime
+               distribution; the Section 14 boundary demarcates claims that
+               reduce to operator inequalities from those that depend on
+               unresolved zeta-function conjectures.}
+}
+
+@book{serre1973course,
+  author    = {Serre, Jean-Pierre},
+  title     = {A Course in Arithmetic},
+  publisher = {Springer},
+  address   = {New York},
+  year      = {1973},
+  series    = {Graduate Texts in Mathematics},
+  volume    = {7},
+  doi       = {10.1007/978-1-4684-9884-4},
+  note      = {Modular forms, $p$-adic numbers, and arithmetic geometry;
+               provides the algebraic context for prime-indexed recursive
+               structures and the interface with the Langlands program.}
+}
+
+
+% ────────────────────────────────────────────────────────────────────────────
+% H. LANGLANDS PROGRAM AND AUTOMORPHIC FORMS
+% ────────────────────────────────────────────────────────────────────────────
+
+@article{langlands1967letter,
+  author    = {Langlands, Robert P.},
+  title     = {Letter to {A}ndr{\'e} {W}eil},
+  year      = {1967},
+  note      = {The original Langlands letter proposing the Langlands program:
+               a web of conjectures connecting Galois representations,
+               automorphic forms, and L-functions. The Langlands Prism module
+               of Q-Calculator draws on this correspondence. Held at the
+               Institute for Advanced Study, Princeton.
+               \url{https://publications.ias.edu/langlands/section/2}},
+  url       = {https://publications.ias.edu/langlands/section/2}
+}
+
+@book{bump1997automorphic,
+  author    = {Bump, Daniel},
+  title     = {Automorphic Forms and Representations},
+  publisher = {Cambridge University Press},
+  address   = {Cambridge},
+  year      = {1997},
+  series    = {Cambridge Studies in Advanced Mathematics},
+  volume    = {55},
+  doi       = {10.1017/CBO9780511609572},
+  note      = {L-functions and automorphic representations; the Langlands
+               Prism abstract base class maps automorphic L-function structure
+               to operator norm bounds pending QuTiP simulation binding
+               (Sprint 4).}
+}
+
+@book{gelbart1975automorphic,
+  author    = {Gelbart, Stephen S.},
+  title     = {Automorphic Forms on Ad{\`e}le Groups},
+  publisher = {Princeton University Press},
+  address   = {Princeton, NJ},
+  year      = {1975},
+  series    = {Annals of Mathematics Studies},
+  volume    = {83},
+  note      = {Ad{\`e}lic formulation of automorphic forms; provides the
+               algebraic machinery for the abstract Langlands resonance
+               encoding in the Q-Calculator corpus.}
+}
+
+@article{taylor2002galois,
+  author    = {Taylor, Richard},
+  title     = {Galois Representations},
+  journal   = {Annals of Mathematics},
+  volume    = {141},
+  pages     = {899--905},
+  year      = {2002},
+  note      = {Survey of Galois representations and their connection to
+               automorphic forms; the Langlands Prism blueprint references
+               this correspondence as motivation for prime-indexed operator
+               resonance encoding.}
+}
+
+
+% ────────────────────────────────────────────────────────────────────────────
+% I. QUANTUM MECHANICS AND OPERATOR ALGEBRAS
+% ────────────────────────────────────────────────────────────────────────────
+
+@book{dirac1930principles,
+  author    = {Dirac, Paul Adrien Maurice},
+  title     = {The Principles of Quantum Mechanics},
+  publisher = {Oxford University Press},
+  address   = {Oxford},
+  year      = {1930},
+  note      = {Bra-ket notation, Hermitian operators, and measurement theory;
+               provides the quantum mechanical operator formalism on which
+               the QARI coherence budget $q_t$ and the quantum-recursive
+               state model are built.}
+}
+
+@book{vonneumann1932mathematische,
+  author    = {von Neumann, John},
+  title     = {Mathematische Grundlagen der Quantenmechanik},
+  publisher = {Springer},
+  address   = {Berlin},
+  year      = {1932},
+  note      = {Mathematical foundations of quantum mechanics; von Neumann
+               algebras and density operators are the background structure
+               for the Hilbert space setting $(\mathcal{H}, \|\cdot\|)$
+               in which QARI operates.}
+}
+
+@book{bratteli1987operator,
+  author    = {Bratteli, Ola and Robinson, Derek W.},
+  title     = {Operator Algebras and Quantum Statistical Mechanics,
+               {Vol.\ 1}},
+  publisher = {Springer},
+  address   = {Berlin},
+  edition   = {2nd},
+  year      = {1987},
+  doi       = {10.1007/978-3-662-02520-8},
+  note      = {$C^*$-algebras, $W^*$-algebras, and the operator-algebraic
+               formulation of quantum systems; the multiplicity operator
+               $\Lambda^{\mathrm{op}}_m(t)$ is naturally interpreted in
+               this framework.}
+}
+
+@article{johansson2013qutip,
+  author    = {Johansson, J.\ R. and Nation, P.\ D. and Nori, Franco},
+  title     = {{QuTiP 2}: A {Python} framework for the dynamics of
+               open quantum systems},
+  journal   = {Computer Physics Communications},
+  volume    = {184},
+  number    = {4},
+  pages     = {1234--1240},
+  year      = {2013},
+  doi       = {10.1016/j.cpc.2012.11.019},
+  note      = {QuTiP simulation library used in Sprint 4 for binding the
+               Langlands resonance encoding to concrete operator bounds.
+               Until Sprint 4 completion, Langlands claims remain above the
+               Section 14 boundary.}
+}
+
+@book{wilde2017quantum,
+  author    = {Wilde, Mark M.},
+  title     = {Quantum Information Theory},
+  publisher = {Cambridge University Press},
+  address   = {Cambridge},
+  edition   = {2nd},
+  year      = {2017},
+  doi       = {10.1017/9781316809976},
+  note      = {Quantum channels, completely positive maps, and entropy
+               bounds; informs the $\eta_t$ entropy load interpretation
+               in the QARIState and the $q_t + \eta_t < 1$ master inequality.}
+}
+
+
+% ────────────────────────────────────────────────────────────────────────────
+% J. AI SAFETY, GOVERNANCE, AND FORMAL VERIFICATION
+% ────────────────────────────────────────────────────────────────────────────
+
+@book{russell2019human,
+  author    = {Russell, Stuart},
+  title     = {Human Compatible: Artificial Intelligence and the Problem
+               of Control},
+  publisher = {Viking},
+  address   = {New York},
+  year      = {2019},
+  note      = {Motivation for provably safe AI systems; the QARI safety
+               invariant $q_t + \eta_t < 1$ and the PMD oracle are
+               architectural responses to the corrigibility and value
+               alignment problems raised here.}
+}
+
+@article{leike2018ai,
+  author    = {Leike, Jan and Martic, Miljan and Krakovna, Victoria
+               and Ortega, Pedro A. and Everitt, Tom and Lefrancq,
+               Andrew and Orseau, Laurent and Legg, Shane},
+  title     = {{AI} Safety Gridworlds},
+  journal   = {arXiv preprint},
+  volume    = {arXiv:1711.09883},
+  year      = {2018},
+  url       = {https://arxiv.org/abs/1711.09883},
+  note      = {Safety environments and evaluation metrics; informs the
+               PMD dissonance severity scoring and machine decision taxonomy
+               (\textsc{pass}/\textsc{warn}/\textsc{block}).}
+}
+
+@book{platzer2018logical,
+  author    = {Platzer, Andr{\'e}},
+  title     = {Logical Foundations of Cyber-Physical Systems},
+  publisher = {Springer},
+  address   = {Cham},
+  year      = {2018},
+  doi       = {10.1007/978-3-319-63588-0},
+  note      = {Differential dynamic logic and runtime verification of
+               hybrid systems; the PMD callable protocol is an operational
+               instantiation of the monitor synthesis approach in Chapter 16.}
+}
+
+@article{pnueli1977temporal,
+  author    = {Pnueli, Amir},
+  title     = {The Temporal Logic of Programs},
+  booktitle = {Proceedings of the 18th Annual Symposium on Foundations
+               of Computer Science (FOCS)},
+  pages     = {46--57},
+  year      = {1977},
+  doi       = {10.1109/SFCS.1977.32},
+  note      = {Temporal logic for program verification; the PMD L0 invariants
+               $\mathcal{I}_1$--$\mathcal{I}_4$ are LTL safety properties
+               of the form $\square (q_t + \eta_t < 1)$.}
+}
+
+@book{baier2008principles,
+  author    = {Baier, Christel and Katoen, Joost-Pieter},
+  title     = {Principles of Model Checking},
+  publisher = {MIT Press},
+  address   = {Cambridge, MA},
+  year      = {2008},
+  note      = {Model checking and runtime verification methodology; the
+               PMD L0/L1/L2 tier decomposition follows the bounded/unbounded
+               property hierarchy in Chapter 5.}
+}
+
+@article{clarke1982design,
+  author    = {Clarke, Edmund M. and Emerson, E. Allen},
+  title     = {Design and Synthesis of Synchronization Skeletons Using
+               Branching Time Temporal Logic},
+  booktitle = {Workshop on Logic of Programs},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {131},
+  pages     = {52--71},
+  year      = {1982},
+  doi       = {10.1007/BFb0025774},
+  note      = {CTL model checking; the PMD block recommendation logic follows
+               the synthesis-from-spec pattern introduced here.}
+}
+
+@article{open_policy_agent2021,
+  author    = {{Open Policy Agent Contributors}},
+  title     = {Open Policy Agent},
+  year      = {2021},
+  url       = {https://www.openpolicyagent.org},
+  note      = {Policy-as-code engine; the PMD rule registry (MD-001 through
+               MD-N) is architecturally analogous to OPA Rego policies but
+               grounded in operator norm inequalities rather than predicate
+               logic.}
+}
+
+@article{hawblitzel2014ironclad,
+  author    = {Hawblitzel, Chris and Howell, Jon and Lorch, Jacob R.
+               and Narayan, Arjun and Parno, Bryan and Zhang, Danfeng
+               and Zill, Brian},
+  title     = {Ironclad Apps: End-to-End Security via Automated
+               Full-System Verification},
+  booktitle = {Proceedings of the 11th USENIX Symposium on Operating
+               Systems Design and Implementation (OSDI)},
+  pages     = {165--181},
+  year      = {2014},
+  note      = {Formally verified system software; the certified audit log
+               SaaS surface is motivated by the end-to-end verification
+               paradigm established here.}
+}
+
+
+% ────────────────────────────────────────────────────────────────────────────
+% K. MULTIPLICITY THEORY AND PRIOR ART (THIS WORK)
+% ────────────────────────────────────────────────────────────────────────────
+
+@techreport{vangelder2026dp001,
+  author      = {Van Gelder, Ryan},
+  title       = {Defensive Publication {DP-001}: Prime-Indexed, {KKT}-Constrained
+                 Operator Weight Normalization via Arithmetic Control Engine},
+  institution = {Multiplicity Foundation},
+  type        = {Defensive Publication},
+  number      = {DP-001},
+  year        = {2026},
+  month       = apr,
+  note        = {Dated prior art disclosure. Repository commit:
+                 \texttt{68ae54d0c8efb59e30e7e4ee718beb4911e3ea90}.
+                 \url{https://github.com/MultiplicityFoundation/PhaseMirror-HQ}}
+}
+
+@techreport{vangelder2026dp002,
+  author      = {Van Gelder, Ryan},
+  title       = {Defensive Publication {DP-002}: Callable Invariant-Consistency
+                 Oracle with Tiered Enforcement for Recursive {AI} Governance
+                 ({Phase Mirror Dissonance Protocol})},
+  institution = {Multiplicity Foundation},
+  type        = {Defensive Publication},
+  number      = {DP-002},
+  year        = {2026},
+  month       = apr,
+  note        = {Dated prior art disclosure.
+                 \url{https://github.com/MultiplicityFoundation/PhaseMirror-HQ}}
+}
+
+@techreport{vangelder2026dp003,
+  author      = {Van Gelder, Ryan},
+  title       = {Defensive Publication {DP-003}: Prime-Indexed Block Selector
+                 Binding with Propose-Project-Certify State Transition for
+                 Recursive {AGI} ({QARIState} Lifecycle)},
+  institution = {Multiplicity Foundation},
+  type        = {Defensive Publication},
+  number      = {DP-003},
+  year        = {2026},
+  month       = apr,
+  note        = {Dated prior art disclosure.
+                 \url{https://github.com/MultiplicityFoundation/PhaseMirror-HQ}}
+}
+
+@techreport{vangelder2026qarispec,
+  author      = {Van Gelder, Ryan},
+  title       = {{Q-RAGI}: Contractive {LTV} Affine Core --- Full Specification
+                 and Reference Code},
+  institution = {Multiplicity Foundation},
+  type        = {Internal Technical Specification},
+  year        = {2026},
+  month       = mar,
+  note        = {Source specification for the QARI dynamics, ACE projection,
+                 and operator norm bounds. SHA:
+                 \texttt{68ae54d0c8efb59e30e7e4ee718beb4911e3ea90}.
+                 \url{https://github.com/MultiplicityFoundation/PhaseMirror-HQ}}
+}
+
+@techreport{vangelder2026pmd,
+  author      = {Van Gelder, Ryan},
+  title       = {The Mirror Dissonance Protocol},
+  institution = {Multiplicity Foundation},
+  type        = {Internal Technical Specification},
+  year        = {2026},
+  month       = mar,
+  note        = {Source specification for the PMD callable protocol,
+                 L0/L1/L2 tier decomposition, and dissonance report schema.
+                 SHA: \texttt{37a651982558f335b038fd8250e60713c17def52}.
+                 \url{https://github.com/MultiplicityFoundation/PhaseMirror-HQ}}
+}
+
+@misc{vangelder2026multiplicity,
+  author    = {Van Gelder, Ryan},
+  title     = {Multiplicity Theory: A Prime-Indexed Recursively Stable
+               Mathematical Framework},
+  year      = {2026},
+  note      = {Original theoretical framework underlying the prime-indexed
+               block structure, recursive relational decomposition, and the
+               Section~14 boundary between provable and conjectural claims.
+               Multiplicity Foundation, Bridgeville, PA.}
+}

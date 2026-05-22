@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "title",
+    "slug",
+    "status",
+    "tags",
+    "created",
+    "updated",
+    "version",
+    "operator_class",
+    "stratum"
+  ],
+  "properties": {
+    "title": { "type": "string", "minLength": 3 },
+    "slug": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+    "status": { "type": "string", "enum": ["draft", "review", "stable", "deprecated"] },
+    "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+
+    "authors": { "type": "array", "items": { "type": "string" } },
+
+    "created": { "type": "string", "format": "date" },
+    "updated": { "type": "string", "format": "date" },
+
+    "operator_class": {
+      "type": "string",
+      "enum": ["axiom", "operator", "functional", "law", "protocol", "implementation", "case-study"]
+    },
+
+    "stratum": {
+      "type": "string",
+      "enum": ["S0","S1","S2","S3","S4","S5","S6","S7","S8","S9","S10","S11","S12","S13","S+1"]
+    },
+
+    "xi_domain": {
+      "type": "string",
+      "enum": ["Lambda", "Xi", "H_lawful", "delta_eth", "drift", "governance", "proof", "runtime", "other"]
+    },
+    "xi_artifact": {
+      "type": "string",
+      "enum": ["definition", "equation", "spec", "pseudocode", "code", "benchmark", "proof-sketch"]
+    },
+
+    "csl_role": {
+      "type": "string",
+      "enum": ["glyph", "scroll", "monad", "transformer", "resonance-tensor", "dictionary-entry", "example", "none"]
+    },
+    "csl_terms": { "type": "array", "items": { "type": "string" } },
+
+    "claims_level": {
+      "type": "string",
+      "enum": ["operator-defined", "runtime-evidence", "mathematical-derivation", "speculative"]
+    },
+
+    "tags": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+    "related": { "type": "array", "items": { "type": "string" } },
+    "depends_on": { "type": "array", "items": { "type": "string" } },
+
+    "audience": { "type": "string", "enum": ["research", "engineering", "governance", "general"] },
+    "complexity": { "type": "string", "enum": ["intro", "intermediate", "advanced"] }
+  },
+  "additionalProperties": true
+}

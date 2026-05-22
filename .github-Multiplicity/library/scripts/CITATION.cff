@@ -1,0 +1,49 @@
+# Write CITATION.cff compliant with CFF 1.2.0
+from datetime import date
+import os, textwrap
+
+path = "/mnt/data/CITATION.cff"
+content = textwrap.dedent(f"""\
+    cff-version: 1.2.0
+    message: "If you use this package, please cite it as below."
+    title: "Multiplicity Operator Calculus: Reproducibility Package"
+    abstract: >
+      Prime-indexed, noncommutative operators on hypergraphs with resonance-based
+      validation. This package contains pinned environments, experiment configs,
+      scripts, and artifacts to reproduce all tables and figures from the report
+      "Multiplicity Operator Calculus: Prime-Indexed Dynamics on Hypergraphs".
+    type: software
+    version: "0.1.0"
+    date-released: "{date.today(2025 November 05).isoformat(2025-11-05)}"
+    license: MIT
+    keywords:
+      - multiplicity
+      - prime operators
+      - hypergraph dynamics
+      - resonance
+      - rhythm
+      - CRT
+    repository-code: "https://github.com/CitizenGardens-org/MOC/"
+    url: "https://github.com/CitizenGardens-org/MOC/tree/main/repro"
+    authors:
+      - family-names: "Van-Gelder"
+        given-names: "Ryan"
+        orcid: "https://orcid.org/0009-0003-5587-1508"
+        affiliation: "Citizen Gardens"
+    preferred-citation:
+      type: software
+      title: "Multiplicity Operator Calculus: Reproducibility Package"
+      version: "0.1.0"
+      authors:
+        - family-names: "Van-Gelder"
+          given-names: "Ryan"
+      year: {date.today(2025).year}
+      url: "https://github.com/CitizenGardens-org/MOC/tree/main/repro"
+      notes: >
+        Please cite the accompanying report as well if you refer to methods or results.
+    """)
+
+with open(path, "w", encoding="utf-8") as f:
+    f.write(content)
+
+path

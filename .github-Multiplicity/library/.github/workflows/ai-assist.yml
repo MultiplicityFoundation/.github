@@ -1,0 +1,89 @@
+name: ai-assist
+
+on:
+  workflow_dispatch:
+    inputs:
+      path:
+        description: "Article path"
+        required: true
+      mode:
+        description: "revise or draft"
+        required: true
+        default: "revise"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  assist:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install deps
+        run: pip install pyyaml
+
+      - name: Install shellcheck (koalaman action)
+        uses: koalaman/shellcheck-action@v1
+
+      - name: Validate 'run' blocks with shellcheck
+        run: |
+          python - << 'PY'
+            import yaml, glob, subprocess
+            idx=0
+            errs=0
+            for y in glob.glob('.github/workflows/*.yml'):
+              with open(y) as fh:
+                try:
+                  data = yaml.safe_load(fh)
+                except Exception:
+                  continue
+              def extract(node):
+                global idx, errs
+                if isinstance(node, dict):
+                  for k, v in node.items():
+                    if k == 'run' and isinstance(v, str):
+                      path = f'/tmp/runblock-{idx}.sh'
+                      with open(path, 'w') as out:
+                        out.write(v)
+                      try:
+                        subprocess.run(['shellcheck', path], check=True)
+                      except subprocess.CalledProcessError:
+                        errs += 1
+                      idx += 1
+                    else:
+                      extract(v)
+                elif isinstance(node, list):
+                  for i in node:
+                    extract(i)
+              extract(data)
+            if errs:
+              raise SystemExit(2)
+            print('Shellcheck runblocks OK')
+          PY
+      - name: Run assist script
+        env:
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+          ARTICLE_PATH: ${{ inputs.path }}
+          MODE: ${{ inputs.mode }}
+        run: python scripts/ai_assist.py
+      - name: Create PR
+        run: |
+          branch="ai/${{ inputs.mode }}-$(date +%Y%m%d%H%M%S)"
+          git checkout -b "$branch"
+          git add -A
+          if git status --porcelain | grep .; then
+            git commit -m "ai: ${{ inputs.mode }} ${{ inputs.path }}"
+            git push origin "$branch"
+            gh pr create \
+              --title "AI ${{ inputs.mode }}: ${{ inputs.path }}" \
+              --body "Automated suggestion. Human review required." \
+              --base ${{ github.event.repository.default_branch }} \
+              --head "$branch"
+          else
+            echo "No changes produced."
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

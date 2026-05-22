@@ -1,0 +1,55 @@
+name: Markdown Lint
+
+on:
+  pull_request:
+    paths:
+      - "**/*.md"
+      - ".markdownlint.json"
+      - "package.json"
+      - ".github/workflows/markdownlint.yml"
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install markdownlint
+        run: npm install -D markdownlint-cli
+
+      - name: Lint Markdown (capture failures)
+        id: mdlint
+        run: |
+          set +e
+          npx markdownlint-cli "**/*.md" --ignore node_modules --ignore .git
+          rc=$?
+          echo "mdlint_exit=$rc" >> $GITHUB_OUTPUT
+          if [ $rc -ne 0 ]; then
+            echo "Lint failed with exit $rc"
+          fi
+          exit 0
+
+      - name: Post PR comment if lint failed
+        if: ${{ github.event_name == 'pull_request' }}
+        uses: peter-evans/create-or-update-comment@23ff15729ef2fc348714a3bb66d2f655ca9066f2  # v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ github.event.pull_request.number }}
+          body: |
+            :warning: Markdown lint check completed.
+
+            If issues were found, please run one of the following to auto-fix:
+            ```bash
+            npm run lint:md:fix
+            # or
+            ./scripts/lint_markdown.sh
+            ```
+            See `README.md` for more details.
+        continue-on-error: true

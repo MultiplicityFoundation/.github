@@ -1,0 +1,35 @@
+ADR-013 — Background Subscription Polling
+Status: Accepted
+Date: 2026-03-23
+Segment: 13
+
+Context
+CachingProvider (Segment 11C) uses lazy eviction — a fresh fetch is only triggered when a ListSubscriptions call arrives after the cache entry has expired. This causes:
+
+Cold-start latency — every dispatcher worker blocks on an outbound HTTP call to PhaseMirror-HQ before delivery can begin on first use or after TTL expiry.
+Thundering herd on expiry — multiple concurrent workers all observe a stale entry simultaneously and independently issue HTTP requests to HQ, amplifying load at the worst possible moment.
+No singleflight protection — concurrent cache misses are not coalesced; each caller issues its own HTTP request.
+Decision
+Extend CachingProvider with an optional background refresh goroutine that proactively re-fetches every known cache key on a configurable poll interval.
+
+Aspect	Choice	Rationale
+Where goroutine lives	Inside CachingProvider	Keeps polling co-located with the cache; no new type needed
+Trigger	Configurable pollInterval; 0 disables	Operators who don't need warm-cache guarantees don't pay for it
+Keys to refresh	All keys seen at least once	Avoids polling combinations never dispatched
+Error handling	Log and continue; never evict a valid entry on transient failure	A 503 from HQ during a poll should not disrupt active dispatch
+Graceful stop	Close() on CachingProvider	Aligns with Dispatcher.Close() already in place
+New env var	AIISTECH_WEBHOOK_POLL_INTERVAL_SECONDS (default 0)	TTL and poll interval are orthogonal knobs
+Alternatives considered
+A — Singleflight only — coalesces concurrent misses but does not eliminate cold-start latency.
+B — Increase default TTL — reduces miss frequency without a goroutine, but increases subscription-change lag.
+C — Push invalidation from HQ — requires protocol/endpoint changes on both sides. Deferred.
+Consequences
+Positive: Dispatch hot path is always a cache hit once the first lazy miss populates it. HQ subscription API load becomes predictable (n_keys / pollInterval req/s) instead of bursty. Thundering herd eliminated.
+
+Trade-offs: Non-zero pollInterval starts a long-lived goroutine (one per process — negligible). Operators must tune two knobs (TTL + pollInterval). main.go shutdown must call provider.Close() before disp.Close() — already satisfied by existing shutdown order.
+
+Implementation plan (Segment 13)
+internal/webhooks/caching_provider.go — add pollInterval, stopCh, Close(), and the background goroutine.
+internal/webhooks/caching_provider_test.go — 3 new tests: background poll refreshes cache, Close() stops goroutine, transient error does not evict valid entry.
+cmd/server/main.go — read AIISTECH_WEBHOOK_POLL_INTERVAL_SECONDS, pass to NewCachingProvider, call provider.Close() on shutdown.
+README.md — Segment 13 section + env var table entry.

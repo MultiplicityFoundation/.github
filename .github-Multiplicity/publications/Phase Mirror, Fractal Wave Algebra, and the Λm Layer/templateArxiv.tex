@@ -1,0 +1,1022 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{mathtools}
+\usepackage{microtype}
+
+\geometry{margin=1in}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  urlcolor=blue,
+  citecolor=blue
+}
+
+\title{%
+Phase Mirror, Fractal Wave Algebra, and the \texorpdfstring{$\Lambda_m$}{} Layer:\\[3pt]
+A Prior-Art Defensive Publication on Coherence-Preserving Deep Learning
+}
+
+\author{In Legacy of Igor Kolesnikov \\ \\ Citizen Gardens Research Initiative \\ The Foundation of Multiplicity}
+\date{April 30,2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This document records, in a single coherent technical artifact, a family of ideas and implementations developed around Fractal Wave Algebra (FWA), Multiplicity Theory, and the Phase Mirror project. It introduces a coherence-preserving neural network layer (\emph{LambdaCoherentWaveletLayer}), a corresponding optimizer (\emph{PIRTM\_Lambda\_Optimizer}), and a scientific observability dashboard (\emph{$\Lambda$-Meter v0}) for monitoring cross-scale coherence, spectral self-similarity, entropy budget, and efficiency in deep learning systems. The goal is twofold: (1) to serve as prior art and defensive publication, preventing overly broad or trivial patents on these concepts, and (2) to provide a mathematically structured and empirically grounded specification for further open research.
+\end{abstract}
+
+\tableofcontents
+\newpage
+\section{Executive Summary}
+
+This defensive publication describes an integrated framework for designing, training, and observing deep neural networks that explicitly preserve \emph{coherence across scales} rather than treating information loss as a necessary cost of computation.
+
+The work instantiates and connects four main components:
+
+\begin{enumerate}[label=\textbf{E\arabic*}.]
+  \item \textbf{Fractal Wave Algebra (FWA)-inspired Second Law.} Entropy is treated as \emph{coherence transfer across scales}, not as destruction. For adjacent scales or layers $k$ and $k{+}1$ we define
+  \[
+    C_{k,k+1}
+    := \frac{\langle w_k, w_{k+1}\rangle}{\|w_k\| \,\|w_{k+1}\|}
+  \]
+  and impose an \emph{entropy budget} constraint $\sum_k \Delta C_k \approx 0$, so that apparent disorder at one level re-emerges as structure at another.
+
+  \item \textbf{LambdaCoherentWaveletLayer.} We define a parametric neural network layer
+  \[
+    \mathcal{L}_\Lambda(x) \;=\; \sum_{i=1}^N m_i \bigl(L_i x + \gamma_i H_i x\bigr),
+  \]
+  where $L_i,H_i$ are prime-dilated low-/high-pass operators, $m_i$ form a simplex (softmax) weighting, and $\gamma_i$ are \emph{coherence gates}. This implements a multiscale, wavelet-like decomposition with explicit cross-scale coherence control.
+
+  \item \textbf{PIRTM\_Lambda\_Optimizer.} We propose an optimizer that modulates gradient steps using a scalar \emph{Universal Multiplicity Constant} $\Lambda_m$, a golden-ratio gate $\phi$, and prime-weighted factors, with the goal of enforcing empirical contractivity and preserving the entropy budget during training.
+
+  \item \textbf{$\Lambda$-Meter v0 Observability Dashboard.} For scientific observability, we define a dashboard that tracks:
+  \begin{itemize}
+    \item cross-scale coherence metrics $C_{k,k+1}$,
+    \item spectral self-similarity ratios $\lambda_k$ across prime-dilated branches,
+    \item neurotransmitter-inspired coherence gates $\gamma_i$,
+    \item entropy budget $\sum_k \Delta C_k$,
+    \item and efficiency in terms of \emph{H-Transfers/sec}, a scalar measuring coherence-preserving transformations per unit time.
+  \end{itemize}
+\end{enumerate}
+
+Taken together, these components implement a concrete and reproducible version of the following conceptual statement:
+
+\begin{quote}
+\emph{Depth is no longer cost: when entropy is defined as coherence-preserving transfer across scales, sufficiently structured depth is the most efficient path to learning.}
+\end{quote}
+
+This document is intended to enter the public domain as prior art, making it difficult to obtain broad patents on: (i) coherence-preserving wavelet layers with prime-dilated branches; (ii) entropy-budget-preserving training of deep networks using coherence-based losses; and (iii) observability dashboards that treat cross-scale coherence and spectral self-similarity as first-class health metrics.
+
+\section{Conceptual and Mathematical Overview}
+
+\subsection{Fractal Wave Algebra Perspective}
+
+Fractal Wave Algebra (FWA) proposes a multiscale, nonlinear re-interpretation of the Second Law of Thermodynamics. Instead of entropy as monotone dissipation, FWA emphasizes:
+
+\begin{itemize}
+  \item \textbf{Spectral self-similarity:}
+  \[
+    \rho(\omega_{k+1}) = \lambda_k \,\rho(\omega_k),
+  \]
+  so that the spectral density at scale $k{+}1$ is a scaled version of the density at scale $k$.
+
+  \item \textbf{Cross-scale coherence:}
+  \[
+    C_{k,k+1} = \langle w_k, w_{k+1}\rangle,
+  \]
+  where $w_k$ denotes a representation at scale/layer $k$.
+
+  \item \textbf{Coherence budget (entropy as transfer):}
+  \[
+    \sum_k \Delta C_k \approx 0.
+  \]
+  What appears as loss at one scale reappears as structure at another.
+\end{itemize}
+
+In the neural network context, we reinterpret these as:
+
+\begin{itemize}
+  \item Each layer $k$ computes a representation $w_k$ from its input.
+  \item Adjacent layers $k,k{+}1$ should preserve or redirect coherence rather than annihilate it.
+  \item Global health is expressed by invariants on $\{C_{k,k+1}\}$ and $\{\lambda_k\}$ across the depth of the network.
+\end{itemize}
+
+\subsection{The Primatic Operator \texorpdfstring{$\Lambda_m^{\mathrm{op}}(t)$}{Lambda\_m\^op(t)}}
+
+We start from the canonical two-layer operator:
+
+\begin{equation}
+  \Lambda_m^{\mathrm{op}}(t)
+  = M\bigl(\xi(p_i)\bigr) \circ M\bigl(\psi(p_i,t)\bigr)
+  = \sum_{p_i \in \mathbb{P}} T_{ij}^{(p_i)}\, p_i^{\alpha_i}\, \bigl(\xi(p_i) + \psi(p_i,t)\bigr),
+\end{equation}
+
+where:
+\begin{itemize}
+  \item $\mathbb{P}$ is the set of primes (or a finite subset thereof used in practice).
+  \item $\xi(p_i)$ is a static prime-indexed skeleton (linked heuristically to golden-ratio scaling).
+  \item $\psi(p_i,t)$ is a dynamic overlay (e.g.\ time-indexed or step-indexed).
+  \item $T_{ij}^{(p_i)}$ are prime-indexed tensor kernels.
+\end{itemize}
+
+The LambdaCoherentWaveletLayer can be viewed as a concrete realization of this operator in a neural network layer, where the action of $M(\cdot)$ and $\xi,\psi$ is implemented via convolutions, wavelet-like filters, and learnable gates.
+
+\subsection{Formal Operator Setting}
+
+We adopt a function-analytic perspective:
+
+\begin{itemize}
+  \item $X$ is a Banach or Hilbert space of signals, e.g. $X = \mathbb{R}^{B \times C \times H \times W}$ with Frobenius norm or $X = L^2(\Omega;\mathbb{R}^C)$.
+  \item For each prime-dilated branch $i$, we define bounded linear operators:
+  \[
+    L_i : X \to X, \quad H_i : X \to X.
+  \]
+  These correspond to low-pass and high-pass components at dilation $p_i$.
+\end{itemize}
+
+\paragraph{Operator Assumption A1.} There exist constants $a_i, b_i \ge 0$ such that:
+\[
+  \|L_i x\| \le a_i \|x\|, \qquad \|H_i x\| \le b_i \|x\|, \qquad \forall x \in X.
+\]
+
+This is automatically satisfied by finite-dimensional convolutions with finite kernels.
+
+\subsection{Definition of the \texorpdfstring{$\Lambda_m$}{} Layer Operator}
+
+We define the LambdaCoherentWaveletLayer as an operator
+\[
+  \mathcal{L}_\Lambda : X \to X
+\]
+of the form
+\begin{equation}
+  \mathcal{L}_\Lambda(x)
+  := \sum_{i=1}^N m_i \bigl(L_i x + \gamma_i H_i x\bigr),
+  \label{eq:LmbdaLayer}
+\end{equation}
+where:
+\begin{itemize}
+  \item $m = (m_1,\dots,m_N)$ lies in the probability simplex:
+    \[
+      \sum_i m_i = 1, \quad m_i \ge 0,
+    \]
+    and originates from a softmax over learned branch-mask parameters.
+  \item $\gamma_i \in \mathbb{R}$ are scalar ``coherence gates'' that weight high-pass contributions for each branch.
+\end{itemize}
+
+The intuition is:
+\begin{itemize}
+  \item $L_i x$ captures coarse (low-frequency) behavior at a prime-dilated scale $p_i$.
+  \item $H_i x$ captures fine (high-frequency) detail at that scale.
+  \item $m_i$ selects or weighs branches (akin to a learned multiscale mixture).
+  \item $\gamma_i$ modulates how much high-frequency energy is carried forward, representing a ``neurotransmitter-like'' coherence control.
+\end{itemize}
+
+\subsection{Lipschitz Bound and Contractivity}
+
+We want $\mathcal{L}_\Lambda$ to be $\Lambda_m$-Lipschitz:
+
+\begin{equation}
+  \|\mathcal{L}_\Lambda(x) - \mathcal{L}_\Lambda(y)\|
+  \le \Lambda_m \|x-y\|, \quad \forall x,y \in X.
+  \label{eq:LipDef}
+\end{equation}
+
+Using A1, we have, for any $x,y$:
+\begin{align}
+  \|\mathcal{L}_\Lambda(x) - \mathcal{L}_\Lambda(y)\|
+  &= \left\|\sum_i m_i \bigl(L_i (x-y) + \gamma_i H_i (x-y)\bigr)\right\| \nonumber\\[3pt]
+  &\le \sum_i m_i \left(\|L_i(x-y)\| + |\gamma_i|\|H_i(x-y)\|\right) \nonumber\\[3pt]
+  &\le \sum_i m_i (a_i + |\gamma_i|b_i) \,\|x-y\|.
+\end{align}
+
+Thus a sufficient condition for~\eqref{eq:LipDef} is:
+\begin{equation}
+  \Lambda_m \;\ge\; \sum_i m_i (a_i + |\gamma_i|b_i).
+\end{equation}
+
+For theoretical purposes, one may define:
+\[
+  \Lambda_m(x) := \sum_i m_i (a_i + |\gamma_i|b_i),
+\]
+and monitor or regularize this quantity during training to keep it below a desired threshold, e.g.\ $\Lambda_m(x) \le 1$ for non-expansiveness or $\Lambda_m(x) < 1$ for contraction.
+
+Connections to Lipschitz-constrained networks and robust training are well known in the literature and may be used to refine these bounds with spectral norm estimation and norm-aware regularization.
+
+\subsection{Wavelet and Perfect Reconstruction Structure}
+
+Wavelet neural networks and wavelet-based architectures have been studied in various domains, particularly for multiscale feature extraction and signal denoising. Many constructions use discrete wavelet transforms (DWT) with known perfect reconstruction properties. In this publication we adopt the following conceptual alignment:
+
+\begin{itemize}
+  \item In the \emph{idealized} mathematical model, $L_i$ and $H_i$ are chosen from a tight wavelet frame or orthonormal wavelet basis at dilation $p_i$. Classical wavelet theory then provides:
+  \[
+    x
+    = \sum_i L_i x + \sum_i H_i x
+  \]
+  and the existence of reconstruction operators $R$ such that $R \circ W = \mathrm{id}$, where $W x = \{L_i x, H_i x\}_i$.
+
+  \item In the \emph{learning} implementation, we initialize $L_i,H_i$ as perturbations of such wavelet filters and train them, monitoring reconstruction error
+  \[
+    \|x - R(\mathcal{L}_\Lambda(x))\|
+  \]
+  and frame bounds empirically.
+\end{itemize}
+
+This ensures the ``perfect reconstruction'' language is grounded in known wavelet properties, while leaving room for data-driven adaptation.
+
+\subsection{Coherence and Entropy Budget}
+
+Let $\{w_k\}_{k=0}^K$ be layer or scale representations. Define normalized cross-scale coherence:
+\[
+  C_{k,k+1}
+  := \frac{\langle w_k, w_{k+1}\rangle}{\|w_k\|\|w_{k+1}\|}.
+\]
+
+Define the incremental change
+\[
+  \Delta C_k := C_{k,k+1} - C_{k-1,k}
+\]
+for $k \ge 1$, and the total coherence budget:
+\[
+  B := \sum_{k=1}^{K-1} \Delta C_k = C_{K-1,K} - C_{0,1}.
+\]
+
+The FWA-inspired \emph{entropy budget invariant} can be stated precisely as
+
+\begin{equation}
+  |B| \le \varepsilon
+\end{equation}
+for some small tolerance $\varepsilon>0$. That is, end-to-end coherence $C_{K-1,K}$ remains close to initial coherence $C_{0,1}$.
+
+In practice, one can:
+
+\begin{itemize}
+  \item Monitor $B$ during training.
+  \item Incorporate a \emph{coherence loss} term penalizing deviations from a desired budget:
+  \[
+    \mathcal{L}_{\mathrm{coh}} = -\sum_k \log\bigl(|C_{k,k+1}| + \delta\bigr),
+  \]
+  with small $\delta>0$ for numerical stability.
+
+  \item Optionally add a variance penalty on $\{C_{k,k+1}\}$ to avoid oscillatory behavior.
+\end{itemize}
+
+\subsection{Gamma Gates and Phase Lock}
+
+Let $\gamma_i$ be per-branch gating parameters. A simple deterministic update
+\[
+  \gamma_{t+1} = 0.99\,\gamma_t + 0.01
+\]
+converges exponentially to a fixed point $\gamma^\*=1$; more generally, with gradient descent updates this becomes:
+\[
+  \gamma_{t+1} = 0.99\,\gamma_t + 0.01 - \eta\,\frac{\partial \mathcal{L}}{\partial \gamma_t}.
+\]
+
+Under mild assumptions on the step size $\eta$ and gradient magnitude, this acts as a prior that encourages $\gamma_i \approx 1$. We can formalize a \emph{gamma lock} condition:
+\[
+  |\gamma_i - 1| \le \delta_\gamma \quad \forall i
+\]
+for some tolerance $\delta_\gamma$. This can be enforced via an explicit penalty term:
+\[
+  \mathcal{L}_\gamma = \sum_i (\gamma_i - 1)^2.
+\]
+
+\section{Implementation: LambdaCoherentWaveletLayer}
+
+\subsection{Informal Architectural Description}
+
+In a concrete deep learning framework (e.g.\ PyTorch), the LambdaCoherentWaveletLayer can be implemented as:
+
+\begin{itemize}
+  \item A set of $N$ convolutional branches $(L_i, H_i)$ with dilation factors chosen from primes $p_i \in \{2,3,5,7,11,\dots\}$.
+  \item Learnable scalars $\gamma_i$ representing coherence gates.
+  \item Learnable logits $\ell_i$ whose softmax produces $m_i$.
+  \item Forward pass: compute $L_i x$ and $H_i x$ for each branch, form $\mathrm{Branch}_i = L_i x + \gamma_i H_i x$, then fuse via $\sum_i m_i \mathrm{Branch}_i$.
+\end{itemize}
+
+This produces a multiscale representation that preserves high-frequency detail where $\gamma_i$ is near 1 and shunts detail away when $\gamma_i \to 0$.
+
+\subsection{PyTorch-style Code Snippet}
+
+The following code is a simplified but illustrative implementation of the layer in PyTorch-like pseudocode:
+
+\begin{verbatim}
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+
+class LambdaCoherentWaveletLayer(nn.Module):
+    def __init__(self, in_channels, out_channels,
+                 prime_dilations=(2, 3, 5, 7, 11),
+                 kernel_size=3, gamma_init=1.0):
+        super().__init__()
+        self.primes = list(prime_dilations)
+        self.num_branches = len(self.primes)
+
+        # Low- and high-pass convs per branch (same shape, different dilation)
+        self.low_convs = nn.ModuleList()
+        self.high_convs = nn.ModuleList()
+
+        padding = kernel_size // 2
+
+        for p in self.primes:
+            self.low_convs.append(
+                nn.Conv2d(in_channels, out_channels,
+                          kernel_size=kernel_size,
+                          padding=padding * p,
+                          dilation=p, bias=False)
+            )
+            self.high_convs.append(
+                nn.Conv2d(in_channels, out_channels,
+                          kernel_size=kernel_size,
+                          padding=padding * p,
+                          dilation=p, bias=False)
+            )
+
+        # Coherence gates gamma_i
+        self.gamma = nn.Parameter(torch.full(
+            (self.num_branches,), float(gamma_init)
+        ))
+
+        # Branch mask logits -> softmax -> m_i
+        self.branch_logits = nn.Parameter(
+            torch.zeros(self.num_branches)
+        )
+
+    def forward(self, x):
+        # x: [B, C, H, W]
+        branches = []
+
+        for i in range(self.num_branches):
+            low = self.low_convs[i](x)
+            high = self.high_convs[i](x)
+            branch = low + self.gamma[i] * high
+            branches.append(branch)
+
+        # Stack branches: [N, B, C, H, W]
+        stacked = torch.stack(branches, dim=0)
+
+        # Softmax over branches -> m_i
+        m = F.softmax(self.branch_logits, dim=0)
+        m = m.view(self.num_branches, 1, 1, 1, 1)
+
+        # Weighted sum over branch dimension
+        out = (m * stacked).sum(dim=0)
+
+        # Optionally, compute a coherence log for observability:
+        # e.g., with a stored previous output or adjacent layer
+        return out
+\end{verbatim}
+
+This code does not yet enforce Lipschitz constraints or wavelet initialization, but it embodies the structural idea: prime-dilated multiscale branches, gamma gating, and simplex fusion.
+
+\section{Implementation: PIRTM\_Lambda\_Optimizer}
+
+\subsection{Conceptual Structure}
+
+The PIRTM\_Lambda\_Optimizer aims to:
+
+\begin{itemize}
+  \item Modulate gradient descent using a global scalar $\Lambda_m$ and golden-ratio gate $\phi$, with a prime-weighted factor, to stabilize training.
+  \item Introduce a weak ``entropy budget correction'' that nudges parameters based on coherence estimates.
+\end{itemize}
+
+A simple sketch (not recommended as-is for production, but illustrative for prior art) can look like:
+
+\begin{verbatim}
+import torch
+from torch.optim import Optimizer
+
+class PIRTM_Lambda_Optimizer(Optimizer):
+    def __init__(self, params, lr=1e-3,
+                 lambda_m=1.0, gamma_gate=0.618,
+                 prime_scale=1.0):
+        defaults = dict(lr=lr,
+                        lambda_m=lambda_m,
+                        gamma_gate=gamma_gate,
+                        prime_scale=prime_scale)
+        super().__init__(params, defaults)
+
+    @torch.no_grad()
+    def step(self, closure=None):
+        loss = None
+        if closure is not None:
+            loss = closure()
+
+        for group in self.param_groups:
+            lr = group['lr']
+            lambda_m = group['lambda_m']
+            gamma_gate = group['gamma_gate']
+            prime_scale = group['prime_scale']
+
+            # Fixed small set of primes for modulation
+            primes = [2, 3, 5, 7, 11]
+            prime_term = sum(1.0 / (p ** 0.5) for p in primes)
+
+            for p in group['params']:
+                if p.grad is None:
+                    continue
+                d_p = p.grad
+
+                modulation = lambda_m * gamma_gate * (1.0 + prime_scale * prime_term)
+
+                # Gradient step with modulation
+                p.add_(d_p, alpha=-lr * modulation)
+
+                # Optional: use an attached coherence_buffer to nudge params
+                if hasattr(p, 'coherence_buffer'):
+                    p.data = p.data * (1.0 - 0.01 * (p.coherence_buffer - 1.0))
+
+        return loss
+\end{verbatim}
+
+This optimizer is intentionally simple and mostly serves to anchor the idea of combining:
+
+\begin{itemize}
+  \item A global multiplicative constant $\Lambda_m$.
+  \item A golden-ratio-inspired gate $\gamma_{\text{gate}}$.
+  \item A prime-weighted term.
+  \item A coherence-buffer-based correction.
+\end{itemize}
+
+More refined versions would be based on standard optimization theory and Lipschitz-constrained training literature.
+
+\section{Scientific Observability: \texorpdfstring{$\Lambda$}{Lambda}-Meter v0 Dashboard}
+
+\subsection{Goals and Philosophy}
+
+The $\Lambda$-Meter v0 dashboard is designed for \emph{scientific observability}, not marketing. Its primary goals are:
+
+\begin{enumerate}
+  \item To provide a live view of coherence, spectral self-similarity, entropy budget, and efficiency in training and inference.
+  \item To support diagnosis of failures (e.g.\ coherence collapse, branch instability).
+  \item To enable reproducible forensics (exportable raw metrics, run IDs, seeds, model configs).
+\end{enumerate}
+
+\subsection{Key Metrics}
+
+The dashboard prominently displays:
+
+\begin{itemize}
+  \item $C_{\text{mean}}$: mean cross-scale coherence over all adjacent pairs $(k,k{+}1)$.
+  \item $\lambda_{\min}, \lambda_{\max}$: minimum and maximum spectral self-similarity ratios across prime branches.
+  \item $\gamma_{\mathrm{dev}}$: mean absolute deviation $|\gamma_i - 1|$ over branches.
+  \item $\sum_k \Delta C_k$: entropy budget.
+  \item $\text{H-Transfers/sec}$: a scalar ratio measuring coherence-preserving transformations per second vs a classical baseline.
+\end{itemize}
+
+\subsection{Panels and Layout}
+
+The dashboard is structured into three main views:
+
+\begin{enumerate}
+  \item \textbf{Health Overview:} KPIs, time-series of $C_{\text{mean}}$, entropy budget, $\lambda$ bands, $\gamma$ deviation, and an event timeline.
+  \item \textbf{Causal Diagnostics:} Coherence heatmap $C_{k,k+1}$, small-multiple charts for $\lambda_k$ per prime branch, gamma state bars, per-layer entropy contributions, and alerts.
+  \item \textbf{Run Forensics:} Run metadata, epoch table, run comparison plots, recursion signature scatter, and exportable artifacts.
+\end{enumerate}
+
+\subsection{Data Contract (Schema Sketch)}
+
+A single JSON message for a training snapshot might include:
+
+\begin{verbatim}
+{
+  "run_id": "lambda-v0-mnist-001",
+  "timestamp": "2026-04-30T07:19:00Z",
+  "epoch": 7,
+  "step": 420,
+
+  "kpis": {
+    "c_mean": 0.89,
+    "lambda_min": 0.97,
+    "lambda_max": 1.02,
+    "gamma_mean_abs_dev": 0.009,
+    "sum_delta_c": 0.0018,
+    "h_transfers_per_sec": 1.62,
+    "accuracy": 0.993
+  },
+
+  "coherence_pairs": [
+    { "from": 0, "to": 1, "value": 0.91 },
+    { "from": 1, "to": 2, "value": 0.88 }
+  ],
+
+  "lambda_by_prime": {
+    "2":  [0.99, 1.01, 0.98],
+    "3":  [1.00, 0.97, 1.02],
+    "5":  [0.98, 0.99, 1.01],
+    "7":  [1.02, 1.00, 0.98],
+    "11": [0.97, 1.01, 1.00]
+  },
+
+  "gamma_by_prime": {
+    "2":  0.996,
+    "3":  1.004,
+    "5":  1.002,
+    "7":  0.991,
+    "11": 1.007
+  },
+
+  "entropy_history": [0.01, 0.004, 0.002, 0.0018],
+  "efficiency_history": [1.05, 1.21, 1.37, 1.62],
+
+  "events": [
+    { "level": "info",
+      "message": "Gamma lock achieved on epoch 2" },
+    { "level": "success",
+      "message": "Lambda band stable across all prime branches" }
+  ],
+
+  "embedding": [
+    { "x": -0.42, "y": 0.18, "layer": "L1" },
+    { "x":  0.12, "y": -0.33, "layer": "L2" }
+  ]
+}
+\end{verbatim}
+
+This schema is sufficient to drive all major panels, and can be extended with thresholds, units, and provenance (model, optimizer, seed, commit hash).
+
+\section{Axiom-to-Invariant Mapping}
+
+For theoretical legitimacy and observability, it is useful to summarize the axioms and their operational invariants.
+
+\subsection*{Axiom 1: Prime-Dilated Multiscale Decomposition}
+
+\textbf{Statement:} The input signal $x$ is decomposed via prime-dilated low-/high-pass operators $(L_i,H_i)$ at dilations $p_i$.
+
+\textbf{Implementation:} Convolutions with dilation factors $p_i$ and kernels initialized to approximate wavelet filters (e.g.\ Gaussian-like low-pass, Mexican-hat-like high-pass).
+
+\textbf{Invariant:} Bounded operator norms $\|L_i\| \le a_i$, $\|H_i\| \le b_i$, possibly with empirical reconstruction error bounds relative to an ideal wavelet frame.
+
+\subsection*{Axiom 2: Gamma-Gated Coherence Fusion}
+
+\textbf{Statement:} Branch outputs are fused as
+\[
+  \mathrm{Branch}_i = L_i x + \gamma_i H_i x, \quad
+  \mathcal{L}_\Lambda(x) = \sum_i m_i \mathrm{Branch}_i.
+\]
+
+\textbf{Implementation:} Learned parameters $\gamma_i$ and softmax branch weights $m_i$.
+
+\textbf{Invariant:} $m \in \Delta^{N-1}$ and small deviation of $\gamma_i$ from 1 at convergence.
+
+\subsection*{Axiom 3: Contractivity Envelope}
+
+\textbf{Statement:} The layer is $\Lambda_m$-Lipschitz; concretely
+\[
+  \Lambda_m \ge \sum_i m_i(a_i + |\gamma_i|b_i).
+\]
+
+\textbf{Implementation:} Spectral norm bounds on $L_i,H_i$ and regularization on $\gamma_i,m_i$.
+
+\textbf{Invariant:} Empirical estimate of $\Lambda_m$ stays below a target bound.
+
+\subsection*{Axiom 4: Entropy-Budget Preservation}
+
+\textbf{Statement:} Coherence budget $B = \sum_k \Delta C_k$ is small.
+
+\textbf{Implementation:} Coherence loss and regularization.
+
+\textbf{Invariant:} $|B| \le \varepsilon$ over training or at convergence.
+
+\subsection*{Axiom 5: Neurotransmitter Phase Lock}
+
+\textbf{Statement:} $\gamma_i$ are driven toward 1 via recurrence and loss penalty.
+
+\textbf{Implementation:} Explicit dynamics plus $\mathcal{L}_\gamma$.
+
+\textbf{Invariant:} $|\gamma_i - 1| \le \delta_\gamma$ after a finite number of steps.
+
+\section{Recommendations and Notes}
+
+\subsection{Scope of Claims}
+
+For this defensive publication, claims should be understood as:
+
+\begin{itemize}
+  \item Architectural: the combination of prime-dilated multiscale branches, coherence gates, simplex fusion, and coherence-aware losses.
+  \item Training: the use of coherence metrics and entropy budget constraints as primary optimization objectives.
+  \item Observability: dashboards that treat cross-scale coherence and spectral self-similarity as first-class health metrics, alongside standard training metrics.
+\end{itemize}
+
+\subsection{Non-Claims}
+
+This document does \emph{not} claim:
+
+\begin{itemize}
+  \item Formal derivations linking these architectures to physical entropy in thermodynamic systems.
+  \item Formal proofs of consciousness or cognitive properties.
+  \item Unique optimality in all tasks or data regimes.
+\end{itemize}
+
+Those remain speculative interpretations beyond the engineering core, which is deliberately grounded in standard functional analysis and neural network practice.
+
+\subsection{Suggested Future Work}
+
+\begin{itemize}
+  \item Formal Lipshitz bounds using spectral norm methods with rigorous constants.
+  \item Empirical studies comparing LambdaCoherentWaveletLayer against classical pooling and standard wavelet-based layers.
+  \item Robustness studies under distribution shift or adversarial perturbations.
+  \item Theoretical exploration of coherence budget constraints in dynamical systems.
+\end{itemize}
+
+\section*{Conclusion}
+
+This report and defensive publication document a specific class of coherence-preserving deep learning architectures inspired by Fractal Wave Algebra and Multiplicity Theory, together with an optimizer and observability tooling tuned to their invariants. By placing these ideas, definitions, and code sketches in the public domain, we aim to:
+
+\begin{enumerate}
+  \item Enable open research and replication,
+  \item Provide a reference point for subsequent theoretical and empirical work,
+  \item And preempt the enclosure of these patterns via overly broad or trivial patents.
+\end{enumerate}
+
+\appendix
+\section*{Mathematical Appendix}
+\addcontentsline{toc}{section}{Mathematical Appendix}
+
+This appendix provides explicit functional-analytic statements, proofs, and operator norm bounds for the $\Lambda_m$-coherent layer introduced in the main text. Throughout, $X$ denotes a real or complex Hilbert space with inner product $\langle\cdot,\cdot\rangle$ and induced norm $\|\cdot\|$. In practical applications, $X$ can be taken as $\mathbb{R}^{B\times C\times H\times W}$ with the Frobenius norm, or $L^2(\Omega;\mathbb{R}^C)$.
+
+\section{Operator Definition and Basic Properties}
+
+\subsection{Definition of the \texorpdfstring{$\Lambda_m$}{} Layer Operator}
+
+Let $N\in\mathbb{N}$, and for each branch $i\in\{1,\dots,N\}$ let
+\[
+  L_i,\,H_i : X \to X
+\]
+be bounded linear operators. Let $\gamma_i\in\mathbb{R}$ be scalars (``coherence gates''), and let $m=(m_1,\dots,m_N)$ lie in the probability simplex
+\[
+  \Delta^{N-1} := \left\{m\in\mathbb{R}^N : m_i\ge 0,\; \sum_{i=1}^N m_i = 1\right\}.
+\]
+We define the \emph{$\Lambda_m$ layer operator}
+\begin{equation}
+  \mathcal{L}_\Lambda : X \to X, \qquad
+  \mathcal{L}_\Lambda(x)
+  := \sum_{i=1}^N m_i\,\bigl(L_i x + \gamma_i H_i x\bigr).
+  \label{eq:LambdaLayerDef}
+\end{equation}
+
+\subsection{Boundedness}
+
+\paragraph{Assumption A1 (operator norms).}
+Assume that for each $i$ there exist constants $a_i,b_i\ge 0$ such that
+\begin{equation}
+  \|L_i x\|\le a_i\|x\|,\qquad \|H_i x\|\le b_i\|x\|,\qquad \forall x\in X.
+  \label{eq:A1}
+\end{equation}
+
+In finite-dimensional Euclidean spaces with the Frobenius norm, this is always satisfied for linear maps defined by convolution, with $a_i$ and $b_i$ equal to the operator norms of the corresponding matrices.
+
+\begin{lemma}[Boundedness]\label{lem:bounded}
+Under Assumption~\eqref{eq:A1}, the operator $\mathcal{L}_\Lambda$ defined in~\eqref{eq:LambdaLayerDef} is bounded. In particular,
+\begin{equation}
+  \|\mathcal{L}_\Lambda(x)\|
+  \;\le\;
+  \Bigl(\sum_{i=1}^N m_i\,(a_i + |\gamma_i|\,b_i)\Bigr)\,\|x\|
+  \quad\forall x\in X.
+  \label{eq:LipUpperBasic}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+For any $x\in X$,
+\begin{align*}
+  \|\mathcal{L}_\Lambda(x)\|
+  &= \left\|\sum_{i=1}^N m_i\,\bigl(L_i x + \gamma_i H_i x\bigr)\right\|\\
+  &\le \sum_{i=1}^N m_i \|L_i x + \gamma_i H_i x\|
+       \quad\text{(triangle inequality)}\\
+  &\le \sum_{i=1}^N m_i \left(\|L_i x\| + |\gamma_i|\,\|H_i x\|\right)\\
+  &\le \sum_{i=1}^N m_i\left(a_i\|x\| + |\gamma_i|\,b_i\|x\|\right)
+       \quad\text{(by \eqref{eq:A1})}\\
+  &= \Bigl(\sum_{i=1}^N m_i\,(a_i + |\gamma_i|\,b_i)\Bigr)\,\|x\|.
+\end{align*}
+Thus $\mathcal{L}_\Lambda$ is bounded with norm at most the quantity in parentheses.
+\end{proof}
+
+\section{Lipschitz Constant and Contractivity}
+
+\subsection{Lipschitz Bound}
+
+We are interested in a Lipschitz condition of the form
+\begin{equation}
+  \|\mathcal{L}_\Lambda(x) - \mathcal{L}_\Lambda(y)\|
+  \le \Lambda_m \,\|x-y\|
+  \quad\forall x,y\in X,
+  \label{eq:LipDefAppendix}
+\end{equation}
+for some $\Lambda_m\ge 0$.
+
+\begin{theorem}[Lipschitz upper bound]\label{thm:Lipschitz}
+Under Assumption~\eqref{eq:A1}, for all $x,y\in X$ we have
+\begin{equation}
+  \|\mathcal{L}_\Lambda(x) - \mathcal{L}_\Lambda(y)\|
+  \;\le\;
+  \left(\sum_{i=1}^N m_i (a_i + |\gamma_i| b_i)\right)\,\|x-y\|.
+  \label{eq:LipUpper}
+\end{equation}
+In particular, the operator $\mathcal{L}_\Lambda$ is Lipschitz with constant
+\[
+  \Lambda_m^\star := \sum_{i=1}^N m_i (a_i + |\gamma_i| b_i).
+\]
+\end{theorem}
+
+\begin{proof}
+For any $x,y\in X$,
+\begin{align*}
+  \mathcal{L}_\Lambda(x)-\mathcal{L}_\Lambda(y)
+  &= \sum_{i=1}^N m_i \left( L_i(x-y) + \gamma_i H_i(x-y) \right).
+\end{align*}
+Applying the same reasoning as in Lemma~\ref{lem:bounded}, with $x$ replaced by $x-y$:
+\begin{align*}
+  \|\mathcal{L}_\Lambda(x)-\mathcal{L}_\Lambda(y)\|
+  &\le \sum_{i=1}^N m_i \left(\|L_i(x-y)\| + |\gamma_i| \,\|H_i(x-y)\| \right)\\
+  &\le \sum_{i=1}^N m_i\,(a_i + |\gamma_i|b_i)\,\|x-y\|.
+\end{align*}
+Thus~\eqref{eq:LipUpper} holds, and the Lipschitz constant is bounded by $\Lambda_m^\star$.
+\end{proof}
+
+\subsection{Sufficient Condition for Contractivity}
+
+In many applications, one wants $\mathcal{L}_\Lambda$ to be a contraction on $X$ in the sense of Banach's Fixed Point Theorem, i.e.\ Lipschitz constant strictly less than $1$.
+
+\begin{corollary}[Contractivity condition]\label{cor:contractive}
+If
+\begin{equation}
+  \sum_{i=1}^N m_i (a_i + |\gamma_i|b_i) < 1,
+  \label{eq:contract}
+\end{equation}
+then $\mathcal{L}_\Lambda$ is a contraction mapping on $X$ with Lipschitz constant
+$\Lambda_m^\star < 1$.
+\end{corollary}
+
+\begin{proof}
+Immediate from Theorem~\ref{thm:Lipschitz}.
+\end{proof}
+
+\begin{corollary}[Fixed point]\label{cor:fixedpoint}
+Under~\eqref{eq:contract}, $\mathcal{L}_\Lambda$ has a unique fixed point $x^\*\in X$, and for any $x_0\in X$ the iterates $x_{t+1} := \mathcal{L}_\Lambda(x_t)$ converge to $x^\*$.
+\end{corollary}
+
+\begin{proof}
+This is the standard conclusion of the Banach Fixed Point Theorem for contraction mappings on a complete metric space.
+\end{proof}
+
+\subsection{Spectral Norm Realization of \texorpdfstring{$a_i,b_i$}{a\_i,b\_i}}
+
+In finite dimensions, each $L_i$ and $H_i$ can be represented by matrices (e.g.\ Toeplitz or block-circulant for convolutions), and $a_i,b_i$ can be chosen as their operator norms with respect to the Euclidean norm, i.e.\ their largest singular values:
+\[
+  a_i = \|L_i\|_2 := \sup_{x\ne 0}\frac{\|L_i x\|}{\|x\|}, \qquad
+  b_i = \|H_i\|_2 := \sup_{x\ne 0}\frac{\|H_i x\|}{\|x\|}.
+\]
+These can be approximated by power iteration or related spectral norm estimation schemes, and used inside regularization terms to keep $\Lambda_m^\star$ below a desired threshold.
+
+\section{Wavelet Structure and Reconstruction Bounds}
+
+\subsection{Abstract Frame Setting}
+
+Let $\mathcal{W} : X \to \mathcal{H}$ denote a linear ``wavelet analysis'' operator mapping a signal to a collection of coefficients, and let $\mathcal{W}^{-1} : \mathcal{H} \to X$ denote a (left) inverse or reconstruction operator. In standard wavelet multiresolution analysis, $\mathcal{W}$ is a unitary or tight frame operator on $L^2$, so that
+\[
+  \|x\|^2 = \|\mathcal{W}x\|^2,\quad x=\mathcal{W}^{-1}\mathcal{W}x.
+\]
+
+In our setting, one may interpret the collection of operators $\{L_i,H_i\}$ as forming a discrete frame:
+\[
+  \mathcal{W}x := \{L_i x, H_i x\}_i.
+\]
+
+\subsection{Ideal Perfect Reconstruction}
+
+Consider an idealized case where $L_i, H_i$ satisfy perfect reconstruction identities, i.e.\ there exists a reconstruction operator $R$ such that
+\[
+  R\bigl(\{L_i x,H_i x\}_i\bigr) = x \quad \forall x\in X.
+\]
+
+For example, in a critically sampled orthonormal wavelet transform with sufficient levels, $R$ is the standard inverse transform.
+
+In that case, if we define
+\[
+  \mathcal{L}_\Lambda^{\mathrm{ideal}}(x) := \sum_i m_i \bigl(L_i x + H_i x\bigr),
+\]
+with $\gamma_i \equiv 1$, and an appropriate reconstruction operator $R_m$ adapted to the weights, one can seek reconstruction formulas of the form
+\[
+  R_m(\mathcal{L}_\Lambda^{\mathrm{ideal}}(x)) = x.
+\]
+However, because of the fusion via $m_i$, exact reconstruction requires additional structure; in general one only has approximate reconstruction.
+
+\subsection{Perturbative Reconstruction Error}
+
+Let $\{L_i^0, H_i^0\}$ be a set of operators forming a tight frame with perfect reconstruction operator $R^0$, and suppose
+\[
+  L_i = L_i^0 + \Delta L_i, \quad H_i = H_i^0 + \Delta H_i.
+\]
+Then, for a reconstruction operator $R^0$,
+\[
+  R^0\bigl(\{L_i x,H_i x\}_i\bigr)
+  = R^0\bigl(\{L_i^0 x,H_i^0 x\}_i\bigr)
+    + R^0\bigl(\{\Delta L_i x,\Delta H_i x\}_i\bigr)
+  = x + E(x),
+\]
+where $E(x)$ is an error term.
+
+Assuming $R^0$ is bounded with norm $\|R^0\|\le C_R$, and letting
+\[
+  \delta_i := \max\bigl(\|\Delta L_i\|,\|\Delta H_i\|\bigr),
+\]
+we obtain the bound
+\[
+  \|E(x)\|
+  \le C_R \sum_i \delta_i \|x\|
+\]
+by linearity and triangle inequality.
+
+This gives a simple perturbative reconstruction error bound: deviations of $L_i,H_i$ from an ideal wavelet frame lead to reconstruction errors bounded linearly by the operator norm deviations $\delta_i$.
+
+\section{Coherence, Entropy Budget, and Loss Terms}
+
+\subsection{Layer Coherence}
+
+Given a sequence of layer outputs $w_0,\dots,w_K \in X$, define the normalized cross-layer coherence
+\begin{equation}
+  C_{k,k+1}
+  := \frac{\langle w_k, w_{k+1}\rangle}{\|w_k\|\|w_{k+1}\|},
+  \qquad 0\le k\le K-1,
+  \label{eq:coherence}
+\end{equation}
+whenever $w_k,w_{k+1}\ne 0$. Note that
+\[
+  -1 \le C_{k,k+1} \le 1
+\]
+by Cauchy--Schwarz.
+
+\subsection{Coherence Budget and Variation}
+
+Define the coherence differences
+\[
+  \Delta C_k := C_{k,k+1} - C_{k-1,k}, \quad 1\le k\le K-1,
+\]
+and the total budget
+\begin{equation}
+  B := \sum_{k=1}^{K-1} \Delta C_k = C_{K-1,K} - C_{0,1}.
+  \label{eq:budget}
+\end{equation}
+
+A \emph{coherence-preserving} stack of layers is one for which
+\[
+  |B| \le \varepsilon
+\]
+for some small $\varepsilon>0$.
+
+\subsection{Coherence-Preserving Loss}
+
+A practical way to encourage coherence preservation is to define a coherence loss
+\begin{equation}
+  \mathcal{L}_{\mathrm{coh}}
+  = -\sum_{k=0}^{K-1} \log\bigl(|C_{k,k+1}| + \delta\bigr),
+  \label{eq:cohLoss}
+\end{equation}
+with $\delta>0$ a small constant to avoid $\log 0$. This term is minimized when the $|C_{k,k+1}|$ are as large as possible, thus promoting strong alignment between adjacent layer representations.
+
+One can also add a variance penalty
+\begin{equation}
+  \mathcal{L}_{\mathrm{var}} = \mathrm{Var}\bigl(\{C_{k,k+1}\}_{k=0}^{K-1}\bigr)
+\end{equation}
+to avoid large oscillations in coherence across depth.
+
+\subsection{Entropy Budget Penalty}
+
+From~\eqref{eq:budget}, one can define an entropy-budget penalty
+\[
+  \mathcal{L}_{\mathrm{budget}} = \bigl(B\bigr)^2 = \bigl(C_{K-1,K} - C_{0,1}\bigr)^2.
+\]
+Combined, a coherence-regularized loss could be of the form
+\[
+  \mathcal{L}_{\mathrm{total}}
+  = \mathcal{L}_{\mathrm{task}}
+    + \beta\,\mathcal{L}_{\mathrm{coh}}
+    + \gamma\,\sum_i (\gamma_i - 1)^2
+    + \delta\,\mathcal{L}_{\mathrm{var}}
+    + \eta\,\mathcal{L}_{\mathrm{budget}},
+\]
+where $\beta,\gamma,\delta,\eta\ge 0$ are hyperparameters weighting the contribution of each regularizer.
+
+\section{Gamma-Gate Dynamics and Convergence}
+
+\subsection{Deterministic Recurrence}
+
+Consider the simple deterministic recurrence
+\begin{equation}
+  \gamma_{t+1} = r\,\gamma_t + (1-r),
+  \quad 0<r<1.
+  \label{eq:gammaRec}
+\end{equation}
+The fixed point is found by solving
+\[
+  \gamma^\* = r\,\gamma^\* + (1-r) \quad\Rightarrow\quad \gamma^\* = 1.
+\]
+
+\begin{lemma}[Exponential convergence of $\gamma_t$]\label{lem:gammaConvergence}
+For the recurrence~\eqref{eq:gammaRec} with initial value $\gamma_0\in\mathbb{R}$, we have
+\[
+  \gamma_t = 1 + r^t (\gamma_0 - 1),
+\]
+and hence
+\[
+  |\gamma_t - 1| = |r|^t\,|\gamma_0 - 1|.
+\]
+In particular, $\gamma_t \to 1$ as $t\to\infty$ at an exponential rate $|r|<1$.
+\end{lemma}
+
+\begin{proof}
+Subtracting $1$ from both sides of~\eqref{eq:gammaRec}:
+\[
+  \gamma_{t+1} - 1 = r (\gamma_t - 1).
+\]
+This is a first-order homogeneous linear recurrence with solution
+\[
+  \gamma_t - 1 = r^t (\gamma_0 - 1),
+\]
+which yields the claimed formulas.
+\end{proof}
+
+\subsection{Gradient-Corrected Recurrence}
+
+In a training scenario, $\gamma_t$ is updated based on both the recurrence~\eqref{eq:gammaRec} and gradient descent:
+\[
+  \gamma_{t+1} = r\,\gamma_t + (1-r) - \eta\,\frac{\partial \mathcal{L}}{\partial \gamma_t}.
+\]
+Without specifying the exact form of $\partial \mathcal{L}/\partial \gamma_t$, one can treat the gradient term as a perturbation:
+
+\[
+  \gamma_{t+1} - 1
+  = r(\gamma_t - 1) - \eta\,\frac{\partial \mathcal{L}}{\partial \gamma_t}.
+\]
+
+Assuming the gradient term is uniformly bounded:
+\[
+  \left|\frac{\partial \mathcal{L}}{\partial \gamma_t}\right| \le G,
+\]
+we obtain
+\begin{equation}
+  |\gamma_{t+1} - 1|
+  \le |r|\,|\gamma_t - 1| + \eta G.
+\end{equation}
+This is a standard affine contraction inequality. If $0<r<1$ and $\eta G$ is small, one can show that $|\gamma_t - 1|$ remains bounded and, for sufficiently small $\eta$, converges to a neighborhood of zero whose radius is proportional to $\eta G/(1-r)$.
+
+\section{Summary of Main Bounds}
+
+For quick reference, we summarize the main analytic bounds derived in this appendix.
+
+\begin{itemize}
+  \item \textbf{Operator norm (boundedness):}
+    \[
+      \|\mathcal{L}_\Lambda(x)\|
+      \le \left(\sum_{i=1}^N m_i(a_i + |\gamma_i|b_i)\right)\|x\|.
+    \]
+
+  \item \textbf{Lipschitz constant:}
+    \[
+      \|\mathcal{L}_\Lambda(x)-\mathcal{L}_\Lambda(y)\|
+      \le \left(\sum_{i=1}^N m_i(a_i + |\gamma_i|b_i)\right)\|x-y\|.
+    \]
+
+  \item \textbf{Contractivity condition:}
+    \[
+      \sum_{i=1}^N m_i(a_i + |\gamma_i|b_i) < 1
+      \quad\Rightarrow\quad
+      \mathcal{L}_\Lambda\text{ is a contraction.}
+    \]
+
+  \item \textbf{Perturbative reconstruction error (relative to ideal wavelet frame):}
+    \[
+      \|x - R^0(\{L_i x, H_i x\}_i)\|
+      \le C_R \sum_i \delta_i \|x\|,
+    \]
+    with $\delta_i = \max(\|L_i - L_i^0\|,\|H_i - H_i^0\|)$.
+
+  \item \textbf{Coherence budget:}
+    \[
+      B = \sum_{k=1}^{K-1} \Delta C_k = C_{K-1,K} - C_{0,1},\quad
+      |B|\le\varepsilon
+      \text{ as a design invariant.}
+    \]
+
+  \item \textbf{Gamma-gate convergence (deterministic):}
+    \[
+      \gamma_t = 1 + r^t(\gamma_0 - 1),\quad |\gamma_t - 1| = |r|^t|\gamma_0-1|.
+    \]
+\end{itemize}
+
+These results provide a theoretically grounded backbone for the $\Lambda_m$-coherent layer and its associated training and observability mechanisms.
+
+\nocite{*}
+\bibliographystyle{unsrt}  
+\bibliography{references}  
+
+
+\end{document}

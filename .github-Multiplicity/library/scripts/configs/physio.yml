@@ -1,0 +1,69 @@
+# configs/physio.yml — physiological cycles (breath/gait)
+experiment: "physio_cycles"
+data:
+  root: "repro/data/PHYSIO"
+  split:
+    strategy: "kfold"
+    k: 5
+    seed: 31415
+
+lattice:
+  n_candidates: [48, 60, 72, 84, 90, 96, 108]
+  choose_n: "argmax_R"            # select n maximizing resonance on window
+  period_estimation:
+    method: "median_iqr_snap"     # estimate period then snap to candidate
+  tiers:
+    use_CRT: true
+
+resonance:
+  lambdas: { R1: 0.45, R2: 0.30, R3: 0.25 }   # time emphasis for physio
+  etas:
+    proportional_by_divisor: true
+
+word:
+  order: "binary_first"
+  ops:
+    - { kind: S, p: 2, r: 2 }
+    - { kind: W, p: 2, perm: [1,0] }
+    - { kind: S, p: 3, r: 3 }
+    - { kind: A, d: 4,  alpha: 0.3, ch: 0 }
+    - { kind: A, d: 2,  alpha: 0.2, ch: 0 }
+    - { kind: A, d: 27, alpha: 1.0, ch: 0 }
+    - { kind: A, d: 9,  alpha: 0.6, ch: 0 }
+    - { kind: A, d: 3,  alpha: 0.4, ch: 0 }
+  drift_compensation:
+    pll: true
+    gain: 0.10
+
+theta:
+  alpha: { "27": 1.0, "9": 0.6, "3": 0.4, "4": 0.3, "2": 0.2 }
+  phi:   { "27": 0, "9": 0, "3": 0, "4": 0, "2": 0 }
+  perm:  { "2": [1,0] }
+  Q: {}
+
+gauge:
+  downbeat_pin: true
+  crt_phase_fix: true
+
+impl:
+  fft_backend: "fftw"
+  threads: 1
+  deterministic: true
+
+invariants:
+  Emax: 1.0
+  tier_max: {}
+  Fmin: 0.70
+
+seeds:
+  global: 27182
+  beam: 42424
+  init: 99
+
+search:
+  beam_width: 16
+  steps_cont: 50
+  steps_beam: 8
+
+outputs:
+  dir: "repro/outputs"

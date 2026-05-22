@@ -1,0 +1,12 @@
+{
+  "name": "multiplicity-theory",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "lint:md": "markdownlint \"**/*.md\" --ignore node_modules --ignore .git",
+    "lint:md:fix": "markdownlint \"**/*.md\" --ignore node_modules --ignore .git --fix"
+  },
+  "devDependencies": {
+    "markdownlint-cli": "^0.47.0"
+  }
+}

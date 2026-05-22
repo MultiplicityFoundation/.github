@@ -1,0 +1,4 @@
+Test,Baseline,Enhanced,Gain,Target,Result
+Test 1: AUROC Gain,0.7544,0.8661,+0.1116,≥ 0.03,✓ PASS
+Test 2: Epistasis Sep.,0.3709,0.6291,+0.2582,Δμ ≥ 0.05 & p < 1e-4,✓ PASS
+Test 3: Monitoring,0.000%,2.361%,Stable,"Viol ≤ 0.1%, Near 0.5–1.0%",✗ FAIL

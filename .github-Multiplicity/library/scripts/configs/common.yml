@@ -1,0 +1,30 @@
+# configs/common.yml — shared defaults (informational; each config is self-contained)
+defaults:
+  gauge:
+    downbeat_pin: true
+    crt_phase_fix: true
+  impl:
+    fft_backend: "fftw"
+    threads: 1
+    deterministic: true
+  resonance:
+    lambdas: { R1: 0.40, R2: 0.35, R3: 0.25 }
+    etas:
+      proportional_by_divisor: true
+  invariants:
+    Emax: 1.0
+    tier_max: {}
+    Fmin: 0.70
+  search:
+    beam_width: 32
+    steps_cont: 50
+    steps_beam: 10
+  seeds:
+    global: 20251
+    beam: 31997
+    init: 108
+  outputs:
+    dir: "repro/outputs"
+
+# Note: If your loader supports inheritance, you may add `extends: common.yml`
+# and merge these defaults; otherwise, each experiment YAML is self-contained.

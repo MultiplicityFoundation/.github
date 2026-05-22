@@ -1,0 +1,84 @@
+cont. ADR 35 and further on
+
+All tests pass. Now I understand the codebase well. Let me plan my implementation:
+
+Segment 37: MultiProvider - Create a MultiProvider that wraps both StoreProvider (local bbolt) and RemoteProvider, deduplicating subscriptions. But wait - the memories mention StoreProvider and store_registry_provider.go, but I don't see them in the codebase. The memories are wrong/outdated.
+Looking at the actual codebase:
+
+There's only RemoteProvider
+
+There's BBoltStore for data storage
+
+The env var AIISTECH_WEBHOOK_STORE_PROVIDER is mentioned in memories but not in the current main.go
+
+I need to create a StoreProvider backed by bbolt, then build a MultiProvider combining both providers with subscription deduplication
+
+Event-type filtering needs wildcard support (the "*" case), and I should check if there's actually a DLQ endpoint in the codebase since the problem mentions one but I haven't found it yet
+
+Looking at the git history, the current branch only has a planning commit, so I'm working from the base codebase and need to implement these features from scratch
+
+.
+
+The problem statement claims there's an existing DLQ replay endpoint, but I don't see it in the router—the memories were describing a planned future state that was never built, so I'll need to implement the DLQ functionality myself.
+Let me check what routes actually exist in the current codebase to understand what's already there.
+
+View 2 files
+
+internal/http/router.go
+
+internal/webhooks/remote_provider_test.go
+Now I have a clear picture of the codebase. Let me check go.mod and README:
+
+
+View 2 files
+
+go.mod
+
+README.md
+Now I have a complete picture of the codebase. Let me plan my implementation:
+
+StoreProvider (internal/webhooks/store_provider.go):
+
+Uses bbolt store
+Implements Provider interface (ListSubscriptions)
+Has Create/Get/Delete helpers for subscription management
+Stores subscriptions as JSON in a "webhook_subscriptions" bucket
+MultiProvider (internal/webhooks/multi_provider.go):
+
+Composed of multiple Provider implementations
+Calls all providers and deduplicates by ID (then by URL if no ID)
+Logs errors from individual providers but continues processing
+matchesEventType improvement (worker_dispatcher.go):
+
+Add "*" as explicit wildcard string
+main.go wiring:
+
+If AIISTECH_WEBHOOK_BASE_URL set → RemoteProvider
+If AIISTECH_WEBHOOK_STORE_PROVIDER=true → StoreProvider (needs its own bbolt path)
+If both → MultiProvider
+ADR document (docs/adr/ADR-037-multi-provider.md)
+
+Tests: StoreProvider, MultiProvider, and matchesEventType wildcard tests
+
+README update with new env vars
+
+Now I'm ready to start implementing. I need to figure out how the StoreProvider gets its bbolt store instance—let me check how the storage registry is structured to understand where this dependency comes from.
+
+
+View internal/storage/registry.go
+Now I have a complete understanding of the storage layer. For the StoreProvider, I need to use a bbolt store. Let me look at the state package to understand how paths are computed:
+
+
+View internal/state/paths.go
+Now I have a complete picture of the codebase. Let me outline my plan and start implementing.
+
+
+Progress update: Initial plan: Segments 37-39 MultiProvider + event filtering + DLQ
+Now let me implement all files in parallel:
+
+
+Create 2 files
+
+internal/webhooks/store_provider.go
+
+internal/webhooks/multi_provider.go

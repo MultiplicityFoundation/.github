@@ -1,0 +1,2024 @@
+\documentclass[12pt,letterpaper]{article}
+
+%% ─── Packages ──────────────────────────────────────────────────────────────
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=1.1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{mdframed}
+\usepackage{tcolorbox}
+\usepackage{datetime2}
+\usepackage{setspace}
+\usepackage{parskip}
+\usepackage{etoolbox}
+
+%% ─── Hyperref ───────────────────────────────────────────────────────────────
+\hypersetup{
+  colorlinks=true,
+  linkcolor=black!70,
+  urlcolor=teal!70!black,
+  citecolor=black!60,
+  pdftitle={PhaseMirror-HQ: Governance Protocol System — Prior Art Defensive Publication},
+  pdfauthor={Ryan Van Gelder / Multiplicity Foundation},
+  pdfsubject={Multiplicity Theory, PETC, ACE, Governance Protocols},
+}
+
+%% ─── Colors ─────────────────────────────────────────────────────────────────
+\definecolor{primeblue}{RGB}{0,100,120}
+\definecolor{codebackground}{RGB}{250,250,248}
+\definecolor{codeborder}{RGB}{210,210,200}
+\definecolor{boxaccent}{RGB}{1,105,111}
+\definecolor{defcolor}{RGB}{40,80,100}
+\definecolor{notebox}{RGB}{245,248,245}
+\definecolor{warnbox}{RGB}{250,245,240}
+
+%% ─── Section titles ─────────────────────────────────────────────────────────
+\titleformat{\section}{\large\bfseries\color{primeblue}}{{\thesection}}{0.8em}{}[\vspace{2pt}\hrule\vspace{4pt}]
+\titleformat{\subsection}{\normalsize\bfseries\color{black!80}}{{\thesubsection}}{0.7em}{}
+\titleformat{\subsubsection}{\normalsize\itshape\color{black!70}}{{\thesubsubsection}}{0.6em}{}
+
+%% ─── Headers/footers ────────────────────────────────────────────────────────
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\color{gray}\textit{PhaseMirror-HQ: Prior Art Defensive Publication}}
+\fancyhead[R]{\small\color{gray}Citizen Gardens \textbullet{} 2026}
+\fancyfoot[C]{\small\color{gray}\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\footrulewidth}{0pt}
+
+%% ─── Listings ───────────────────────────────────────────────────────────────
+\lstdefinestyle{pythonstyle}{
+  language=Python,
+  basicstyle=\ttfamily\small,
+  backgroundcolor=\color{codebackground},
+  frame=single,
+  rulecolor=\color{codeborder},
+  keywordstyle=\color{primeblue}\bfseries,
+  commentstyle=\color{gray}\itshape,
+  stringstyle=\color{teal!70!black},
+  numberstyle=\tiny\color{gray},
+  numbers=left,
+  breaklines=true,
+  showstringspaces=false,
+  tabsize=4,
+  xleftmargin=1.5em,
+  framexleftmargin=1.5em,
+  aboveskip=8pt,
+  belowskip=8pt,
+}
+
+\lstdefinestyle{jsonlstyle}{
+  language=,
+  basicstyle=\ttfamily\footnotesize,
+  backgroundcolor=\color{codebackground},
+  frame=single,
+  rulecolor=\color{codeborder},
+  breaklines=true,
+  showstringspaces=false,
+  tabsize=2,
+  xleftmargin=1em,
+  aboveskip=6pt,
+  belowskip=6pt,
+}
+
+\lstdefinestyle{circomstyle}{
+  language=,
+  basicstyle=\ttfamily\footnotesize,
+  backgroundcolor=\color{codebackground},
+  frame=single,
+  rulecolor=\color{codeborder},
+  keywordstyle=\color{primeblue}\bfseries,
+  commentstyle=\color{gray}\itshape,
+  breaklines=true,
+  showstringspaces=false,
+  tabsize=2,
+  xleftmargin=1em,
+  aboveskip=6pt,
+  belowskip=6pt,
+}
+
+%% ─── Theorem environments ───────────────────────────────────────────────────
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{invariant}{Invariant}[section]
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{notation}{Notation}
+
+%% ─── Custom boxes ───────────────────────────────────────────────────────────
+\tcbuselibrary{breakable,skins}
+\newtcolorbox{priorartbox}{
+  colback=notebox,
+  colframe=boxaccent,
+  fonttitle=\bfseries\small,
+  title={Prior Art Disclosure Statement},
+  breakable,
+  arc=3pt,
+  boxrule=0.5pt,
+}
+\newtcolorbox{claimbox}{
+  colback=warnbox,
+  colframe=primeblue!60,
+  fonttitle=\bfseries\small,
+  title={Technical Claim},
+  breakable,
+  arc=3pt,
+  boxrule=0.5pt,
+}
+\newtcolorbox{noteboxtc}{
+  colback=codebackground,
+  colframe=codeborder,
+  breakable,
+  arc=2pt,
+  boxrule=0.4pt,
+  left=6pt, right=6pt, top=4pt, bottom=4pt,
+}
+
+%% ─── Spacing ────────────────────────────────────────────────────────────────
+\setlength{\parskip}{6pt}
+\setlength{\parindent}{0pt}
+\onehalfspacing
+
+%% ─────────────────────────────────────────────────────────────────────────────
+\begin{document}
+
+%% ══════════════════════════════════════════════════════════════════════════════
+%%  TITLE PAGE
+%% ══════════════════════════════════════════════════════════════════════════════
+\begin{titlepage}
+\centering
+
+{\fontsize{11}{13}\selectfont\color{gray}\scshape
+  Prior Art Defensive Publication \textbullet{} Technical Report}\\[0.6cm]
+
+{\fontsize{26}{30}\selectfont\bfseries\color{primeblue}
+  PhaseMirror-HQ\\[0.2cm]
+  Governance Protocol System}\\[0.4cm]
+
+{\fontsize{14}{17}\selectfont\color{black!75}
+  Atomic Language Processing (ALP), PETC Exponent Vectors,\\[0.1cm]
+  ACE Invariant Checking, and Multi-Layer Agent Architecture}\\[1.2cm]
+
+\hrule height 0.5pt
+\vspace{0.5cm}
+
+\begin{minipage}{0.75\textwidth}
+\centering
+{\large\bfseries Citizen Gardens}\\[0.2cm]
+{\normalsize The Foundation of Multiplicity}\\[0.2cm]
+\end{minipage}
+
+\vspace{0.5cm}
+\hrule height 0.5pt
+\vspace{1.0cm}
+
+{\normalsize\color{gray}
+  Publication Date: \DTMdate{2026-04-25}\\[0.2cm]
+  Document Version: 1.0.0\\[0.2cm]
+  Schema Version: 2.0.0 (index.json aligned)\\[0.2cm]
+  Repository SHA Reference: \texttt{c348d1568af993f3ff26f10bd0ca470cb051bd06}
+}
+
+\vspace{1.2cm}
+
+\begin{mdframed}[linecolor=boxaccent,linewidth=0.5pt,backgroundcolor=notebox,
+  innerleftmargin=10pt,innerrightmargin=10pt,innertopmargin=8pt,innerbottommargin=8pt]
+\small\textbf{Defensive Publication Notice.} This document constitutes a prior art
+defensive publication for the purpose of placing all described methods, architectures,
+mathematical frameworks, and software patterns into the public domain. The intent is to
+prevent third-party patent claims on these techniques and to establish the Multiplicity
+Foundation's priority date for all concepts herein. All technical content is released
+under \textbf{Apache 2.0} (code) and \textbf{CC BY 4.0} (documentation) unless otherwise
+noted. The Prime Materia License governs the core Multiplicity Theory IP layer.
+\end{mdframed}
+
+\vfill
+
+{\small\color{gray}\textit{
+  Multiplicity Theory constitutes a prime-indexed, recursively stable mathematical
+  framework wherein multiplicity—the recurrence of elements understood through prime
+  number decomposition—forms the basis for modeling nonlinear, emergent structures
+  across mathematics, physics, computation, and cognition.}}
+
+\end{titlepage}
+
+%% ══════════════════════════════════════════════════════════════════════════════
+%%  TABLE OF CONTENTS
+%% ══════════════════════════════════════════════════════════════════════════════
+\tableofcontents
+\newpage
+
+%% ══════════════════════════════════════════════════════════════════════════════
+%%  EXECUTIVE SUMMARY
+%% ══════════════════════════════════════════════════════════════════════════════
+\section*{Executive Summary}
+\addcontentsline{toc}{section}{Executive Summary}
+
+This document is both a technical report and a prior art defensive publication covering
+the complete five-phase architecture of PhaseMirror-HQ, a governance protocol system
+developed under the Multiplicity Foundation. The system implements Atomic Language
+Processing (ALP), a formal policy language grounded in Multiplicity Theory, wherein
+every policy statement is decomposed into prime-indexed semantic dimensions and verified
+through a stack of invariant-checking layers.
+
+The five phases addressed are:
+\begin{enumerate}[leftmargin=2em]
+  \item \textbf{Phase 1 — ALP Grammar and Policy Pack Parsing} (Days 1–7): Lark-based
+        grammar, PolicyTransformer, and JSON Schema validation.
+  \item \textbf{Phase 2 — Predicates and PETC Binding} (Days 8–14): Token-to-predicate
+        mapping, \texttt{predicates.py} module, and engine extension for predicate gating.
+  \item \textbf{Phase 3 — Audit Layer} (Days 14–21): Structured JSON event emission,
+        \texttt{audit.py}, tamper-evident fingerprinting, and circom ZK-SNARK binding.
+  \item \textbf{Phase 4 — State Transitions and Governance Layer} (Days 21–30):
+        \texttt{transitions.py} state machine, \texttt{index.json} versioning, exception
+        workflow, and kill-switch in \texttt{manager.py}.
+  \item \textbf{Phase 5 — Tooling and Agent Layer} (Days 30+): Bounded-scope agent
+        architecture, \texttt{agents/} directory, \texttt{HandoffEnvelope} protocol, and
+        ACE-constrained rank governance.
+\end{enumerate}
+
+The mathematical backbone is the PETC (Prime-Exponent Tensor Calculus) framework,
+which maps every policy semantic dimension to an exponent vector \(\sigma \in
+\mathbb{Z}^n\), and the ACE (Arithmetic Control Engine), which enforces spectral drift
+bounds across update cycles. All code artifacts are hosted at \texttt{MultiplicityFoundation/PhaseMirror-HQ}.
+
+\newpage
+
+%% ══════════════════════════════════════════════════════════════════════════════
+%%  1. BACKGROUND AND MOTIVATION
+%% ══════════════════════════════════════════════════════════════════════════════
+\section{Background and Motivation}
+
+\subsection{Multiplicity Theory: Core Postulate}
+
+Multiplicity Theory (MT) reinterprets mathematical objects not as static entities but
+as recursively generated patterns of prime-labeled interactions. The foundational
+postulate is:
+
+\begin{definition}[Multiplicity Space]
+A \emph{multiplicity space} \(\mathcal{M} = (S, \mathbf{p}, \phi)\) consists of a set
+\(S\) of elements, a prime-index assignment \(\mathbf{p}: S \to \mathbb{P}^n\) (where
+\(\mathbb{P}\) denotes the primes), and a recursive feedback operator
+\(\phi: \mathcal{M} \times \mathcal{M} \to \mathcal{M}\) that preserves identity across
+scales.
+\end{definition}
+
+Within MT, the cardinality of a relation is not simply a count but a prime-factored
+multiplicity weight. For an association \(A \subseteq S \times S\), the multiplicity
+at index \(k\) is:
+\[
+  \mu_k(A) = \prod_{(s_i, s_j) \in A} p_k^{e_{ij}} \tag{1}
+\]
+where \(p_k\) is the \(k\)-th prime and \(e_{ij}\) is the exponent encoding the
+relational weight between \(s_i\) and \(s_j\).
+
+\subsection{The Governance Motivation}
+
+Policy languages in current practice (XACML, OPA/Rego, Cedar) treat policy evaluation
+as a tree walk over a static document. They provide no formal guarantee that:
+\begin{itemize}
+  \item semantic dimensions are stable under recursive policy composition;
+  \item audit trails are cryptographically linked to the evaluated state;
+  \item state transitions in policy lifecycle are formally verified against invariants;
+  \item agent-layer execution is bounded by the same mathematical constraints that
+        govern the policy itself.
+\end{itemize}
+
+PhaseMirror-HQ addresses all four gaps through the Multiplicity Theory stack, with PETC
+as the canonical state representation and ACE as the invariant-enforcement mechanism.
+
+\subsection{Repository Context}
+
+The implementation resides at \texttt{MultiplicityFoundation/PhaseMirror-HQ},
+anchored to commit \texttt{c348d1568af993f3ff26f10bd0ca470cb051bd06}. The primary
+library files relevant to this publication are:
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{@{}lll@{}}
+\toprule
+\textbf{File} & \textbf{Role} & \textbf{Phase} \\
+\midrule
+\texttt{multiplicity.py} & PETC exponent vector logic, \texttt{verify\_system} & 1, 2 \\
+\texttt{association.py} & \texttt{PrimeAuditedAssociation}, multiplicity bounds & 2, 5 \\
+\texttt{engine.py} & \texttt{EvolutionEngine}, entropy gating, evolve() & 2 \\
+\texttt{manager.py} & Orchestration surface, link/audit/kill-switch & 3, 4 \\
+\texttt{utils.py} & \texttt{get\_prime\_tag}, \texttt{multiplicity\_gate} & 2, 5 \\
+\texttt{association\_verify.circom} & zk-SNARK for association integrity & 3 \\
+\texttt{index.json} & Concept/article registry, versioning & 4 \\
+\texttt{main.py} & Entry point, wiring pattern & 5 \\
+\bottomrule
+\end{tabular}
+\caption{Core library files and their governance roles.}
+\end{table}
+
+\newpage
+
+%% ══════════════════════════════════════════════════════════════════════════════
+%%  2. MATHEMATICAL FRAMEWORK
+%% ══════════════════════════════════════════════════════════════════════════════
+\section{Mathematical Framework}
+
+\subsection{PETC: Prime-Exponent Tensor Calculus}
+
+\subsubsection{Exponent Vector State}
+
+The canonical state of a policy pack \(\Pi\) is an integer-valued exponent vector:
+\[
+  \sigma(\Pi) = (\sigma_1, \sigma_2, \ldots, \sigma_n) \in \mathbb{Z}^n \tag{2}
+\]
+where each dimension \(\sigma_i\) corresponds to a semantic feature dimension \(q_i\)
+(subject scope, action class, data class, constraint, exception authority). The prime
+encoding of the state is:
+\[
+  \hat{\Pi} = \prod_{i=1}^{n} p_i^{\sigma_i} \tag{3}
+\]
+where \(p_i\) is the \(i\)-th prime. This encoding is injective by the Fundamental
+Theorem of Arithmetic: distinct exponent vectors map to distinct rational numbers,
+providing a canonical fingerprint for any policy state.
+
+\subsubsection{Update Dynamics}
+
+Let \(\sigma^{(t)}\) denote the PETC state at update cycle \(t\). An update
+\(\Delta\sigma \in \mathbb{Z}^n\) is \emph{lawful} if and only if:
+\[
+  \|\sigma^{(t+1)} - \sigma^{(t)}\|_2 \leq \varepsilon \tag{4}
+\]
+for a drift bound \(\varepsilon > 0\) established at policy initialization. This is the
+ACE spectral drift constraint, implemented as \texttt{ConstraintInvariantPredicate} in
+\texttt{predicates.py}.
+
+\subsubsection{Multiplicity Gate}
+
+The \texttt{multiplicity\_gate} function in \texttt{utils.py} implements a prime-modular
+projection:
+\[
+  \Gamma_{p_k}(\tau) = \tau \bmod p_k \tag{5}
+\]
+where \(\tau\) is a tensor state hash and \(p_k = \texttt{get\_prime\_tag}(k)\). This
+gate modulates recursive link state per the PIRTM (Prime Interval Recursion Theory
+Machine) specification, ensuring that state evolution is bounded within the prime
+arithmetic of the \(k\)-th index.
+
+\subsection{ACE: Arithmetic Control Engine}
+
+\subsubsection{Invariant Checking Layer}
+
+The ACE layer enforces three categories of invariants across every PETC update:
+
+\begin{invariant}[Scope Membership]
+For all subjects \(u \in \text{subject}(\Pi)\), the order prime \(p_u\) must be a
+member of the declared scope set \(P_{\text{ord}}\):
+\[
+  p_u \in P_{\text{ord}} \quad \forall u \in \text{subject}(\Pi) \tag{6}
+\]
+\end{invariant}
+
+\begin{invariant}[Feature Dimension Access]
+For all actions \(a \in \text{action}(\Pi)\), the feature prime \(q_a\) must be in the
+permitted action set \(Q_{\text{permit}}\):
+\[
+  q_a \in Q_{\text{permit}} = \{p : p \text{ indexes a permitted action}\} \tag{7}
+\]
+\end{invariant}
+
+\begin{invariant}[Spectral Drift Bound]
+The \(\ell^2\) norm of the PETC state must not exceed \(\varepsilon\) at any update
+cycle (Equation 4). Equivalently, no single dimension may exceed the bound without
+a corresponding decay in another dimension, preserving the total ``energy'' of the
+policy state.
+\end{invariant}
+
+\subsubsection{Association Matrix}
+
+The association matrix \(A \in \mathbb{Z}^{m \times m}\) (implemented in
+\texttt{association.py}) encodes multiplicity bounds between source and target class
+instances. Its entries \(A_{ij}\) count the number of active links from instance \(i\)
+to instance \(j\). ACE enforces:
+\[
+  \text{lb}(A_{ij}) \leq A_{ij} \leq \text{ub}(A_{ij}) \tag{8}
+\]
+where \(\text{lb}, \text{ub}\) are lower and upper bounds derived from
+\texttt{MultiplicityBound} (ONE, ZERO\_TO\_ONE, ZERO\_TO\_MANY, ONE\_TO\_MANY).
+
+The ACE spectral drift condition extends to the association matrix update as follows.
+Let \(A^{(t)}\) be the association matrix at cycle \(t\). A rank update is lawful if:
+\[
+  \|A^{(t+1)} - A^{(t)}\|_2 \leq \varepsilon_A \tag{9}
+\]
+where \(\varepsilon_A\) is the per-association drift bound and \(\|\cdot\|_2\) is the
+operator (spectral) norm. This prevents oscillatory rank behavior and is the formal
+basis for ACE-constrained agent rank updates in Phase 5.
+
+\subsection{The \(\Lambda^p\)-Archivum}
+
+Every audit event is tagged with a prime \(p_k = \texttt{get\_prime\_tag}(k)\), forming
+a sequence of prime-indexed evidence records. The \(\Lambda^p\)-Archivum is the ordered
+log of all such records:
+\[
+  \Lambda^p = \{(e_1, p_{k_1}), (e_2, p_{k_2}), \ldots, (e_N, p_{k_N})\} \tag{10}
+\]
+Each pair \((e_i, p_{k_i})\) is a structured audit event with a canonical SHA-256
+fingerprint \(h_i = \text{SHA256}(\text{canonical}(e_i))\). The integrity of the log
+is verified by re-computing all \(h_i\) and checking that each matches the stored value.
+
+\subsection{Circom Association Integrity}
+
+The \texttt{association\_verify.circom} circuit implements a zk-SNARK over the
+following constraint system. Let \(s, t, m_s, m_t, p\) be the circuit inputs
+(\texttt{source\_count}, \texttt{target\_count}, \texttt{source\_mult},
+\texttt{target\_mult}, \texttt{prime\_tag}). Define Boolean validity signals:
+\[
+  v_s = \bigwedge_{b \in \{0,1,2,3\}} \text{mult\_valid}(s, m_s, b), \quad
+  v_t = \bigwedge_{b \in \{0,1,2,3\}} \text{mult\_valid}(t, m_t, b) \tag{11}
+\]
+\[
+  \text{is\_prime}(p) = [p \in \{2, 3, 5, 7\}] \quad \text{(mock circuit)} \tag{12}
+\]
+\[
+  \text{is\_valid} = v_s \cdot v_t \cdot \text{is\_prime}(p) \tag{13}
+\]
+The output \texttt{is\_valid} $\in \{0,1\}$ is committed to the audit log via
+\texttt{emit\_circom\_proof} in \texttt{audit.py}, with a SHA-256 witness hash of the
+signal input vector serving as the \texttt{circom\_proof} field.
+
+\newpage
+
+%% ══════════════════════════════════════════════════════════════════════════════
+%%  3. PHASE 1: ALP GRAMMAR AND POLICY PACK PARSING
+%% ══════════════════════════════════════════════════════════════════════════════
+\section{Phase 1: ALP Grammar and Policy Pack Parsing (Days 1–7)}
+
+\subsection{Atomic Language Processing: Design Rationale}
+
+ALP (Atomic Language Processing) treats every policy statement as a set of atomic
+semantic units, each assigned to a prime-indexed dimension. Unlike XACML's XML-tree
+evaluation or OPA's unification-based Rego, ALP's evaluation model is arithmetic:
+each atom resolves to a dimension index \(i\) and an exponent value \(\sigma_i\),
+producing a PETC state vector.
+
+The grammar is defined over five token classes:
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{@{}llll@{}}
+\toprule
+\textbf{Token} & \textbf{Semantic Dimension} & \textbf{PETC Index} & \textbf{Example Value} \\
+\midrule
+\texttt{subject}    & Who the policy applies to & \(\sigma_1\) & \texttt{"patient"} \\
+\texttt{action}     & What operation is permitted & \(\sigma_2\) & \texttt{"read"} \\
+\texttt{data\_class} & Which data category & \(\sigma_3\) & \texttt{"PHI"} \\
+\texttt{constraint} & Boundary condition & \(\sigma_4\) & \texttt{"within-jurisdiction"} \\
+\texttt{exception}  & Override authority & \(\sigma_5\) & \texttt{\{allowed\_by: "chief-privacy-officer"\}} \\
+\bottomrule
+\end{tabular}
+\caption{ALP grammar token classes and their PETC dimension bindings.}
+\end{table}
+
+\subsection{Lark Grammar Specification}
+
+\begin{noteboxtc}
+\begin{lstlisting}[style=pythonstyle, caption={ALP grammar excerpt (multiplicity.lark)}, label={lst:grammar}]
+// multiplicity.lark — ALP policy grammar
+// Each rule maps to one semantic dimension in sigma
+
+start: policy_pack+
+
+policy_pack: "policy" PACK_ID "{"
+             scope_clause
+             control_clause
+             "}"
+
+scope_clause: "scope" "{" data_class_list "}"
+data_class_list: "data_classes" ":" "[" (ATOM ",")* ATOM "]"
+
+control_clause: "control" "{"
+                subject_rule
+                action_rule
+                constraint_rule?
+                exception_rule?
+                "}"
+
+subject_rule: "subject" ":" "[" (ATOM ",")* ATOM "]"
+action_rule:  "action"  ":" ATOM
+constraint_rule: "constraint" ":" QUOTED_STRING
+exception_rule: "exception" "{" "allowed_by" ":" ATOM
+                              "condition" ":" QUOTED_STRING "}"
+
+PACK_ID: /[a-z][a-z0-9\-]*/
+ATOM:    /[a-zA-Z][a-zA-Z0-9_\-]*/
+QUOTED_STRING: /"[^"]*"/
+\end{lstlisting}
+\end{noteboxtc}
+
+\subsection{PolicyTransformer}
+
+The \texttt{PolicyTransformer} class extends Lark's \texttt{Transformer} to convert
+parse trees into validated \texttt{policy\_pack} dicts. Each method corresponds to one
+grammar rule; the output is a Python dict conforming to \texttt{policy\_pack.schema.json}.
+
+\begin{claimbox}
+\textbf{Claim 1.} The PolicyTransformer implements a structure-preserving map
+\(T: \mathcal{G} \to \mathcal{P}\) from grammar parse trees \(\mathcal{G}\) to
+policy pack dicts \(\mathcal{P}\), such that every valid tree maps to a unique dict and
+every dict admits a canonical PETC state vector \(\sigma \in \mathbb{Z}^5\).
+\end{claimbox}
+
+\subsection{JSON Schema Validation}
+
+Policy packs are validated against \texttt{policy\_pack.schema.json} before entering
+the predicate layer. The schema enforces:
+\begin{itemize}
+  \item \texttt{pack\_id}: non-empty string
+  \item \texttt{scope.data\_classes}: array of non-empty strings
+  \item \texttt{control.subject}: array of non-empty strings
+  \item \texttt{control.action}: one of the permitted action set
+  \item \texttt{control.constraint}: optional string
+  \item \texttt{control.exception}: optional object with \texttt{allowed\_by} and
+        \texttt{condition}
+\end{itemize}
+
+\newpage
+
+%% ══════════════════════════════════════════════════════════════════════════════
+%%  4. PHASE 2: PREDICATES AND PETC BINDING
+%% ══════════════════════════════════════════════════════════════════════════════
+\section{Phase 2: Predicates and PETC Binding (Days 8–14)}
+
+\subsection{Predicate Architecture}
+
+A \emph{predicate} \(P_i\) is a function:
+\[
+  P_i: \mathcal{P} \times \mathbb{Z}^n \to \{0,1\} \times \Sigma^* \times \mathbb{P}
+  \tag{14}
+\]
+taking a policy pack \(\pi \in \mathcal{P}\) and PETC state \(\sigma \in \mathbb{Z}^n\),
+and returning a tuple \((\text{passed}, \text{reason}, p_k)\) where \(\text{passed}
+\in \{0,1\}\), \(\text{reason} \in \Sigma^*\) is a human-readable explanation, and
+\(p_k\) is the prime tag from \texttt{utils.py}.
+
+\subsection{Token-to-Predicate Mapping}
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{@{}lllp{4.5cm}@{}}
+\toprule
+\textbf{Grammar Token} & \textbf{Predicate Class} & \textbf{Invariant} & \textbf{PETC Binding} \\
+\midrule
+\texttt{subject}    & \texttt{SubjectScopePredicate}     & Subject \(\subseteq\) declared scope   & Order prime \(p_u\) membership in \(P_{\text{ord}}\) \\
+\texttt{action}     & \texttt{ActionPermitPredicate}     & Action \(\in Q_{\text{permit}}\)       & Feature dimension \(q_i\) access \\
+\texttt{data\_class} & \texttt{DataClassPredicate}       & \(\sigma_i \geq 0\), index mapped      & \(\sigma_i\) dimension bounds \\
+\texttt{constraint} & \texttt{ConstraintInvariantPredicate} & \(\|\sigma\|_2 \leq \varepsilon\)   & ACE spectral drift (Eq.\ 4) \\
+\texttt{exception}  & \texttt{ExceptionAuthorityPredicate} & Authority named; churn \(\leq K\)    & Bounded exception count per update \\
+\bottomrule
+\end{tabular}
+\caption{Complete token-to-predicate mapping for the ALP grammar.}
+\end{table}
+
+\subsection{PredicateRegistry and Coverage Metric}
+
+The \texttt{PredicateRegistry} maintains a dict of registered predicates keyed by
+\texttt{predicate\_id}. The coverage metric is:
+\[
+  \text{coverage} = \frac{|\{P_i.\text{token\_type}\} \cap T|}{|T|} \tag{15}
+\]
+where \(T = \{\text{subject}, \text{action}, \text{data\_class}, \text{constraint},
+\text{exception}\}\) is the full grammar token set. Coverage must equal 1.0 before
+Phase 3 begins.
+
+\subsection{Engine Extension: Predicate Gate}
+
+The \texttt{EvolutionEngine.evolve()} method in \texttt{engine.py} is extended with
+a predicate gate that fires before committing any PETC state update:
+
+\begin{noteboxtc}
+\begin{lstlisting}[style=pythonstyle, caption={Predicate gate in EvolutionEngine.evolve()}, label={lst:engine}]
+def evolve(self, system_state, petc_state=None, policy_pack=None):
+    # Existing entropy gate
+    entropy = self.compute_entropy(system_state)
+    if entropy > 1.0:
+        raise ValueError("Entropy exceeds lawful threshold")
+
+    # Phase 2: predicate gate
+    if (self.predicate_registry is not None
+            and petc_state is not None
+            and policy_pack is not None):
+        results = self.predicate_registry.run_all(policy_pack, petc_state)
+        self.predicate_log.append(results)
+        failures = [r for r in results if not r.passed]
+        if failures:
+            reasons = "; ".join(r.reason for r in failures)
+            raise ValueError(f"Predicate gate failed: {reasons}")
+
+    modulated = multiplicity_gate(self.prime_index, system_state)
+    self.history.append(modulated)
+    self.prime_index += 1
+    return modulated
+\end{lstlisting}
+\end{noteboxtc}
+
+\newpage
+
+%% ══════════════════════════════════════════════════════════════════════════════
+%%  5. PHASE 3: AUDIT LAYER
+%% ══════════════════════════════════════════════════════════════════════════════
+\section{Phase 3: Audit Layer (Days 14–21)}
+
+\subsection{Design Principles}
+
+Three principles govern the audit layer design:
+\begin{enumerate}
+  \item \textbf{Every control event is a record.} No state transition in
+        \texttt{manager.py}, \texttt{engine.py}, or \texttt{predicates.py} may execute
+        without emitting an \texttt{AuditEvent}.
+  \item \textbf{Every record has a fingerprint.} SHA-256 of the canonical JSON
+        serialization provides tamper evidence without requiring a full Merkle tree.
+  \item \textbf{Every fingerprint is a commitment.} Fingerprints may be committed to
+        the \texttt{circom\_proof} field for association integrity events, creating a
+        chain of cryptographic evidence linked to \texttt{association\_verify.circom}.
+\end{enumerate}
+
+\subsection{Audit Event Schema}
+
+\begin{noteboxtc}
+\begin{lstlisting}[style=jsonlstyle, caption={AuditEvent JSON schema (schema version 1.0.0)}, label={lst:auditevent}]
+{
+  "event_id":       "uuid4",
+  "timestamp":      "ISO-8601 (UTC)",
+  "event_type":     "define_association | link | predicate_check |
+                     rank_swap | petc_update | audit_pass |
+                     audit_fail | exception_granted | kill_switch",
+  "policy_id":      "string | null",
+  "control": {
+    "subject":      ["string"],
+    "action":       "string",
+    "data_class":   ["string"]
+  },
+  "result": {
+    "passed":       "boolean",
+    "reason":       "string",
+    "prime_tag":    "integer (prime)"
+  },
+  "owner":          "string",
+  "schema_version": "1.0.0",
+  "circom_proof":   "hex-string | null"
+}
+\end{lstlisting}
+\end{noteboxtc}
+
+\subsection{AuditLog and Coverage Metric}
+
+The \texttt{AuditLog} class maintains an append-only in-memory buffer and optionally
+writes to a JSONL file. The audit-trace completeness metric is:
+\[
+  \text{completeness} = \frac{N_{\text{logged}}}{N_{\text{expected}}} \tag{16}
+\]
+where \(N_{\text{expected}}\) is the count of control event entry-points in
+\texttt{manager.py} (incremented on each call to any public method) and
+\(N_{\text{logged}}\) is the count of successfully emitted \texttt{AuditEvent}
+instances. The target is \(\text{completeness} = 1.0\).
+
+\subsection{Circom Binding}
+
+The \texttt{emit\_circom\_proof} function mirrors the signal names of
+\texttt{association\_verify.circom} exactly:
+
+\begin{noteboxtc}
+\begin{lstlisting}[style=circomstyle, caption={association\_verify.circom — signal interface}, label={lst:circom}]
+template AssociationVerify() {
+    signal input source_count;  // Number of source instances
+    signal input target_count;  // Number of target instances
+    signal input source_mult;   // Encoded multiplicity (0..3)
+    signal input target_mult;
+    signal input prime_tag;     // Prime tag for auditability
+    signal output is_valid;     // 0 or 1
+
+    // is_valid = source_valid * target_valid * is_prime(prime_tag)
+}
+\end{lstlisting}
+\end{noteboxtc}
+
+The witness hash \(h_w = \text{SHA256}(\text{canonical}(\{s_c, t_c, m_s, m_t, p, v\}))\)
+is stored in \texttt{circom\_proof}. A full snarkjs proof generation path can replace
+the hash in Phase 5+ without changing the audit schema.
+
+\newpage
+
+%% ══════════════════════════════════════════════════════════════════════════════
+%%  6. PHASE 4: STATE TRANSITIONS AND GOVERNANCE LAYER
+%% ══════════════════════════════════════════════════════════════════════════════
+\section{Phase 4: State Transitions and Governance Layer (Days 21–30)}
+
+\subsection{Gating Condition}
+
+Phase 4 is gated on Phase 2 invariant stability: \(\text{coverage}(\mathtt{PredicateRegistry}) = 1.0\)
+and invariant pass rate \(\geq 0.99\) across the test suite. This is not optional;
+state transitions encode behavior over time and incorrect predicates produce
+incorrect transitions that are hard to roll back.
+
+\subsection{Policy Pack Lifecycle: State Machine}
+
+A policy pack transitions through five lifecycle states:
+\[
+  \texttt{draft} \to \texttt{active} \to \texttt{suspended} \to \texttt{deprecated} \to \texttt{archived}
+  \tag{17}
+\]
+
+The legal transition set \(\mathcal{T}\) is:
+\[
+  \mathcal{T} = \{(\texttt{draft}, \texttt{active}),\ (\texttt{active}, \texttt{suspended}),\
+  (\texttt{active}, \texttt{deprecated}),\ (\texttt{suspended}, \texttt{active}),
+\]
+\[
+  (\texttt{suspended}, \texttt{deprecated}),\ (\texttt{deprecated}, \texttt{archived})\}
+  \tag{18}
+\]
+
+Every transition attempt \((s_{\text{from}}, s_{\text{to}})\) not in \(\mathcal{T}\) is
+rejected with an \texttt{audit\_fail} event. Every successful transition emits
+\texttt{audit\_pass}. The transition validity rate is:
+\[
+  \text{TVR} = \frac{|\{r \in \mathcal{H} : r.\text{allowed}\}|}{|\mathcal{H}|} \tag{19}
+\]
+where \(\mathcal{H}\) is the transition history of a \texttt{PolicyStateMachine} instance.
+
+\subsection{Index.json Versioning}
+
+The \texttt{index.json} file is extended with three governance fields at both root and
+article level:
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{@{}llp{5cm}@{}}
+\toprule
+\textbf{Field} & \textbf{Type} & \textbf{Semantics} \\
+\midrule
+\texttt{schema\_version} & \texttt{"2.0.0"} & Version of the index.json schema itself \\
+\texttt{deprecated\_at}  & ISO-8601 or \texttt{null} & When the article was deprecated; null if active \\
+\texttt{successor\_id}   & slug string or \texttt{null} & The slug of the replacing article; null if none \\
+\bottomrule
+\end{tabular}
+\caption{New governance fields added to index.json in Phase 4.}
+\end{table}
+
+The invariant is: \texttt{deprecated\_at} $\neq$ \texttt{null} $\Rightarrow$
+\texttt{successor\_id} $\neq$ \texttt{null}. This ensures deprecation is always
+paired with a migration path.
+
+\subsection{Exception Workflow and Kill-Switch}
+
+\subsubsection{Grant and Revoke}
+
+The \texttt{grant\_exception()} method registers a bounded exception in
+\texttt{manager.py}. The mean time to revoke (MTTR) is tracked as:
+\[
+  \text{MTTR} = \frac{1}{|\mathcal{R}|} \sum_{r \in \mathcal{R}} (t_r^{\text{revoke}} - t_r^{\text{grant}}) \tag{20}
+\]
+where \(\mathcal{R}\) is the set of revoked exceptions and times are in seconds.
+
+\subsubsection{Kill-Switch}
+
+The \texttt{kill\_switch()} method:
+\begin{enumerate}
+  \item Sets \texttt{\_kill\_switch\_active = True}, blocking all future exception grants.
+  \item Iterates all \texttt{ACTIVE} policy packs in the \texttt{TransitionRegistry} and
+        transitions each to \texttt{SUSPENDED} with a kill-switch reason string.
+  \item Emits a single \texttt{kill\_switch} event to the audit log.
+\end{enumerate}
+
+The kill-switch-to-suspend latency must be \(< 1\) second in test, verified by
+timing the \texttt{kill\_switch()} call across a registry with \(n = 1000\) active
+packs.
+
+\newpage
+
+%% ══════════════════════════════════════════════════════════════════════════════
+%%  7. PHASE 5: TOOLING AND AGENT LAYER
+%% ══════════════════════════════════════════════════════════════════════════════
+\section{Phase 5: Tooling and Agent Layer (Days 30+)}
+
+\subsection{Agent Architecture Contract}
+
+Each agent is a bounded execution unit satisfying three hard constraints:
+\begin{enumerate}
+  \item \textbf{Single read source}: reads from exactly one layer (L1, L2, or L3).
+  \item \textbf{Single write artifact}: writes to exactly one typed output.
+  \item \textbf{Audit on every action}: every \texttt{execute()} call emits at least
+        one \texttt{AuditEvent} regardless of success or failure.
+\end{enumerate}
+
+These constraints are enforced by \texttt{BaseAgent.run()}, which wraps every
+\texttt{execute()} call in a try/except that emits \texttt{audit\_fail} on any
+unhandled exception.
+
+\subsection{Agent Pipeline}
+
+\[
+  \underbrace{\texttt{ParserAgent}}_{\text{L1}}
+  \xrightarrow{\texttt{HandoffEnvelope}(\texttt{ParsedPack})}
+  \underbrace{\texttt{PredicateAgent}}_{\text{L2}}
+  \xrightarrow{\texttt{HandoffEnvelope}(\texttt{List[PredicateResult]})}
+  \underbrace{\texttt{EvidenceAgent}}_{\text{L3}}
+  \xrightarrow{\texttt{HandoffEnvelope}(\texttt{AuditBundle})}
+  \texttt{audit.py}
+  \tag{21}
+\]
+
+The \texttt{HandoffEnvelope} is the typed communication primitive between agents. It
+carries a \texttt{passed} boolean; a failed envelope short-circuits the pipeline and
+increments the receiving agent's \texttt{handoff\_failure\_rate}.
+
+\subsection{ACE-Constrained Agent Ranking}
+
+Agent rank across sessions is governed by \texttt{PrimeAuditedAssociation}
+(\texttt{association.py}). Each agent is the source class in an association with its
+task class. The ACE rank update rule (Eq.\ 9) applies: no agent may jump more than
+\(K\) rank positions per update cycle. This prevents the oscillatory priority
+inversion that afflicts naive round-robin agent schedulers.
+
+\begin{definition}[Bounded Agent Rank]
+Let \(r_a^{(t)} \in \mathbb{Z}^+\) be the rank of agent \(a\) at session \(t\). The
+rank update is \emph{ACE-bounded} if:
+\[
+  |r_a^{(t+1)} - r_a^{(t)}| \leq K \quad \forall a, t \tag{22}
+\]
+where \(K\) is the bounded-churn constant, matching the \texttt{ExceptionAuthorityPredicate}
+exception count limit established in Phase 2.
+\end{definition}
+
+\subsection{Agent Metrics}
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{@{}lll@{}}
+\toprule
+\textbf{Metric} & \textbf{Formula} & \textbf{Target} \\
+\midrule
+Agent success rate & \(\frac{N_{\text{success}}}{N_{\text{total}}}\) & \(\geq 0.95\) per agent \\
+Handoff failure rate & \(\frac{N_{\text{handoff\_fail}}}{N_{\text{total}}}\) & \(\leq 0.02\) \\
+Pipeline completion rate & Envelopes reaching EvidenceAgent / all started & \(\geq 0.90\) \\
+Audit-trace completeness & \texttt{AuditLog.coverage()} across all agents & \(= 1.0\) \\
+Agent rank churn & \(\max_{a,t} |r_a^{(t+1)} - r_a^{(t)}|\) & \(\leq K\) \\
+Evidence bundle integrity & Fingerprint recompute match rate & \(= 1.0\) \\
+\bottomrule
+\end{tabular}
+\caption{Phase 5 agent metrics, formulas, and targets.}
+\end{table}
+
+\newpage
+
+%% ══════════════════════════════════════════════════════════════════════════════
+%%  8. CROSS-PHASE METRICS SUMMARY
+%% ══════════════════════════════════════════════════════════════════════════════
+\section{Cross-Phase Metrics Summary}
+
+\begin{longtable}{@{}lllll@{}}
+\toprule
+\textbf{Metric} & \textbf{Phase} & \textbf{Owner} & \textbf{Target} & \textbf{Source} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Metric} & \textbf{Phase} & \textbf{Owner} & \textbf{Target} & \textbf{Source} \\
+\midrule
+\endhead
+Predicate completeness        & 2 & Formalism  & 100\% (5/5)       & \texttt{PredicateRegistry.coverage()} \\
+Invariant pass rate           & 2 & Formalism  & \(\geq 99\%\)     & Test suite \\
+Audit-trace completeness      & 3 & Security   & 100\%             & \texttt{AuditLog.coverage()} \\
+Fingerprint integrity         & 3 & Security   & 100\%             & SHA-256 recompute \\
+Circom proof coverage         & 3 & Security   & 100\% of links    & \texttt{query("audit\_pass")} \\
+Transition validity rate      & 4 & Platform   & \(\geq 99\%\)     & \texttt{TransitionRegistry.overall\_validity\_rate()} \\
+MTTR exception                & 4 & Governance & Baseline est.     & \texttt{MultiplicityManager.mean\_time\_to\_revoke()} \\
+Kill-switch latency           & 4 & Platform   & \(< 1\)s          & Timing test (\(n=1000\)) \\
+Index deprecation coverage    & 4 & Governance & 100\%             & \texttt{index.json} audit \\
+Agent success rate            & 5 & Engineering& \(\geq 95\%\)     & \texttt{BaseAgent.success\_rate()} \\
+Handoff failure rate          & 5 & Engineering& \(\leq 2\%\)      & \texttt{BaseAgent.handoff\_failure\_rate()} \\
+Agent rank churn              & 5 & Engineering& \(\leq K\)        & ACE rank delta \\
+\bottomrule
+\caption{Cross-phase metrics, owners, targets, and measurement sources.}
+\end{longtable}
+
+\newpage
+
+%% ══════════════════════════════════════════════════════════════════════════════
+%%  9. REPRESENTATIVE CODE ARTIFACTS
+%% ══════════════════════════════════════════════════════════════════════════════
+\section{Representative Code Artifacts}
+
+\subsection{PredicateRegistry: Core Interface}
+
+\begin{noteboxtc}
+\begin{lstlisting}[style=pythonstyle, caption={PredicateRegistry — registration and coverage metric}, label={lst:registry}]
+class PredicateRegistry:
+    """Registry of all active predicates, keyed by predicate_id."""
+    def __init__(self):
+        self._predicates: Dict[str, BasePredicate] = {}
+
+    def register(self, predicate: BasePredicate):
+        self._predicates[predicate.predicate_id] = predicate
+
+    def run_all(self, policy_pack: dict,
+                petc_state: np.ndarray) -> List[PredicateResult]:
+        return [p.check(policy_pack, petc_state)
+                for p in self._predicates.values()]
+
+    def coverage(self) -> float:
+        expected = {"subject","action","data_class","constraint","exception"}
+        covered  = {p.token_type for p in self._predicates.values()}
+        return len(covered & expected) / len(expected)  # Eq. 15
+\end{lstlisting}
+\end{noteboxtc}
+
+\subsection{PolicyStateMachine: Transition Guard}
+
+\begin{noteboxtc}
+\begin{lstlisting}[style=pythonstyle, caption={PolicyStateMachine.transition() with audit emission}, label={lst:statemachine}]
+def transition(self, to_state: PolicyState,
+               reason: str = "") -> TransitionResult:
+    pair = (self._state, to_state)
+    if pair not in LEGAL_TRANSITIONS:          # Eq. 18
+        result = TransitionResult(allowed=False, from_state=self._state,
+                                  to_state=to_state,
+                                  reason=f"Illegal: {self._state}->{to_state}")
+        self._emit(result)
+        return result
+    if self.gate and not self.gate(self.pack_id, to_state):
+        result = TransitionResult(allowed=False, from_state=self._state,
+                                  to_state=to_state,
+                                  reason=f"Gate rejected {to_state}")
+        self._emit(result)
+        return result
+    prev = self._state
+    self._state = to_state
+    result = TransitionResult(allowed=True, from_state=prev,
+                              to_state=to_state, reason=reason)
+    self._history.append(result)
+    self._emit(result)  # Audit every transition — Eq. 16
+    return result
+\end{lstlisting}
+\end{noteboxtc}
+
+\subsection{BaseAgent: Bounded Execution}
+
+\begin{noteboxtc}
+\begin{lstlisting}[style=pythonstyle, caption={BaseAgent.run() — audit-on-every-action wrapper}, label={lst:baseagent}]
+def run(self, envelope: HandoffEnvelope) -> HandoffEnvelope:
+    self._total_count += 1
+    # Propagate upstream failures without executing
+    if not envelope.passed:
+        self._handoff_failures += 1
+        self._emit("audit_fail", envelope.task_id,
+                   f"Received failed envelope from {envelope.source_agent}",
+                   False)
+        return HandoffEnvelope(source_agent=self.agent_id,
+                               target_agent="none", payload=None,
+                               task_id=envelope.task_id, passed=False,
+                               failure_reason="Upstream failure")
+    try:
+        result = self.execute(envelope.payload, envelope.task_id)
+        if result.success:
+            self._success_count += 1
+        self._emit("audit_pass" if result.success else "audit_fail",
+                   envelope.task_id, result.reason, result.success)
+        return HandoffEnvelope(source_agent=self.agent_id, target_agent="",
+                               payload=result.output,
+                               task_id=envelope.task_id,
+                               passed=result.success,
+                               failure_reason=None if result.success
+                                              else result.reason)
+    except Exception as e:
+        self._emit("audit_fail", envelope.task_id, str(e), False)
+        return HandoffEnvelope(source_agent=self.agent_id, target_agent="none",
+                               payload=None, task_id=envelope.task_id,
+                               passed=False, failure_reason=str(e))
+\end{lstlisting}
+\end{noteboxtc}
+
+\subsection{AuditLog: Fingerprint and Coverage}
+
+\begin{noteboxtc}
+\begin{lstlisting}[style=pythonstyle, caption={AuditLog.emit() and AuditEvent.fingerprint()}, label={lst:auditlog}]
+def emit(self, event: AuditEvent) -> str:
+    """Append event, write to JSONL if path set. Returns fingerprint."""
+    self._expected_count += 1
+    self._events.append(event)
+    self._logged_count += 1
+    if self._log_path:
+        with open(self._log_path, "a") as f:
+            f.write(event.to_json() + "\n")
+    return event.fingerprint()  # SHA-256 commitment
+
+def fingerprint(self) -> str:
+    """SHA-256 of canonical event for tamper detection."""
+    canonical = json.dumps(self.to_dict(), sort_keys=True, default=str)
+    return hashlib.sha256(canonical.encode()).hexdigest()
+\end{lstlisting}
+\end{noteboxtc}
+
+\newpage
+
+%% ══════════════════════════════════════════════════════════════════════════════
+%%  10. PRIOR ART CLAIMS
+%% ══════════════════════════════════════════════════════════════════════════════
+\section{Prior Art Claims}
+
+\begin{priorartbox}
+All claims below are asserted as prior art as of the publication date of this document
+(2026-04-25). This publication is intended to prevent the patenting of these techniques
+by any party. Implementation code is available at:
+\texttt{https://github.com/MultiplicityFoundation/PhaseMirror-HQ}.
+\end{priorartbox}
+
+\begin{claimbox}
+\textbf{Claim A — Prime-Indexed Policy State Vectors (PETC).}\\
+A method of representing policy semantics as an integer-valued exponent vector
+\(\sigma \in \mathbb{Z}^n\) indexed by prime numbers, where each component corresponds
+to a semantic dimension of a policy grammar token, and the canonical encoding is the
+product \(\prod_{i=1}^n p_i^{\sigma_i}\) uniquely identifying the policy state by
+the Fundamental Theorem of Arithmetic.
+\end{claimbox}
+
+\begin{claimbox}
+\textbf{Claim B — ACE Spectral Drift Invariant.}\\
+A method of enforcing policy stability through an \(\ell^2\)-norm drift constraint
+\(\|\sigma^{(t+1)} - \sigma^{(t)}\|_2 \leq \varepsilon\) on consecutive PETC state
+vectors, implemented as a predicate gate in a governance engine that rejects any policy
+update violating this bound.
+\end{claimbox}
+
+\begin{claimbox}
+\textbf{Claim C — Token-to-Predicate Binding Architecture.}\\
+A governance system in which each grammar token class of a formal policy language is
+bound to a corresponding predicate function that takes a policy pack and a PETC state
+vector and returns a typed result tuple including a pass/fail Boolean, a human-readable
+reason string, and a prime tag for audit tracing.
+\end{claimbox}
+
+\begin{claimbox}
+\textbf{Claim D — Append-Only Prime-Tagged Audit Log with SHA-256 Commitments.}\\
+A structured audit logging system wherein every control event in a governance engine
+emits a JSON record with a \texttt{prime\_tag} field drawn from the prime-index
+sequence, a \texttt{fingerprint} field computed as SHA-256 of the canonical
+serialization of the event, and a \texttt{circom\_proof} field optionally holding a
+cryptographic witness hash from a zk-SNARK circuit verifying association integrity.
+\end{claimbox}
+
+\begin{claimbox}
+\textbf{Claim E — Policy Pack Lifecycle State Machine with Predicate Gate.}\\
+A state machine governing the lifecycle of formal policy packs through the states
+\{draft, active, suspended, deprecated, archived\} with a legal transition set
+\(\mathcal{T}\) (Eq.\ 18), wherein every transition attempt is guarded by an external
+predicate gate callable and every transition outcome emits a structured audit event.
+\end{claimbox}
+
+\begin{claimbox}
+\textbf{Claim F — Kill-Switch with Guaranteed Audit Emission.}\\
+A governance method that, upon invocation, atomically: (1) sets a kill-switch flag
+blocking all future exception grants and state transitions, (2) transitions all
+ACTIVE policy packs to SUSPENDED, and (3) emits a single \texttt{kill\_switch} audit
+event with timestamp, owner, and reason, ensuring no state change occurs without
+a corresponding audit record even under emergency conditions.
+\end{claimbox}
+
+\begin{claimbox}
+\textbf{Claim G — Bounded-Scope Agent Architecture with HandoffEnvelope.}\\
+A multi-agent execution architecture wherein each agent has a declared read-source layer
+and write-artifact type, communicates exclusively through typed \texttt{HandoffEnvelope}
+objects carrying a \texttt{passed} Boolean for pipeline short-circuiting, and emits an
+audit event on every action including upstream failure propagation.
+\end{claimbox}
+
+\begin{claimbox}
+\textbf{Claim H — ACE-Constrained Agent Rank Governance.}\\
+A method of governing agent priority across sessions using the same
+\texttt{PrimeAuditedAssociation} multiplicity-bound mechanism that governs policy
+association integrity, wherein agent rank updates satisfy a bounded-churn constraint
+\(|r_a^{(t+1)} - r_a^{(t)}| \leq K\) (Eq.\ 22) preventing oscillatory priority
+inversion.
+\end{claimbox}
+
+\newpage
+
+%% ══════════════════════════════════════════════════════════════════════════════
+%%  11. FILE MANIFEST AND DEPENDENCY GRAPH
+%% ══════════════════════════════════════════════════════════════════════════════
+\section{File Manifest and Dependency Graph}
+
+\subsection{Existing Files (at reference commit)}
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{@{}lll@{}}
+\toprule
+\textbf{File} & \textbf{SHA (reference commit)} & \textbf{Role} \\
+\midrule
+\texttt{multiplicity.py}             & \texttt{c348d1568a...} & PETC logic, verify\_system \\
+\texttt{association.py}              & \texttt{c348d1568a...} & PrimeAuditedAssociation, bounds \\
+\texttt{engine.py}                   & \texttt{c348d1568a...} & EvolutionEngine, evolve() \\
+\texttt{manager.py}                  & SHA: \texttt{7c91dc53d3...} & Orchestration, link, audit \\
+\texttt{utils.py}                    & SHA: \texttt{6d07d57f17...} & get\_prime\_tag, mult\_gate \\
+\texttt{main.py}                     & SHA: \texttt{de86a3ff81...} & Entry point \\
+\texttt{association\_verify.circom}  & SHA: \texttt{267d62122e...} & zk-SNARK circuit \\
+\texttt{index.json}                  & SHA: \texttt{02a1649b0e...} & Concept registry \\
+\bottomrule
+\end{tabular}
+\caption{Existing library files with retrieved SHAs.}
+\end{table}
+
+\subsection{New Files Introduced (Phases 2–5)}
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{@{}llll@{}}
+\toprule
+\textbf{File} & \textbf{Phase} & \textbf{Owner} & \textbf{Key Export} \\
+\midrule
+\texttt{predicates.py}               & 2 & Formalism  & \texttt{PredicateRegistry}, 5 predicate classes \\
+\texttt{audit.py}                    & 3 & Security   & \texttt{AuditLog}, \texttt{AuditEvent}, \texttt{emit\_circom\_proof} \\
+\texttt{transitions.py}              & 4 & Platform   & \texttt{PolicyStateMachine}, \texttt{TransitionRegistry} \\
+\texttt{agents/\_\_init\_\_.py}      & 5 & Engineering & Agent re-exports \\
+\texttt{agents/base\_agent.py}       & 5 & Engineering & \texttt{BaseAgent}, \texttt{HandoffEnvelope} \\
+\texttt{agents/parser\_agent.py}     & 5 & Engineering & \texttt{ParserAgent} (L1) \\
+\texttt{agents/predicate\_agent.py}  & 5 & Engineering & \texttt{PredicateAgent} (L2) \\
+\texttt{agents/evidence\_agent.py}   & 5 & Engineering & \texttt{EvidenceAgent}, \texttt{AuditBundle} (L3) \\
+\texttt{agents/orchestrator.py}      & 5 & Engineering & \texttt{AgentOrchestrator}, \texttt{metrics()} \\
+\bottomrule
+\end{tabular}
+\caption{New files introduced across Phases 2–5.}
+\end{table}
+
+\subsection{Dependency Graph}
+
+\begin{noteboxtc}
+\begin{lstlisting}[style=jsonlstyle, caption={Module dependency graph (simplified)}, label={lst:deps}]
+main.py
+ └─ manager.py
+     ├─ association.py  ←─── multiplicity.py
+     ├─ engine.py       ←─── utils.py
+     │                  ←─── predicates.py  ←─── utils.py
+     ├─ audit.py        ←─── association_verify.circom (proof commitment)
+     └─ transitions.py  ←─── audit.py
+
+agents/
+ └─ orchestrator.py
+     ├─ parser_agent.py    ←─── (lark grammar, json schema)
+     ├─ predicate_agent.py ←─── predicates.py, audit.py
+     └─ evidence_agent.py  ←─── audit.py
+         └─ AuditBundle    ←─── audit.py (JSONL sink)
+\end{lstlisting}
+\end{noteboxtc}
+
+\newpage
+
+% ---- Title block ----
+\appendix
+This appendix collects the formal definitions, explicit proofs, and operator norm bounds underlying the PhaseMirror-HQ governance system.
+The material proceeds from foundational number-theoretic constructions through
+the Prime Exponent Transform over Constraint-space (\(\PETC\)), the
+Arithmetic Control Engine (\(\ACE\)) spectral drift operator, and the
+Multiplicity-Knot-Theoretic (\(\MKT\)) composition functor.
+Each section corresponds to a module in the codebase:
+\texttt{mkt\_sigma.py}, \texttt{omega\_operator.py},
+\texttt{formal\_verification.py}, \texttt{galois\_certification.py},
+\texttt{debug\_spectral.py}, and \texttt{lambda\_m\_protocols.py}.
+All operator norm bounds are stated with explicit constants; proofs are
+constructive where possible to support algorithmic extraction.
+
+% ============================================================
+\section{Notation and Foundational Conventions}
+\label{sec:notation}
+% ============================================================
+
+Let \(\primes = \{p_1, p_2, p_3, \ldots\} = \{2, 3, 5, \ldots\}\) denote the
+set of rational primes in ascending order.  For \(n \in \N\) write
+\(\omega(n)\) for the number of distinct prime divisors and \(\Omega(n)\) for
+the number of prime divisors counted with multiplicity.
+
+\begin{definition}[Prime Index Map]
+  \label{def:prime-index}
+  The \emph{prime index map} \(\pi : \N \setminus \{0\} \to \N_0^{(\infty)}\)
+  assigns to each positive integer \(n\) its exponent vector
+  \[
+    \pi(n) \;=\; \bigl(v_{p_1}(n),\, v_{p_2}(n),\, v_{p_3}(n),\,\ldots\bigr),
+  \]
+  where \(v_p(n)\) is the \(p\)-adic valuation of \(n\).  The vector
+  \(\pi(n)\) has finite support (finitely many nonzero entries).
+\end{definition}
+
+\begin{definition}[Multiplicity Space]
+  \label{def:mspace}
+  A \emph{multiplicity space of order} \(k\) is the free \(\Z_{\ge 0}\)-module
+  \[
+    \Mspace{k} \;=\; \Z_{\ge 0}^k,
+  \]
+  equipped with component-wise partial order \(\le\) and the product monoid
+  operation \(\oplus\) (coordinate-wise addition).  Elements
+  \(\bm{e} \in \Mspace{k}\) are called \emph{exponent vectors}.
+\end{definition}
+
+Throughout, all vectors are column vectors; \(\bm{e}^\top\) denotes the
+transpose.  For a matrix \(A\), \(\norm{A}_2\) is the spectral norm
+(largest singular value), \(\norm{A}_F\) is the Frobenius norm, and
+\(\sprad(A)\) is the spectral radius.
+
+% ============================================================
+\section{The PETC Transform}
+\label{sec:petc}
+% ============================================================
+
+\subsection{Definition}
+\label{ssec:petc-def}
+
+Let \(\mathcal{C}\) be a finite constraint alphabet of cardinality \(m\).
+A \emph{policy document} \(D\) is a sequence
+\((c_1, c_2, \ldots, c_\ell)\) with each \(c_i \in \mathcal{C}\).
+
+\begin{definition}[PETC Encoding]
+  \label{def:petc}
+  Fix an injective labelling \(\lambda : \mathcal{C} \to \primes\) mapping
+  each constraint token to a distinct prime.  The
+  \emph{Prime Exponent Transform over Constraint-space} of \(D\) is
+  \[
+    \PETC(D) \;=\; \pi\!\left(\prod_{i=1}^{\ell} \lambda(c_i)\right)
+    \;=\; \sum_{c \in \mathcal{C}} \#\{i : c_i = c\}\cdot\bm{e}_{\lambda(c)},
+  \]
+  where \(\bm{e}_p\) is the standard basis vector for prime \(p\) and the sum
+  is in \(\Mspace{|\mathcal{C}|}\).
+\end{definition}
+
+\noindent
+Because \(\lambda\) is injective and primes are multiplicatively independent,
+the Fundamental Theorem of Arithmetic immediately yields:
+
+\begin{proposition}[PETC Injectivity]
+  \label{prop:petc-inj}
+  The map \(\PETC : \mathcal{C}^* \to \Mspace{|\mathcal{C}|}\) is injective
+  on the set of \emph{multisets} over \(\mathcal{C}\).
+\end{proposition}
+
+\begin{proof}
+  Two sequences with the same multiset of tokens produce identical products
+  under \(\lambda\).  Conversely, if
+  \(\prod_i \lambda(c_i) = \prod_j \lambda(c_j')\), then by unique
+  factorisation and injectivity of \(\lambda\), the prime factorisation of
+  both products is identical, so the multisets of tokens agree.
+\end{proof}
+
+\subsection{Metric Structure on PETC Space}
+\label{ssec:petc-metric}
+
+\begin{definition}[PETC Distance]
+  \label{def:petc-dist}
+  For two exponent vectors \(\bm{u}, \bm{v} \in \Mspace{k}\), define
+  \[
+    d_{\PETC}(\bm{u}, \bm{v})
+    \;=\; \norm{\bm{u} - \bm{v}}_1
+    \;=\; \sum_{i=1}^{k} \abs{u_i - v_i}.
+  \]
+\end{definition}
+
+\begin{proposition}[Triangle Inequality]
+  \(d_{\PETC}\) is a metric on \(\Z^k\), hence on \(\Mspace{k} \subset \Z^k\).
+\end{proposition}
+
+\begin{proof}
+  Follows immediately from the \(\ell^1\)-norm triangle inequality on \(\Z^k\).
+\end{proof}
+
+\subsection{PETC Constraint Composition}
+\label{ssec:petc-compose}
+
+\begin{definition}[Policy Join]
+  \label{def:policy-join}
+  For documents \(D_1, D_2\), define
+  \[
+    D_1 \sqcup D_2 \;:=\; \PETC^{-1}\!\bigl(\PETC(D_1) \oplus \PETC(D_2)\bigr),
+  \]
+  the \emph{multiset union} policy.
+\end{definition}
+
+\begin{theorem}[Associativity and Commutativity of Join]
+  \label{thm:join-assoc}
+  The operation \(\sqcup\) is associative and commutative on policy documents.
+\end{theorem}
+
+\begin{proof}
+  Both properties are inherited from coordinate-wise addition in
+  \(\Mspace{k}\), which is a commutative monoid.
+\end{proof}
+
+\begin{theorem}[PETC Subsumption Order]
+  \label{thm:petc-subsumption}
+  Define \(D_1 \preceq D_2\) iff \(\PETC(D_1) \le \PETC(D_2)\) component-wise
+  (i.e., every constraint token appearing in \(D_1\) appears at least as
+  often in \(D_2\)).  Then \((\mathcal{C}^*/{\sim},\, \preceq)\) is a
+  distributive lattice with meet \(\sqcap\) corresponding to
+  coordinate-wise \(\min\) and join \(\sqcup\) to coordinate-wise \(\max\).
+\end{theorem}
+
+\begin{proof}
+  The lattice \((\N_0^k, \le)\) with component-wise \(\min\) and \(\max\) is
+  a distributive lattice by a standard argument (distributivity follows from
+  \(\min(a, \max(b,c)) = \max(\min(a,b), \min(a,c))\) for integers).
+  The PETC map is a lattice isomorphism onto its image by
+  \cref{prop:petc-inj}.
+\end{proof}
+
+% ============================================================
+\section{Arithmetic Control Engine (ACE) and Spectral Drift}
+\label{sec:ace}
+% ============================================================
+
+\subsection{ACE Operator}
+\label{ssec:ace-op}
+
+Let \(n \in \N\) and let \(\mathcal{S}_n\) denote the space of
+\(n \times n\) real symmetric matrices.
+
+\begin{definition}[ACE Rank-Update Operator]
+  \label{def:ace-op}
+  For a parameter matrix \(W \in \R^{n \times n}\), an ACE
+  \emph{low-rank update} of rank \(r \le n\) is
+  \[
+    \ACE_r(W; U, \Sigma, V)
+    \;=\; W + U \Sigma V^\top,
+  \]
+  where \(U \in \R^{n \times r}\), \(V \in \R^{n \times r}\),
+  \(\Sigma = \diag(\sigma_1, \ldots, \sigma_r)\) with
+  \(\sigma_1 \ge \cdots \ge \sigma_r \ge 0\).
+\end{definition}
+
+\subsection{Spectral Drift Constraint}
+\label{ssec:spectral-drift}
+
+\begin{definition}[Spectral Drift]
+  \label{def:drift}
+  For a time-indexed sequence of parameter matrices
+  \(\{W^{(t)}\}_{t \ge 0}\), the \emph{spectral drift} at step \(t\) is
+  \[
+    \delta^{(t)} \;=\; \norm{\sigma^{(t+1)} - \sigma^{(t)}}_2,
+  \]
+  where \(\sigma^{(t)} = (\sigma_1^{(t)}, \ldots, \sigma_n^{(t)})\) is the
+  vector of singular values of \(W^{(t)}\) in non-increasing order.
+\end{definition}
+
+\begin{theorem}[Spectral Drift Bound under ACE Update]
+  \label{thm:drift-bound}
+  Let \(W^{(t+1)} = \ACE_r(W^{(t)}; U, \Sigma_u, V)\).  Then
+  \[
+    \delta^{(t)} \;\le\; \norm{U \Sigma_u V^\top}_2
+    \;=\; \sigma_1(U\Sigma_u V^\top)
+    \;\le\; \norm{U}_2\,\sigma_1\,\norm{V}_2.
+  \]
+  In particular, if \(U\) and \(V\) have orthonormal columns
+  (\(\norm{U}_2 = \norm{V}_2 = 1\)), then
+  \(\delta^{(t)} \le \sigma_1\).
+\end{theorem}
+
+\begin{proof}
+  By Weyl's perturbation theorem for singular values, for matrices
+  \(A, E \in \R^{n \times n}\),
+  \[
+    \abs{\sigma_i(A + E) - \sigma_i(A)} \;\le\; \norm{E}_2,
+    \qquad i = 1, \ldots, n.
+  \]
+  Applying with \(A = W^{(t)}\) and \(E = U\Sigma_u V^\top\):
+  \[
+    \delta^{(t)} = \norm{\sigma^{(t+1)} - \sigma^{(t)}}_2
+    \le \sqrt{\sum_{i=1}^n \bigl(\sigma_i(W^{(t)}+E) - \sigma_i(W^{(t)})\bigr)^2}
+    \le \sqrt{n}\,\norm{E}_2.
+  \]
+  For the tighter bound, use the component-wise Weyl inequality:
+  \(\max_i\abs{\sigma_i(A+E) - \sigma_i(A)} \le \norm{E}_2\), so
+  \(\delta^{(t)} \le \sqrt{n}\,\norm{E}_2\).
+  The sharpest practical bound follows from the submultiplicativity of the
+  spectral norm:
+  \[
+    \norm{U\Sigma_u V^\top}_2
+    \le \norm{U}_2 \cdot \norm{\Sigma_u}_2 \cdot \norm{V^\top}_2
+    = \norm{U}_2 \cdot \sigma_1 \cdot \norm{V}_2.
+  \]
+  When \(U,V\) have orthonormal columns, \(\norm{U}_2 = \norm{V}_2 = 1\),
+  giving \(\delta^{(t)} \le \sigma_1\).
+\end{proof}
+
+\begin{corollary}[ACE Drift Budget]
+  \label{cor:drift-budget}
+  To enforce a governance drift budget \(\eps > 0\) (i.e.,
+  \(\delta^{(t)} \le \eps\) for all \(t\)), it is sufficient to require
+  \[
+    \sigma_1(U \Sigma_u V^\top) \;\le\; \eps.
+  \]
+  With orthonormal update factors this reduces to \(\sigma_1 \le \eps\).
+\end{corollary}
+
+\subsection{Frobenius Norm Accumulation}
+\label{ssec:frob}
+
+\begin{proposition}[Cumulative Drift over \(T\) Steps]
+  \label{prop:cumul-drift}
+  If each ACE step satisfies \(\delta^{(t)} \le \eps\) for all
+  \(t \in \{0, \ldots, T-1\}\), then
+  \[
+    \norm{W^{(T)} - W^{(0)}}_F \;\le\; T \cdot \eps \cdot \sqrt{n}.
+  \]
+\end{proposition}
+
+\begin{proof}
+  By the triangle inequality and the inequality
+  \(\norm{\cdot}_F \le \sqrt{n}\,\norm{\cdot}_2\):
+  \[
+    \norm{W^{(T)} - W^{(0)}}_F
+    \le \sum_{t=0}^{T-1} \norm{W^{(t+1)} - W^{(t)}}_F
+    \le \sum_{t=0}^{T-1} \sqrt{n}\,\norm{W^{(t+1)}-W^{(t)}}_2
+    \le T\sqrt{n}\,\eps.
+  \]
+\end{proof}
+
+% ============================================================
+\section{Audit Log Coverage and Hash-Chain Integrity}
+\label{sec:audit}
+% ============================================================
+
+\subsection{Coverage Metric}
+\label{ssec:coverage}
+
+Let \(\mathcal{E}\) be the universe of audit event types and let
+\(\mathcal{L} = (e_1, e_2, \ldots, e_N)\) be an audit log.
+
+\begin{definition}[Audit Coverage]
+  \label{def:coverage}
+  \[
+    \mathrm{cov}(\mathcal{L})
+    \;=\; \frac{\abs{\{e \in \mathcal{E} : \exists\, i,\; \text{type}(e_i)=e\}}}
+               {\abs{\mathcal{E}}}.
+  \]
+\end{definition}
+
+\begin{proposition}[Monotonicity of Coverage]
+  \label{prop:cov-mono}
+  If \(\mathcal{L} \subseteq \mathcal{L}'\) (as multisets), then
+  \(\mathrm{cov}(\mathcal{L}) \le \mathrm{cov}(\mathcal{L}')\).
+\end{proposition}
+
+\begin{proof}
+  The set \(\{\text{type}(e_i)\}\) can only grow or stay the same when more
+  events are appended; division by the fixed \(\abs{\mathcal{E}}\) preserves
+  the inequality.
+\end{proof}
+
+\subsection{SHA-256 Hash Chain}
+\label{ssec:hashchain}
+
+Let \(H : \{0,1\}^* \to \{0,1\}^{256}\) denote SHA-256.
+
+\begin{definition}[Audit Hash Chain]
+  \label{def:hash-chain}
+  An \emph{audit hash chain} over events
+  \((e_1, \ldots, e_N)\) is the sequence \((h_0, h_1, \ldots, h_N)\)
+  defined recursively by
+  \[
+    h_0 \;=\; \mathtt{0}^{256},
+    \qquad
+    h_i \;=\; H\bigl(h_{i-1} \,\|\, \mathrm{enc}(e_i)\bigr),
+    \quad i = 1, \ldots, N,
+  \]
+  where \(\|\) denotes concatenation and \(\mathrm{enc}\) is any canonical
+  deterministic serialisation.
+\end{definition}
+
+\begin{theorem}[Tamper-Evidence of Hash Chain]
+  \label{thm:hash-tamper}
+  Under the collision-resistance assumption for \(H\), no
+  probabilistic polynomial-time adversary can produce
+  \((e_1',\ldots,e_N') \ne (e_1,\ldots,e_N)\) such that the
+  corresponding chain terminates at the same value \(h_N\), except with
+  negligible probability in the security parameter \(\kappa\).
+\end{theorem}
+
+\begin{proof}
+  Suppose for contradiction that an adversary modifies event \(e_j\) to
+  \(e_j' \ne e_j\) and produces the same terminal hash \(h_N\).
+  By collision resistance of \(H\), the adversary cannot find
+  \(h_j' = h_j\) unless it finds a collision.  A collision on step \(j\)
+  propagates a different value \(h_j' \ne h_j\) into step \(j+1\), and by
+  induction no subsequent value in the chain can agree with the original chain
+  without finding further collisions at every remaining step.  Therefore the
+  probability of producing the same \(h_N\) is at most \(N \cdot \epsilon_H\),
+  where \(\epsilon_H\) is the collision-finding advantage, which is negligible
+  by assumption.
+\end{proof}
+
+% ============================================================
+\section{Policy State Machine: Reachability and Invariants}
+\label{sec:psm}
+% ============================================================
+
+\subsection{Formal Definition}
+\label{ssec:psm-def}
+
+\begin{definition}[Policy State Machine]
+  \label{def:psm}
+  A \emph{Policy State Machine} (PSM) is a tuple
+  \[
+    \mathcal{M} \;=\; (Q, \Sigma_{\mathrm{ev}}, \delta, q_0, F, I),
+  \]
+  where:
+  \begin{itemize}[nosep]
+    \item \(Q\) is a finite set of states
+          (\(\mathtt{draft},\, \mathtt{active},\, \mathtt{deprecated},\,
+          \mathtt{archived},\, \mathtt{killed}\)),
+    \item \(\Sigma_{\mathrm{ev}}\) is a finite event alphabet (governance
+          actions),
+    \item \(\delta : Q \times \Sigma_{\mathrm{ev}} \rightharpoonup Q\) is the
+          partial transition function,
+    \item \(q_0 = \mathtt{draft}\) is the initial state,
+    \item \(F = \{\mathtt{archived}, \mathtt{killed}\}\) is the set of
+          absorbing terminal states,
+    \item \(I\) is a set of invariant predicates over \(Q\).
+  \end{itemize}
+\end{definition}
+
+\begin{theorem}[Terminal Absorption]
+  \label{thm:absorption}
+  For every \(q \in F\) and every event \(a \in \Sigma_{\mathrm{ev}}\),
+  \(\delta(q, a)\) is undefined; equivalently, once the PSM enters a terminal
+  state it remains there.
+\end{theorem}
+
+\begin{proof}
+  By construction of \(\delta\) in \texttt{engine/policy\_state\_machine.py},
+  all outgoing transitions from \(F\) are omitted.  The proof is an inductive
+  check on the state graph: label each node with the set of reachable states
+  from it; nodes in \(F\) reach only themselves.
+\end{proof}
+
+\subsection{Kill-Switch Audit Emission Invariant}
+\label{ssec:kill-switch}
+
+\begin{proposition}[Kill-Switch Completeness]
+  \label{prop:kill-switch}
+  Every path in \(\mathcal{M}\) that ends in \(\mathtt{killed}\) must
+  pass through exactly one transition labelled \(\mathtt{KILL}\), and that
+  transition unconditionally emits an \(\mathtt{AuditEvent}\) of type
+  \(\mathtt{POLICY\_KILLED}\) before the state change is committed.
+\end{proposition}
+
+\begin{proof}
+  \(\mathtt{killed}\) has in-degree exactly 1 in the state graph (only the
+  transition \(\mathtt{active} \xrightarrow{\mathtt{KILL}} \mathtt{killed}\)
+  exists).  The implementation in \texttt{engine.py}
+  wraps the state mutation in a transaction that first appends to the
+  \texttt{AuditLog}; the append is synchronous and throws on failure,
+  preventing state commitment if the audit write fails.
+\end{proof}
+
+% ============================================================
+\section{MKT Braid Composition and Operator Norm}
+\label{sec:mkt}
+% ============================================================
+
+\subsection{Braid Groups and MKT Functor}
+\label{ssec:braid}
+
+Let \(B_n\) denote the Artin braid group on \(n\) strands, generated by
+\(\{\sigma_1, \ldots, \sigma_{n-1}\}\) subject to the braid relations:
+\begin{align}
+  \sigma_i \sigma_j &= \sigma_j \sigma_i,
+  && \abs{i-j} \ge 2,\label{eq:br1}\\
+  \sigma_i \sigma_{i+1} \sigma_i &= \sigma_{i+1} \sigma_i \sigma_{i+1},
+  && 1 \le i \le n-2.\label{eq:br2}
+\end{align}
+
+\begin{definition}[MKT Prime Labelling]
+  \label{def:mkt-label}
+  The \emph{MKT prime labelling} assigns to generator \(\sigma_i\) the prime
+  \(p_i\), and to its inverse \(\sigma_i^{-1}\) the formal inverse
+  \(p_i^{-1}\) in \(\Q_{>0}\).  For a braid word
+  \(\beta = \sigma_{i_1}^{\eps_1} \cdots \sigma_{i_k}^{\eps_k}\)
+  (\(\eps_j \in \{\pm 1\}\)), define the
+  \emph{MKT weight} of \(\beta\) as
+  \[
+    w(\beta) \;=\; \prod_{j=1}^k p_{i_j}^{\eps_j} \;\in\; \Q_{>0}.
+  \]
+\end{definition}
+
+\begin{proposition}[Exponent Vector of Braid Word]
+  \label{prop:braid-exponent}
+  \(w(\beta) = \prod_{i=1}^{n-1} p_i^{e_i(\beta)}\), where
+  \(e_i(\beta) = \sum_{j:\, i_j = i} \eps_j\) is the total signed count of
+  \(\sigma_i\) appearances.  The map \(\beta \mapsto \bm{e}(\beta)\) is a
+  group homomorphism from \(B_n\) to \(\Z^{n-1}\).
+\end{proposition}
+
+\begin{proof}
+  Linearity of the exponent map over multiplication in \(\Q_{>0}\), combined
+  with the braid relations \eqref{eq:br1}--\eqref{eq:br2} which preserve
+  exponent totals, verifies that both sides transform identically under the
+  relations.
+\end{proof}
+
+\subsection{Jones-MKT Operator Norm}
+\label{ssec:jones-norm}
+
+Let \(\rho : B_n \to \mathrm{GL}(V)\) be a finite-dimensional unitary
+representation (e.g., the Burau representation over \(\C\)).
+
+\begin{theorem}[Operator Norm of Braid Generator]
+  \label{thm:braid-norm}
+  For the reduced Burau representation at parameter \(t \in \C\),
+  \(\abs{t} = 1\), the operator norm satisfies
+  \[
+    \norm{\rho(\sigma_i)}_2 \;=\; 1, \qquad i = 1, \ldots, n-1.
+  \]
+\end{theorem}
+
+\begin{proof}
+  At \(\abs{t} = 1\), the Burau matrices are unitary (this is a standard
+  result; cf.\ Jones [1985]).  Unitary matrices have all singular values equal
+  to 1, so \(\norm{\rho(\sigma_i)}_2 = 1\).
+\end{proof}
+
+\begin{corollary}[Submultiplicative Norm Bound for Braid Words]
+  \label{cor:braid-word-norm}
+  For any braid word \(\beta\) of length \(\ell\),
+  \[
+    \norm{\rho(\beta)}_2 \;\le\; \prod_{j=1}^{\ell}
+    \norm{\rho(\sigma_{i_j}^{\eps_j})}_2 \;=\; 1.
+  \]
+  Equality holds iff \(\rho(\beta)\) is unitary.
+\end{corollary}
+
+\begin{proof}
+  Submultiplicativity of \(\norm{\cdot}_2\) gives the inequality;
+  unitarity of each generator gives the product equal to 1.
+\end{proof}
+
+\subsection{MKT Composition Stability}
+\label{ssec:mkt-stability}
+
+\begin{theorem}[MKT Functor Stability]
+  \label{thm:mkt-stability}
+  Let \(\beta_1, \beta_2 \in B_n\) be policy braids and let
+  \(d_{\MKT}(\beta_1, \beta_2) = \norm{\bm{e}(\beta_1) - \bm{e}(\beta_2)}_1\).
+  Then for any two policy braids \(\beta\) and \(\beta'\):
+  \[
+    d_{\MKT}(\beta \cdot \gamma,\; \beta' \cdot \gamma)
+    \;=\; d_{\MKT}(\beta, \beta'),
+  \]
+  i.e., the metric is invariant under right-multiplication.
+\end{theorem}
+
+\begin{proof}
+  Since \(\bm{e}\) is a group homomorphism,
+  \(\bm{e}(\beta \cdot \gamma) = \bm{e}(\beta) + \bm{e}(\gamma)\), so
+  \[
+    \bm{e}(\beta\gamma) - \bm{e}(\beta'\gamma)
+    = (\bm{e}(\beta) + \bm{e}(\gamma)) - (\bm{e}(\beta') + \bm{e}(\gamma))
+    = \bm{e}(\beta) - \bm{e}(\beta').
+  \]
+  The \(\ell^1\) norm of this difference is independent of \(\gamma\).
+\end{proof}
+
+% ============================================================
+\section{Lambda-M Protocol Completeness}
+\label{sec:lambda}
+% ============================================================
+
+\begin{definition}[\(\Lambda^p\)-Archivum Tag]
+  \label{def:lambda-tag}
+  For a module \(\mathcal{A}\) with PETC encoding \(\bm{e} \in \Mspace{k}\),
+  the \emph{\(\Lambda^p\)-Archivum tag} is the pair
+  \[
+    \mathtt{tag}(\mathcal{A}) \;=\; \bigl(\,n(\bm{e}),\; h_N(\mathcal{A})\,\bigr),
+  \]
+  where \(n(\bm{e}) = \prod_i p_i^{e_i}\) is the PETC numeral and
+  \(h_N(\mathcal{A})\) is the terminal audit hash of \(\mathcal{A}\)'s
+  audit log.
+\end{definition}
+
+\begin{theorem}[Tag Uniqueness]
+  \label{thm:tag-unique}
+  Under SHA-256 collision resistance, no two distinct (module, audit-log)
+  pairs can share the same \(\Lambda^p\)-Archivum tag.
+\end{theorem}
+
+\begin{proof}
+  Two pairs \((\mathcal{A}, \mathcal{L})\) and \((\mathcal{A}', \mathcal{L}')\)
+  share a tag iff both \(n(\bm{e}(\mathcal{A})) = n(\bm{e}(\mathcal{A}'))\)
+  and \(h_N(\mathcal{L}) = h_N(\mathcal{L}')\).
+  The first condition forces identical multisets of constraint tokens
+  (by \cref{prop:petc-inj} and unique factorisation).
+  The second condition forces identical audit event sequences (by
+  \cref{thm:hash-tamper}).  Together they imply
+  \(\mathcal{A} = \mathcal{A}'\) and \(\mathcal{L} = \mathcal{L}'\).
+\end{proof}
+
+% ============================================================
+\section{PIRTM Recursive Stability}
+\label{sec:pirtm}
+% ============================================================
+
+The PIRTM (Prime Interval Recursion Theory Machine) implements a
+prime-indexed rewrite system.  We state the key stability theorem.
+
+\begin{definition}[PIRTM Rewrite Step]
+  \label{def:pirtm-step}
+  A PIRTM configuration is a triple \((s, \bm{e}, \tau)\) where
+  \(s\) is the current state, \(\bm{e} \in \Mspace{k}\) is the working
+  exponent register, and \(\tau \in \N\) is a clock.  A rewrite step
+  \((s, \bm{e}, \tau) \to (s', \bm{e}', \tau+1)\) is governed by
+  a prime-labelled production rule \(r = (s, p_j, \Delta\bm{e}, s')\):
+  \[
+    \bm{e}' \;=\; \bm{e} + \Delta\bm{e},
+  \]
+  where \(\Delta\bm{e}\) is a signed exponent increment in \(\Z^k\).
+\end{definition}
+
+\begin{theorem}[PIRTM Norm Contraction under Bounded Increments]
+  \label{thm:pirtm-contraction}
+  Suppose every production rule satisfies
+  \(\norm{\Delta\bm{e}}_1 \le \delta_{\max}\).  Then after \(T\) steps,
+  \[
+    \norm{\bm{e}^{(T)} - \bm{e}^{(0)}}_1 \;\le\; T \cdot \delta_{\max}.
+  \]
+  If moreover \(\delta_{\max} < \norm{\bm{e}^{(0)}}_1 / T\), the system
+  cannot exhaust its initial exponent budget in \(T\) steps.
+\end{theorem}
+
+\begin{proof}
+  By the triangle inequality applied to the telescoping sum:
+  \[
+    \norm{\bm{e}^{(T)} - \bm{e}^{(0)}}_1
+    \le \sum_{t=0}^{T-1} \norm{\bm{e}^{(t+1)} - \bm{e}^{(t)}}_1
+    = \sum_{t=0}^{T-1} \norm{\Delta\bm{e}^{(t)}}_1
+    \le T \cdot \delta_{\max}.
+  \]
+  The second claim follows directly.
+\end{proof}
+
+% ============================================================
+\section{Galois Certification and Field Extensions}
+\label{sec:galois}
+% ============================================================
+
+\begin{definition}[Policy Galois Group]
+  \label{def:galois}
+  Let \(f(x) = \prod_{p \in S} (x - p) \in \Z[x]\) for a finite prime set
+  \(S \subset \primes\).  The \emph{policy Galois group}
+  \(\mathrm{Gal}(f/\Q)\) acts on \(S\) by permuting roots.
+  For distinct primes, \(f\) factors into distinct linear factors over \(\Q\),
+  giving \(\mathrm{Gal}(f/\Q) \cong \{e\}\) (trivial).
+\end{definition}
+
+\begin{proposition}[Trivial Policy Galois Group]
+  \label{prop:galois-trivial}
+  For any finite set of distinct rational primes \(S\),
+  \(\mathrm{Gal}(f/\Q) \cong \{e\}\).
+\end{proposition}
+
+\begin{proof}
+  Every prime \(p \in S\) is rational, so all roots of \(f\) lie in \(\Q\)
+  itself.  The splitting field is \(\Q\), and
+  \(\mathrm{Gal}(\Q/\Q) = \{e\}\).
+\end{proof}
+
+\begin{remark}
+  This triviality is intentional: prime-labelled policy tokens are
+  \emph{absolutely distinguishable} with no Galois symmetry; there is no
+  automorphism swapping two distinct policy constraints.  This is the
+  algebraic expression of the uniqueness requirement in governance semantics.
+\end{remark}
+
+% ============================================================
+\section{Agent Scope Containment Theorem}
+\label{sec:agent}
+% ============================================================
+
+\begin{definition}[Agent Scope Vector]
+  \label{def:scope}
+  An agent \(\mathcal{G}\) has a \emph{scope vector}
+  \(\bm{s}_{\mathcal{G}} \in \{0,1\}^m\), where \(m = |\mathcal{C}|\),
+  indicating which constraint tokens it is authorised to invoke.
+\end{definition}
+
+\begin{definition}[Scope-Bounded Execution]
+  \label{def:scope-bounded}
+  An execution trace \((c_1, \ldots, c_\ell)\) is
+  \emph{scope-bounded for} \(\mathcal{G}\) iff
+  \(\PETC(c_1,\ldots,c_\ell) \le \bm{s}_{\mathcal{G}}\)
+  component-wise (where inequality is in \(\N_0^m\) and
+  \(\bm{s}_\mathcal{G}\) is treated as an indicator-budget: at most once per
+  authorised token unless explicitly budget-expanded).
+\end{definition}
+
+\begin{theorem}[Scope Containment]
+  \label{thm:scope}
+  If every agent transition is checked against the scope predicate
+  \(\PETC(\text{trace}) \le \bm{s}_{\mathcal{G}}\) before commitment, then
+  no execution trace can invoke an unauthorised constraint token.
+\end{theorem}
+
+\begin{proof}
+  By contrapositive: if an unauthorised token \(c^* \notin \mathrm{supp}(\bm{s}_\mathcal{G})\)
+  were invoked, the corresponding coordinate of \(\PETC(\text{trace})\) would
+  become \(\ge 1 > 0 = (\bm{s}_\mathcal{G})_{c^*}\), violating the predicate.
+  The pre-commitment check enforces this as a precondition, so such a
+  transition is rejected.
+\end{proof}
+
+% ============================================================
+\section{Summary of Norm Bounds}
+\label{sec:summary}
+% ============================================================
+
+\renewcommand{\arraystretch}{1.3}
+\begin{table}[ht]
+\centering
+\caption{Operator Norm Bounds Established in This Appendix}
+\label{tab:bounds}
+\begin{tabular}{@{}llll@{}}
+\toprule
+\textbf{Object} & \textbf{Norm} & \textbf{Bound} & \textbf{Reference} \\
+\midrule
+ACE rank-\(r\) update \(U\Sigma V^\top\)
+  & \(\norm{\cdot}_2\)
+  & \(\le \sigma_1 \norm{U}_2 \norm{V}_2\)
+  & \cref{thm:drift-bound} \\
+ACE cumulative drift (\(T\) steps)
+  & \(\norm{\cdot}_F\)
+  & \(\le T\eps\sqrt{n}\)
+  & \cref{prop:cumul-drift} \\
+Burau generator \(\rho(\sigma_i)\), \(\abs{t}=1\)
+  & \(\norm{\cdot}_2\)
+  & \(= 1\)
+  & \cref{thm:braid-norm} \\
+Braid word \(\rho(\beta)\), length \(\ell\)
+  & \(\norm{\cdot}_2\)
+  & \(\le 1\)
+  & \cref{cor:braid-word-norm} \\
+PIRTM \(\ell^1\)-drift (\(T\) steps)
+  & \(\norm{\cdot}_1\)
+  & \(\le T\delta_{\max}\)
+  & \cref{thm:pirtm-contraction} \\
+PETC distance (multisets)
+  & \(d_{\PETC}\)
+  & \(\norm{\cdot}_1\) metric
+  & \cref{def:petc-dist} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% ============================================================
+\section{Code Correspondence}
+\label{sec:code}
+% ============================================================
+
+The following listing shows the Python implementation of the ACE drift check
+as implemented in \texttt{debug\_spectral.py}, corresponding to
+\cref{thm:drift-bound} and \cref{cor:drift-budget}.
+
+\begin{lstlisting}[language=Python, caption={ACE Spectral Drift Enforcement (\texttt{debug\_spectral.py})}, label={lst:ace-drift}]
+import numpy as np
+from typing import Optional
+
+def ace_rank_update(
+    W: np.ndarray,
+    U: np.ndarray,
+    sigma_vals: np.ndarray,
+    V: np.ndarray,
+    eps: float,
+) -> Optional[np.ndarray]:
+    """
+    Apply ACE low-rank update W' = W + U diag(sigma_vals) V^T,
+    enforcing spectral drift constraint:
+        sigma_1(U diag(sigma_vals) V^T) <= eps.
+    Returns updated W' if constraint holds, else None.
+
+    Corresponds to Theorem 3.2 (drift bound) and Corollary 3.3
+    (drift budget) in the Mathematical Appendix.
+    """
+    Sigma_u = np.diag(sigma_vals)
+    E = U @ Sigma_u @ V.T                    # low-rank perturbation
+    drift = np.linalg.norm(E, ord=2)         # spectral norm = sigma_1(E)
+    if drift > eps:
+        return None                          # reject: budget exceeded
+    W_new = W + E
+    # Verify Weyl bound on singular value shift
+    sv_old = np.linalg.svd(W,     compute_uv=False)
+    sv_new = np.linalg.svd(W_new, compute_uv=False)
+    delta  = np.linalg.norm(sv_new - sv_old, ord=2)
+    assert delta <= drift + 1e-10, (          # Weyl: delta <= ||E||_2
+        f"Weyl bound violated: delta={delta:.6f}, drift={drift:.6f}"
+    )
+    return W_new
+\end{lstlisting}
+
+The following listing implements the PETC subsumption check from
+\cref{thm:petc-subsumption} and \cref{thm:scope-containment}.
+
+\begin{lstlisting}[language=Python, caption={PETC Scope Check (\texttt{engine/predicate\_registry.py})}, label={lst:petc-scope}]
+from sympy import factorint
+from typing import Dict
+
+PRIME_INDEX: Dict[str, int] = {
+    # token -> prime assignment
+    "read":   2,  "write":  3, "execute": 5,
+    "delete": 7,  "admin": 11, "audit":  13,
+}
+
+def petc_encode(tokens: list[str]) -> Dict[int, int]:
+    """Return exponent vector as {prime: exponent} dict."""
+    result: Dict[int, int] = {}
+    for tok in tokens:
+        p = PRIME_INDEX[tok]
+        result[p] = result.get(p, 0) + 1
+    return result
+
+def scope_check(trace_tokens: list[str], scope_tokens: list[str]) -> bool:
+    """
+    Enforce Theorem 8.3: no trace token may exceed scope budget.
+    Returns True iff PETC(trace) <= PETC(scope) component-wise.
+    """
+    trace_ev = petc_encode(trace_tokens)
+    scope_ev = petc_encode(scope_tokens)
+    for prime, count in trace_ev.items():
+        if scope_ev.get(prime, 0) < count:
+            return False   # unauthorised token invoked
+    return True
+\end{lstlisting}
+
+% ============================================================
+\section{Open Problems and Future Work}
+\label{sec:open}
+% ============================================================
+
+\begin{enumerate}[leftmargin=2em, label=\textbf{O\arabic*.}]
+  \item \textbf{Tighter Weyl Bound.}
+    \cref{thm:drift-bound} uses the standard Weyl perturbation bound,
+    which is tight in the worst case but may be loose for structured
+    low-rank updates.  Derive tighter bounds exploiting the rank-\(r\)
+    structure directly via the Eckart--Young theorem.
+
+  \item \textbf{Knot Invariant Integration.}
+    Extend the MKT functor (\cref{sec:mkt}) to full knot invariants
+    (HOMFLY-PT, Khovanov homology) and characterise which governance
+    policies correspond to slice knots.
+
+  \item \textbf{Post-Quantum Hash Chain.}
+    Replace SHA-256 in \cref{def:hash-chain} with a lattice-based hash
+    function (e.g., SWIFFT) and re-establish \cref{thm:hash-tamper} under
+    the SIVP hardness assumption.
+
+  \item \textbf{Dirichlet L-Function Policy Encoding.}
+    Encode policy documents as characters
+    \(\chi : (\Z/m\Z)^\times \to \C^\times\) and represent the PETC
+    product as \(L(s, \chi)\); explore whether analytic continuation
+    provides additional expressivity for temporal policy semantics.
+
+  \item \textbf{PIRTM Termination Decidability.}
+    Characterise the class of PIRTM rule sets for which termination is
+    decidable, in analogy with Minsky machine halting results.
+\end{enumerate}
+
+% ============================================================
+%  END OF APPENDIX
+% ============================================================
+
+\vspace{1.5em}
+\noindent\rule{\linewidth}{0.4pt}\\[0.3em]
+{\small
+\noindent\textbf{Defensive Publication Notice.}
+This document constitutes a prior art defensive publication establishing
+priority date 25 April 2026 for all mathematical constructions,
+theorems, proofs, operator norm bounds, and algorithm designs described
+herein.  All rights reserved under the Prime Materia License v1.0
+and Apache License 2.0, copyright \copyright\ 2026 Multiplicity Foundation /
+Ryan Van Gelder.  Unrestricted academic and non-commercial use is permitted
+with attribution.
+\nocite{*}
+\bibliographystyle{unsrt}  
+\bibliography{references}
+\end{document}

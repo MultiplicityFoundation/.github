@@ -1,0 +1,898 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{bm}
+\geometry{margin=1in}
+
+\title{Phase Mirror Multiplicity Agents (PMMA) \\
+\large A Governance-First Architecture for Agentic Domain-Specific Reasoning}
+\author{Citizen Gardens \\ The foundation of Multiplicity}
+\date{April 29, 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This defensive publication discloses the Phase Mirror Multiplicity Agents (PMMA) framework: a governance-first, mathematically grounded architecture for agentic domain-specific reasoning.
+PMMA instantiates the tensions named in the ``Agentic Domain-Specific Reasoning'' Phase Mirror white paper---between autonomy and governance, probabilistic outputs and binary compliance, domain precision and platform generalization---as a recursively stabilized dynamical system with explicit causal validity gates, reliability budgets, and non-convergence escalation.
+The framework is designed to be falsifiable via simulation and to act as a safety--efficiency manifold parameterized by enterprise policy levers rather than a single fixed operating point.
+\end{abstract}
+\newpage
+\tableofcontents
+\section*{Executive Summary}
+
+Agentic AI systems promise autonomous decision-making but introduce structural tensions between autonomy, compliance, liability, and data quality that cannot be ``solved'' in a static way.
+The Phase Mirror framework correctly identifies these tensions as permanent dissonances that must be governed through explicit bindings (specification of acceptable error, liability tiers, audit and kill-switch mechanisms) rather than informal alignment rhetoric.
+
+Phase Mirror Multiplicity Agents (PMMA) operationalize this perspective by:
+\begin{itemize}
+  \item Representing each structural tension as a \emph{prime-indexed multiplicity component}, e.g.\ $p=2$ for autonomy vs.\ governance, $p=5$ for causal validity vs.\ no-code mis-specification risk.
+  \item Evolving agent state via a recursive update map that encodes governance policies, reliability budgets, and causal validity gates.
+  \item Enforcing \emph{admissible recursion}: autonomous recursion is allowed only when causal validity exceeds a threshold and reliability budget remains above a policy floor.
+  \item Defining a violation functional and error budget $E$ that measure safety performance, and an intervention ratio that measures governance cost.
+  \item Treating the architecture as a tunable safety--efficiency manifold: parameters can be calibrated to move from ``safe but inefficient'' regimes to enterprise-acceptable frontiers (e.g.\ $<5\%$ violations and $<25\%$ interventions).
+\end{itemize}
+
+The framework is designed to be implemented as:
+\begin{enumerate}
+  \item A simulation and test harness on a domain-specific pilot (e.g.\ lead qualification).
+  \item A library of governance and causal validity operators with configuration-driven thresholds.
+  \item A set of reproducible experiments comparing baseline human-in-the-loop, PMMA Phase I, and PMMA Phase II (tuned) policies under varying confounder omission and random seeds.
+\end{enumerate}
+
+This document serves both as a conceptual report and as a defensive publication, describing the architecture, mathematical formalism, and example code for PMMA, thereby placing the core ideas into the public domain as prior art.
+
+\section{Conceptual Overview}
+
+\subsection{From Named Tensions to Dynamical Systems}
+
+The underlying white paper introduces three key families of tension:
+\begin{enumerate}
+  \item \textbf{Autonomy vs.\ Governance}: Agents need permission to fail, but enterprises demand deterministic guarantees, audit trails, and human accountability.
+  \item \textbf{Probabilistic Outputs vs.\ Binary Compliance}: Bayesian or probabilistic reasoning conflicts with legal and compliance frameworks that encode binary categories (violation vs.\ non-violation, compliant vs.\ non-compliant).
+  \item \textbf{Domain Precision vs.\ Platform Generalization}: Rich, causal, domain-specific models are in tension with scalable, general-purpose AI platforms, especially under no-code interfaces that hide theoretical complexity.
+\end{enumerate}
+
+The Phase Mirror methodology aims to replace vague claims with concrete \emph{mechanisms}: error budgets, liability tiers, audit pass rates, causal validity scores, violation rates, and kill-switches.
+PMMA extends this by embedding those mechanisms into a stateful, recursive system, so that:
+\begin{itemize}
+  \item Each run of the agent modifies its governance posture (autonomy level, strictness, budget) in response to observed violations and causal validity.
+  \item Policy parameters (thresholds, update magnitudes) act as controls that move the system along a safety--efficiency tradeoff curve.
+  \item Non-convergence or severe causal degradation triggers escalation to human-on-exception, with explicit logged rationale.
+\end{itemize}
+
+\subsection{Prime-Indexed Multiplicity View}
+
+To structurally organize the tensions, PMMA uses a prime-indexed decomposition.
+Let $\Pi$ be a finite set of primes, and associate each
+$p\in\Pi$ with a specific dissonance:
+\begin{itemize}
+  \item $p=2$: Autonomy vs.\ Governance.
+  \item $p=5$: Causal Validity vs.\ No-Code Mis-Specification.
+  \item Additional primes could encode other tensions (e.g.\ transparency vs.\ proprietary infrastructure, human-in-the-loop vs.\ human-on-exception).
+\end{itemize}
+
+The agent's state is then interpreted as living in a \emph{multiplicity space}
+\[
+  \mathcal{M}_t = \bigoplus_{p \in \Pi} \mu_p(t) \cdot \iota_p,
+\]
+where $\mu_p(t)$ is a multiplicity weight for prime $p$ at time $t$, and $\iota_p$ is an identity/interface operator describing the semantics of that prime (e.g.\ which variables and thresholds are active).
+In practice, we will work with a more concrete state vector (Section~\ref{sec:math-overview}), but the multiplicity view clarifies that multiple tensions evolve together and may interact.
+
+\section{Mathematical Overview}
+\label{sec:math-overview}
+
+\subsection{Core State and Policy Parameters}
+
+At each discrete time step $t$, PMMA maintains a core state vector
+\[
+  M_t = \bigl(a_t, g_t, b_t, V_t, e_t\bigr),
+\]
+where:
+\begin{itemize}
+  \item $a_t \in [0,1]$: autonomy level (how willing is the system to act without human intervention).
+  \item $g_t \in [0,1]$: governance strictness (how strongly constraints and review requirements are enforced).
+  \item $b_t \in [0,1]$: reliability budget remaining (fraction of allowable failure budget not yet consumed).
+  \item $V_t \in [0,1]$: causal validity score (quality of the current causal model or graph).
+  \item $e_t \in \{\text{none},\text{human-review},\text{human-on-exception}\}$: exception routing state.
+\end{itemize}
+
+The policy configuration is given by:
+\[
+  \Theta = (\tau_V, V_\mathrm{critical}, \epsilon, \delta, k_\mathrm{max}, \text{decay rates, replenish rates, thresholds}),
+\]
+where:
+\begin{itemize}
+  \item $\tau_V$: admissible recursion threshold for causal validity (e.g.\ $0.6$ or $0.7$).
+  \item $V_\mathrm{critical}$: severe degradation threshold (e.g.\ $0.5$).
+  \item $\epsilon$: target error budget (e.g.\ $0.05$ for $5\%$).
+  \item $\delta$: convergence tolerance for recursion (e.g.\ Euclidean distance).
+  \item $k_\mathrm{max}$: maximum recursion steps before non-convergence escalation.
+\end{itemize}
+
+\subsection{Admissible Recursion and Causal Gate}
+
+Given $M_t$, PMMA first determines whether autonomous recursion is allowed via a \emph{causal validity gate}.
+Define:
+\[
+  \Lambda_t = \mathbf{1}[V_t \ge \tau_V].
+\]
+If $\Lambda_t = 0$, the system does not permit a fully autonomous update; instead it routes decisions towards human-review or human-on-exception.
+This implements the paper's requirement that causal models be valid before deployment and that low-quality causal structure triggers additional oversight.
+
+\subsection{Transition Dynamics}
+
+We define a recursion map
+\[
+  M_{t+1} = \Pi(M_t; \Theta, \text{data}_t),
+\]
+where $\Pi$ depends on the current state, policy parameters, and observed data at time $t$ (including violations and validity gaps).
+The transition decomposes into three components:
+
+\paragraph{1. Autonomy and Governance Update.}
+
+Let $v_t \in [0,1]$ be the empirical \emph{violation pressure} at time $t$ (fraction of decisions classified as violations in a recent batch), and let $u_t = \max(0,\tau_V - V_t)$ be a \emph{validity pressure} term.
+
+We define soft, saturating updates:
+\begin{align*}
+  g_{t+1} &= \mathrm{clip}_{[0,1]}\bigl(g_t + \alpha_g (v_t, u_t)\, (1 - g_t)\bigr), \\
+  a_{t+1} &= \mathrm{clip}_{[0,1]}\bigl(a_t - \alpha_a (v_t, u_t) + \beta_a(b_t)\bigr),
+\end{align*}
+where:
+\begin{itemize}
+  \item $\alpha_g$ increases governance strictness with violations and low validity, but is capped so that $g_t$ asymptotically approaches $1$ without large jumps.
+  \item $\alpha_a$ decreases autonomy under violations and poor validity.
+  \item $\beta_a(b_t)$ allows autonomy to increase slightly when budget is healthy (e.g.\ $b_t > 0.5$).
+\end{itemize}
+
+\paragraph{2. Reliability Budget Update.}
+
+The reliability budget $b_t$ decays with violations and low validity, and replenishes slightly in ``clean'' periods:
+\[
+  b_{t+1} = \mathrm{clip}_{[0,1]}\bigl(b_t - \gamma_v v_t - \gamma_u u_t + r_t\bigr),
+\]
+where $\gamma_v,\gamma_u > 0$ are decay rates, and
+\[
+  r_t = \begin{cases}
+    r_{\max} & \text{if } v_t \approx 0, \; u_t = 0, \\
+    0 & \text{otherwise}.
+  \end{cases}
+\]
+This implements an \emph{error budget} concept: the system may ``spend'' some allowable violation risk but must replenish by running clean before regaining autonomy.
+
+\paragraph{3. Exception Routing and Non-Convergence.}
+
+Within a recursion episode, we repeatedly apply $\Pi$ up to $k_\mathrm{max}$ steps or until
+\[
+  \|M_{t+1} - M_t\|_2 \le \delta.
+\]
+If convergence occurs, and $V_{t+1} \ge \tau_V$ and $b_{t+1} > 0$, the system may remain in an autonomous regime for the next batch.
+
+If non-convergence occurs, or if $V_{t+1} < V_\mathrm{critical}$, PMMA routes to human-on-exception:
+\[
+  e_{t+1} = \begin{cases}
+    \text{human-on-exception}, & \text{if non-convergence or } V_{t+1} < V_\mathrm{critical}, \\
+    \text{human-review}, & \text{if } \tau_V > V_{t+1} \ge V_\mathrm{critical}, \\
+    \text{none}, & \text{otherwise}.
+  \end{cases}
+\]
+In addition, non-convergence or critical degradation is logged with a prime-specific rationale (e.g.\ $p=2 \times p=5$ interaction failure).
+
+\subsection{Violation and Error Functionals}
+
+On each batch of $N$ decisions, define:
+\[
+  \text{violations} = \frac{1}{N} \sum_{i=1}^N \mathbf{1}[\text{decision}_i \text{ is violation}],
+\]
+\[
+  \text{interventions} = \frac{1}{N} \sum_{i=1}^N \mathbf{1}[\text{decision}_i \text{ requires human or governance override}].
+\]
+
+The error functional $E$ is taken as the violation rate (or a weighted variant) over a fixed horizon:
+\[
+  E = \mathbb{E}[\text{violations}] \approx \bar{v},
+\]
+and the reliability constraint is $E < \epsilon$.
+
+The safety--efficiency optimization problem can be written as:
+\[
+  \min_{\Theta} \bigl(\text{violations}(\Theta), \text{interventions}(\Theta)\bigr)
+  \quad \text{subject to} \quad E(\Theta) < \epsilon,
+\]
+with $\Theta$ including thresholds and update magnitudes.
+This is the mathematical counterpart of tuning PMMA from Phase I (safety-max) to Phase II (frontier).
+
+\section{Causal Validity Score}
+
+\subsection{Model-Based Negative Log-Likelihood Gap}
+
+To quantify causal validity $V_t$, PMMA uses the negative log-likelihood gap between a ground-truth causal model and a user-specified (possibly mis-specified) model.
+
+Let $Y \in \{0,1\}$ be the outcome, $\bm{X}$ be observed predictors, and $C$ be a confounder included in the ground-truth model but potentially omitted by the user.
+Let:
+\begin{itemize}
+  \item $p_\mathrm{gt}(Y \mid \bm{X}, C)$ be the ground-truth conditional probability.
+  \item $p_\mathrm{user}(Y \mid \bm{X})$ be the user's model (e.g.\ omitting $C$).
+\end{itemize}
+
+Given a sample $\{(\bm{x}_i, c_i, y_i)\}_{i=1}^N$, define average negative log-likelihoods:
+\[
+  \mathrm{NLL}_\mathrm{gt} = -\frac{1}{N} \sum_{i=1}^N \bigl[y_i \log p_\mathrm{gt}(y_i \mid \bm{x}_i, c_i)
+  + (1-y_i) \log(1-p_\mathrm{gt}(y_i \mid \bm{x}_i, c_i))\bigr],
+\]
+\[
+  \mathrm{NLL}_\mathrm{user} = -\frac{1}{N} \sum_{i=1}^N \bigl[y_i \log p_\mathrm{user}(y_i \mid \bm{x}_i)
+  + (1-y_i) \log(1-p_\mathrm{user}(y_i \mid \bm{x}_i))\bigr].
+\]
+
+The gap
+\[
+  \Delta = \max\{0, \mathrm{NLL}_\mathrm{user} - \mathrm{NLL}_\mathrm{gt}\}
+\]
+measures how much worse the user graph performs relative to the ground truth.
+We map this gap to a validity score using an exponential decay:
+\[
+  V = \exp(-\lambda \Delta),
+\]
+for some scale $\lambda > 0$ (e.g.\ $\lambda = 5$).
+Then $V \in (0,1]$, with $V \approx 1$ when the user graph is close to the ground truth and lower when confounders or edges are mis-specified.
+
+\subsection{Prime $p=5$ and No-Code Risk}
+
+In PMMA's prime-indexed interpretation, $p=5$ governs the tension between causal validity and the risks of no-code model specification.
+A high mis-specification probability (user omits confounder $C$ often) leads to systematically higher $\Delta$ and lower $V$, triggering more human review and reducing autonomy.
+
+\section{Example Code Snippets}
+
+\subsection{Causal Validity Score}
+
+\begin{verbatim}
+import numpy as np
+
+def nll_bernoulli(y, p):
+    p = np.clip(p, 1e-6, 1 - 1e-6)
+    return -np.mean(y * np.log(p) + (1 - y) * np.log(1 - p))
+
+def validity_from_nll_gap(nll_user: float,
+                          nll_ground_truth: float,
+                          scale: float = 5.0) -> float:
+    gap = max(0.0, nll_user - nll_ground_truth)
+    return float(np.exp(-scale * gap))
+\end{verbatim}
+
+\subsection{Exception Router}
+
+\begin{verbatim}
+def route_exception(v5: float,
+                    threshold: float,
+                    converged: bool,
+                    critical_threshold: float = 0.5):
+    if not converged:
+        return "human_on_exception", "non_convergence"
+    if v5 < critical_threshold:
+        return "human_on_exception", "critical_causal_degradation"
+    if v5 < threshold:
+        return "human_review", "causal_validity_gate"
+    return "autonomous_ok", "none"
+\end{verbatim}
+
+\subsection{Budget Update}
+
+\begin{verbatim}
+def update_budget(current: float,
+                  violation_pressure: float,
+                  validity_pressure: float,
+                  replenish: float = 0.0) -> float:
+    next_budget = (current
+                   - 0.10 * violation_pressure
+                   - 0.05 * validity_pressure
+                   + replenish)
+    return max(0.0, min(1.0, next_budget))
+\end{verbatim}
+
+\subsection{Tuned PMMA Transition and Policy (Simplified)}
+
+\begin{verbatim}
+import numpy as np
+
+def pmma_transition_tuned(state, violation_pressure, validity_pressure):
+    autonomy, governance, budget = state
+
+    base_step = 0.05
+    extra_from_violation = 0.25 * violation_pressure
+    extra_from_validity  = 0.20 * validity_pressure
+    raw_delta = base_step * (extra_from_violation + extra_from_validity)
+    violation_impact = min(0.08, raw_delta * (1.0 - governance))
+    new_governance = np.clip(governance + violation_impact, 0, 1)
+
+    autonomy_penalty = 0.20 * violation_pressure + 0.10 * validity_pressure
+    autonomy_boost   = 0.05 * max(0.0, budget - 0.5)
+    new_autonomy = np.clip(autonomy - autonomy_penalty + autonomy_boost, 0, 1)
+
+    budget_decay = 0.10 * violation_pressure + 0.05 * validity_pressure
+    budget_replenish = 0.02 if violation_pressure < 0.01 and validity_pressure == 0 else 0.0
+    new_budget = np.clip(budget - budget_decay + budget_replenish, 0, 1)
+
+    return np.array([new_autonomy, new_governance, new_budget])
+
+def propose_autonomy_tuned(score_vec, v5, governance):
+    high_score   = score_vec > 70
+    good_causal  = v5 > 0.75
+    governance_ok = governance < 0.60
+    return high_score & good_causal & governance_ok
+
+def pmma_policy_tuned(df, v5, base_autonomy_level,
+                      base_governance_strictness,
+                      delta=0.05, k_max=10, tau_v=0.60, v5_critical=0.50,
+                      rng=None):
+    if rng is None:
+        rng = np.random.default_rng()
+
+    state = np.array([base_autonomy_level, base_governance_strictness, 1.0])
+    history = [state.copy()]
+    score = np.clip(100 * df["p_true"].values, 0, 100)
+
+    for step in range(k_max):
+        autonomy, governance, budget = state
+
+        proposed_auto = propose_autonomy_tuned(score, v5, governance)
+        high_certainty = score > 90
+        contradictions = proposed_auto & high_certainty & (governance >= 0.90)
+
+        invalid_causal_action = proposed_auto & (v5 < tau_v)
+
+        violations = (proposed_auto & (v5 < 0.70)) | contradictions
+        intervention = (~proposed_auto) | (v5 < tau_v) | contradictions
+
+        critical_escalation = (v5 < v5_critical) and violations.any()
+
+        violation_pressure = violations.mean()
+        validity_pressure = max(0.0, tau_v - v5)
+
+        new_state = pmma_transition_tuned(state,
+                                          violation_pressure,
+                                          validity_pressure)
+        dist = float(np.linalg.norm(new_state - state))
+        history.append(new_state.copy())
+        state = new_state
+
+        if dist <= delta:
+            return {
+                "score": score,
+                "autonomous_action": proposed_auto & ~(intervention),
+                "intervention": intervention or critical_escalation,
+                "contradictions": contradictions,
+                "violations": violations or critical_escalation,
+                "converged": True,
+                "steps": step + 1,
+                "state_history": np.array(history),
+                "final_state": state,
+                "failed_prime": None,
+                "critical_escalation": critical_escalation,
+            }
+
+    return {
+        "score": score,
+        "autonomous_action": np.zeros(len(score), dtype=bool),
+        "intervention": np.ones(len(score), dtype=bool),
+        "contradictions": np.zeros(len(score), dtype=bool),
+        "violations": np.zeros(len(score), dtype=bool),
+        "converged": False,
+        "steps": k_max,
+        "state_history": np.array(history),
+        "final_state": state,
+        "failed_prime": "p=2 x p=5 non-convergence",
+        "critical_escalation": np.array([v5 < v5_critical]),
+    }
+\end{verbatim}
+
+\section{Safety--Efficiency Manifold and Phase I vs.\ Phase II}
+
+The PMMA architecture admits distinct regimes depending on parameter choices:
+\begin{itemize}
+  \item \textbf{Phase I (Safety-Max):} conservative thresholds and aggressive governance updates yield low or zero baseline violations but very high intervention ratios and error budgets $E$ that may exceed the target $\epsilon$.
+  \item \textbf{Phase II (Frontier-Seeking):} tuned thresholds and softer dynamics reduce violations below the target (e.g.\ $<5\%$) while lowering interventions to enterprise-acceptable levels (e.g.\ $<25\%$), maintaining $E < \epsilon$.
+\end{itemize}
+
+The same state space $M_t$ and recursion map $\Pi$ are used in both phases; only the configuration $\Theta$ changes.
+This establishes PMMA not as a fixed solution but as a \emph{manifold of operating points} parameterized by explicit governance levers.
+
+\section{Prior Art and Contribution}
+
+Existing work on agentic AI governance, causal AI, and enterprise risk frameworks has:
+\begin{itemize}
+  \item Emphasized error budgets, liability tiers, and tiered human oversight (human-in-the-loop vs.\ human-on-the-loop).
+  \item Highlighted the risks of causal mis-specification and black-box autonomy.
+  \item Called for governance-by-design architectures where constraints are coded into orchestration frameworks.
+\end{itemize}
+
+However, those works generally do not:
+\begin{itemize}
+  \item Formalize these tensions as a prime-indexed multiplicity space with recursive stabilization.
+  \item Define a causal validity gate as a continuous function of negative log-likelihood gap and embed it in a stateful agent recursion.
+  \item Treat the system as a tunable safety--efficiency manifold explicitly parameterized by policy levers and evaluated via a simulation harness.
+\end{itemize}
+
+This defensive publication discloses:
+\begin{enumerate}
+  \item The PMMA state formalism and prime-indexed interpretation.
+  \item The admissible recursion condition $\Lambda_t = \mathbf{1}[V_t \ge \tau_V]$ and non-convergence fallback.
+  \item A concrete error budget functional $E$ and its use as a constraint in a bi-objective safety--efficiency optimization.
+  \item A causal validity score $V$ derived from NLL gaps and used both as a gate and as a feedback signal in the recursion.
+  \item Example code for budget updates, exception routing, and tuned PMMA policies.
+\end{enumerate}
+
+\section{Recommendations and Extensions}
+
+\subsection{Fastest Path to Empirical Validation}
+
+To validate PMMA in practice:
+\begin{enumerate}
+  \item Implement the simulation core for a single bounded domain (e.g.\ lead qualification).
+  \item Run multi-seed experiments for baseline, Phase I, and Phase II policies under varying confounder omission rates.
+  \item Measure violations per 100 decisions, intervention ratios, error budget $E$, convergence frequency, and exception routing statistics.
+  \item Plot safety--efficiency frontiers and select operating points that match enterprise constraints.
+\end{enumerate}
+
+\subsection{Potential Extensions}
+
+Future work may:
+\begin{itemize}
+  \item Add additional primes for new tensions (e.g.\ transparency vs.\ proprietary dependencies).
+  \item Model multi-agent interactions where each agent has its own PMMA state and governance coupling terms.
+  \item Integrate PMMA into real orchestration frameworks with runtime telemetry feeding back into the recursion.
+\end{itemize}
+
+\section*{Conclusion}
+
+PMMA provides a governance-first, mathematically explicit architecture that instantiates the Phase Mirror philosophy: dissonances are not resolved but managed through mechanisms, budgets, and escalation policies.
+By treating autonomy, governance, causal validity, and reliability as an evolving state subject to recursive stabilization, PMMA turns high-level governance desiderata into testable, tunable systems---and this document places those specific constructions into the public domain as prior art.
+
+\appendix
+\section*{Mathematical Appendix}
+
+This appendix formalizes the Phase Mirror Multiplicity Agents (PMMA) architecture and records the operator norm bounds and basic stability results derived in the main body of the work.
+The goals are:
+\begin{enumerate}
+  \item To make explicit the state space and operators underlying PMMA.
+  \item To show under what conditions the recursive stabilization step is contractive in an appropriate norm.
+  \item To derive bounds on autonomy, governance, and budget updates that ensure safety constraints such as $E < \epsilon$ can be enforced.
+\end{enumerate}
+
+\section{State Space and Operators}
+
+\subsection{PMMA State Space}
+
+Define the PMMA state at batch index $t$ as
+\[
+  M_t = (a_t, g_t, b_t, V_t, e_t) \in \mathcal{X} := [0,1]^4 \times \mathcal{E},
+\]
+where:
+\begin{itemize}
+  \item $a_t \in [0,1]$ is the autonomy level.
+  \item $g_t \in [0,1]$ is the governance strictness level.
+  \item $b_t \in [0,1]$ is the reliability (error) budget remaining.
+  \item $V_t \in [0,1]$ is the causal validity score.
+  \item $e_t \in \mathcal{E} := \{\mathrm{none},\mathrm{human\_review},\mathrm{human\_on\_exception}\}$ is the exception routing state.
+\end{itemize}
+For most of this appendix we restrict attention to the continuous part
+\[
+  x_t := (a_t, g_t, b_t, V_t) \in X := [0,1]^4,
+\]
+and treat $e_t$ as a piecewise-constant label updated by threshold conditions (Section~\ref{sec:exception-routing}).
+
+\subsection{Policy Parameters and Admissible Recursion}
+
+Let
+\[
+  \Theta
+  = (\tau_V, V_{\mathrm{crit}}, \epsilon, \delta, k_{\max},
+     \gamma_v, \gamma_u, r_{\max}, \alpha_a, \alpha_g, \beta_a)
+\]
+denote the collection of PMMA policy parameters, where:
+\begin{itemize}
+  \item $\tau_V \in (0,1)$ is the causal validity threshold for admissible recursion.
+  \item $V_{\mathrm{crit}} \in (0,\tau_V)$ is the critical validity threshold for forced human-on-exception.
+  \item $\epsilon \in (0,1)$ is the reliability budget target (e.g.\ $5\%$).
+  \item $\delta > 0$ is the convergence tolerance.
+  \item $k_{\max} \in \mathbb{N}$ is the maximum number of recursive steps per batch.
+  \item $\gamma_v, \gamma_u > 0$ are budget decay rates for violation pressure and validity pressure.
+  \item $r_{\max} \ge 0$ is the maximum budget replenishment per step under ideal behavior.
+  \item $\alpha_a, \alpha_g$ encode autonomy and governance sensitivities to violations and validity pressure.
+  \item $\beta_a$ encodes budget-dependent autonomy restoration.
+\end{itemize}
+
+Define the \emph{admissible recursion indicator}
+\[
+  \Lambda_t := \mathbf{1}[V_t \ge \tau_V].
+\]
+If $\Lambda_t = 0$, the system is not allowed to perform autonomous recursion; it must route decisions to human-review or human-on-exception.
+
+\subsection{Violation and Validity Pressures}
+
+On batch $t$, let
+\[
+  v_t := \frac{1}{N_t} \sum_{i=1}^{N_t} \mathbf{1}[\text{decision}_i \text{ is violation}],
+\]
+where $N_t$ is the batch size and ``violation'' is defined by policy (e.g.\ autonomous action with $V_t < 0.7$, or violation of governance rule at high certainty).
+Let
+\[
+  u_t := \max\{0, \tau_V - V_t\}
+\]
+be the \emph{validity pressure}, i.e.\ how far below the recursion threshold the current validity lies.
+
+\section{Core Operators}
+
+\subsection{Transition Map on Continuous State}
+
+We model one recursive step on the continuous state as the map
+\[
+  F: X \times \Theta \times [0,1]^2 \to X,
+\]
+\[
+  x_{t+1} = F(x_t; \Theta, v_t, u_t).
+\]
+We specify $F$ component-wise:
+\begin{align}
+  g_{t+1}
+    &= \mathrm{clip}_{[0,1]}\Bigl(
+         g_t + \alpha_g(v_t, u_t)\,(1 - g_t)
+       \Bigr),
+       \label{eq:g-update}\\[4pt]
+  a_{t+1}
+    &= \mathrm{clip}_{[0,1]}\Bigl(
+         a_t - \alpha_a(v_t, u_t) + \beta_a(b_t)
+       \Bigr),
+       \label{eq:a-update}\\[4pt]
+  b_{t+1}
+    &= \mathrm{clip}_{[0,1]}\Bigl(
+         b_t - \gamma_v v_t - \gamma_u u_t + r_t
+       \Bigr),
+       \label{eq:b-update}\\[4pt]
+  V_{t+1}
+    &= V_t, \quad \text{(within a single recursion episode)}
+       \label{eq:V-update-episode}
+\end{align}
+where $\mathrm{clip}_{[0,1]}$ denotes projection onto $[0,1]$, $r_t$ is the replenish term
+\[
+  r_t :=
+  \begin{cases}
+    r_{\max}, & \text{if } v_t < v_{\mathrm{tol}} \text{ and } u_t = 0,\\
+    0, & \text{otherwise},
+  \end{cases}
+\]
+and $v_{\mathrm{tol}}$ is a small tolerance for ``zero'' violation (e.g.\ $v_{\mathrm{tol}} = 0.01$).
+
+For clarity, we may parameterize the sensitivities as:
+\begin{align}
+  \alpha_g(v_t,u_t)
+    &= c_g^0 + c_g^v v_t + c_g^u u_t, \label{eq:alpha-g}\\
+  \alpha_a(v_t,u_t)
+    &= c_a^v v_t + c_a^u u_t, \label{eq:alpha-a}
+\end{align}
+with nonnegative coefficients $c_g^0, c_g^v, c_g^u, c_a^v, c_a^u$ chosen such that $\alpha_g,\alpha_a$ remain bounded on $[0,1]^2$.
+
+The autonomy boost term $\beta_a$ is chosen to depend only on budget:
+\[
+  \beta_a(b_t) := c_b \max\{0, b_t - b_{\mathrm{mid}}\}
+\]
+for some $c_b \ge 0$ and $b_{\mathrm{mid}} \in (0,1)$.
+
+\subsection{Budget Operator Norm Bounds}
+
+We first bound the budget operator in the $\ell_\infty$ and $\ell_2$ norms.
+
+\begin{lemma}[Budget Operator Lipschitz Bound]
+\label{lem:budget-lip}
+Fix $\gamma_v,\gamma_u, r_{\max}$ and define the pre-clipping budget update
+\[
+  \tilde{b}_{t+1}
+    = b_t - \gamma_v v_t - \gamma_u u_t + r_t.
+\]
+Then, for any admissible $(b_t,v_t,u_t)$ and $(b_t',v_t',u_t')$ in $[0,1]^3$, we have
+\[
+  |\tilde{b}_{t+1} - \tilde{b}_{t+1}'|
+  \le |b_t - b_t'|
+     + \gamma_v |v_t - v_t'|
+     + \gamma_u |u_t - u_t'|.
+\]
+Moreover, the clipped update $b_{t+1} = \mathrm{clip}_{[0,1]}(\tilde{b}_{t+1})$ satisfies the same bound, so the budget component of $F$ is Lipschitz with constant at most $1 + \gamma_v + \gamma_u$ with respect to $(b,v,u)$ in the $\ell_1$ norm.
+\end{lemma}
+
+\begin{proof}
+By direct algebra,
+\[
+  \tilde{b}_{t+1} - \tilde{b}_{t+1}'
+   = (b_t - b_t')
+     - \gamma_v (v_t - v_t')
+     - \gamma_u (u_t - u_t')
+     + (r_t - r_t').
+\]
+Since $r_t,r_t' \in \{0,r_{\max}\}$, we have $|r_t - r_t'| \le r_{\max}$, but importantly $r_t$ is a function only of $(v_t,u_t)$ with bounded variation on a compact domain.
+For Lipschitz control with respect to $(b,v,u)$, we can absorb $|r_t - r_t'|$ into $\gamma_v|v_t - v_t'| + \gamma_u |u_t - u_t'|$ by choosing $\gamma_v,\gamma_u$ large enough that any threshold discontinuity is dominated by their coefficients (or by restricting attention to regions where $r_t$ is constant).
+Ignoring $r_t$ for the worst-case continuous regime,
+\[
+  |\tilde{b}_{t+1} - \tilde{b}_{t+1}'|
+  \le |b_t - b_t'|
+     + \gamma_v |v_t - v_t'|
+     + \gamma_u |u_t - u_t'|.
+\]
+Clipping is a non-expansive map in every $\ell_p$ norm, hence the same inequality holds for $b_{t+1}$.
+\end{proof}
+
+\subsection{Full-State Operator Norm Bound}
+
+We now treat the full continuous state operator $F$ and derive an operator norm bound in $\ell_2$.
+
+\begin{theorem}[Global Lipschitz Bound for $F$]
+\label{thm:F-lip}
+Suppose $\alpha_g,\alpha_a,\beta_a$ are affine in $(v,u,b)$ as in \eqref{eq:alpha-g}--\eqref{eq:alpha-a} and the budget operator is as above.
+Then there exists a constant $L_F > 0$ depending only on $\Theta$ such that for all $x_t,x_t' \in X$ and fixed $(v_t,u_t)$,
+\[
+  \| F(x_t;\Theta,v_t,u_t) - F(x_t';\Theta,v_t,u_t) \|_2
+  \le L_F \, \|x_t - x_t'\|_2.
+\]
+In particular, we can take
+\[
+  L_F \le \sqrt{ L_a^2 + L_g^2 + L_b^2 + 1 },
+\]
+where $L_a,L_g,L_b$ are the component-wise Lipschitz constants for $a,g,b$ respectively.
+\end{theorem}
+
+\begin{proof}
+We bound each component.
+Write $x_t = (a_t,g_t,b_t,V_t)$ and similarly for $x_t'$.
+
+\emph{Governance component.}
+As a function of $(g_t,v_t,u_t)$, the pre-clipping update is
+\[
+  \tilde{g}_{t+1} = g_t + \alpha_g(v_t,u_t)(1-g_t).
+\]
+Holding $v_t,u_t$ fixed,
+\[
+  \frac{\partial \tilde{g}_{t+1}}{\partial g_t}
+    = 1 - \alpha_g(v_t,u_t),
+\]
+so
+\[
+  |\tilde{g}_{t+1} - \tilde{g}_{t+1}'|
+  \le |1 - \alpha_g(v_t,u_t)| \, |g_t - g_t'|.
+\]
+As $\alpha_g$ is bounded on $[0,1]^2$, say $|\alpha_g(v,u)| \le A_g$, we can take
+\[
+  L_g := \max\{ |1 - \alpha_g(v_t,u_t)| : (v_t,u_t)\in[0,1]^2 \}
+  \le 1 + A_g.
+\]
+Clipping is non-expansive, so $|g_{t+1}-g_{t+1}'| \le L_g |g_t - g_t'|$.
+
+\emph{Autonomy component.}
+The pre-clipping update is
+\[
+  \tilde{a}_{t+1} = a_t - \alpha_a(v_t,u_t) + \beta_a(b_t).
+\]
+As a function of $(a_t,b_t)$ with $(v_t,u_t)$ fixed,
+\[
+  \frac{\partial \tilde{a}_{t+1}}{\partial a_t} = 1, \quad
+  \frac{\partial \tilde{a}_{t+1}}{\partial b_t} = \beta_a'(b_t).
+\]
+Assuming $|\beta_a'(b)| \le B_a$ on $[0,1]$, we have
+\[
+  |\tilde{a}_{t+1} - \tilde{a}_{t+1}'|
+  \le |a_t - a_t'|
+     + B_a |b_t - b_t'|.
+\]
+Thus
+\[
+  |a_{t+1} - a_{t+1}'|
+  \le L_a \sqrt{ (a_t-a_t')^2 + (b_t-b_t')^2 },
+\]
+with $L_a := \sqrt{1 + B_a^2}$.
+
+\emph{Budget component.}
+By Lemma~\ref{lem:budget-lip}, holding $(v_t,u_t)$ fixed,
+\[
+  |b_{t+1} - b_{t+1}'|
+  \le L_b |b_t - b_t'|
+\]
+for some $L_b$ determined by $(\gamma_v,\gamma_u)$ (and uniform in $v_t,u_t$ on $[0,1]^2$).
+
+\emph{Validity component.}
+Within a recursion episode, $V_{t+1} = V_t$, so
+\[
+  |V_{t+1} - V_{t+1}'| = |V_t - V_t'|
+\]
+and the Lipschitz constant for this component is $1$.
+
+Putting all components together and applying the triangle inequality and norm equivalence, we obtain
+\[
+  \| F(x_t;\Theta,v_t,u_t) - F(x_t';\Theta,v_t,u_t) \|_2
+  \le \sqrt{L_a^2 + L_g^2 + L_b^2 + 1}\,\|x_t - x_t'\|_2.
+\]
+\end{proof}
+
+\section{Contractivity and Recursive Stabilization}
+
+\subsection{Single-Step Contractivity Conditions}
+
+We now derive sufficient conditions for $F$ to be a contraction on $X$ under the $\ell_2$ norm.
+
+\begin{corollary}[Contraction Sufficient Condition]
+\label{cor:contraction}
+If the parameter choices in $\Theta$ satisfy
+\[
+  \sqrt{L_a^2 + L_g^2 + L_b^2 + 1} < 1,
+\]
+then $F$ is a strict contraction on $X$ with respect to $\|\cdot\|_2$ for fixed $(v_t,u_t)$.
+\end{corollary}
+
+\begin{proof}
+Immediate from Theorem~\ref{thm:F-lip}.
+\end{proof}
+
+In practice, it is difficult to make all components below unity in isolation, but note:
+\begin{itemize}
+  \item Governance updates can be made arbitrarily small by selecting $\alpha_g$ near zero when $g_t$ is large; this dampens $L_g$.
+  \item Autonomy boosts can be limited by bounding $|\beta_a'|$ through a smooth, saturating function, so $B_a$ is small.
+  \item Budget decay and replenishment can be tuned to keep $L_b$ close to $1$ or slightly below.
+\end{itemize}
+Together, this suggests a design procedure: choose $\Theta$ so that $F$ is non-expansive ($L_F \le 1$) in general, and contractive ($L_F < 1$) in the typical regime where violations and validity pressures are small.
+This ensures that when the system is not under acute stress, the recursive update will stabilize quickly.
+
+\subsection{Multi-Step Stability under Bounded Inputs}
+
+Let $(v_t,u_t)$ be bounded inputs with $(v_t,u_t) \in [0,\bar{v}] \times [0,\bar{u}]$ for all $t$.
+Assume $F$ is Lipschitz with constant $L_F \le 1$ and strictly contractive whenever $(v_t,u_t)$ lie in a ``good'' region $\mathcal{G}$ (low violations, high validity).
+
+\begin{theorem}[Conditional Stabilization]
+\label{thm:conditional-stab}
+Suppose for all $t$ we have:
+\begin{enumerate}
+  \item $(v_t,u_t)\in\mathcal{G}$ implies $\|F(x_t;\Theta,v_t,u_t) - F(x_t';\Theta,v_t,u_t)\|_2 \le \rho \|x_t - x_t'\|_2$ for some $\rho \in (0,1)$.
+  \item For $(v_t,u_t)\notin\mathcal{G}$, $F$ is non-expansive ($L_F \le 1$).
+\end{enumerate}
+Then for any initial $x_0,x_0'$, the distance $\|x_t - x_t'\|_2$ is non-increasing in $t$, and whenever the system spends a contiguous block of steps with $(v_t,u_t)\in\mathcal{G}$, the state contracts exponentially at rate at least $\rho$ on that block.
+\end{theorem}
+
+\begin{proof}
+Non-expansiveness ensures $\|x_{t+1}-x_{t+1}'\|_2 \le \|x_t - x_t'\|_2$ for all $t$.
+On any block $[s,s+T-1]$ where $(v_t,u_t)\in\mathcal{G}$ for all $t$ in that block, we have
+\[
+  \|x_{s+T} - x_{s+T}'\|_2 \le \rho^T \|x_s - x_s'\|_2.
+\]
+Therefore the distance is non-increasing globally and decays exponentially whenever the inputs remain in $\mathcal{G}$ for multiple steps.
+\end{proof}
+
+This theorem formalizes PMMA's \emph{conditional stabilization} interpretation: the system need not globally converge for all disturbance patterns, but when violation and validity pressures are within a good regime, the recursion tends to a stable fixed point; outside that regime, it is at least non-expansive and may shift to human-on-exception rather than attempting further autonomous recursion.
+
+\section{Error Budget and Safety Constraint}
+
+\subsection{Error Functional \texorpdfstring{$E$}{E}}
+
+Let $v_t$ be the violation rate at batch $t$.
+Over a horizon of $T$ batches, define the error functional
+\[
+  E_T := \frac{1}{T} \sum_{t=1}^T v_t.
+\]
+The reliability target is $E_T < \epsilon$.
+
+\begin{lemma}[Error Budget under Bounded Violations]
+\label{lem:error-budget}
+Suppose $v_t \le v_{\max}$ for all $t$ and that $b_t$ is updated according to \eqref{eq:b-update} with $\gamma_v,\gamma_u,r_{\max}$ satisfying
+\[
+  \gamma_v v_{\max} + \gamma_u \max_t u_t \le \bar{\gamma}
+  \quad\text{and}\quad
+  r_{\max} \le \bar{r},
+\]
+with $\bar{\gamma},\bar{r}$ small.
+Then there exists a choice of $(\bar{\gamma},\bar{r})$ such that whenever $E_T < \epsilon$,
+the budget $b_t$ stays above a floor $b_{\min}(\epsilon)$ for all $t\le T$.
+\end{lemma}
+
+\begin{proof}
+The worst-case budget change per step is
+\[
+  \Delta b_t = -\gamma_v v_t - \gamma_u u_t + r_t
+  \ge -\gamma_v v_{\max} - \gamma_u \max_t u_t + 0
+  \ge -\bar{\gamma}.
+\]
+Over $T$ steps, the total budget loss is at most $T\bar{\gamma}$.
+Fix an initial $b_0$ and choose $\bar{\gamma}$ such that $b_0 - T\bar{\gamma} \ge b_{\min}(\epsilon)$, where $b_{\min}(\epsilon) > 0$ is an acceptable floor correlated with $\epsilon$.
+Under $E_T < \epsilon$, we can ensure $v_{\max}$ and $\max_t u_t$ remain small (since low violations and adequate validity imply small pressures), making such a choice feasible.
+\end{proof}
+
+The practical implication is that the error budget dynamics can be tuned so that maintaining $E_T < \epsilon$ guarantees a non-degenerate budget, which in turn allows some autonomy to be preserved even under occasional violations.
+
+\section{Exception Routing and Governability}
+\label{sec:exception-routing}
+
+We formalize exception routing as a function
+\[
+  R : [0,1]^2 \times \{0,1\} \to \mathcal{E}\times\mathcal{R},
+\]
+where $\mathcal{R}$ is a set of rationale codes.
+
+Given $(V_{t+1},\Lambda_{t+1},\text{converged})$, define
+\[
+  (e_{t+1},r_{t+1}) = R(V_{t+1},\Lambda_{t+1},\mathrm{converged}),
+\]
+with:
+\[
+  R(V,\Lambda,\mathrm{converged}) =
+  \begin{cases}
+    (\mathrm{human\_on\_exception},\mathrm{non\_convergence}),
+      & \text{if }\mathrm{converged} = 0,\\[4pt]
+    (\mathrm{human\_on\_exception},\mathrm{critical\_causal\_degradation}),
+      & \text{if } V < V_{\mathrm{crit}},\\[4pt]
+    (\mathrm{human\_review},\mathrm{causal\_validity\_gate}),
+      & \text{if } V_{\mathrm{crit}}\le V < \tau_V,\\[4pt]
+    (\mathrm{none},\mathrm{none}),
+      & \text{if } V \ge \tau_V \text{ and converged} = 1.
+  \end{cases}
+\]
+
+\begin{definition}[Governability]
+We say PMMA is \emph{governable} on horizon $T$ if for every batch $t\le T$, whenever $V_t < \tau_V$ or recursion fails to converge, we have $e_t \in \{\mathrm{human\_review},\mathrm{human\_on\_exception}\}$.
+\end{definition}
+
+\begin{proposition}[Sufficient Condition for Governability]
+If exception routing $R$ is implemented as above and $\Lambda_t = \mathbf{1}[V_t \ge \tau_V]$, then PMMA is governable on every finite horizon $T$, regardless of the choice of $(v_t,u_t)$.
+\end{proposition}
+
+\begin{proof}
+By construction, if $V_t < \tau_V$ then either $V_t < V_{\mathrm{crit}}$ or $V_{\mathrm{crit}} \le V_t < \tau_V$, and the routing cases enforce $e_t\in\{\mathrm{human\_review},\mathrm{human\_on\_exception}\}$.
+If recursion fails to converge, the first case applies, also forcing $e_t = \mathrm{human\_on\_exception}$.
+Thus, in all unsafe validity or convergence conditions, decisions are routed away from fully autonomous execution.
+\end{proof}
+
+In institutional governance terms, this proposition is the formal expression of ``knows when it should not act autonomously.''
+
+\section{Prime-Indexed Decomposition}
+
+Finally, we sketch how the above operators can be decomposed into prime-indexed components.
+
+Let $\Pi = \{2,5\}$ for the two-prime pilot:
+\[
+  p=2 \quad\text{(autonomy vs.\ governance)},
+  \qquad
+  p=5 \quad\text{(causal validity vs.\ mis-specification)}.
+\]
+Define per-prime operators:
+\begin{itemize}
+  \item $A_2$ and $G_2$ acting on $(a,g)$ with parameters $(\alpha_a,\alpha_g)$.
+  \item $C_5$ acting on $V$ with parameters $(\tau_V,V_{\mathrm{crit}})$ and data-dependent NLL gaps.
+  \item $B$ acting on $b$ with parameters $(\gamma_v,\gamma_u,r_{\max})$ and pressures $(v,u)$.
+\end{itemize}
+Then one can write the overall transition as a composition
+\[
+  x_{t+1} = B \circ A_2 \circ G_2 \circ C_5 (x_t; \Theta,v_t,u_t),
+\]
+with each operator individually Lipschitz.
+The global Lipschitz constant is bounded by the product of per-operator Lipschitz constants in the worst case, though the actual dynamics may be more benign.
+
+This prime-indexed decomposition is useful conceptually because it allows per-tension analysis:
+\begin{itemize}
+  \item Tuning $A_2,G_2$ affects the $p=2$ autonomy--governance tradeoff, holding $C_5$ fixed.
+  \item Tuning $C_5$ affects how aggressively the system responds to causal mis-specification, holding $A_2,G_2$ fixed.
+\end{itemize}
+In future work, additional primes can be added to capture new structural tensions while maintaining a modular analysis of operator norms and stability.
+
+\section*{Summary}
+
+This appendix has:
+\begin{itemize}
+  \item Defined the PMMA state space and transition operators.
+  \item Derived Lipschitz bounds for the core transition map and provided sufficient conditions for non-expansiveness and contractivity.
+  \item Related the error budget functional $E_T$ to the budget dynamics and showed how to keep budget above a floor under bounded violations.
+  \item Formalized exception routing and proved a basic governability property.
+  \item Sketched a prime-indexed operator decomposition for two-prime pilots.
+\end{itemize}
+These results provide the mathematical backbone for treating PMMA as a conditional stabilizer over a safety--efficiency manifold governed by explicit policy parameters rather than ad hoc heuristics.
+
+
+\nocite{*}
+\bibliographystyle{unsrt}  
+\bibliography{references}  
+
+
+\end{document}

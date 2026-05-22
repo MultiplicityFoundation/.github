@@ -1,0 +1,578 @@
+% ============================================================
+%  references.bib
+%  ACE Runtime Certification Stack — Mathematical Appendix
+%  Multiplicity Foundation
+%  Generated: 2026-04-25
+%
+%  Organised by theme:
+%    A.  Banach / Fixed-Point / Operator Theory
+%    B.  Modular Forms, Hecke Operators, Langlands
+%    C.  Spectral Gap and Perturbation Theory
+%    D.  Zero-Knowledge Proofs, R1CS, Circom, Halo2
+%    E.  Poseidon / Poseidon2 Hash Functions
+%    F.  Fast Walsh–Hadamard Transform
+%    G.  Contraction Mappings and Stability Theory
+%    H.  Prime Number Theory and Multiplicative Structure
+%    I.  Multiplicity Theory / ACE (Internal Publications)
+%    J.  Cryptographic Protocol Theory
+%    K.  Formal Verification and Proof Assistants
+% ============================================================
+
+% ============================================================
+%  A.  BANACH / FIXED-POINT / OPERATOR THEORY
+% ============================================================
+
+@book{banach1932theorie,
+  author    = {Banach, Stefan},
+  title     = {Th\'{e}orie des op\'{e}rations lin\'{e}aires},
+  publisher = {Monografie Matematyczne},
+  year      = {1932},
+  address   = {Warsaw},
+  note      = {Foundational text establishing the Banach fixed-point
+               (contraction mapping) theorem and the theory of bounded
+               linear operators on complete normed spaces.}
+}
+
+@book{kreyszig1978introductory,
+  author    = {Kreyszig, Erwin},
+  title     = {Introductory Functional Analysis with Applications},
+  publisher = {Wiley},
+  year      = {1978},
+  address   = {New York},
+  note      = {Standard reference for operator norm bounds, spectral
+               theory, and contraction mappings in Banach spaces.}
+}
+
+@book{rudin1991functional,
+  author    = {Rudin, Walter},
+  title     = {Functional Analysis},
+  edition   = {2nd},
+  publisher = {McGraw-Hill},
+  year      = {1991},
+  address   = {New York},
+  series    = {International Series in Pure and Applied Mathematics}
+}
+
+@book{reed1980methods,
+  author    = {Reed, Michael and Simon, Barry},
+  title     = {Methods of Modern Mathematical Physics, {Vol.\ I}: Functional Analysis},
+  publisher = {Academic Press},
+  year      = {1980},
+  address   = {New York},
+  edition   = {Revised and enlarged}
+}
+
+@book{kato1995perturbation,
+  author    = {Kato, Tosio},
+  title     = {Perturbation Theory for Linear Operators},
+  publisher = {Springer-Verlag},
+  year      = {1995},
+  address   = {Berlin},
+  series    = {Classics in Mathematics},
+  note      = {Primary reference for operator-norm perturbation bounds
+               underpinning the Weyl inequality derivations.}
+}
+
+% ============================================================
+%  B.  MODULAR FORMS, HECKE OPERATORS, LANGLANDS
+% ============================================================
+
+@book{diamond2005first,
+  author    = {Diamond, Fred and Shurman, Jerry},
+  title     = {A First Course in Modular Forms},
+  publisher = {Springer},
+  year      = {2005},
+  address   = {New York},
+  series    = {Graduate Texts in Mathematics},
+  volume    = {228},
+  note      = {Primary reference for Hecke operator multiplicativity,
+               cusp forms $S_k(\Gamma_0(N))$, and the
+               Ramanujan--Petersson bound.}
+}
+
+@book{serre1973course,
+  author    = {Serre, Jean-Pierre},
+  title     = {A Course in Arithmetic},
+  publisher = {Springer-Verlag},
+  year      = {1973},
+  address   = {New York},
+  series    = {Graduate Texts in Mathematics},
+  volume    = {7},
+  note      = {Canonical reference for Dirichlet series, modular forms,
+               and the arithmetic structure of Hecke eigenforms.}
+}
+
+@book{iwaniec1997topics,
+  author    = {Iwaniec, Henryk},
+  title     = {Topics in Classical Automorphic Forms},
+  publisher = {American Mathematical Society},
+  year      = {1997},
+  address   = {Providence, RI},
+  series    = {Graduate Studies in Mathematics},
+  volume    = {17}
+}
+
+@article{deligne1974conjecture,
+  author    = {Deligne, Pierre},
+  title     = {La conjecture de {W}eil. {I}},
+  journal   = {Publications Math\'{e}matiques de l'IH\'ES},
+  volume    = {43},
+  pages     = {273--307},
+  year      = {1974},
+  note      = {Proof of the Weil conjectures, from which the
+               Ramanujan--Petersson conjecture follows for holomorphic
+               cusp forms of weight $k \geq 2$.}
+}
+
+@article{ramanujan1916certain,
+  author    = {Ramanujan, Srinivasa},
+  title     = {On Certain Arithmetical Functions},
+  journal   = {Transactions of the Cambridge Philosophical Society},
+  volume    = {22},
+  pages     = {159--184},
+  year      = {1916},
+  note      = {Original source of the Ramanujan conjecture on
+               $|\tau(p)| \leq 2 p^{11/2}$.}
+}
+
+@article{langlands1970problems,
+  author    = {Langlands, Robert P.},
+  title     = {Problems in the Theory of Automorphic Forms},
+  booktitle = {Lectures in Modern Analysis and Applications III},
+  publisher = {Springer},
+  series    = {Lecture Notes in Mathematics},
+  volume    = {170},
+  pages     = {18--61},
+  year      = {1970},
+  note      = {Original exposition of the Langlands program connecting
+               automorphic representations to Galois representations.}
+}
+
+@book{bump1998automorphic,
+  author    = {Bump, Daniel},
+  title     = {Automorphic Forms and Representations},
+  publisher = {Cambridge University Press},
+  year      = {1998},
+  address   = {Cambridge},
+  series    = {Cambridge Studies in Advanced Mathematics},
+  volume    = {55}
+}
+
+% ============================================================
+%  C.  SPECTRAL GAP AND PERTURBATION THEORY
+% ============================================================
+
+@book{horn2012matrix,
+  author    = {Horn, Roger A. and Johnson, Charles R.},
+  title     = {Matrix Analysis},
+  edition   = {2nd},
+  publisher = {Cambridge University Press},
+  year      = {2012},
+  address   = {Cambridge},
+  note      = {Primary reference for Weyl's inequality on eigenvalue
+               perturbation, spectral norms, and the gap control
+               certificate in the ACE SCN layer.}
+}
+
+@article{weyl1912asymptotische,
+  author    = {Weyl, Hermann},
+  title     = {{\"U}ber die asymptotische Verteilung der Eigenwerte},
+  journal   = {Nachrichten der K\"{o}niglichen Gesellschaft der
+               Wissenschaften zu G\"{o}ttingen,
+               Mathematisch-physikalische Klasse},
+  pages     = {110--117},
+  year      = {1912},
+  note      = {Original paper establishing the eigenvalue perturbation
+               inequality used for spectral gap control certificates.}
+}
+
+@book{trefethen1997numerical,
+  author    = {Trefethen, Lloyd N. and Bau, David},
+  title     = {Numerical Linear Algebra},
+  publisher = {SIAM},
+  year      = {1997},
+  address   = {Philadelphia}
+}
+
+% ============================================================
+%  D.  ZERO-KNOWLEDGE PROOFS, R1CS, CIRCOM, HALO2
+% ============================================================
+
+@inproceedings{groth2016size,
+  author    = {Groth, Jens},
+  title     = {On the Size of Pairing-Based Non-interactive Arguments},
+  booktitle = {Advances in Cryptology --- EUROCRYPT 2016},
+  publisher = {Springer},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {9666},
+  pages     = {305--326},
+  year      = {2016},
+  note      = {Foundation for the R1CS constraint system underlying
+               Groth16, one of the proving backends compatible with
+               the ACE circuit budget.}
+}
+
+@misc{belles2020circom,
+  author    = {Belles-Mu\~{n}oz, Marta and
+               Isabel, Miguel and
+               Mu\~{n}oz-Tapia, Jose L. and
+               Rubio, Albert},
+  title     = {{C}ircom: {A} Robust and Scalable Language for
+               Building Complex Zero-Knowledge Circuits},
+  howpublished = {Cryptology ePrint Archive, Report 2020/393},
+  year      = {2020},
+  note      = {Formal language specification for Circom, the primary
+               ZK compiler targeted by the ACE circuit budget enforcer.}
+}
+
+@misc{hopwood2021halo2,
+  author    = {Hopwood, Daira and Bowe, Sean and Hornby, Taylor and
+               Miers, Ian},
+  title     = {The Halo2 Proving System},
+  howpublished = {\url{https://zcash.github.io/halo2/}},
+  year      = {2021},
+  note      = {Specification of the Halo2 UltraPLONK backend, the
+               alternative ZK proving system compatible with the ACE
+               canonical circuit budget.}
+}
+
+@inproceedings{ben-sasson2014succinct,
+  author    = {Ben-Sasson, Eli and Chiesa, Alessandro and
+               Genkin, Daniel and Tromer, Eran and Virza, Madars},
+  title     = {SNARKs for {C}: Verifying Program Executions Succinctly
+               and in Zero Knowledge},
+  booktitle = {Advances in Cryptology --- CRYPTO 2013},
+  publisher = {Springer},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {8043},
+  pages     = {90--108},
+  year      = {2014}
+}
+
+@article{goldwasser1989knowledge,
+  author    = {Goldwasser, Shafi and Micali, Silvio and Rackoff, Charles},
+  title     = {The Knowledge Complexity of Interactive Proof Systems},
+  journal   = {SIAM Journal on Computing},
+  volume    = {18},
+  number    = {1},
+  pages     = {186--208},
+  year      = {1989},
+  note      = {Foundational paper defining zero-knowledge proofs and the
+               knowledge-soundness properties that the ACE ZK backend
+               must preserve.}
+}
+
+% ============================================================
+%  E.  POSEIDON / POSEIDON2 HASH FUNCTIONS
+% ============================================================
+
+@inproceedings{grassi2021poseidon,
+  author    = {Grassi, Lorenzo and Khovratovich, Dmitry and
+               Rechberger, Christian and Roy, Arnab and Schofnegger, Markus},
+  title     = {{POSEIDON}: A New Hash Function for
+               Zero-Knowledge Proof Systems},
+  booktitle = {30th USENIX Security Symposium},
+  pages     = {519--535},
+  year      = {2021},
+  publisher = {USENIX Association},
+  note      = {Primary specification of the Poseidon hash function
+               whose parameters $t=9, r=8$ are locked in the ACE
+               canonical circuit budget.}
+}
+
+@misc{grassi2023poseidon2,
+  author    = {Grassi, Lorenzo and Khovratovich, Dmitry and
+               Schofnegger, Markus},
+  title     = {{Poseidon2}: A Faster Version of the {Poseidon}
+               Hash Function},
+  howpublished = {Cryptology ePrint Archive, Report 2023/323},
+  year      = {2023},
+  note      = {Specification of the Poseidon2 permutation with
+               improved full-round and partial-round structure.
+               The ACE circuit uses Poseidon2$(t=9, r=8)$.}
+}
+
+@inproceedings{grassi2016marvellous,
+  author    = {Albrecht, Martin and Grassi, Lorenzo and Rechberger,
+               Christian and Roy, Arnab and Tiessen, Tyge},
+  title     = {{MiMC}: Efficient Encryption and Cryptographic Hashing
+               with Minimal Multiplicative Complexity},
+  booktitle = {Advances in Cryptology --- ASIACRYPT 2016},
+  publisher = {Springer},
+  year      = {2016},
+  note      = {Background reference on ZK-friendly hash design that
+               motivated Poseidon's S-box structure.}
+}
+
+% ============================================================
+%  F.  FAST WALSH-HADAMARD TRANSFORM
+% ============================================================
+
+@article{ahmed1975hadamard,
+  author    = {Ahmed, N. and Rao, K. R.},
+  title     = {Orthogonal Transforms for Digital Signal Processing},
+  publisher = {Springer-Verlag},
+  year      = {1975},
+  address   = {Berlin},
+  note      = {Standard reference for the Walsh--Hadamard Transform and
+               its butterfly-stage complexity, underlying the
+               COST\_FWHT = 384 derivation.}
+}
+
+@article{yarlagadda1997hadamard,
+  author    = {Yarlagadda, Ramineni and Hershey, John E.},
+  title     = {Hadamard Matrix Analysis and Synthesis},
+  publisher = {Springer},
+  year      = {1997},
+  note      = {Reference for FWHT stage count $\log_2(n)$ and the
+               butterfly operation count $n/2$ per stage.}
+}
+
+@article{fino1976unified,
+  author    = {Fino, Bernard J. and Algazi, V. Ralph},
+  title     = {Unified Matrix Treatment of the Fast {W}alsh--{H}adamard
+               Transform},
+  journal   = {IEEE Transactions on Computers},
+  volume    = {25},
+  number    = {11},
+  pages     = {1142--1146},
+  year      = {1976}
+}
+
+% ============================================================
+%  G.  CONTRACTION MAPPINGS AND STABILITY THEORY
+% ============================================================
+
+@book{vidyasagar2002nonlinear,
+  author    = {Vidyasagar, Mathukumalli},
+  title     = {Nonlinear Systems Analysis},
+  edition   = {2nd},
+  publisher = {SIAM},
+  year      = {2002},
+  address   = {Philadelphia},
+  note      = {Reference for contraction and Lyapunov stability in
+               discrete-time dynamical systems.}
+}
+
+@book{rouche1977stability,
+  author    = {Rouche, Nicolas and Habets, Patrick and Laloy, Marcel},
+  title     = {Stability Theory by {L}yapunov's Direct Method},
+  publisher = {Springer-Verlag},
+  year      = {1977},
+  address   = {New York},
+  series    = {Applied Mathematical Sciences},
+  volume    = {22}
+}
+
+@article{angeli2002lyapunov,
+  author    = {Angeli, David},
+  title     = {A {L}yapunov Approach to Incremental Stability Properties},
+  journal   = {IEEE Transactions on Automatic Control},
+  volume    = {47},
+  number    = {3},
+  pages     = {410--421},
+  year      = {2002},
+  note      = {Establishes the connection between incremental stability
+               and contraction that underpins the ACE WAC monitor.}
+}
+
+@article{lohmiller1998contraction,
+  author    = {Lohmiller, Winfried and Slotine, Jean-Jacques E.},
+  title     = {On Contraction Analysis for Non-Linear Systems},
+  journal   = {Automatica},
+  volume    = {34},
+  number    = {6},
+  pages     = {683--696},
+  year      = {1998},
+  note      = {Seminal paper on contraction theory and convergence
+               rate bounds for nonlinear dynamical systems.}
+}
+
+% ============================================================
+%  H.  PRIME NUMBER THEORY AND MULTIPLICATIVE STRUCTURE
+% ============================================================
+
+@book{hardy2008introduction,
+  author    = {Hardy, G. H. and Wright, E. M.},
+  title     = {An Introduction to the Theory of Numbers},
+  edition   = {6th},
+  publisher = {Oxford University Press},
+  year      = {2008},
+  address   = {Oxford},
+  note      = {Standard reference for prime decomposition, the
+               divisor function, and multiplicative arithmetic
+               functions underpinning the PIRTM framework.}
+}
+
+@book{apostol1976introduction,
+  author    = {Apostol, Tom M.},
+  title     = {Introduction to Analytic Number Theory},
+  publisher = {Springer-Verlag},
+  year      = {1976},
+  address   = {New York},
+  series    = {Undergraduate Texts in Mathematics},
+  note      = {Reference for Dirichlet series, Euler products, and the
+               analytic machinery underlying the ACE spectral layer.}
+}
+
+@book{ireland1990classical,
+  author    = {Ireland, Kenneth and Rosen, Michael},
+  title     = {A Classical Introduction to Modern Number Theory},
+  edition   = {2nd},
+  publisher = {Springer-Verlag},
+  year      = {1990},
+  address   = {New York},
+  series    = {Graduate Texts in Mathematics},
+  volume    = {84}
+}
+
+% ============================================================
+%  I.  MULTIPLICITY THEORY / ACE (INTERNAL PUBLICATIONS)
+% ============================================================
+
+@techreport{vangelder2026ifmd,
+  author      = {Van Gelder, Ryan},
+  title       = {Multiplicity Runtime: A Mathematical Note on {IFMD} v0.1},
+  institution = {Multiplicity Foundation},
+  year        = {2026},
+  type        = {Technical Report},
+  note        = {Internal specification establishing the Banach-space
+                 update model, ACE budget projection, WAC/DSE conditions,
+                 Moonshine governor, and PETC lawfulness invariants.}
+}
+
+@techreport{vangelder2026ace,
+  author      = {Van Gelder, Ryan},
+  title       = {{ACE}: Arithmetic Control Engine --- Spectral Control
+                 Framework with Hecke Operators and Scientific Validation},
+  institution = {Multiplicity Foundation},
+  year        = {2026},
+  type        = {Technical Report},
+  note        = {Primary ACE technical report establishing the Hecke
+                 operator interface, the Spectral Control Network (SCN),
+                 and the Ramanujan--Petersson validation layer.}
+}
+
+@techreport{vangelder2026pirtm,
+  author      = {Van Gelder, Ryan},
+  title       = {{PIRTM}: Prime Interval Recursion Theory Machine ---
+                 Formal Language and Runtime Specification},
+  institution = {Multiplicity Foundation},
+  year        = {2026},
+  type        = {Technical Report},
+  note        = {Specification of the prime-indexed recursive tensor
+                 framework that forms the mathematical substrate for
+                 the ACE governance and contraction layers.}
+}
+
+@techreport{vangelder2026lambdaproof,
+  author      = {Van Gelder, Ryan},
+  title       = {Lambda-Proof: Formal Verification Stack for the
+                 Multiplicity Runtime},
+  institution = {Multiplicity Foundation},
+  year        = {2026},
+  type        = {Technical Report},
+  note        = {Establishes the DSE convergence proof obligations and
+                 the formal certification semantics for the ACE
+                 certificate artifact.}
+}
+
+@techreport{vangelder2026ks,
+  author      = {Van Gelder, Ryan},
+  title       = {The {K}$\xi$-Constitution: Prime-Lawful Foundation
+                 of Arithmetic Consciousness},
+  institution = {Multiplicity Foundation},
+  year        = {2026},
+  type        = {Technical Report},
+  note        = {Provides the PEET field theory and the lawfulness
+                 axioms (entropy bounds, cohomological triviality)
+                 that motivate the DSE cognitive penalty semantics.}
+}
+
+% ============================================================
+%  J.  CRYPTOGRAPHIC PROTOCOL THEORY
+% ============================================================
+
+@book{goldreich2001foundations,
+  author    = {Goldreich, Oded},
+  title     = {Foundations of Cryptography, Vol.\ 1: Basic Tools},
+  publisher = {Cambridge University Press},
+  year      = {2001},
+  address   = {Cambridge}
+}
+
+@book{katz2020introduction,
+  author    = {Katz, Jonathan and Lindell, Yehuda},
+  title     = {Introduction to Modern Cryptography},
+  edition   = {3rd},
+  publisher = {CRC Press / Chapman \& Hall},
+  year      = {2020},
+  note      = {Reference for soundness, completeness, and
+               zero-knowledge properties that the ACE ZK backend
+               must satisfy.}
+}
+
+@inproceedings{boneh2020graduate,
+  author    = {Boneh, Dan and Shoup, Victor},
+  title     = {A Graduate Course in Applied Cryptography},
+  year      = {2020},
+  howpublished = {\url{https://toc.cryptobook.us/}},
+  note      = {Reference for commitment schemes, hash-based commitments,
+               and the CAS commitment design in the ACE pipeline.}
+}
+
+@inproceedings{pedersen1991non,
+  author    = {Pedersen, Torben Pryds},
+  title     = {Non-Interactive and Information-Theoretic Secure
+               Verifiable Secret Sharing},
+  booktitle = {Advances in Cryptology --- CRYPTO 1991},
+  publisher = {Springer},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {576},
+  pages     = {129--140},
+  year      = {1992},
+  note      = {Reference for the hiding and binding properties of the
+               CAS commitment scheme.}
+}
+
+% ============================================================
+%  K.  FORMAL VERIFICATION AND PROOF ASSISTANTS
+% ============================================================
+
+@book{bertot2004interactive,
+  author    = {Bertot, Yves and Cast\'{e}ran, Pierre},
+  title     = {Interactive Theorem Proving and Program Development:
+               Coq'Art: The Calculus of Inductive Constructions},
+  publisher = {Springer},
+  year      = {2004},
+  address   = {Berlin},
+  series    = {Texts in Theoretical Computer Science},
+  note      = {Reference for the Coq proof assistant used to verify
+               PETC lawfulness invariants in the PIRTM runtime.}
+}
+
+@inproceedings{norell2009dependently,
+  author    = {Norell, Ulf},
+  title     = {Dependently Typed Programming in {A}gda},
+  booktitle = {Advanced Functional Programming},
+  publisher = {Springer},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {5832},
+  pages     = {230--266},
+  year      = {2009}
+}
+
+@article{hales2017formal,
+  author    = {Hales, Thomas and Adams, Mark and Bauer, Gertrud and
+               Dang, Tat Dat and Harrison, John and Le Truong, Hoang and
+               Kaliszyk, Cezary and Magron, Victor and McLaughlin, Sean
+               and Nguyen, Thang Tat and others},
+  title     = {A Formal Proof of the {K}epler Conjecture},
+  journal   = {Forum of Mathematics, Pi},
+  volume    = {5},
+  pages     = {e2},
+  year      = {2017},
+  publisher = {Cambridge University Press},
+  note      = {Exemplar of large-scale formal proof machinery applicable
+               to the ACE certification verification pipeline.}
+}

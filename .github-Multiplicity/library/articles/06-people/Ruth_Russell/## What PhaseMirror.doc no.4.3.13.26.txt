@@ -1,0 +1,151 @@
+## What PhaseMirror is (as it exists today)
+
+**PhaseMirror = “Mirror Dissonance Protocol” packaged as:**
+1) **Core library** (`@mirror-dissonance/core`) – rule registry + evaluation + stores/adapters + policy/decision + report schema.  
+2) **CLI** (`@mirror-dissonance/cli`, bin name currently `oracle`) – runs the “Oracle” in event modes like `pull_request`, `merge_group`, `drift` and produces a deterministic `dissonance_report.json`.  
+3) **GitHub Actions integration** (via example workflows/docs) – uploads reports and can block merges based on explicit policy.  
+4) **MCP server** (`@phase-mirror/mcp-server`) – Model Context Protocol server intended to make “governance-aware code generation” available to Copilot/Coding Agent.  
+5) **Proprietary extension** (`mirror-dissonance-pro/`) – enterprise tier-b rules, compliance packs, hosted oracle, federation, prod stores, etc.
+
+Repo signals:
+- Default branch: `main`
+- Language: TypeScript
+- Open issues/PRs: **none** (as of 2026-03-13)
+- Config present: root `.phase-mirror.yml` enables **MD-001..003** and **L0 invariants**, drift disabled by default.
+
+## Current architecture (your “phase line”)
+
+From `docs/architecture.md`, the system already has the major pipeline boundaries:
+
+**Input → Rule Eval → FP Filter → Decision Engine → Outputs**
+- **Rules** are evaluated in parallel; rule errors become violations (fail-safe).
+- **False positive system** exists (with interfaces + stores).
+- **Circuit breaker & block counter** exist conceptually (and in code per docs).
+- **Redaction + nonce management** exists (deterministic HMAC-style, nonce loaded from SSM).
+- **Phase 2 FP Calibration** is described as implemented (consent store → anonymizer → ingest handler → calibration store w/ k-anonymity), but the “next steps” explicitly mention *infra deployment + integration into oracle pipeline + rotation automation + monitoring*.
+
+That combination strongly suggests: **the next phase is to “close the loop” operationally**—turn the library/CLI into a production-grade control that can run in CI with minimal friction, and turn FP calibration from “implemented components” into “integrated & measurable”.
+
+---
+
+# Blueprint: “Next Phase” (recommended Phase 4) — Productionization + Feedback Loops
+
+Below is a blueprint you can treat like an execution plan. It’s structured as: **Goal → Deliverables → Key design choices → Acceptance checks**.
+
+## Phase 4A — Make “Oracle” a first-class CI control surface (reliability + determinism)
+
+### Deliverables
+1) **Stable contract for `dissonance_report.json`**
+   - Versioned schema (already exists) + strict stable ordering/hashes.
+   - “Repro mode”: same inputs produce byte-identical report (or define exactly what’s allowed to differ, e.g., timestamps).
+
+2) **Golden-path workflows**
+   - Provide canonical workflows for:
+     - `pull_request`
+     - `merge_group` (merge queue)
+     - `drift` (scheduled)
+   - Artifact upload + step summary + optional PR comment.
+
+3) **Config resolution rules**
+   - Single, explicit precedence model:
+     1. CLI flags
+     2. repo `.phase-mirror.yml`
+     3. env vars
+     4. defaults
+   - Emit config provenance into the report metadata.
+
+### Key design choices to lock in now
+- **Exit code policy**: map `allow|warn|block` to exit codes deterministically (e.g., 0/0/1 or 0/2/1).
+- **Timeout budgets** per rule + global deadline (bounded execution is part of the safety story).
+- **Redaction guarantees**: ensure all user-facing outputs use the redacted view; raw evidence only in safe artifacts if intended.
+
+### Acceptance checks
+- Running `oracle analyze --mode pull_request` locally (CLOUD_PROVIDER=local) produces a report and never requires cloud creds.
+- CI runs on a fresh repo with minimal secrets.
+- Deterministic report tests (snapshot/golden file) pass in CI.
+
+## Phase 4B — Close the False-Positive loop (turn Phase 2 into a running system)
+
+Your docs say Phase 2 components are implemented, but “integration + infra + rotation + monitoring” are next steps. So Phase 4B is the “operationalize calibration” phase.
+
+### Deliverables
+1) **Ingest API surface**
+   - Decide *where* ingestion happens:
+     - Option A: CLI writes FP events (local/dev)
+     - Option B: hosted endpoint (lambda) receives FP events (prod)
+   - Make the ingest call path explicit and testable.
+
+2) **Policy uses calibration**
+   - Decision engine can consult calibration store:
+     - e.g., down-rank noisy rules (warn instead of block) when FPR high and k-anonymity threshold met.
+   - Must be “fail closed” in the direction you want (usually: if calibration unavailable, don’t silently become permissive).
+
+3) **Salt/nonce rotation automation**
+   - Scheduled rotation job + runbook + audit log.
+   - Backward compatibility strategy: whether old hashes remain queryable.
+
+4) **Observability**
+   - Metrics: rule violation rates, FPR rates, circuit breaker trips, k-anonymity failures.
+   - Alarms for “calibration unavailable”, “rotation failed”, “high block rate”.
+
+### Acceptance checks
+- You can record an FP event end-to-end in staging and then query aggregate rates (only when `k >= threshold`).
+- Oracle behavior changes are explainable and visible in report metadata (“calibration applied”, “k-anonymity satisfied: true/false”).
+
+## Phase 4C — Expand rule coverage into “Tier A completeness” (MD-001..005 parity)
+
+Right now root `.phase-mirror.yml` enables only MD-001..003 and drift disabled, while the CLI template mentions MD-004/MD-005 and drift enabled. That mismatch is a classic “dissonance” inside PhaseMirror itself.
+
+### Deliverables
+1) **Align default config + template**
+   - Decide the canonical baseline: either
+     - keep drift off by default in root, *or*
+     - enable drift in root and provide baseline bootstrapping tooling.
+2) **Ship MD-004/MD-005 as production-ready**
+   - Document evidence requirements + failure modes.
+3) **Rule documentation index**
+   - A single page listing each rule:
+     - intent, evidence sources, remediation, config knobs, examples.
+
+### Acceptance checks
+- “Default config” is consistent across:
+  - repo root `.phase-mirror.yml`
+  - `packages/cli/templates/.phase-mirror.yml`
+  - docs/CONFIGURATION examples
+
+## Phase 4D — MCP server: turn governance into enforceable “tools” (not just docs)
+
+You already have an MCP server package. The next phase is making it *useful in day-to-day coding*.
+
+### Deliverables
+1) **MCP tool contract**
+   - Expose tools like:
+     - `phase_mirror.explain_violation(ruleId, context)`
+     - `phase_mirror.suggest_remediation(diff, config)`
+     - `phase_mirror.validate_config(yaml)`
+     - `phase_mirror.generate_adr(template, decision)`
+2) **Copilot workflow**
+   - A documented “how we use it” that shows:
+     - developer runs oracle
+     - Copilot reads report
+     - MCP server provides structured remediation guidance
+3) **Security posture**
+   - MCP server must not leak secrets; enforce redaction at the tool boundary.
+
+### Acceptance checks
+- A contributor can follow docs and successfully register `phase-mirror-mcp` and call at least one tool locally.
+
+---
+
+# Recommended “next action” (to start immediately)
+
+Because there are **zero open issues/PRs**, the best way to “go to the next phase” is to create a short internal roadmap as GitHub issues.
+
+If you tell me whether you want **Phase 4A first (CI reliability)** or **Phase 4B first (FP calibration operationalization)**, I can translate the blueprint into:
+- a prioritized issue list (with titles + acceptance criteria), and/or
+- a milestone plan (2–4 weeks), and/or
+- an architecture diagram in text form that matches your repo layout.
+
+## Two clarifying questions (so the blueprint matches your intent)
+1) Is your “next phase” goal primarily **(a) OSS adoption** (easy local mode, simple GH Actions) or **(b) production SaaS/enterprise** (hosted oracle, federation, compliance packs)?
+2) Do you want **drift detection** to be **on by default** for new adopters, or treated as an “advanced” opt-in feature?

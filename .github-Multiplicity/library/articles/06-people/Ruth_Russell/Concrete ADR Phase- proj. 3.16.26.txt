@@ -1,0 +1,136 @@
+Concrete ADR Phase- proj. 3.16.26
+
+Copilot said: Proceeding with **#1: site isolation by separate
+Proceeding with #1: site isolation by separate directories under state/<site_id>/... (recommended first).
+
+Below is the concrete phased plan (now pinned to that choice), and then the ADR steps written so you can convert them into ADR documents directly.
+
+Phased plan (directory-based site isolation)
+Phase 1 — Establish the directory contract (single source of truth)
+Deliverables
+
+contracts/shared/sites.yaml (or contracts/sites.yaml): define each site’s site_id and its state_root convention.
+Default: state/<site_id>
+contracts/shared/sites.py:
+validate site_id format
+resolve site_root and derived subpaths
+Definition (hard rule)
+
+All governed artifacts for a site live under:
+state/<site_id>/...
+Exit criteria
+
+Adding a site requires adding it to the registry only.
+A site resolves to a concrete directory root with no runtime imports.
+Phase 2 — Centralize path resolution (kill ad hoc paths)
+Deliverables
+
+contracts/shared/site_paths.py with pure helpers:
+site_root(site_id) -> Path
+audit_dir(site_id) -> Path
+ledger_dir(site_id) -> Path
+rollback_dir(site_id) -> Path
+checkpoints_dir(site_id) -> Path
+twin_dir(site_id) -> Path
+sqlite_dir(site_id) -> Path (even if SQLite use comes later)
+Exit criteria
+
+No orchestration module constructs paths with string concatenation anymore for governed state.
+Phase 3 — Site-scope the “big four” storage surfaces
+Deliverables Refactor these to use site_paths:
+
+governance ledger writes/reads → state/<site_id>/ledger/...
+rollback inventory / checkpoints → state/<site_id>/rollback/...
+digital twin storage → state/<site_id>/twin/...
+audits / policy reports → state/<site_id>/audits/...
+Exit criteria
+
+Two sites can be operated concurrently without collisions.
+Default behavior remains local if no site_id is provided.
+Phase 4 — Make MCP tools site-aware (contract + runtime)
+Deliverables
+
+Update mcp_server/tool_registry.yaml to add site_id? to stateful tools.
+Update tool implementations to accept site_id: str | None and pass it through to storage functions.
+Exit criteria
+
+daemon_heartbeat(site_id="local") and daemon_heartbeat(site_id="alpha") produce artifacts under their respective roots.
+Phase 5 — Add site bootstrap + health tools (operational readiness)
+Deliverables
+
+site_bootstrap(site_id):
+creates the required directory tree under state/<site_id>
+initializes empty ledgers / placeholder structures as needed
+site_health(site_id):
+validates required files/dirs exist
+validates governance epoch compatibility (if applicable)
+returns a structured report
+Exit criteria
+
+“Add a site” workflow is deterministic:
+add registry entry
+run bootstrap
+run health
+enable orchestration
+ADR steps (aligned to #1)
+ADR Step A — Site isolation is directory-based under state/<site_id>/
+Decision All governed state and orchestration artifacts are stored under a site-root directory:
+
+state/<site_id>/...
+Rationale
+
+Simple, auditable, local-first, easy to diff and snapshot.
+Makes site separation explicit and inspectable on disk.
+Acceptance criteria
+
+No governed artifacts are written outside state/<site_id>/ for any tool invoked with that site_id.
+A default site (local) maps to state/local/.
+ADR Step B — Canonical Site Registry defines admissible site_ids
+Decision A single contract-owned registry defines:
+
+allowed sites
+optional metadata (env, region, owner)
+default site
+Rationale
+
+   Introduce new sites in one place” becomes a contract change, not a runtime tweak.
+Acceptance criteria
+
+Adding a new site requires modifying exactly one registry file.
+Invalid site_id fails with a clear error (not silent fallback).
+ADR Step C — Introduce site_paths as the only way to resolve storage locations
+Decision All runtime modules must call a shared path resolver (no ad hoc string paths).
+
+Rationale
+
+Guarantees consistent directory layout.
+Enables future migrations (e.g., moving some stores to S3) without rewriting every tool.
+Acceptance criteria
+
+Lint/test (or code review gate) ensures no direct writes to state/ paths outside site_paths.
+ADR Step D — MCP tools must be site-aware for stateful operations
+Decision Stateful MCP tools accept site_id (optional, default local) and operate exclusively within that site root.
+
+Acceptance criteria
+
+Tool registry declares site_id? for all stateful tools.
+Tool output includes site_id in metadata/audit.
+ADR Step E — Site bootstrap & health are mandatory before enabling a site
+Decision A site is “admissible” only after passing:
+
+site_bootstrap(site_id)
+site_health(site_id)
+Acceptance criteria
+
+site_health fails if required directories/ledgers are missing.
+site_bootstrap does not mutate other sites.
+Next thing I need (tiny but important)
+Pick the default directory layout under state/<site_id>/. I suggest:
+
+state/<site_id>/ledger/
+state/<site_id>/rollback/
+state/<site_id>/checkpoints/
+state/<site_id>/twin/
+state/<site_id>/audits/
+If you confirm that layout, I can turn the ADR steps above into final ADR documents (with Alternatives, Consequences, Rollout Plan, Test Plan) and a ready-to-implement backlog ordered by dependency.
+

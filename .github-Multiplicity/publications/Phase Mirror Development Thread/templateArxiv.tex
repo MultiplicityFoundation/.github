@@ -1,0 +1,366 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{booktabs}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  urlcolor=blue,
+  citecolor=blue
+}
+
+\definecolor{codegray}{gray}{0.1}
+\definecolor{codebg}{gray}{0.96}
+\lstdefinelanguage{TypeScript}{
+  keywords={async,await,break,case,catch,class,const,continue,debugger,
+    default,delete,do,else,enum,export,extends,false,finally,for,from,function,
+    if,import,in,instanceof,interface,let,new,null,of,return,super,switch,
+    this,throw,true,try,typeof,var,void,while,yield},
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywords={string,number,boolean,Promise,Record,Date,unknown,any},
+  ndkeywordstyle=\color{violet}\bfseries,
+  identifierstyle=\color{codegray},
+  sensitive=true,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{gray},
+  stringstyle=\color{green!50!black},
+  morestring=[b]',
+  morestring=[b]"
+}
+\lstset{
+  language=TypeScript,
+  basicstyle=\ttfamily\small,
+  backgroundcolor=\color{codebg},
+  frame=single,
+  breaklines=true,
+  showstringspaces=false,
+  tabsize=2
+}
+
+\title{Phase Mirror Development Thread\\
+A Mathematical and Systems Report}
+\author{Phase Mirror Project}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This report synthesizes the developments across the Phase Mirror design and implementation thread into a single coherent artifact. It presents the executive intent, a mathematical rephrasing in terms of multiplicity and invariants, the governance envelope used for machine--agent interaction, the consent and epistemic warrant model, the concrete server and testing architecture, and the business and licensing stance that binds the whole into a viable open--core control surface for agentic systems.\footnote{MCP server analysis and envelope design are described in the MCP blueprint materials.[file:1]} 
+\end{abstract}
+
+\tableofcontents
+
+\newpage
+
+\section{Executive Summary}
+
+Phase Mirror is developed as a governance--first control surface for agentic and AI--assisted systems. Its primary function is to turn productive contradictions at the boundary between probabilistic models and institutional requirements into levers with named owners, observable metrics, and explicit time horizons.[file:1][file:15]
+
+The thread converges on four central moves:
+\begin{enumerate}[leftmargin=*]
+  \item A layered mathematical framing that distinguishes a fast--changing mechanical core (latency, error propagation, drift, schema integrity) from slower, normatively loaded capability floors (e.g., protection of cognitive integrity, consent capacity, epistemic self--determination).\footnote{The capability--floor study specifies an \(n \leq 12\) cap with an initial list of eight candidate floors.[file:16]} 
+  \item A governance envelope for model--context interactions that normalizes tool outputs into a single response schema with explicit tiering (binding vs.\ advisory) and environment (local vs.\ cloud), enforcing that experimental tools can never escalate to binding outcomes.\footnote{This is encoded in the \texttt{MCPGovernanceEnvelope} layout and the \texttt{normalizeResponse} function.[file:1]} 
+  \item A consent and epistemic warrant stack that treats access to governance--sensitive data (false positive histories, cross--organization benchmarks, audit series) as operations requiring demonstrable, revocable organizational consent with versioned policy semantics.[file:14] 
+  \item A practical open--core and consultation strategy, backed by a source--available license with a managed--service restriction, that aligns governance stewardship with a sustainable commercial surface without collapsing governance into pure product constraint.[file:21] 
+\end{enumerate}
+
+The rest of the report reconstructs these elements as a single mathematical--systems object: a multiplicity of invariants and warrants, enforced through a canonical protocol surface and tested against both synthetic and production--shaped workloads.[file:1][file:14][file:15][file:21]
+
+\section{Mathematical Overview}
+
+\subsection{Multiplicity, Floors, and Invariants}
+
+Let \(Q\) denote the set of queries or actions produced by an agentic system, and \(K\) the set of system knowledge states (models, prompts, logs, policy state). For each capability floor \(f_i\) in a finite index set \(I \subset \mathbb{N}\), we consider a binary predicate
+\[
+  F_i \colon Q \times K \to \{0,1\}
+\]
+where \(F_i(q,k) = 1\) indicates that query \(q\) in knowledge state \(k\) would contract the corresponding floor (e.g., undermine cognitive integrity or bypass consent).\footnote{The floor--indexed view of harms and floors is elaborated in the capability--floor analysis.[file:16]}
+
+Rather than treating \(F_i\) as static, the thread emphasizes that each floor predicate is realized as a recursively generated pattern of checks across layers and time:
+\begin{itemize}[leftmargin=*]
+  \item Mechanical invariants \(M_j\colon Q \times K \to \{0,1\}\) encode schema consistency, permission matrices, nonce freshness, false positive contraction and drift bounds.\footnote{Core invariants include schema hash equality, permission bit constraints, drift magnitude thresholds, and nonce freshness limits, with coverage targets and latency bounds in the MVP tracker.[file:15]} 
+  \item Normative floors \(F_i\) are approximated by compositions of these mechanical invariants with higher--order evaluators, such as consent validators and epistemic warrant evaluators.
+\end{itemize}
+
+In a multiplicity view, the pair \((F, M)\) is not a fixed catalogue but a prime--indexed, recursively stable pattern of checks: each new rule decomposes into labelled, composable primitives that can be reused, recombined, and traced back to their origin. The thread enforces this by:
+\begin{enumerate}[leftmargin=*]
+  \item Forcing all rule evaluation paths to go through a shared orchestrator and shared invariants rather than ad hoc checks scattered across the codebase.[file:1][file:15]
+  \item Ensuring that error propagation is never silently masked at the infrastructure layer: adapters throw structured errors, and business logic makes explicit fail--open vs.\ fail--closed decisions, preserving the multiplicity of failure modes instead of collapsing them into null or sentinel values.[file:4]
+\end{enumerate}
+
+\subsection{Governance Envelope as a Typed Morphism}
+
+To interface governance with external agents via the Model Context Protocol (MCP), the project defines a single response envelope
+\[
+  E: R \times C \to G
+\]
+mapping raw tool outputs \(R\) and context \(C\) to a governance state \(G\) that includes:
+\begin{itemize}[leftmargin=*]
+  \item \emph{Core protocol fields}: \(\texttt{success}, \texttt{code}, \texttt{message}, \texttt{isError}\).
+  \item \emph{Governance semantics}: \(\texttt{tier} \in \{\text{authoritative},\text{experimental}\}\), \(\texttt{environment} \in \{\text{local},\text{cloud}\}\), \(\texttt{decision} \in \{\text{block},\text{warn},\text{pass}\}\), \(\texttt{degradedMode} \in \{0,1\}\).
+  \item \emph{Traceability}: \(\texttt{requestId}\) and \(\texttt{timestamp}\).\footnote{The exact envelope fields are specified in the MCP server blueprint and associated type definitions.[file:1]} 
+\end{itemize}
+
+The normalizer \(E\) implements floor rules:
+\begin{align*}
+  &\text{If } \texttt{tier} = \text{experimental}, \text{ then } \texttt{decision} \neq \text{block} \text{ and forbidden error codes are stripped.}\\
+  &\text{If } \texttt{tier} = \text{authoritative} \text{ and } \texttt{environment} = \text{local}, \text{ then } \texttt{degradedMode} = 1 \text{ and } \texttt{decision} \neq \text{block}. 
+\end{align*}
+This guarantees that no experimental tool can escalate to a blocking outcome, and no authoritative tool can enforce hard blocks in a degraded or local environment, regardless of prompt engineering or internal implementation mistakes.\footnote{The contract tests simulate misbehaving experimental tools that try to emit \texttt{decision=block} and \texttt{INVARIANT\_VIOLATION}, and assert that the envelope clamps these attempts.[file:1]}
+
+From a multiplicity perspective, \(E\) is a canonical retraction: it projects the multiplicity of tool--local error semantics into a stable governance alphabet that MCP clients can interpret reliably.
+
+\subsection{Consent and Epistemic Warrant as Indexed Structures}
+
+Consent is modeled at the organization level as a record
+\[
+  \mathsf{OrgConsent} = (o, S, H, v)
+\]
+where \(o\) is an (anonymized) organization identifier, \(S\) is the set of resource--level consent statuses (e.g., access to false positive patterns, aggregate metrics, cross--organization benchmarks), \(H\) is the audit history, and \(v\) is the policy version under which consent was granted.\footnote{The consent schema lists enumerated resources such as \texttt{fppatterns}, \texttt{fpmetrics}, \texttt{crossorgbenchmarks}, and associates each with risk levels and required operations.[file:14]}
+
+Each resource consent status carries a state in
+\[
+  \{\text{granted},\text{expired},\text{revoked},\text{pending},\text{notrequested}\}.
+\]
+A validator
+\[
+  V\colon (o,\rho) \mapsto (\text{allValid}, \text{missing}, \text{expired}, \text{needsReconsent})
+\]
+maps an organization and requested resource profile \(\rho\) to a structured validation result, including a human--readable summary and a remediation URL. This validator is used in two ways:
+\begin{enumerate}[leftmargin=*]
+  \item To gate access to data--bearing operations such as false positive trend analysis or cross--organization comparisons, which require active consent for the relevant resources.\footnote{The \texttt{queryfpstore} tool uses consent validation to enforce that an organization has granted access to false positive metrics and patterns before performing queries.[file:14]} 
+  \item To drive a \emph{competent consent} helper that answers questions like ``what consent is required for this intended operation?'' beyond simple yes/no checks.\footnote{The dedicated consent tool computes required resources for operations (e.g.\ \texttt{queryfpstore.fprate}) and explains whether current consent state suffices and what actions are required.[file:14]} 
+\end{enumerate}
+
+Epistemic warrants appear in this structure as justifications attached to refusals or acceptances. While the implementation work in the thread focuses more concretely on consent and policy versioning, the capability--floor study insists that warrants must be invertible: later re--evaluation may invalidate a previous refusal, requiring successor warrants rather than silent edits.[file:16] In multiplicity terms, warrants are labels in a prime--indexed history such that no element is ever simply erased---only superseded.
+
+\section{System Architecture and MCP Server}
+
+\subsection{Core Runtime and Oracle}
+
+The core runtime, often referred to informally as the oracle, is responsible for computing dissonance reports: structured analyses of how a system's code, workflows, and environment relate to both mechanical invariants and capability floors.[file:15]
+
+Its main components include:
+\begin{itemize}[leftmargin=*]
+  \item A false positive store, implemented over DynamoDB, with operations to record events, compute windows, and derive false positive rates and trends from recent histories.\footnote{The MVP tracker spells out tests for both event recording and window queries, including performance targets and correctness checks for false positive rate computation.[file:15]} 
+  \item A consent store with anonymization via HMAC and nonce management, ensuring that personally identifiable details never transit in the clear and that cryptographic material is rotated under a grace period.\footnote{Integration tasks cover nonce rotation scripts, SSM parameter management, and degraded vs.\ fail--closed behavior for missing or stale nonces.[file:15]} 
+  \item A block counter and drift baseline machinery that support circuit--breaker semantics and long--horizon drift detection against stored baselines.\footnote{The infrastructure deployment plans provision DynamoDB tables, S3 buckets for baselines, and monitoring paths for drift detection workflows.[file:15]} 
+\end{itemize}
+
+A unifying orchestrator routes raw configuration and source files through these components into dissonance reports. This orchestrator is used both in the CLI and in the MCP server, preserving a single point of truth for rule semantics and analysis behavior.[file:1][file:15]
+
+\subsection{MCP Server as Governance Surface}
+
+The MCP server is a dedicated workspace package that exposes the core analysis and validation tools to agents (such as GitHub Copilot) via the MCP protocol over stdio.\footnote{The MCP analysis describes the server entrypoint, configuration schema, logging, and tool registration for the initial analysis tool.[file:1]}
+
+Key properties include:
+\begin{itemize}[leftmargin=*]
+  \item A strongly typed server configuration, loaded from environment variables, that determines which backing stores (e.g., DynamoDB tables, SSM parameters) are active and whether the server is in local or cloud mode.\footnote{Local mode uses NoOp stores for experimentation; cloud mode uses real AWS resources, as configured through environment variables.[file:1]} 
+  \item A registry of governance tools, including dissonance analysis, invariant validation, compliance checking, false positive querying, and consent requirement inspection.\footnote{The MCP testing documents describe tool discovery via \texttt{tools.list} and tool invocation via \texttt{tools.call}, along with latency targets and test scenarios for each governance tool.[file:14]} 
+  \item A response normalization layer implementing the governance envelope, ensuring that all tools---including misconfigured or experimental ones---are clamped into the allowed authority and error alphabet before results reach clients.\footnote{The normalizer is exercised by contract tests that model worst--case misbehavior and assert on the resulting governance envelope.[file:1]} 
+\end{itemize}
+
+This makes the MCP server the unique governance surface for agents: while core logic can evolve, all agent interactions with governance semantics occur through the envelope and its contract.
+
+\subsection{Testing and Integration Infrastructure}
+
+Testing and integration have been elaborated at multiple levels:
+\begin{enumerate}[leftmargin=*]
+  \item \textbf{Unit and integration tests in the core runtime:} these cover invariants, the false positive store, the consent store, nonce lifecycle, and block counters, with explicit coverage goals and latency constraints.\footnote{The MVP progression defines targets such as 80\% code coverage, sub--100ns mechanical invariant checks, and end--to--end tests for nonce rotation and false positive workflows.[file:15]} 
+  \item \textbf{MCP inspector tests:} an automated test runner drives the MCP server over stdio, sending tool calls and checking responses against expected shapes and semantics, then summarizing results in a structured log.\footnote{The inspector runner script reads JSON test cases, runs tools, measures latencies, and produces per--tool success statistics.[file:14]} 
+  \item \textbf{GitHub Copilot integration tests:} the thread specifies end--to--end scenarios where Copilot, configured with the MCP server, receives test issues and is expected to call tools, interpret responses, and synthesize governance--aware comments.\footnote{Integration logs capture MCP tool invocations, server startup behavior, response times, and Copilot responses, culminating in an integration report used for production readiness decisions.[file:14]} 
+  \item \textbf{Infrastructure deployment and monitoring:} Terraform manifests provision AWS resources for a staging environment, with point--in--time recovery on all tables, CloudWatch alarms, and SNS notifications for operational alerts.\footnote{The MVP tracker details the Terraform workflow for staging, including DynamoDB tables, SSM parameters, KMS keys, CloudWatch alarms, and dashboards, as well as manual validation steps.[file:15]} 
+\end{enumerate}
+
+This layered testing regime anchors the mathematical and governance claims in executable artifacts, closing the loop between theory, code, and operational behavior.
+
+\section{Consent, False Positives, and Governance Tools}
+
+\subsection{False Positive Store Querying}
+
+The false positive store supports a specialized query interface that encapsulates recurring statistical tasks:
+\begin{itemize}[leftmargin=*]
+  \item Estimating false positive rate and confidence for a given rule over a recent window.
+  \item Extracting recent false positive patterns grouped by context fingerprints.
+  \item Computing trends in false positive rates over time.
+  \item Comparing the performance of multiple rules for calibration.\footnote{Design documentation covers query types, expected output structures, caching strategies, and latency targets for each query mode.[file:14]} 
+\end{itemize}
+
+Let \(E_r\) be the multiset of events for rule \(r\). For a given time window, the estimated false positive rate is
+\[
+  \hat{p}_r = \frac{\#\{e \in E_r : \text{e is false positive}\}}{|E_r|}.
+\]
+The implementation augments this with confidence categories based on sample sizes and trend directions inferred over bucketed time series, giving practitioners both a scalar indicator and a qualitative sense of stability.\footnote{Trend detection is implemented via bucketed aggregations and difference thresholds over weekly or configurable time windows.[file:14]} 
+
+\subsection{Consent Requirements and Validation}
+
+To protect the epistemic commons and organizational autonomy, access to false positive patterns and higher--order metrics is contingent on granular consent:
+\begin{itemize}[leftmargin=*]
+  \item Each governance operation has an associated list of resource requirements; for example, cross--organization trend analysis may require both per--organization metrics and participation in anonymized benchmarks.[file:14]
+  \item Before executing an operation, a dedicated consent checker determines whether the requesting organization has valid, unexpired consent for all required resources, whether re--consent is needed due to policy version changes, and what actions are needed if not.\footnote{Consent validation results include a summary, resource--level statuses, and recommended actions, plus optional inclusion of the current policy for transparency.[file:14]} 
+\end{itemize}
+
+At the MCP layer, consent errors are represented by structured codes (e.g., \texttt{CONSENTREQUIRED}, \texttt{CONSENTEXPIRED}, \texttt{CONSENTVERSIONMISMATCH}) with URLs for remediation, and the normalizer ensures these semantics cannot be misrepresented as unrelated invariant failures.\footnote{The consent tool defines canonical error payloads for missing, expired, or policy--mismatched consent, including links to a management console and documentation.[file:14]} 
+
+\subsection{Comprehensive Governance Tools}
+
+Several tools are exposed through the governance envelope:
+\begin{itemize}[leftmargin=*]
+  \item A dissonance analysis tool that scans code and workflow files to compute governance findings and recommendations, including references to governance documents and explicit decisions (pass, warn, block) where allowed.\footnote{The tool already exists in MCP, with schemas, modes for pull requests vs.\ issues, and detailed test scenarios via MCP inspector.[file:1][file:14]} 
+  \item An invariant validation tool that bundles checks for schema integrity, permission bits, drift bounds, nonce freshness, and contraction; its implementation and testing work are sketched with latency and coverage targets.\footnote{The MVP tracker includes a plan for a dedicated invariants test suite focusing on mechanical performance and correctness.[file:15]} 
+  \item A compliance checker that matches code and configuration against governance documents, extracting rule--level violations and remediation suggestions via pattern matching and parsing.\footnote{Compliance logic parses governance documents into structured rules and testable conditions, then annotates files with violation locations and severities.[file:14]} 
+  \item The false positive and consent tools discussed above, which together enforce that access to sensitive histories is both calibrated and consent--grounded.\footnote{The false positive query design and consent requirements design documents describe how these tools interact and how their outputs are structured.[file:14]} 
+\end{itemize}
+
+Each of these operates under the same envelope constraints, ensuring a stable governance semantics for clients.
+
+\section{Business Model and Licensing}
+
+The project is anchored in a source--available license with a managed service restriction. This allows:
+\begin{itemize}[leftmargin=*]
+  \item Free internal use, modification, and distribution within organizations.
+  \item Integration into proprietary products as a component.
+  \item Derivative works, subject to preservation of licensing and notice provisions.\footnote{The license text grants broad redistribution and modification rights, with a key constraint on providing the software as a hosted service.[file:21]} 
+\end{itemize}
+
+Conversely, it prohibits:
+\begin{itemize}[leftmargin=*]
+  \item Offering the software as a hosted or managed service that exposes substantial functionality without a separate commercial agreement.\footnote{The license explicitly disallows providing access to substantial functionality as a managed service, which underpins the commercial managed offering.[file:21]} 
+\end{itemize}
+
+This supports a four--pillar revenue architecture:
+\begin{enumerate}[leftmargin=*]
+  \item An open--core SaaS platform, where calibration data and managed operation form a moat.
+  \item Enterprise seats, support contracts, and SLAs layered over the source--available core.
+  \item Certification revenue through certified implementations and practitioner credentials.
+  \item Professional services for strategic consulting and implementation support.\footnote{The consultation strategy paper details market sizing, revenue pillars, and supplemental agreement needs, such as certification and support contracts.[file:21]} 
+\end{enumerate}
+
+Supplemental agreements---for certification, support tiers, and compliance pack licensing---round out the legal architecture to align with this business design.
+
+\section{Illustrative Code Snippet}
+
+The following TypeScript snippet illustrates how the governance response envelope is enforced in the MCP server. It normalizes raw tool results into a canonical envelope, clamping experimental or degraded outputs to advisory semantics while preserving successful data payloads.\footnote{The normalize--response helper and associated types are described in the MCP implementation blueprint and tests.[file:1]}
+
+\begin{lstlisting}
+// Types describe the governance envelope exposed to MCP clients.
+export type GovernanceTier = 'authoritative' | 'experimental';
+export type GovernanceEnvironment = 'local' | 'cloud';
+export type GovernanceDecision = 'block' | 'warn' | 'pass';
+
+export interface MCPGovernanceEnvelope {
+  // Core protocol
+  success: boolean;
+  code?: string;        // e.g. INVALID_INPUT, EXECUTION_FAILED
+  message?: string;
+  isError?: boolean;
+
+  // Governance semantics
+  tier: GovernanceTier;
+  environment: GovernanceEnvironment;
+  decision?: GovernanceDecision; // only binding for authoritative+cloud
+  degradedMode?: boolean;        // true when running without required stores
+
+  // Traceability
+  requestId: string;
+  timestamp: string;
+
+  // Tool-specific payload
+  data?: unknown;
+}
+
+type RawToolResult = {
+  success: boolean;
+  code?: string;
+  message?: string;
+  isError?: boolean;
+  decision?: GovernanceDecision | string;
+  data?: unknown;
+};
+
+const L0_ONLY_CODES = new Set([
+  'INVARIANT_VIOLATION',
+  'CONSENT_REQUIRED'
+]);
+
+interface NormalizeContext {
+  tier: GovernanceTier;
+  environment: GovernanceEnvironment;
+  requestId: string;
+  timestamp: Date;
+}
+
+// Normalizer enforces the governance floor before results reach agents.
+export function normalizeResponse(
+  raw: RawToolResult,
+  ctx: NormalizeContext
+): MCPGovernanceEnvelope {
+  const { tier, environment, requestId, timestamp } = ctx;
+  let { success, code, message, isError, decision, data } = raw;
+
+  let degradedMode = false;
+  let l0CodeStripped = false;
+  let blockDowngraded = false;
+
+  // Floor 1: experimental tools can never express binding outcomes.
+  if (tier === 'experimental') {
+    if (decision === 'block') {
+      decision = 'warn';
+      blockDowngraded = true;
+    }
+    if (code && L0_ONLY_CODES.has(code)) {
+      code = undefined;
+      l0CodeStripped = true;
+    }
+  }
+
+  // Floor 2: authoritative tools in local mode are always degraded and non-blocking.
+  if (tier === 'authoritative' && environment === 'local') {
+    degradedMode = true;
+    if (decision === 'block') {
+      decision = 'warn';
+      blockDowngraded = true;
+    }
+  }
+
+  // Tighten error signaling so clamps don't masquerade as hard failures.
+  if ((l0CodeStripped || blockDowngraded) && tier === 'experimental') {
+    isError = isError ?? false;
+  }
+  if (degradedMode && tier === 'authoritative' && environment === 'local') {
+    isError = isError ?? false;
+  }
+
+  return {
+    success,
+    code,
+    message,
+    isError,
+    tier,
+    environment,
+    decision: decision as GovernanceDecision | undefined,
+    degradedMode,
+    requestId,
+    timestamp: timestamp.toISOString(),
+    data
+  };
+}
+\end{lstlisting}
+
+This function captures the central idea of the thread: governance semantics are enforced at a structural boundary that cannot be bypassed by prompting or by misbehaving tool implementations, while still preserving the multiplicity and richness of underlying tool outputs for advisory use.\footnote{Contract tests demonstrate that even deliberately rogue experimental tools cannot surface as blocking failures once their outputs pass through normalization and serialization.[file:1][file:14]} 
+
+\section{Conclusion}
+
+Across the thread, Phase Mirror is progressively shaped into a multiplicity--aware governance layer: capability floors indexed and bounded, consent and warrants versioned and re--evaluated, core invariants mechanized and tested, and all of it surfaced through a canonical protocol envelope that separates binding authority from advisory insight. The design choices bind mathematical clarity, software architecture, and business viability into a single recursively stable pattern that can be extended without losing track of the underlying tensions it is meant to expose rather than erase.\footnote{The MVP tracker, consent and false positive designs, MCP blueprint, and consultation strategy together articulate this pattern over code, infra, and market layers.[file:1][file:14][file:15][file:21]} 
+
+\end{document}

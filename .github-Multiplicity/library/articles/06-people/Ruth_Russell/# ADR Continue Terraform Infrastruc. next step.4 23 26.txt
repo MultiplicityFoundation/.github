@@ -1,0 +1,35 @@
+# ADR: Continue Terraform Infrastructure Walkthrough
+
+## Status
+Proposed
+
+## Context
+We were tracing the PhaseMirror-HQ infrastructure stack from the repo root into `infra/terraform/` and its submodules.
+
+## What was reviewed
+- Root Terraform stack in `infra/terraform/main.tf`
+- DynamoDB module:
+  - `infra/terraform/modules/dynamodb/main.tf`
+  - `infra/terraform/modules/dynamodb/governance-cache.tf`
+  - `infra/terraform/modules/dynamodb/outputs.tf`
+- IAM module:
+  - `infra/terraform/modules/iam/main.tf`
+- Org-scan Lambda module:
+  - `infra/terraform/modules/lambda/org-scan/main.tf`
+  - `infra/terraform/modules/lambda/org-scan/variables.tf`
+  - `infra/terraform/modules/lambda/org-scan/outputs.tf`
+
+## Key findings
+- Terraform is centered on KMS, DynamoDB, CloudWatch, IAM OIDC, S3 baselines, audit, backup, and a scheduled org-scan Lambda.
+- DynamoDB stores false-positive events, consent, block counters, and governance cache snapshots.
+- IAM separates GitHub Actions permissions for Terraform ops vs deploy/test ops.
+- Org-scan Lambda refreshes governance snapshots on a schedule and feeds the governance cache.
+
+## Next best file
+`infra/terraform/modules/cloudwatch/main.tf`
+
+## Why next
+It likely connects the data layer to alarms, dashboards, and SNS notifications, completing the operational loop.
+
+## Suggested next action
+Continue the repository walkthrough from `infra/terraform/modules/cloudwatch/main.tf`.

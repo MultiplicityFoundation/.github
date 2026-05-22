@@ -1,0 +1,44 @@
+# ADR-0XX: Site as Tenant / Governance Namespace
+
+**Status:** Draft (Proposed)  
+**Date:** 2026-03-20  
+**Repo:** MultiplicityFoundation/PhaseMirror-HQ  
+**Related:** ADR-0XZ (contract-owned site registry), ADR-0XY (directory-based isolation)
+
+## Context
+
+PhaseMirror-HQ runs governance, reasoning, daemon, and tooling workflows that must be isolated across different operational contexts (e.g., local dev, staging, production, or multiple tenants). Historically, the codebase can drift into implicit global state locations and implicit “current environment” assumptions.
+
+We need a first-class abstraction that represents "which operational context am I acting on?" and is stable enough to be used across:
+- state storage (DHT snapshots, witnesses, artifacts)
+- daemon health and watchdog triggers
+- MCP tools and external orchestration
+- audit trails and governance versioning
+
+## Decision
+
+1. Define **`site_id`** as the primary identifier of a tenant / governance namespace.
+2. Treat `site_id` as an *opaque identifier*, not a path:
+   - non-empty string
+   - must not contain path traversal (`..`) or path separators (`/`, `\\`)
+3. All stateful operations MUST be parameterizable by site:
+   - If a function/tool implicitly targets “current state”, it must resolve a site via `get_site(site_id: str | None)`.
+4. The canonical list of valid sites and default site is defined by the **contract-owned Site Registry** (`contracts/shared/sites.yaml`).
+
+## Consequences
+
+### Positive
+- Eliminates ambiguity: every stateful write/read can be tied to a site.
+- Improves auditability: site becomes a first-class dimension in logs, witnesses, and governance outputs.
+- Sets foundation for multi-tenant isolation and future orchestration.
+
+### Negative / Tradeoffs
+- Requires incremental refactors where code assumes a single global state directory.
+- Requires standard propagation of `site_id` through tool interfaces and daemon pipelines.
+
+## Alternatives Considered
+- Pure env var gating (rejected: not auditable, too easy to drift)
+- Separate repos per tenant (rejected: operationally heavy)
+
+## Notes
+This ADR is semantic: it defines *meaning*. Isolation mechanics are in ADR-0XY; registry mechanism is in ADR-0

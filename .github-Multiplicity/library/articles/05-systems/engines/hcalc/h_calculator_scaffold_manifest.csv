@@ -1,0 +1,46 @@
+File Path,Type,Description,Phase,Timeline
+packages/dnakey/src/hcalc/__init__.py,Module,Package init,Phase 1,Day 0
+packages/dnakey/src/hcalc/config.py,Module,"Constants, thresholds, R_max cap",Phase 1,Day 0-2
+packages/dnakey/src/hcalc/enums.py,Module,TerminalState enum (4 codes),Phase 1,Day 0-2
+packages/dnakey/src/hcalc/types.py,Module,Core data structures,Phase 1,Day 0-2
+packages/dnakey/src/hcalc/contraction.py,Module,Contraction witness q computation,Phase 1,Day 2-5
+packages/dnakey/src/hcalc/modality_tensor.py,Module,Per-modality Hilbert space assembly,Phase 1,Day 3-7
+packages/dnakey/src/hcalc/convergence.py,Module,Joint convergence + DECOUPLED routing,Phase 1,Day 5-10
+packages/dnakey/src/hcalc/ranking.py,Module,Ranked differential + concentration,Phase 1,Day 7-12
+packages/dnakey/src/hcalc/terminal_classifier.py,Module,Terminal state classification,Phase 1,Day 10-14
+packages/dnakey/src/hcalc/spectral.py,Module,Bauer-Fike κ_p(V) computation,Phase 3,Day 14-18
+packages/dnakey/src/hcalc/rmax_guard.py,Module,Runtime R_max=16 cap,Phase 3,Day 16-21
+packages/dnakey/src/hcalc/fhir/__init__.py,Module,FHIR package init,Phase 2,Day 7
+packages/dnakey/src/hcalc/fhir/emitter.py,Module,FHIR DiagnosticReport builder,Phase 2,Day 12-18
+packages/dnakey/src/hcalc/fhir/codesystem.fsh,FSH,4-code CodeSystem,Phase 2,Day 7-10
+packages/dnakey/src/hcalc/fhir/valueset.fsh,FSH,Required binding ValueSet,Phase 2,Day 8-12
+packages/dnakey/src/hcalc/fhir/structuredefinition.fsh,FSH,Extension StructureDefinition,Phase 2,Day 10-14
+packages/dnakey/src/hcalc/fhir/sushi-config.yaml,Config,SUSHI configuration,Phase 2,Day 7
+packages/dnakey/src/hcalc/ui/__init__.py,Module,UI package init,Phase 4,Day 21
+packages/dnakey/src/hcalc/ui/modality_card.py,Module,Card renderer (M ≤ 6),Phase 4,Day 21-25
+packages/dnakey/src/hcalc/ui/summary_table.py,Module,Summary table (M > 6),Phase 4,Day 25-30
+packages/dnakey/src/hcalc/ui/threshold_router.py,Module,M-threshold routing,Phase 4,Day 28-35
+packages/dnakey/src/hcalc/pipeline/__init__.py,Module,Pipeline package init,Phase 5,Day 28
+packages/dnakey/src/hcalc/pipeline/integration.py,Module,Pipeline wiring,Phase 5,Day 28-32
+packages/dnakey/src/hcalc/pipeline/shadow.py,Module,Shadow deployment orchestrator,Phase 5,Day 32-36
+packages/dnakey/src/hcalc/audit/__init__.py,Module,Audit package init,Phase 1,Day 7
+packages/dnakey/src/hcalc/audit/omega_trace.py,Module,Ω-Trace emission,Phase 1,Day 10-14
+packages/dnakey/src/hcalc/audit/witness.py,Module,CRMF Witness Object,Phase 1,Day 10-14
+packages/dnakey/tests/hcalc/__init__.py,Test,Test package init,Phase 1,Day 0
+packages/dnakey/tests/hcalc/conftest.py,Test,Shared fixtures,Phase 1,Day 0-2
+packages/dnakey/tests/hcalc/unit/test_enums.py,Test,Enum completeness,Phase 1,Day 0-2
+packages/dnakey/tests/hcalc/unit/test_contraction.py,Test,Contraction witness accuracy,Phase 1,Day 2-5
+packages/dnakey/tests/hcalc/unit/test_modality_tensor.py,Test,Tensor assembly validation,Phase 1,Day 3-7
+packages/dnakey/tests/hcalc/unit/test_convergence.py,Test,All 4 terminal states reachable,Phase 1,Day 5-10
+packages/dnakey/tests/hcalc/unit/test_ranking.py,Test,Top-k concentration threshold,Phase 1,Day 7-12
+packages/dnakey/tests/hcalc/unit/test_classifier.py,Test,Terminal classification accuracy,Phase 1,Day 10-14
+packages/dnakey/tests/hcalc/unit/test_spectral.py,Test,κ_p(V) vs NumPy reference,Phase 3,Day 14-18
+packages/dnakey/tests/hcalc/unit/test_rmax_guard.py,Test,R_max cap fires correctly,Phase 3,Day 16-21
+packages/dnakey/tests/hcalc/unit/test_fhir_emitter.py,Test,DiagnosticReport R4 validation,Phase 2,Day 12-18
+packages/dnakey/tests/hcalc/integration/test_convergence_flow.py,Test,Modality → Convergence → Terminal,Phase 1,Day 10-14
+packages/dnakey/tests/hcalc/integration/test_decoupled_routing.py,Test,DECOUPLED per-modality INCONCLUSIVE,Phase 1,Day 10-14
+packages/dnakey/tests/hcalc/integration/test_fhir_extension.py,Test,Extension injection + R4 validation,Phase 2,Day 14-21
+packages/dnakey/tests/hcalc/integration/test_ui_routing.py,Test,Card vs. summary at M boundary,Phase 4,Day 28-35
+packages/dnakey/tests/hcalc/e2e/test_full_pipeline.py,Test,Ring data → DiagnosticReport,Phase 5,Day 35-42
+packages/dnakey/tests/hcalc/e2e/test_shadow_validation.py,Test,Shadow concordance per SVP-001,Phase 5,Day 36-42
+packages/dnakey/tests/hcalc/e2e/test_rmax_boundary.py,Test,R=16 cap + DECOUPLED emission,Phase 3,Day 21-28

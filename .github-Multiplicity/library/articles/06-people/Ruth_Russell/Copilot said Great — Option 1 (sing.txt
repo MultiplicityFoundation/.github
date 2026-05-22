@@ -1,0 +1,125 @@
+Copilot said: Great — **Option 1 (single “tenant shell”
+Great — Option 1 (single “tenant shell” app served for every tenant subdomain) is the most scalable and matches your existing Multiplic + wildcard routing model.
+
+Below is a production blueprint you can implement in this repo. It’s written to align with what you already have: Nginx wildcard → Multiplic (port 3000) citeturn2search0, multiplic.json as required routing registry citeturn2search3, cookie-based API client citeturn2search5, and Vite builds into src/services/hosting/sites/<domain>/dist citeturn2search8turn2search9.
+
+One blocker: I still need your actual multiplic.json schema to give copy/paste JSON. Please paste it (or tell me where it lives). Everything else below is ready to execute.
+
+Blueprint: “Tenant Shell” Production Scheme
+Domains
+aiistech.com = marketing (WordPress) (unchanged) citeturn2search0
+api.aiistech.com = Express API (auth + data) citeturn2search0
+*.aiistech.com = Tenant Shell SPA served by Multiplic router citeturn2search0
+Examples:
+
+finance.aiistech.com → tenant shell → resolves tenantSlug=finance
+healthcare.aiistech.com → tenant shell → resolves tenantSlug=healthcare
+1) Tenant shell frontend (single build)
+Build output folder (one)
+Pick one canonical folder for the shell bundle, e.g.:
+
+src/services/hosting/sites/tenant.aiistech.com/dist
+You’ll build the tenant shell once and serve the same assets for all tenant subdomains.
+
+Why this works: Multiplic can map multiple domains to the same “site module”/folder (depends on multiplic.json schema, but this is the usual model).
+
+Tenant resolution logic (in the app)
+At runtime:
+
+tenantSlug = window.location.hostname.split('.')[0]
+Then either:
+
+call API: GET /api/tenants/resolve?slug=finance (recommended), or
+rely on JWT claims only (works but less flexible).
+Internal apps as routes (recommended)
+Within the same tenant shell app:
+
+/dashboard
+/billing
+/support
+/blog
+So:
+
+finance.aiistech.com/billing
+healthcare.aiistech.com/support
+This matches your “internal” requirement without multiplying subdomains.
+
+2) API + Auth blueprint (cookie-based, cross-subdomain)
+Your client already uses:
+
+withCredentials: true
+refresh on 401 via POST {VITE_API_URL}/auth/refresh citeturn2search5
+So production backend must set cookies like:
+
+Domain=.aiistech.com
+HttpOnly; Secure
+SameSite=Lax (or None if needed)
+Minimal endpoints to add/standardize
+POST /api/auth/login → sets cookies + returns user payload (optional)
+POST /api/auth/refresh → refresh cookies
+GET /api/auth/me → returns user + tenant access
+GET /api/tenants/resolve?slug=finance → returns tenantId, status, displayName, enabled features
+Your mock backend already demonstrates tenant-scoped dashboard endpoints like:
+
+GET /api/dashboard/:tenantId/summary citeturn2search5
+3) Multiplic routing blueprint (registry + wildcard safety)
+Principle
+Even with wildcard DNS, you must not “serve real tenant content” unless the tenant is provisioned.
+
+ADR-001: no domain may be served without multiplic.json entry. citeturn2search3
+But if you go wildcard tenants, you’ll likely need either:
+
+a wildcard entry in multiplic.json, or
+a catch-all site that serves the tenant shell and lets the app show “Not provisioned”.
+We need the actual multiplic.json schema to pick the exact approach.
+
+Two safe patterns (we’ll choose based on your schema)
+Wildcard domain → tenant shell, and tenant shell checks provisioning via API:
+If unknown tenant: show “Tenant not provisioned”
+Explicit per-tenant entries, still mapping to the same tenant shell folder:
+finance.aiistech.com entry exists
+healthcare.aiistech.com entry exists
+Unknown tenant: Multiplic serves fallback site / 404
+Pattern (2) matches ADR-001 strictly; pattern (1) requires schema support for wildcard entries.
+
+4) Provisioning blueprint (how a new tenant is created)
+ADR-0010 indicates a “registry write protocol” and reload via POST /sync with HMAC using SYNC_SECRET. citeturn2search2
+
+Provision Tenant (finance) steps
+Add tenant to operational store (DB later; file/in-memory initially)
+Update multiplic.json (either add entry or ensure wildcard route covers it)
+Trigger sync reload:
+POST /sync (HMAC signed) citeturn2search2
+Your infra already has the multiplic-sync PM2 process with SYNC_SECRET configured. citeturn2search6
+
+5) Deployment blueprint (what gets deployed where)
+Build artifacts
+Tenant shell build → src/services/hosting/sites/tenant.aiistech.com/dist (or your chosen canonical site folder)
+Multiplic server reads filesystem and serves those static assets per registry. (Per ADR design)
+Nginx (already mostly done)
+Wildcard *.aiistech.com already proxies to port 3000. citeturn2search0
+
+CI/CD + Sync
+Your src/services/hosting/docs/DEPLOYMENT.md suggests:
+
+set GitHub secrets SYNC_SECRET, SERVER_SYNC_URL
+push to main triggers deploy citeturn2search7
+Concrete next steps (to turn this blueprint into exact repo edits)
+Step 1 — show me multiplic.json
+Please paste multiplic.json contents (or tell me its exact path).
+With it, I will provide:
+
+the exact tenant-shell mapping entry
+the exact fallback/unprovisioned behavior entry
+the exact “finance/healthcare” entries if you choose explicit-per-tenant
+Step 2 — pick canonical shell domain folder name
+Choose one:
+
+tenant.aiistech.com (clean)
+app.aiistech.com (reuse existing app build folder)
+dashboard.aiistech.com (not ideal semantically)
+My recommendation: tenant.aiistech.com.
+
+Step 3 — implement tenant resolution in the frontend
+If you tell me where you want this logic (existing app vs new folder), I’ll outline the exact component/module names and routing structure.
+

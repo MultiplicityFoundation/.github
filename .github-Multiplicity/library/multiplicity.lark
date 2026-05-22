@@ -1,0 +1,19 @@
+// multiplicity.lark
+// Grammar for Multiplicity DSL with association, link, and query statements
+// Supports explicit prime tags for Λᵖ-Archivum auditability
+// Aligned with Ξ-Constitution for lawful recursion
+
+%import common.WS
+%import common.IDENTIFIER
+%import common.NUMBER
+%ignore WS
+
+start: statement*
+
+statement: assoc_stmt | link_stmt | query_stmt
+
+assoc_stmt: "association" IDENTIFIER multiplicity IDENTIFIER multiplicity "as" IDENTIFIER [prime_clause] ";"
+multiplicity: "0..1" | "1" | "0..*" | "1..*"
+prime_clause: "with" "prime" NUMBER
+link_stmt: "link" IDENTIFIER IDENTIFIER ":" IDENTIFIER IDENTIFIER ":" IDENTIFIER ";"
+query_stmt: "query" IDENTIFIER [IDENTIFIER ":" IDENTIFIER] ";"

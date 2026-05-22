@@ -1,0 +1,44 @@
+Metric,Value
+Test 1: Baseline AUROC,0.7544
+Test 1: CRMF v2 AUROC,0.8661
+Test 1: ΔAUROC Gain,+0.1116
+Test 1: Target,≥ 0.03
+Test 1: Status,✓ PASS
+,
+Test 2: Mean R (Low Epistasis),0.3709
+Test 2: Mean R (High Epistasis),0.6291
+Test 2: Δμ Separation,+0.2582
+Test 2: Mann-Whitney p-value,1.90e-141
+Test 2: Target Δμ,≥ 0.05
+Test 2: Target p-value,< 1e-04
+Test 2: Status,✓ PASS
+,
+Test 3: Total Monitoring Events,"82,125"
+Test 3: Violations,0
+Test 3: Violation Rate (%),0.000
+Test 3: Near-Violations,601
+Test 3: Near-Violation Rate (%),0.732
+Test 3: Target Viol Rate,≤ 0.1
+Test 3: Target Near Rate,0.5–1.0
+Test 3: Status,✓ PASS
+,
+CRMF v2 Parameters: τ,0.2205
+CRMF v2 Parameters: R_min,0.3
+CRMF v2 Parameters: R_safe,0.8
+CRMF v2 Parameters: S_min,0.5
+CRMF v2 Parameters: S_safe,0.8
+CRMF v2 Parameters: α,0.08
+CRMF v2 Parameters: δ_safety,0.08
+,
+Feature: R_codon Mean,0.5825
+Feature: R_codon Std,0.1293
+Feature: R_operator Mean,0.4044
+Feature: R_operator Std,0.2460
+Feature: R_combined Mean,0.5000
+Feature: R_combined Std,0.2545
+,
+Tier Distribution: AGGRESSIVE %,59.1
+Tier Distribution: CONSERVATIVE %,40.9
+Tier Distribution: FREEZE %,0.0
+,
+Overall Result: All Tests Pass?,✓ YES

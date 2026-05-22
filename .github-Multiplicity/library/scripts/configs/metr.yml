@@ -1,0 +1,65 @@
+# configs/metr.yml — metrical corpus
+experiment: "metrical_corpus"
+data:
+  root: "repro/data/METRICAL"
+  split:
+    strategy: "stratified"
+    train: 0.70
+    val: 0.15
+    test: 0.15
+    seed: 20251
+
+lattice:
+  n: [48, 60, 72, 84, 90, 96, 108]
+  tiers:
+    use_CRT: true
+
+resonance:
+  lambdas: { R1: 0.40, R2: 0.35, R3: 0.25 }
+  etas:
+    proportional_by_divisor: true  # weight by tier d
+
+word:
+  order: "ternary_first"
+  ops:
+    - { kind: S, p: 3, r: 3 }
+    - { kind: S, p: 2, r: 2 }
+    - { kind: A, d: 27, alpha: 1.0, ch: 0 }
+    - { kind: A, d: 9,  alpha: 0.7, ch: 0 }
+    - { kind: A, d: 3,  alpha: 0.5, ch: 0 }
+    - { kind: A, d: 4,  alpha: 0.3, ch: 0 }
+    - { kind: A, d: 2,  alpha: 0.2, ch: 0 }
+    - { kind: W, p: 2,  perm: [1,0] }
+
+theta:
+  alpha: { "27": 1.0, "9": 0.7, "3": 0.5, "4": 0.3, "2": 0.2 }
+  phi:   { "27": 0, "9": 0, "3": 0, "4": 0, "2": 0 }
+  perm:  { "2": [1,0] }
+  Q: {}
+
+gauge:
+  downbeat_pin: true
+  crt_phase_fix: true
+
+impl:
+  fft_backend: "fftw"
+  threads: 1
+  deterministic: true
+
+invariants:
+  Emax: 1.0
+  tier_max: { "27": 0.50 }
+  Fmin: 0.70
+
+seeds:
+  global: 20251
+  beam: 31997
+  init: 108
+
+search:
+  beam_width: 32
+  steps_cont: 50
+  steps_beam: 10
+
+outputs:
+  dir: "repro/outputs"

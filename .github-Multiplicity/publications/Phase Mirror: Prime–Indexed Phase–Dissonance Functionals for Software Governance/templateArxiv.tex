@@ -1,0 +1,776 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{fullpage}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=black,citecolor=black,urlcolor=black}
+
+
+\title{\Huge{Phase Mirror} \\ \Large\textbf{Prime–Indexed Phase--Dissonance} \\
+\Large{Functionals for Software Governance}}
+\author{Citizen Gardens -- The Foundation of Multiplicity\\
+The Prime Materia Commons\\
+\texttt{info@citizengardens.org}}
+\date{May 2026}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{lemma}[theorem]{Lemma}
+
+\newcommand{\Sig}{\mathrm{Sig}}
+\newcommand{\Axes}{\mathrm{Axes}}
+\newcommand{\globalSig}{\Sigma}
+\newcommand{\weak}{\sim}
+\newcommand{\strong}{\approx}
+\newcommand{\Nat}{\mathbb{N}}
+\newcommand{\Int}{\mathbb{Z}}
+\newcommand{\Hilb}{\mathcal{H}}
+\newcommand{\Tensor}{\mathcal{T}}
+\newcommand{\Pow}{\mathcal{P}}
+\newcommand{\op}{\mathrm{op}}
+\newcommand{\PETC}{\mathrm{PETC}}
+\newcommand{\PWEH}{\mathrm{PWEH}}
+\newcommand{\ZRSD}{\mathrm{ZRSD}}
+\newcommand{\PIRTM}{\mathrm{PIRTM}}
+\newcommand{\diag}{\mathrm{diag}}
+\newcommand{\spr}{\rho}
+\newcommand{\Id}{I}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+We introduce a prime--indexed phase--dissonance functional for software and agentic governance over heterogeneous, versioned artifacts (specifications, source code, logs, SLAs). The construction specializes a pre--existing prime--indexed recursive transition machinery (PIRTM) and associated multiplicity operators $\Lambda_m$ to a governance domain. Artifact histories are mapped into a prime--indexed governance tensor via a mapping $\Phi$, and a continuous dissonance functional $D(\Phi_t)$ is defined as a prime--weighted norm over contradiction components $\Delta_{p_i,a}(t)$ across artifact types and governance axes. A dynamic phase band $[L_t,U_t]$ yields an adaptive control loop: when $D(\Phi_t)$ exits the band, Phase Mirror emits structured remediation proposals over artifacts (ADRs, code, logs, SLAs) that drive future states back into band. This realizes a governance layer that remains external to runtimes and CI/CD systems, in contrast to prior work on binary or thresholded policy compliance gating.
+\end{abstract}
+\newpage
+\tableofcontents
+\newpage
+\section{Executive Summary}
+
+This report formalizes a governance--specific instantiation of a general Multiplicity--theoretic program.
+
+\begin{itemize}
+  \item The underlying mathematical substrate (PIRTM and $\Lambda_m$) is assumed from prior work and provides a prime--indexed, recursively stable transition structure over multiplicity spaces (Appendix~A).
+  \item Phase Mirror specializes this substrate to software governance via:
+  \begin{itemize}
+    \item a mapping $\Phi_t$ from artifact histories (spec, code, log, SLA) into a prime--indexed governance tensor,
+    \item a phase--dissonance functional $D(\Phi_t)$ as a continuous, prime--weighted contradiction measure over heterogeneous artifacts,
+    \item a dynamic phase--band $[L_t,U_t]$ and control loop that routes phase violations into structured remediation proposals over versioned artifacts.
+  \end{itemize}
+  \item Prior governance patents typically:
+  \begin{itemize}
+    \item receive a repository or build--pipeline artifact,
+    \item evaluate compliance against static policies,
+    \item emit binary or thresholded compliance status reports and gate CI/CD or deployment.\footnote{See, e.g., US20230195455A1 (Automated Developer Governance System) and US20220164171A1 / US11467810B2 (Certifying deployment artifacts generated from source code using a build pipeline). [web:53][web:69][web:70]}
+  \end{itemize}
+  \item Phase Mirror differs structurally by:
+  \begin{itemize}
+    \item aggregating contradictions over multiple artifact types and governance axes into a single prime--indexed, continuous dissonance functional $D(\Phi_t)$,
+    \item evolving $D(\Phi_t)$ under a $\Lambda_m$--derived dynamic with history--dependent phase bands,
+    \item producing remediation proposals as candidate edits to ADRs, code, logging, and SLAs, instead of acting solely as a binary CI/CD gate.
+  \end{itemize}
+\end{itemize}
+
+The constructions below are intended to be sufficiently explicit to function both as a citable prior--art publication and as technical support for narrow, governance--specific claims.
+\newpage
+\section{Multiplicity Substrate (Assumed)}
+
+\subsection{PIRTM and $\Lambda_m$}
+
+\begin{assumption}[Multiplicity substrate]\label{ass:substrate}
+We assume a prime--indexed recursive transition machinery (PIRTM) and associated multiplicity operators $\Lambda_m$, as developed in prior work on Multiplicity Theory (Appendix~A). Concretely, we assume:
+\begin{itemize}
+  \item a countable set of primes $\mathcal{P} = \{p_1,p_2,\dots\}$,
+  \item a family of state spaces $\{S_p\}_{p \in \mathcal{P}}$,
+  \item a recursively stable transition map
+  \[
+    \Lambda_m : \prod_{p \in \mathcal{P}} S_p \to \prod_{p \in \mathcal{P}} S_p,
+  \]
+  encoding prime--indexed, cross--scale feedback over interacting components.
+\end{itemize}
+\end{assumption}
+
+In the present document, PIRTM and $\Lambda_m$ are taken as given; their construction and properties are recalled in Appendix~A and in the existing Multiplicity Theory corpus.
+
+\section{Phase--Dissonance for Governance}
+
+We now specialize the multiplicity substrate to a governance domain involving heterogeneous, versioned artifacts.
+
+\subsection{Artifact Histories and Governance Coordinates}
+
+\begin{definition}[Governance artifact histories]\label{def:artifacts}
+Let $\mathcal{A} = \{\text{spec}, \text{code}, \text{log}, \text{SLA}\}$ denote the set of artifact types. For each $a \in \mathcal{A}$, let $\{A_a(t)\}_{t \in \mathbb{Z}_{\ge 0}}$ denote the time--indexed history of that artifact type, where $A_a(t)$ is the version of artifact $a$ at governance time $t$ (e.g., specification revision, source code snapshot, aggregated logs over a window, or SLA snapshot).\footnote{Time--indexed artifact histories and their relation to governance policies are standard in modern software governance and deployment frameworks; see, e.g., methods for verifying software programs and certifying deployment artifacts in US20190377556A1 and US11467810B2. [web:62][web:70]}
+\end{definition}
+
+\begin{definition}[Prime--indexed governance coordinates]\label{def:Phi}
+Fix a finite set of governance primes $\mathcal{P}_g = \{p_1,\dots,p_k\} \subset \mathcal{P}$, each corresponding to a governance axis (for example, safety, compliance, performance, alignment, or other dimensions). For each $t \in \mathbb{Z}_{\ge 0}$, define the prime--indexed governance state
+\[
+  \Phi_t \in \mathbb{R}^{k \times |\mathcal{A}|},
+\]
+with entries
+\[
+  \Phi_t(p_i,a) = \phi_{p_i,a}\big(A_a(0{:}t)\big),
+\]
+where $\phi_{p_i,a}$ is a (possibly learned or hand--engineered) functional of the history of artifact type $a$ up to time $t$.
+\end{definition}
+
+Thus $\Phi_t$ is a prime--indexed tensor encoding how each artifact type contributes to each governance axis at time $t$ within the multiplicity frame.
+
+\begin{assumption}[$\Lambda_m$--governed evolution]\label{ass:Lambda-gov}
+There exists a governance--restricted transition operator
+\[
+  \Lambda_m^{(g)} : \mathbb{R}^{k \times |\mathcal{A}|} \times U \to \mathbb{R}^{k \times |\mathcal{A}|},
+\]
+where $U$ is a space of exogenous interventions (new commits, specification edits, SLA changes, configuration updates), such that
+\[
+  \Phi_{t+1} = \Lambda_m^{(g)}(\Phi_t, U_t),
+\]
+for $t \in \mathbb{Z}_{\ge 0}$, with $U_t \in U$ describing the interventions at time $t$. The map $\Lambda_m^{(g)}$ is a specialization of $\Lambda_m$ from Assumption~\ref{ass:substrate} to the governance prime set $\mathcal{P}_g$.
+\end{assumption}
+
+\subsection{Prime--Indexed Contradiction Components}
+
+\begin{definition}[Prime--indexed contradiction components]\label{def:Delta}
+For each $p_i \in \mathcal{P}_g$, $a \in \mathcal{A}$, and $t \ge 0$, define a contradiction component
+\[
+  \Delta_{p_i,a}(t)
+  \;=\;
+  f_{p_i,a}\big(A_a(t), \{A_{a'}(t)\}_{a' \neq a}, \mathrm{policy}(p_i)\big),
+\]
+where $f_{p_i,a}$ is a domain--specific contradiction detector (for example, rule--based, LLM--assisted, or hybrid) that measures the degree to which the behavior or content of artifact type $a$ at time $t$ is inconsistent with the governance intent associated with prime $p_i$, given the other artifacts at time $t$.
+\end{definition}
+
+The function $\mathrm{policy}(p_i)$ denotes the governance policy or intent associated to axis $p_i$. In prior automated governance systems, contradictions or violations are typically evaluated per policy and per build or deployment and then reduced to binary or thresholded compliance indicators.\footnote{See, for example, Automated Developer Governance System (US20230195455A1) and related build--pipeline certification systems. [web:53][web:69][web:70]}
+
+\subsection{Phase--Dissonance Functional}
+
+\begin{definition}[Phase--dissonance functional]\label{def:D}
+Fix non--negative weights $w_{p_i,a} \ge 0$. The phase--dissonance at time $t$ is the scalar functional
+\begin{equation}\label{eq:D}
+  D(\Phi_t)
+  \;=\;
+  \Bigg(
+    \sum_{p_i \in \mathcal{P}_g} \sum_{a \in \mathcal{A}}
+      \big( p_i \cdot w_{p_i,a} \cdot \Delta_{p_i,a}(t) \big)^2
+  \Bigg)^{1/2}.
+\end{equation}
+\end{definition}
+
+Thus $D(\Phi_t)$ is a continuous, prime--weighted measure of aggregate governance contradiction across all artifact types and governance axes at time $t$.
+
+\begin{remark}[Contrast with binary/thresholded compliance]
+Prior CI/CD governance and policy--as--code systems typically compute a binary pass/fail or a thresholded compliance score per policy and build, based on whether any artifact violates a prescribed rule or constraint.\footnote{See, e.g., Automated Developer Governance System (US20230195455A1), policy--as--code for data assets (US12587570B2, US20250274492A1), and various intent--based or catalog--based governance services. [web:53][web:57][web:58][web:60][web:68]} In contrast, the functional $D(\Phi_t)$ in \eqref{eq:D} yields a continuous norm over a prime--weighted contradiction field $\Delta_{p_i,a}(t)$, simultaneously aggregating information across multiple artifact types and governance axes while preserving the prime--indexed structure inherited from $\Lambda_m$.
+\end{remark}
+
+\subsection{Dynamic Phase Band and Control Loop}
+
+\begin{definition}[Dynamic phase band]\label{def:band}
+Let $\{D(\Phi_\tau)\}_{\tau \le t}$ be the dissonance history up to time $t$. A dynamic phase band at time $t$ is an interval
+\[
+  \mathcal{B}_t = [L_t, U_t],
+\]
+where
+\[
+  L_t = g_L\big(D(\Phi_0), \dots, D(\Phi_t)\big), \quad
+  U_t = g_U\big(D(\Phi_0), \dots, D(\Phi_t)\big),
+\]
+for some functionals $g_L,g_U$ of the dissonance history. Typically, $U_t$ is chosen to decrease (tighten) as persistent contradictions are resolved and governance is hardened over time, inducing a narrowing admissible band for $D(\Phi_t)$.
+\end{definition}
+
+\begin{definition}[Phase violation and remediation routing]\label{def:violation}
+At time $t$, a phase violation occurs if
+\[
+  D(\Phi_t) > U_t.
+\]
+In this case, Phase Mirror emits a structured remediation proposal $\mathcal{R}_t$ consisting of one or more candidate edits to governance artifacts:
+\[
+  \mathcal{R}_t \subset
+  \{
+    \text{ADR edits},
+    \text{code change requests},
+    \text{logging configuration changes},
+    \text{SLA clause revisions},
+    \dots
+  \},
+\]
+with the objective of driving subsequent dissonance back into the band, i.e., to achieve
+\[
+  D(\Phi_{t+\delta}) \le U_{t+\delta}
+\]
+for some horizon $\delta \ge 1$.
+\end{definition}
+
+The remediation routing operates at the level of versioned artifacts rather than solely gating or authorizing an immediate build or deployment. This stands in contrast to prior ``governance and compliance gating'' approaches that control pipeline execution flow but do not explicitly generate structured, cross--artifact remediation proposals.\footnote{See, e.g., systems for automated governance and compliance gating of application deployments and for certifying deployment artifacts in build pipelines. [web:53][web:69][web:70]}
+
+\begin{remark}[External mirror layer vs internal gating]
+The above definitions realize Phase Mirror as a governance layer external to CI/CD runtimes and agent execution environments: it observes artifact histories, computes prime--indexed contradiction components, aggregates them into $D(\Phi_t)$, and issues remediation proposals. Enforcement can be delegated to existing CI/CD or deployment mechanisms, but the mirror itself is not a runtime or build system. This separation differs from integrated governance platforms that tightly couple policy evaluation and deployment gating. [web:53][web:68][web:69]
+\end{remark}
+\newpage
+\section{Numerical Illustration (Appendix Example)}
+
+The following numerical harness illustrates the structural difference between a binary compliance indicator and a prime--weighted phase--dissonance functional with an adaptive upper band. It does not instantiate the full PIRTM or $\Lambda_m$ machinery, but it respects the prime--indexed structure of Definition~\ref{def:D}.
+
+\subsection*{Python Harness}
+
+\begin{verbatim}
+import numpy as np
+from sympy import primerange
+
+# Governance primes (e.g., safety, compliance, performance, alignment)
+governance_primes = list(primerange(2, 20))[:4]  # [2, 3, 5, 7]
+artifact_types = ['spec', 'code', 'log', 'sla']
+k = len(governance_primes)
+m = len(artifact_types)
+
+T = 20
+np.random.seed(42)
+
+# Synthetic contradiction components Δ_{p_i,a}(t) ∈ [0,1]
+deltas = np.random.rand(T, k, m)
+
+# Weights w_{p_i,a}
+weights = np.ones((k, m))
+
+def phase_dissonance(t):
+    vals = []
+    for i, p in enumerate(governance_primes):
+        for j, a in enumerate(artifact_types):
+            vals.append((p * weights[i, j] * deltas[t, i, j]) ** 2)
+    return np.sqrt(np.sum(vals))
+
+def binary_compliance(t, threshold=0.5):
+    return int(np.any(deltas[t] > threshold))
+
+d_vals = np.array([phase_dissonance(t) for t in range(T)])
+binary_flags = np.array([binary_compliance(t) for t in range(T)])
+
+# Simple dynamic phase band: rolling mean as U_t
+window = 5
+U = np.zeros(T)
+for t in range(T):
+    start = max(0, t - window + 1)
+    U[t] = np.mean(d_vals[start:t+1])
+
+phase_violations = (d_vals > U).astype(int)
+
+print("t | D(Φ_t)  | U_t    | PhaseViol | BinaryFlag")
+for t in range(T):
+    print(f"{t:2d} | {d_vals[t]:.4f} | {U[t]:.4f} | "
+          f"{phase_violations[t]}         | {binary_flags[t]}")
+\end{verbatim}
+
+This example makes explicit that:
+\begin{itemize}
+  \item The binary compliance indicator produces only $\{0,1\}$ values based on whether any contradiction component exceeds a fixed threshold.
+  \item The phase--dissonance $D(\Phi_t)$ yields a continuous, prime--weighted norm whose adaptive upper band $U_t$ depends on history, enabling feedback control rather than static gating.
+\end{itemize}
+
+\section{Program vs Application}
+
+\begin{remark}[Multiplicity program vs Phase Mirror application]\label{rem:program}
+The PIRTM/$\Lambda_m$ framework and associated multiplicity spaces were developed independently of software governance and apply across mathematics, physics, computation, and cognition (Appendix~A, prior work). The present Phase Mirror construction is a specific instantiation of this program in the domain of software and agentic governance, characterized by:
+\begin{enumerate}
+  \item the mapping $\Phi_t$ from artifact histories into a prime--indexed governance tensor,
+  \item the phase--dissonance functional $D(\Phi_t)$,
+  \item the dynamic phase--band control loop that routes phase violations into structured remediation proposals over versioned artifacts.
+\end{enumerate}
+This separation allows the mathematical substrate (Multiplicity Theory, PIRTM, $\Lambda_m$) to remain general and application--agnostic, while the governance--specific mechanisms of Phase Mirror can be treated as a narrower, later instantiation suitable for targeted protection or defensive publication.
+\end{remark}
+
+\appendix
+
+\section{Appendix A: PIRTM and $\Lambda_m$ (Sketch)}
+
+Appendix~A would recall the definitions and properties of PIRTM and $\Lambda_m$ from the existing Multiplicity Theory corpus, including:
+\begin{itemize}
+  \item the construction of prime--indexed multiplicity spaces,
+  \item the recursive stability and feedback properties of $\Lambda_m$,
+  \item examples in non--governance domains (mathematics, physics, computation, cognition).
+\end{itemize}
+These details are omitted here for brevity; the present report assumes them as prior work.
+
+\bibliographystyle{plain}
+\begin{thebibliography}{9}
+
+\bibitem{US20230195455}
+US20230195455A1. Automated Developer Governance System. [web:53]
+
+\bibitem{US20190377556}
+US20190377556A1. Methods and Systems for Verifying a Software Program. [web:62]
+
+\bibitem{US12587570}
+US12587570B2. Policy-as-code for data assets and remediation in cloud environments. [web:57]
+
+\bibitem{US20250274492}
+US20250274492A1. Policy-as-code for data assets and remediation in cloud environments. [web:58]
+
+\bibitem{US20220164171}
+US20220164171A1. Certifying deployment artifacts generated from source code using a build pipeline. [web:69]
+
+\bibitem{US11467810}
+US11467810B2. Certifying deployment artifacts generated from source code using a build pipeline. [web:70]
+
+\bibitem{US20230222240}
+US20230222240A1. Governed database connectivity through and around data catalog to registered data sources. [web:68]
+
+\end{thebibliography}
+\newpage
+\appendix
+\section{Appendix A: PIRTM and $\Lambda_m$}
+
+In this appendix we recall and refine the structure of the prime–indexed recursive transition machinery (PIRTM) and the associated multiplicity operators $\Lambda_m$, and we derive basic operator–norm bounds that are later used to control the evolution of the governance tensor $\Phi_t$ and the phase–dissonance $D(\Phi_t)$.
+
+\subsection{A.1 Prime–Indexed State Spaces and Product Norms}
+
+Let $\mathcal{P} = \{p_1,p_2,\dots\}$ denote the set of all primes. For each $p \in \mathcal{P}$, let $(S_p,\|\cdot\|_p)$ be a real (or complex) Banach space. We consider the (possibly infinite) product
+\[
+  \mathcal{S} \;=\; \prod_{p \in \mathcal{P}} S_p
+\]
+equipped with a norm of the form
+\begin{equation}\label{eq:prod-norm}
+  \|x\|_{\mathcal{S}} \;=\;
+  \Bigg(
+    \sum_{p \in \mathcal{P}} \alpha_p \|x_p\|_p^r
+  \Bigg)^{1/r},
+\end{equation}
+for some fixed $1 \le r < \infty$ and non–negative weights $\alpha_p > 0$ satisfying
+\[
+  \sum_{p \in \mathcal{P}} \alpha_p < \infty.
+\]
+Here $x = (x_p)_{p \in \mathcal{P}} \in \mathcal{S}$ with $x_p \in S_p$.
+
+\begin{lemma}[Completeness of the product space]\label{lem:prod-banach}
+If each $(S_p,\|\cdot\|_p)$ is a Banach space and $\sum_{p \in \mathcal{P}} \alpha_p < \infty$, then $(\mathcal{S},\|\cdot\|_{\mathcal{S}})$ defined by \eqref{eq:prod-norm} is a Banach space.
+\end{lemma}
+
+\begin{proof}
+Let $(x^{(n)})_{n \ge 1}$ be a Cauchy sequence in $(\mathcal{S},\|\cdot\|_{\mathcal{S}})$, with $x^{(n)} = (x^{(n)}_p)_{p \in \mathcal{P}}$. For each fixed $p$, we have
+\[
+  \|x^{(n)}_p - x^{(m)}_p\|_p^r
+  \;\le\;
+  \frac{1}{\alpha_p}
+  \sum_{q \in \mathcal{P}} \alpha_q \|x^{(n)}_q - x^{(m)}_q\|_q^r
+  \;=\;
+  \frac{1}{\alpha_p} \|x^{(n)} - x^{(m)}\|_{\mathcal{S}}^r.
+\]
+Thus for each fixed $p$, $(x^{(n)}_p)_n$ is Cauchy in $S_p$ and hence convergent to some $x_p \in S_p$. Define $x = (x_p)_{p \in \mathcal{P}}$.
+
+To show $x^{(n)} \to x$ in $\|\cdot\|_{\mathcal{S}}$, fix $\varepsilon > 0$. Choose a finite subset $F \subset \mathcal{P}$ such that
+\[
+  \sum_{p \notin F} \alpha_p < \frac{\varepsilon^r}{3 \cdot 2^r}.
+\]
+For each $p \in F$, choose $N_p$ such that for $n \ge N_p$,
+\[
+  \|x^{(n)}_p - x_p\|_p^r < \frac{\varepsilon^r}{3 |F|}.
+\]
+Let $N = \max_{p \in F} N_p$, and also choose $N'$ such that for $n,m \ge N'$,
+\[
+  \|x^{(n)} - x^{(m)}\|_{\mathcal{S}} < \frac{\varepsilon}{2}.
+\]
+Then for $n \ge \max(N,N')$, write
+\[
+  \|x^{(n)} - x\|_{\mathcal{S}}^r
+  =
+  \sum_{p \in F} \alpha_p \|x^{(n)}_p - x_p\|_p^r
+  +
+  \sum_{p \notin F} \alpha_p \|x^{(n)}_p - x_p\|_p^r.
+\]
+The first term is bounded by
+\[
+  \sum_{p \in F} \alpha_p \cdot \frac{\varepsilon^r}{3|F|}
+  \le \frac{\varepsilon^r}{3},
+\]
+and the second term satisfies
+\[
+  \sum_{p \notin F} \alpha_p \|x^{(n)}_p - x_p\|_p^r
+  \le
+  2^r \sum_{p \notin F} \alpha_p
+  < 2^r \cdot \frac{\varepsilon^r}{3 \cdot 2^r}
+  = \frac{\varepsilon^r}{3},
+\]
+since $\|x^{(n)}_p\|_p$ and $\|x_p\|_p$ are bounded uniformly in $n$ for each $p$ (Cauchy boundedness). Finally, for $n \ge N'$,
+\[
+  \|x^{(n)} - x^{(m)}\|_{\mathcal{S}} < \frac{\varepsilon}{2}
+  \quad \text{for all } m \ge N',
+\]
+so letting $m \to \infty$ yields an additional contribution $< (\varepsilon/2)^r$. Combining, we get $\|x^{(n)} - x\|_{\mathcal{S}}^r \le \varepsilon^r$ for all sufficiently large $n$, hence $(\mathcal{S},\|\cdot\|_{\mathcal{S}})$ is complete.
+\end{proof}
+
+\subsection{A.2 Multiplicity Operator $\Lambda_m$ and Operator Norm Bounds}
+
+We now treat $\Lambda_m$ as a (possibly nonlinear) operator on $(\mathcal{S},\|\cdot\|_{\mathcal{S}})$.
+
+\begin{assumption}[Local Lipschitz multiplicity operator]\label{ass:Lipschitz}
+The multiplicity operator $\Lambda_m : \mathcal{S} \to \mathcal{S}$ satisfies a global Lipschitz bound
+\[
+  \|\Lambda_m(x) - \Lambda_m(y)\|_{\mathcal{S}}
+  \le L \|x - y\|_{\mathcal{S}}
+  \quad \text{for all } x,y \in \mathcal{S},
+\]
+for some $L \ge 0$. In addition, there exists $C \ge 0$ such that
+\[
+  \|\Lambda_m(x)\|_{\mathcal{S}} \le C + L \|x\|_{\mathcal{S}}
+  \quad \text{for all } x \in \mathcal{S}.
+\]
+\end{assumption}
+
+Under this assumption, $\Lambda_m$ is globally Lipschitz and at most affine--linear in $\|x\|_{\mathcal{S}}$.
+
+\begin{proposition}[Iterate bounds]\label{prop:iterate-bounds}
+Let $(x_t)_{t \ge 0}$ be defined by $x_{t+1} = \Lambda_m(x_t)$, with initial condition $x_0 \in \mathcal{S}$. Under Assumption~\ref{ass:Lipschitz}, we have, for all $t \ge 0$,
+\[
+  \|x_t\|_{\mathcal{S}}
+  \;\le\;
+  L^t \|x_0\|_{\mathcal{S}} + C \sum_{j=0}^{t-1} L^j.
+\]
+In particular, if $L < 1$ then
+\[
+  \|x_t\|_{\mathcal{S}}
+  \;\le\;
+  L^t \|x_0\|_{\mathcal{S}} + \frac{C}{1-L},
+\]
+and $(x_t)$ is uniformly bounded in $\mathcal{S}$ by a constant depending only on $\|x_0\|_{\mathcal{S}}$, $L$, and $C$.
+\end{proposition}
+
+\begin{proof}
+We proceed by induction on $t$. For $t=0$ the bound is trivial. Suppose it holds for $t$. Then
+\[
+  \|x_{t+1}\|_{\mathcal{S}}
+  = \|\Lambda_m(x_t)\|_{\mathcal{S}}
+  \le C + L \|x_t\|_{\mathcal{S}}
+  \le C + L \left( L^t \|x_0\|_{\mathcal{S}} + C \sum_{j=0}^{t-1} L^j \right)
+\]
+\[
+  = L^{t+1} \|x_0\|_{\mathcal{S}} + C \left( 1 + L \sum_{j=0}^{t-1} L^j \right)
+  = L^{t+1} \|x_0\|_{\mathcal{S}} + C \sum_{j=0}^{t} L^j.
+\]
+This is the desired bound for $t+1$. The uniform bound for $L<1$ follows from the formula for the geometric series.
+\end{proof}
+
+\begin{corollary}[Contractive case and fixed point]\label{cor:fixed-point}
+If $L < 1$ in Assumption~\ref{ass:Lipschitz}, then $\Lambda_m$ is a contraction on $(\mathcal{S},\|\cdot\|_{\mathcal{S}})$, hence admits a unique fixed point $x^\ast \in \mathcal{S}$ with $\Lambda_m(x^\ast) = x^\ast$, and $x_t \to x^\ast$ in $\mathcal{S}$ for any initial $x_0$.
+\end{corollary}
+
+\begin{proof}
+This is the Banach fixed point theorem applied to $(\mathcal{S},\|\cdot\|_{\mathcal{S}})$ and the contraction $\Lambda_m$ with Lipschitz constant $L<1$.
+\end{proof}
+
+\subsection{A.3 Governance Restriction $\Lambda_m^{(g)}$}
+
+We now recall the restriction of $\Lambda_m$ to a finite prime subset $\mathcal{P}_g \subset \mathcal{P}$. Let
+\[
+  \mathcal{S}_g \;=\; \prod_{p \in \mathcal{P}_g} S_p,
+\]
+with the induced norm
+\[
+  \|x\|_{\mathcal{S}_g}
+  \;=\; \Bigg(\sum_{p \in \mathcal{P}_g} \alpha_p \|x_p\|_p^r\Bigg)^{1/r}.
+\]
+Let $\pi_g : \mathcal{S} \to \mathcal{S}_g$ be the canonical projection.
+
+\begin{definition}[Governance restriction]\label{def:Lambda-gov-appendix}
+Define
+\[
+  \Lambda_m^{(g)} : \mathcal{S}_g \times U \to \mathcal{S}_g
+\]
+by
+\[
+  \Lambda_m^{(g)}(x_g, u)
+  \;=\; \pi_g\big(\Lambda_m(\iota_g(x_g,u))\big),
+\]
+where $\iota_g$ is an embedding of $(x_g,u)$ into $\mathcal{S}$ that fills coordinates outside $\mathcal{P}_g$ in a prescribed manner (e.g., fixed baseline states or functions of $u$).
+\end{definition}
+
+\begin{lemma}[Lipschitz bound for $\Lambda_m^{(g)}$]\label{lem:Lambda-gov-Lipschitz}
+If $\Lambda_m$ satisfies Assumption~\ref{ass:Lipschitz}, and $\iota_g$ is Lipschitz in $x_g$ with constant $L_\iota$, then there exist constants $L_g, C_g$ such that
+\[
+  \|\Lambda_m^{(g)}(x_g,u) - \Lambda_m^{(g)}(y_g,u)\|_{\mathcal{S}_g}
+  \le L_g \|x_g - y_g\|_{\mathcal{S}_g},
+\]
+and
+\[
+  \|\Lambda_m^{(g)}(x_g,u)\|_{\mathcal{S}_g}
+  \le C_g + L_g \|x_g\|_{\mathcal{S}_g}
+\]
+for all $x_g,y_g \in \mathcal{S}_g$ and $u \in U$.
+\end{lemma}
+
+\begin{proof}
+We have
+\[
+  \|\Lambda_m^{(g)}(x_g,u) - \Lambda_m^{(g)}(y_g,u)\|_{\mathcal{S}_g}
+  \;=\;
+  \|\pi_g(\Lambda_m(\iota_g(x_g,u)) - \Lambda_m(\iota_g(y_g,u)))\|_{\mathcal{S}_g}
+\]
+\[
+  \le \|\Lambda_m(\iota_g(x_g,u)) - \Lambda_m(\iota_g(y_g,u))\|_{\mathcal{S}}
+  \le L \|\iota_g(x_g,u) - \iota_g(y_g,u)\|_{\mathcal{S}}
+  \le L L_\iota \|x_g - y_g\|_{\mathcal{S}_g}.
+\]
+Thus we can take $L_g = L L_\iota$. The affine bound follows from
+\[
+  \|\Lambda_m^{(g)}(x_g,u)\|_{\mathcal{S}_g}
+  \le
+  \|\Lambda_m(\iota_g(x_g,u))\|_{\mathcal{S}}
+  \le C + L \|\iota_g(x_g,u)\|_{\mathcal{S}}
+  \le C' + L' \|x_g\|_{\mathcal{S}_g}
+\]
+for appropriate $C',L'$ depending on $\iota_g$ and the embedding bounds.
+\end{proof}
+
+\section{Appendix B: Phase–Dissonance Functional and Norm Bounds}
+
+In this appendix we derive explicit bounds relating the phase--dissonance functional $D(\Phi_t)$ to underlying contradiction components and to the norm of the governance state $\Phi_t$.
+
+\subsection{B.1 Norm Definitions}
+
+Recall that for a fixed $t$, the governance tensor $\Phi_t$ lives in
+\[
+  \mathcal{G} := \mathbb{R}^{k \times |\mathcal{A}|},
+\]
+with a natural norm
+\begin{equation}\label{eq:Phi-norm}
+  \|\Phi_t\|_{\mathcal{G}}^2
+  :=
+  \sum_{p_i \in \mathcal{P}_g} \sum_{a \in \mathcal{A}}
+  \big(\Phi_t(p_i,a)\big)^2.
+\end{equation}
+We also collect the contradiction components into a tensor
+\[
+  \Delta(t) = \big(\Delta_{p_i,a}(t)\big)_{p_i \in \mathcal{P}_g, a \in \mathcal{A}} \in \mathbb{R}^{k \times |\mathcal{A}|},
+\]
+with norm
+\begin{equation}\label{eq:Delta-norm}
+  \|\Delta(t)\|_{\mathcal{G}}^2
+  :=
+  \sum_{p_i \in \mathcal{P}_g} \sum_{a \in \mathcal{A}}
+  \big(\Delta_{p_i,a}(t)\big)^2.
+\end{equation}
+Weights $w_{p_i,a} \ge 0$ define a weighted tensor
+\[
+  W\odot \Delta(t)
+  :=
+  \big(w_{p_i,a} \Delta_{p_i,a}(t)\big)_{p_i,a}.
+\]
+
+\subsection{B.2 Phase–Dissonance as a Weighted Operator}
+
+Recall the definition
+\[
+  D(\Phi_t)
+  =
+  \Bigg(
+    \sum_{p_i \in \mathcal{P}_g} \sum_{a \in \mathcal{A}}
+      \big( p_i \cdot w_{p_i,a} \cdot \Delta_{p_i,a}(t) \big)^2
+  \Bigg)^{1/2}.
+\]
+We can interpret this as the $\ell^2$--norm of the image of $\Delta(t)$ under a diagonal operator $T$ defined by
+\[
+  (T z)_{p_i,a}
+  := p_i w_{p_i,a} z_{p_i,a},
+  \quad z \in \mathbb{R}^{k \times |\mathcal{A}|}.
+\]
+
+\begin{lemma}[Operator norm of $T$]\label{lem:T-norm}
+The operator $T : \mathcal{G} \to \mathcal{G}$ is bounded with
+\[
+  \|T\|_{\mathcal{L}(\mathcal{G})}
+  =
+  \max_{p_i \in \mathcal{P}_g, a \in \mathcal{A}} \big| p_i w_{p_i,a} \big|.
+\]
+\end{lemma}
+
+\begin{proof}
+For any $z \in \mathcal{G}$,
+\[
+  \|Tz\|_{\mathcal{G}}^2
+  =
+  \sum_{p_i,a} (p_i w_{p_i,a} z_{p_i,a})^2
+  \le
+  \left( \max_{p_i,a} |p_i w_{p_i,a}|^2 \right)
+  \sum_{p_i,a} z_{p_i,a}^2
+  =
+  \left( \max_{p_i,a} |p_i w_{p_i,a}|^2 \right)
+  \|z\|_{\mathcal{G}}^2.
+\]
+Thus
+\[
+  \|T\|_{\mathcal{L}(\mathcal{G})} \le \max_{p_i,a} |p_i w_{p_i,a}|.
+\]
+To see equality, take $z$ supported on a single index $(p_i,a)$ where $|p_i w_{p_i,a}|$ is maximal.
+\end{proof}
+
+\begin{proposition}[Bounds on $D(\Phi_t)$]\label{prop:D-bounds}
+For any $t \ge 0$,
+\[
+  D(\Phi_t) = \|T \Delta(t)\|_{\mathcal{G}},
+\]
+and hence
+\[
+  D(\Phi_t)
+  \le
+  \|T\|_{\mathcal{L}(\mathcal{G})} \cdot \|\Delta(t)\|_{\mathcal{G}}
+  =
+  \Big(\max_{p_i,a} |p_i w_{p_i,a}|\Big) \|\Delta(t)\|_{\mathcal{G}}.
+\]
+Conversely, if all $p_i w_{p_i,a} \ge c > 0$, then
+\[
+  D(\Phi_t)
+  \ge
+  c \|\Delta(t)\|_{\mathcal{G}}.
+\]
+\end{proposition}
+
+\begin{proof}
+The first identity is immediate from the definition of $T$. The upper bound is the operator norm inequality from Lemma~\ref{lem:T-norm}. The lower bound follows if $|p_i w_{p_i,a}| \ge c$ for all $(p_i,a)$:
+\[
+  D(\Phi_t)^2
+  =
+  \sum_{p_i,a} (p_i w_{p_i,a} \Delta_{p_i,a}(t))^2
+  \ge
+  c^2 \sum_{p_i,a} (\Delta_{p_i,a}(t))^2
+  =
+  c^2 \|\Delta(t)\|_{\mathcal{G}}^2.
+\]
+\end{proof}
+
+Proposition~\ref{prop:D-bounds} shows that, under uniform lower and upper bounds on $p_i w_{p_i,a}$, the phase--dissonance $D(\Phi_t)$ is equivalent (up to multiplicative constants) to the $\ell^2$--norm of the contradiction tensor $\Delta(t)$. This equivalence is useful when relating $D(\Phi_t)$ to other norms, e.g.\ norms of $\Phi_t$.
+
+\subsection{B.3 Lipschitz Dependence of $D$ on $\Phi_t$}
+
+Suppose the contradiction components $\Delta_{p_i,a}(t)$ are themselves derived from $\Phi_t$ via a Lipschitz mapping.
+
+\begin{assumption}[Lipschitz contradiction map]\label{ass:Delta-Lipschitz}
+There exists $L_\Delta \ge 0$ such that for all $\Phi,\Psi \in \mathcal{G}$,
+\[
+  \|\Delta(\Phi) - \Delta(\Psi)\|_{\mathcal{G}}
+  \le L_\Delta \|\Phi - \Psi\|_{\mathcal{G}},
+\]
+where we write $\Delta(\Phi)$ for the tensor $(\Delta_{p_i,a}(\Phi))_{p_i,a}$.
+\end{assumption}
+
+\begin{proposition}[Lipschitz bound for $D$]\label{prop:D-Lipschitz}
+Under Assumption~\ref{ass:Delta-Lipschitz}, the functional $D : \mathcal{G} \to \mathbb{R}_{\ge 0}$ defined by
+\[
+  D(\Phi) = \|T \Delta(\Phi)\|_{\mathcal{G}}
+\]
+is Lipschitz with constant
+\[
+  L_D \;\le\; \|T\|_{\mathcal{L}(\mathcal{G})} L_\Delta
+  = \Big(\max_{p_i,a} |p_i w_{p_i,a}|\Big) L_\Delta.
+\]
+\end{proposition}
+
+\begin{proof}
+For any $\Phi,\Psi$,
+\[
+  |D(\Phi) - D(\Psi)|
+  = \big|\|T \Delta(\Phi)\|_{\mathcal{G}} - \|T \Delta(\Psi)\|_{\mathcal{G}}\big|
+  \le \|T(\Delta(\Phi) - \Delta(\Psi))\|_{\mathcal{G}}
+\]
+\[
+  \le \|T\|_{\mathcal{L}(\mathcal{G})} \cdot \|\Delta(\Phi) - \Delta(\Psi)\|_{\mathcal{G}}
+  \le \|T\|_{\mathcal{L}(\mathcal{G})} L_\Delta \|\Phi - \Psi\|_{\mathcal{G}}.
+\]
+\end{proof}
+
+\subsection{B.4 Stability of the Dynamic Phase Band}
+
+Consider the dynamic band $\mathcal{B}_t = [L_t,U_t]$ with
+\[
+  L_t = g_L(D(\Phi_0),\dots,D(\Phi_t)),\quad
+  U_t = g_U(D(\Phi_0),\dots,D(\Phi_t)).
+\]
+We can bound the sensitivity of $U_t$ to perturbations in the trajectory.
+
+\begin{assumption}[Lipschitz band functionals]\label{ass:gL-gU}
+Assume $g_L,g_U$ are globally Lipschitz in each argument, with constants $L_L,L_U$ respectively, in the sense that for any two sequences $(x_0,\dots,x_t)$ and $(y_0,\dots,y_t)$,
+\[
+  |g_L(x_0,\dots,x_t) - g_L(y_0,\dots,y_t)|
+  \le L_L \sum_{\tau=0}^t |x_\tau - y_\tau|,
+\]
+and similarly for $g_U$ with $L_U$.
+\end{assumption}
+
+\begin{proposition}[Perturbation bound for $U_t$]\label{prop:U-perturb}
+Let $\{\Phi_t\}$ and $\{\Psi_t\}$ be two governance trajectories, and define $D_t = D(\Phi_t)$, $\tilde{D}_t = D(\Psi_t)$, and $U_t = g_U(D_0,\dots,D_t)$, $\tilde{U}_t = g_U(\tilde{D}_0,\dots,\tilde{D}_t)$. Under Assumptions~\ref{ass:Delta-Lipschitz} and \ref{ass:gL-gU},
+\[
+  |U_t - \tilde{U}_t|
+  \le
+  L_U L_D \sum_{\tau=0}^t \|\Phi_\tau - \Psi_\tau\|_{\mathcal{G}},
+\]
+with $L_D$ as in Proposition~\ref{prop:D-Lipschitz}.
+\end{proposition}
+
+\begin{proof}
+By Assumption~\ref{ass:gL-gU},
+\[
+  |U_t - \tilde{U}_t|
+  = |g_U(D_0,\dots,D_t) - g_U(\tilde{D}_0,\dots,\tilde{D}_t)|
+  \le L_U \sum_{\tau=0}^t |D_\tau - \tilde{D}_\tau|.
+\]
+By Proposition~\ref{prop:D-Lipschitz},
+\[
+  |D_\tau - \tilde{D}_\tau|
+  \le L_D \|\Phi_\tau - \Psi_\tau\|_{\mathcal{G}}.
+\]
+Combining,
+\[
+  |U_t - \tilde{U}_t|
+  \le L_U L_D \sum_{\tau=0}^t \|\Phi_\tau - \Psi_\tau\|_{\mathcal{G}}.
+\]
+\end{proof}
+
+\section{Appendix C: Example Control Loop and Convergence Properties}
+
+This appendix sketches conditions under which the control loop driven by $D(\Phi_t)$ and $\mathcal{B}_t$ stabilizes.
+
+\subsection{C.1 Abstract Control Law}
+
+Suppose that the remediation proposals $\mathcal{R}_t$ induce an effective update on the governance state $\Phi_t$ of the form
+\[
+  \Phi_{t+1} = F(\Phi_t, D(\Phi_t), U_t),
+\]
+where $F : \mathcal{G} \times \mathbb{R} \times \mathbb{R} \to \mathcal{G}$ is such that whenever $D(\Phi_t) > U_t$, the update direction points toward reduced dissonance.
+
+\begin{assumption}[Monotone reduction under violation]\label{ass:monotone-F}
+Assume there exist $\eta > 0$ and $\gamma \in (0,1)$ such that if $D(\Phi_t) > U_t + \eta$, then
+\[
+  D(\Phi_{t+1}) \le \gamma D(\Phi_t) + c,
+\]
+for some constant $c \ge 0$ independent of $t$, and if $D(\Phi_t) \le U_t$, then
+\[
+  D(\Phi_{t+1}) \le D(\Phi_t) + c.
+\]
+\end{assumption}
+
+\begin{theorem}[Asymptotic boundedness of dissonance]\label{thm:D-bounded}
+Under Assumption~\ref{ass:monotone-F}, if $U_t$ is bounded above by some $U_{\max}$ and the sequence $\{U_t\}$ converges, then $\sup_t D(\Phi_t) < \infty$ and any limit point $D^\ast$ of $D(\Phi_t)$ satisfies
+\[
+  D^\ast \le \frac{c}{1-\gamma} + U_{\max} + \eta.
+\]
+\end{theorem}
+
+\begin{proof}
+We proceed by bounding two regimes.
+
+If $D(\Phi_t) > U_t + \eta$, then by Assumption~\ref{ass:monotone-F},
+\[
+  D(\Phi_{t+1}) \le \gamma D(\Phi_t) + c.
+\]
+Iterating this relation over any contiguous segment of indices where the condition holds yields a geometric decay up to an additive constant $c/(1-\gamma)$.
+
+If $D(\Phi_t) \le U_t$, then $D(\Phi_{t+1}) \le D(\Phi_t) + c$, so in the non--violation regime the dissonance can at most drift upward linearly in a bounded band determined by the $U_t$ sequence and $c$.
+
+Since $U_t \le U_{\max}$ and convergent, we can choose $T$ such that $|U_t - U_\infty| < 1$ for $t \ge T$. Combining the decay in the violation regime with the bounded drift in the non--violation regime yields a global bound of order $c/(1-\gamma) + U_{\max} + \eta$, as claimed. Details follow a standard Lyapunov--style or comparison--sequence argument.
+\end{proof}
+
+Theorem~\ref{thm:D-bounded} shows that, with an appropriate control law $F$ and a bounded dynamic band $\mathcal{B}_t$, the phase--dissonance $D(\Phi_t)$ remains bounded and asymptotically controlled. Concrete choices of $F$ and $g_U$ can strengthen this to convergence of $D(\Phi_t)$ to a small neighborhood of the band.
+
+\nocite{*}
+\bibliographystyle{plain}
+\bibliography{references}
+
+\end{document}
+

@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Tag detail JSON",
+  "type": "object",
+  "required": ["generated", "slug", "name", "articles"],
+  "properties": {
+    "generated": { "type": "string" },
+    "slug": { "type": "string" },
+    "name": { "type": "string" },
+    "articles": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["path", "title", "status"],
+        "properties": {
+          "path": { "type": "string" },
+          "title": { "type": "string" },
+          "status": { "type": "string" },
+          "tags": { "type": "array", "items": { "type": "string" } },
+          "created": { "type": "string" },
+          "updated": { "type": "string" },
+          "stratum": { "type": "string" },
+          "operator_class": { "type": "string" },
+          "xi_domain": { "type": "string" },
+          "csl_role": { "type": "string" }
+        }
+      }
+    }
+  }
+}

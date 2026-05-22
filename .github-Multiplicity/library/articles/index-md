@@ -1,0 +1,35 @@
+# Master Index
+
+_Auto-generated. Do not edit by hand._
+
+Generated: 2025-12-07 06:17 UTC
+
+## Summary
+
+- Total articles: **3**
+- Stable: **2**
+- Review: **1**
+- Draft: **0**
+- Deprecated: **0**
+
+## Stable
+
+### Operator class: operator — Stable
+
+#### Stratum: S0
+
+- [Sample Foundation Article](00-foundations/sample-article.md) — _created 2025-12-06, Ξ-domain Xi, CSL dictionary-entry_
+
+### Operator class: unspecified — Stable
+
+#### Stratum: 0
+
+- [Introduction to Multiplicity Theory](00-foundations/intro.md) — _created 2025-12-06_
+
+## Review
+
+### Operator class: unspecified — Review
+
+#### Stratum: 13+1
+
+- [Ξ-Inference Engine Overview](01-operators/xi-engine.md) — _created 2025-12-06_

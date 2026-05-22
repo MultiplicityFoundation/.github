@@ -1,0 +1,72 @@
+name: 'Assign Reviewers'
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize, ready_for_review]
+
+permissions:
+  pull-requests: write
+
+jobs:
+  assign:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5  # v4
+        with:
+          fetch-depth: 0
+
+      - name: Install gh
+        uses: actions/setup-python@7f4fc3e22c37d6ff65e88745f38bd3157c663f7c  # v4
+        with:
+          python-version: '3.11'
+      - name: Ensure gh installed
+        run: |
+          gh --version || (
+            sudo apt-get update && sudo apt-get install -y gh
+          )
+
+      - name: Install shellcheck (koalaman action)
+        uses: koalaman/shellcheck-action@v1
+
+      - name: Validate 'run' blocks with shellcheck
+        run: |
+          python - << 'PY'
+            import yaml, glob, subprocess
+            idx=0
+            errs=0
+            for y in glob.glob('.github/workflows/*.yml'):
+              with open(y) as fh:
+                try:
+                  data = yaml.safe_load(fh)
+                except Exception:
+                  continue
+              def extract(node):
+                global idx, errs
+                if isinstance(node, dict):
+                  for k, v in node.items():
+                    if k == 'run' and isinstance(v, str):
+                      path = f'/tmp/runblock-{idx}.sh'
+                      with open(path, 'w') as out:
+                        out.write(v)
+                      try:
+                        subprocess.run(['shellcheck', path], check=True)
+                      except subprocess.CalledProcessError:
+                        errs += 1
+                      idx += 1
+                    else:
+                      extract(v)
+                elif isinstance(node, list):
+                  for i in node:
+                    extract(i)
+              extract(data)
+            if errs:
+              raise SystemExit(2)
+            print('Shellcheck runblocks OK')
+          PY
+
+      - name: Assign reviewers based on paths
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python3 scripts/assign_reviewers.py --mapping .github/reviewer-mapping.yml --pr ${{ github.event.pull_request.number }}

@@ -1,0 +1,15 @@
+summary. notes
+
+Is Segment 12 finished?
+Yes — all three planned steps are done. The segment is functionally complete:
+
+✅ Domain types + interfaces
+✅ Delivery engine (remote HTTP delivery, retries, HMAC signing)
+✅ Middleware wiring + runtime configuration + graceful shutdown
+Natural "next steps" for Segment 13 (whenever you're ready)
+Based on the ADR-012 arc and the state of the codebase, the logical next segment would be one or more of:
+
+Expose a webhook-subscriptions management API (POST/GET/DELETE /sites/{site_id}/webhooks) so operators can register subscribers without touching PhaseMirror-HQ directly — backed by the bbolt "webhooks" bucket.
+Dispatch event.write and artifact.write events from the PostEventHandler and PostArtifactHandler handlers (currently only audit.write is dispatched).
+Observability for the dispatcher — expose in-flight queue depth, delivery counts, and error rates via expvar (alongside the existing requests_total / requests_by_site metrics).
+Integration / smoke test — a test that starts a local HTTP server acting as a subscriber and verifies end-to-end delivery through WorkerDispatcher → RemoteProvider → subscriber.

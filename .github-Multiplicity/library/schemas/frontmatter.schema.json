@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["title", "slug", "status", "tags", "created", "updated", "version"],
+  "properties": {
+    "title": { "type": "string", "minLength": 3 },
+    "slug": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+    "status": { "type": "string", "enum": ["draft", "review", "stable", "deprecated"] },
+    "tags": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+    "stratum": { "type": "string" },
+    "related": { "type": "array", "items": { "type": "string" } },
+    "authors": { "type": "array", "items": { "type": "string" } },
+    "created": { "type": "string", "format": "date" },
+    "updated": { "type": "string", "format": "date" },
+    "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" }
+  },
+  "additionalProperties": true
+}

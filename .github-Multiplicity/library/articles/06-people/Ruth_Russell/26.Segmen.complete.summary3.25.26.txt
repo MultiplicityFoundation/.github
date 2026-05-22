@@ -1,0 +1,29 @@
+26.Segmen.complete.summary
+
+What was built — Segment 26: Enhanced Health Check Endpoints
+Problem solved
+The existing /healthz/live and /healthz/ready endpoints were too shallow to be operationally useful:
+
+/healthz/live returned {"status":"ok"} with no way to detect a stuck or freshly-started process
+/healthz/ready returned {"status":"ok"} even if all bbolt stores were inaccessible
+/healthz/live — process uptime
+A package-level serverStartTime = time.Now() var is set at package initialization. The handler now returns:
+
+JSON
+{"status": "ok", "uptime_seconds": 42}
+Zero configuration or main.go wiring required.
+
+/healthz/ready — per-site store probing
+ReadyzHandler now takes *storage.Registry in addition to *site.Registry. For each registered site it calls stores.Open(id) (idempotent — the registry caches the open handle). All OK → 200 ok; any failure → 503 degraded:
+
+JSON
+{
+  "status": "ok",
+  "sites": 2,
+  "stores": {"local": "ok", "staging": "ok"}
+}
+Tests (3 updated/added)
+TestLivez — updated to decode as map[string]any, verify uptime_seconds present
+TestReadyz — updated to verify stores map present and all sites report "ok"
+TestReadyz_AllSitesReported — verifies both "local" and "staging" appear in the stores map
+Security summary: CodeQL found 0 alerts. No security-relevant changes.

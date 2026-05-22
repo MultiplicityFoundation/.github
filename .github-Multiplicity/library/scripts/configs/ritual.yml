@@ -1,0 +1,68 @@
+# configs/ritual.yml — ritual schedules (e.g., 108-count sessions)
+experiment: "ritual_schedules"
+data:
+  root: "repro/data/RITUAL"
+  split:
+    strategy: "kfold"
+    k: 5
+    seed: 20251
+
+lattice:
+  n: [108]
+  tiers:
+    use_CRT: true
+
+resonance:
+  lambdas: { R1: 0.40, R2: 0.35, R3: 0.25 }
+  etas:
+    proportional_by_divisor: true
+
+word:
+  order: "ternary_first"
+  ops:
+    - { kind: S, p: 3, r: 3 }
+    - { kind: S, p: 2, r: 2 }
+    - { kind: A, d: 27, alpha: 1.0, ch: 0 }
+    - { kind: A, d: 9,  alpha: 0.7, ch: 0 }
+    - { kind: A, d: 3,  alpha: 0.5, ch: 0 }
+    - { kind: A, d: 4,  alpha: 0.3, ch: 0 }
+    - { kind: A, d: 2,  alpha: 0.2, ch: 0 }
+  ornaments:
+    use_5: true
+    anti_3_gate: true
+    alpha_5: 0.10
+    use_7_drift: false
+    alpha_7: 0.05
+
+theta:
+  alpha: { "27": 1.0, "9": 0.7, "3": 0.5, "4": 0.3, "2": 0.2, "5": 0.1 }
+  phi:   { "27": 0, "9": 0, "3": 0, "4": 0, "2": 0 }
+  perm:  {}
+  Q: {}
+
+gauge:
+  downbeat_pin: true
+  crt_phase_fix: true
+
+impl:
+  fft_backend: "fftw"
+  threads: 1
+  deterministic: true
+
+invariants:
+  Emax: 1.0
+  tier_max: { "27": 0.60 }
+  Fmin: 0.75
+
+seeds:
+  global: 2108
+  beam: 777
+  init: 27
+
+search:
+  beam_width: 16
+  steps_cont: 60
+  steps_beam: 8
+
+outputs:
+  dir: "repro/outputs"

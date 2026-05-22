@@ -1,0 +1,2364 @@
+\documentclass[11pt,a4paper]{article}
+
+% Essential packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{enumerate}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{url}
+\usepackage{cite}
+\usepackage{array}
+
+% Page geometry
+\geometry{
+    a4paper,
+    left=25mm,
+    right=25mm,
+    top=30mm,
+    bottom=30mm
+}
+
+% Header and footer
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Defensive Publication: Phase Mirror Dissonance}
+\rhead{\today}
+\cfoot{Page \thepage\ of \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+% Hyperref setup
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=cyan,
+    citecolor=blue,
+    pdftitle={Defensive Publication: Phase Mirror Dissonance Methodology for Agentic AI Governance},
+    pdfauthor={Ryan O. Van Gelder},
+    pdfsubject={AI Governance, Organizational Design, Diagnostic Methodology},
+    pdfkeywords={Phase Mirror, Dissonance Analysis, AI Governance, Agentic AI, Enterprise Architecture, Organizational Diagnostics}
+}
+
+% Title and metadata
+\title{\textbf{Defensive Publication: \\
+Phase Mirror Dissonance Methodology \\
+for Agentic AI Governance and Organizational Diagnostics}}
+
+\author{
+    Ryan O. Van Gelder \\
+    \textit{Crown City, Ohio, United States} \\
+    \texttt{Publication Date: \today}
+}
+
+\date{}
+
+\begin{document}
+
+\maketitle
+
+% Zenodo-compliant metadata block
+\begin{center}
+\fbox{%
+\parbox{0.9\textwidth}{%
+\textbf{Document Type:} Technical Disclosure / Defensive Publication \\
+\textbf{Version:} 1.0 \\
+\textbf{Publication Date:} \today \\
+\textbf{License:} CC BY 4.0 (Creative Commons Attribution 4.0 International) \\
+\textbf{Keywords:} Phase Mirror Dissonance, Agentic AI Governance, Organizational Diagnostics, Enterprise AI Risk Management, Governance Mechanisms, Liability Architecture, Callable Protocol, Mirror Dissonance Oracle \\
+\textbf{Subject Classification:} Computer Science / Artificial Intelligence / Governance; Organizational Theory; Risk Management \\
+\textbf{DOI:} [10.5281/zenodo.18407313] \\
+\textbf{Purpose:} Establishment of prior art to prevent patent claims on the Phase Mirror Dissonance methodology and its applications
+}}
+\end{center}
+
+\begin{abstract}
+This defensive publication establishes comprehensive prior art for the \textbf{Phase Mirror Dissonance} (PMD) methodology, a novel diagnostic framework for surfacing productive contradictions in organizational systems, with particular application to agentic AI governance. The PMD methodology comprises three integrated components: (1) \textit{Mirror} -- objective reflection of stated claims without endorsement, (2) \textit{Dissonance} -- systematic identification of structural tensions and missing bindings, and (3) \textit{Phase} -- generation of concrete, testable interventions with explicit ownership and metrics.
+
+This publication documents the complete technical specification, operational framework, implementation patterns, and novel applications of PMD, including: the five-step operating loop (Extract-Map-Rank-Produce-Question), standardized output templates (Standard, Rapid Triage, Board Packet), binding artifact heuristics (replacing ``align'' with artifact, ``collaborate'' with binding), and the callable Mirror Dissonance Oracle protocol for automated governance enforcement.
+
+Key innovations disclosed include: (1) the Compliance-Accuracy 
+Tradeoff framework requiring explicit policy encoding, (2) tiered 
+governance models distinguishing human-in-the-loop from 
+human-on-exception oversight, (3) the dissonance report schema 
+with provenance tracking and false-positive calibration, 
+(4) redaction-by-capability mechanisms using HMAC integrity 
+binding, (5) circuit-breaker patterns for blast-radius management, 
+(6) a normative implementation profile ensuring deterministic 
+outputs across independent implementations, and (7) a conformance 
+test suite with seven test vectors providing cryptographic hash 
+verification of interoperability.
+
+This disclosure includes a complete normative implementation profile 
+(Appendix C) specifying UTF-8 encoding, JSON serialization, timestamp 
+formats, and hash computation requirements to enable verifiable 
+conformance testing. Seven test vectors with computed SHA-256 hashes 
+are provided to verify independent implementations produce 
+byte-identical outputs.
+\end{abstract}
+
+\tableofcontents
+\newpage
+
+\section{Introduction and Purpose}
+
+\subsection{Defensive Publication Objectives}
+
+This document constitutes a \textbf{defensive publication} establishing comprehensive prior art for the Phase Mirror Dissonance (PMD) methodology and all associated systems, methods, and applications disclosed herein. The explicit purposes of this publication are:
+
+\begin{enumerate}
+\item \textbf{Prevent Patent Claims:} To establish definitive, publicly accessible prior art that prevents any party—including the original developers—from obtaining patent protection on the PMD methodology, its constituent elements, or any derivative applications.
+
+\item \textbf{Public Domain Contribution:} To ensure that the innovations described remain freely available for use, modification, and extension by practitioners, researchers, and organizations worldwide.
+
+\item \textbf{Timestamp Establishment:} To create a verifiable, immutable timestamp through publication on Zenodo and other archival repositories, establishing the date of invention disclosure.
+
+\item \textbf{Comprehensive Coverage:} To document not only the core methodology but all known variations, extensions, and applications to maximize prior art coverage.
+\end{enumerate}
+
+\subsection{Scope of Disclosure}
+
+This defensive publication covers:
+
+\begin{itemize}
+\item The complete Phase Mirror Dissonance methodology and theoretical framework
+\item All operational procedures, algorithms, and decision flows
+\item Implementation patterns including software architectures and data schemas
+\item Application domains including agentic AI governance, organizational diagnostics, and strategic planning
+\item Novel mechanisms including the Mirror Dissonance Oracle, redaction protocols, and circuit-breaker patterns
+\item Extensions and derivative works including hierarchical PMD and background/callable PMD distinctions
+\end{itemize}
+
+\subsection{Disclosure Boundaries}
+
+This publication explicitly categorizes all disclosed elements into three boundary classes to prevent ambiguity and establish clear expectations regarding what is placed in the public domain versus what is retained as operational security or competitive advantage.
+
+\subsubsection{Disclosed Elements (Public Domain)}
+
+The following elements are placed in the public domain under CC BY 4.0 and may be freely implemented by any party without restriction:
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{|p{4cm}|p{5cm}|p{2cm}|}
+\hline
+\textbf{Element} & \textbf{Scope} & \textbf{Location} \\ \hline
+PMD Triadic Framework & Complete Mirror-Dissonance-Phase methodology & §3.1 \\ \hline
+Five-Step Operating Loop & Extract-Map-Rank-Produce-Question algorithm & §3.2 \\ \hline
+Tension Ranking Formula & Impact × Tractability prioritization & §3.2.3 \\ \hline
+Output Templates & Standard, Rapid Triage, Board Packet & §3.3 \\ \hline
+Seven Agentic AI Dissonances & Complete enumeration & §4.2 \\ \hline
+Compliance-Accuracy Tradeoff & Policy encoding framework & §4.3 \\ \hline
+Dissonance Report Schema & JSON structure (meta/items/summary/decision) & §5.3 \\ \hline
+Rule Definition Interface & TypeScript interface with FP tolerance & §5.4 \\ \hline
+False-Positive Calibration & Durable store, auto-demotion pattern & §5.5 \\ \hline
+Circuit-Breaker Pattern & Block-rate threshold degradation & §5.6 \\ \hline
+Tiered Governance Models & Four-tier human oversight (Tier 0-3) & §4.2.3 \\ \hline
+\end{tabular}
+\caption{Disclosed Elements (Public Domain)}
+\label{tab:disclosed_elements}
+\end{table}
+
+\subsubsection{Retained Elements (Not Disclosed)}
+
+The following implementation details are intentionally retained as operational security credentials or trade secrets. While the \textit{patterns} are disclosed, specific \textit{values} and \textit{calibrations} are not:
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{|p{4cm}|p{5cm}|p{3cm}|}
+\hline
+\textbf{Element} & \textbf{Reason for Retention} & \textbf{Competitive Moat} \\ \hline
+Specific HMAC nonce values & Security credential & Prevents clone-and-replace attacks \\ \hline
+Tuned FP rate thresholds & Calibrated to proprietary datasets & Operational optimization \\ \hline
+Proprietary rule logic (MD-050+) & Client-specific domain expertise & Service differentiation \\ \hline
+SSM parameter paths & Infrastructure-specific details & Operational security \\ \hline
+Internal metric baselines & Performance benchmarks from production & Competitive intelligence \\ \hline
+Enterprise integration playbooks & Deployment know-how & Implementation maturity \\ \hline
+\end{tabular}
+\caption{Retained Elements (Trade Secrets)}
+\label{tab:retained_elements}
+\end{table}
+
+\textbf{Important Distinction:} The \textit{pattern} of HMAC-based redaction (Section 5.7) is disclosed as prior art. The \textit{specific nonce value} used in production systems is retained as an operational security credential. Independent implementers should generate their own nonces using cryptographically secure random number generators.
+
+\subsubsection{Non-Claimed Elements (Out of Scope)}
+
+The following are explicitly \textbf{not claimed} as prior art and should be disregarded for patent analysis purposes:
+
+\begin{itemize}
+\item Speculative quantum computing applications (no operational algorithms provided)
+\item Hypothetical reinforcement learning extensions (future research direction only)
+\item Unimplemented formal verification integration proposals (conceptual only)
+\item Metaphorical references to quantum mechanics without operational specification
+\item Vague organizational theory analogies without concrete implementation methods
+\end{itemize}
+
+\textbf{Rationale:} These speculative extensions lack sufficient technical detail to constitute prior art. They represent potential future research directions but are not part of the normative disclosure.
+
+\subsubsection{Competitive Moat Protection}
+
+The disclosed elements represent intentional contributions to the public domain to establish prior art and prevent patent monopolization. Competitive advantages are retained through:
+
+\begin{enumerate}
+\item \textbf{Operational Data:} Years of false-positive calibration data from production deployments, enabling tuned thresholds that minimize both false positives and false negatives.
+
+\item \textbf{Proprietary Detection Rules:} Client-specific domain expertise embodied in rules MD-050 and above, which address industry-specific governance challenges not disclosed in this publication.
+
+\item \textbf{Security Credentials:} HMAC nonces, SSM parameter paths, and infrastructure configurations that cannot be reverse-engineered from disclosed patterns.
+
+\item \textbf{Integration Maturity:} Battle-tested deployment patterns, incident response procedures, and operational runbooks developed through real-world implementations.
+
+\item \textbf{Brand Recognition:} Trademark protection for "Phase Mirror Dissonance," "Mirror Dissonance Oracle," and potential certification programs that provide market differentiation.
+
+\item \textbf{Network Effects:} Early adopter community, switching costs, and ecosystem integrations that create barriers to entry for competitors implementing the disclosed methodology.
+\end{enumerate}
+
+This boundary strategy enables the publication to achieve its dual objectives: (1) establish comprehensive prior art preventing patent claims, and (2) preserve competitive advantages through operational assets not disclosed herein.
+
+\subsection{Publication Strategy}
+
+Following defensive publication best practices\cite{defensive_pub_strategy}, this document will be:
+
+\begin{enumerate}
+\item Published on \textbf{Zenodo} to obtain a permanent DOI and ensure archival preservation
+\item Submitted to \textbf{arXiv} for academic indexing and citation tracking
+\item Made publicly accessible via institutional repositories and project documentation
+\item Indexed by search engines and patent databases to ensure discoverability
+\item Version-controlled with cryptographic hash verification for integrity
+\end{enumerate}
+
+\subsection{Legal Framework}
+
+This publication is released under the \textbf{Creative Commons Attribution 4.0 International} (CC BY 4.0) license, ensuring:
+
+\begin{itemize}
+\item Freedom to use, modify, and distribute the methodologies described
+\item Requirement for attribution to original source
+\item No restrictions on commercial use
+\item Compatibility with open-source and proprietary implementations
+\end{itemize}
+
+\textbf{Patent Rights Waiver:} The authors explicitly waive any rights to pursue patent protection on the inventions disclosed herein, contributing them to the public domain for the advancement of organizational governance and AI safety practices.
+
+\section{Background and Motivation}
+
+\subsection{The Governance Challenge}
+
+Modern organizations face a fundamental challenge when implementing autonomous AI systems: the inherent tension between \textit{autonomy} (the promise of self-directed decision-making) and \textit{governance} (the requirement for accountability, determinism, and human control). This is not a solvable problem but a permanent structural tension that must be explicitly managed.
+
+Traditional governance frameworks rely on abstract principles such as ``alignment,'' ``transparency,'' and ``collaboration''—terms that lack concrete operational definitions and binding mechanisms. These vague claims, or \textit{vibe claims}, create a false sense of control while hiding critical mismatches between stated intentions and actual operating incentives.
+
+\subsection{Prior Art Landscape}
+
+Existing approaches to organizational diagnostics and AI governance include:
+
+\begin{itemize}
+\item \textbf{Risk assessment frameworks} focusing on probabilistic threat modeling
+\item \textbf{Compliance checklists} providing binary pass/fail criteria
+\item \textbf{Governance maturity models} describing staged evolution paths
+\item \textbf{Policy analysis tools} evaluating regulatory alignment
+\end{itemize}
+
+However, none of these prior approaches:
+
+\begin{enumerate}
+\item Systematically surface the \textit{structural contradictions} inherent in complex organizational systems
+\item Replace abstract governance language with \textit{concrete, binding artifacts}
+\item Generate \textit{testable, metric-driven interventions} with explicit ownership
+\item Provide \textit{callable, deterministic protocols} for automated enforcement
+\item Address the specific challenges of \textit{agentic AI liability architecture}
+\end{enumerate}
+
+The Phase Mirror Dissonance methodology fills this gap by providing a rigorous, repeatable process for converting organizational ambiguity into actionable governance mechanisms.
+
+\subsection{Novel Contributions}
+
+This disclosure establishes prior art for the following novel contributions:
+
+\begin{enumerate}
+\item \textbf{The PMD Triadic Framework:} The integrated Mirror-Dissonance-Phase structure as a diagnostic and prescriptive methodology
+
+\item \textbf{Operational Formalization:} The five-step loop (Extract-Map-Rank-Produce-Question) as a repeatable algorithmic process
+
+\item \textbf{Artifact-Binding Heuristics:} Systematic replacement patterns (``align'' $\rightarrow$ artifact; ``collaborate'' $\rightarrow$ binding mechanism)
+
+\item \textbf{Tension Ranking Formula:} Impact $\times$ Tractability as a prioritization metric
+
+\item \textbf{Standardized Output Templates:} Three distinct formats (Standard, Rapid Triage, Board Packet) for different stakeholder audiences
+
+\item \textbf{Callable Oracle Protocol:} The Mirror Dissonance Oracle as a deterministic, auditable governance enforcement layer
+
+\item \textbf{Compliance-Accuracy Tradeoff Framework:} Explicit policy encoding for autonomous agent decision boundaries
+
+\item \textbf{Redaction-by-Capability:} HMAC-based evidence integrity with brand nonce validation
+
+\item \textbf{Circuit-Breaker Patterns:} Block-rate thresholds with automatic degradation to warn-only modes
+
+\item \textbf{False-Positive Calibration:} Per-rule FP tolerance tracking with automatic demotion mechanisms
+\end{enumerate}
+
+\section{Core Methodology: Phase Mirror Dissonance}
+
+\subsection{Conceptual Foundation}
+
+The Phase Mirror Dissonance methodology is built on three foundational concepts:
+
+\subsubsection{Mirror: Objective Reflection}
+
+\textbf{Definition:} The \textit{Mirror} component reflects the user's stated claims, goals, and assumptions back to them without endorsement, judgment, or interpretation. This creates a neutral analytical surface.
+
+\textbf{Purpose:} To establish a factual baseline that separates what is \textit{said} from what is \textit{incentivized}, exposing latent contradictions.
+
+\textbf{Mechanism:} Extract explicit statements from input text, including:
+\begin{itemize}
+\item Stated goals and desired outcomes
+\item Claimed constraints and limitations
+\item Expressed fears and concerns
+\item Implicit assumptions about causality
+\item Temporal horizons for action
+\end{itemize}
+
+\textbf{Key Principle:} The Mirror does not validate or affirm—it simply presents what has been stated, creating cognitive distance for objective analysis.
+
+\subsubsection{Dissonance: Tension Identification}
+
+\textbf{Definition:} \textit{Dissonance} refers to structural tensions, contradictions, or missing bindings between different components of a system, plan, or organization.
+
+\textbf{Purpose:} To identify the root causes of organizational paralysis, policy failure, or implementation gaps by exposing conflicts between:
+\begin{itemize}
+\item Stated goals vs. operating incentives
+\item Urgency of action vs. capacity to deliver
+\item Risk claimed vs. risk owned
+\item Control desired vs. control available
+\item Compliance requirements vs. probabilistic outputs
+\end{itemize}
+
+\textbf{Typology of Dissonances:}
+
+\begin{enumerate}
+\item \textbf{Incentive Misalignment:} When rewards structure undermines stated objectives
+\item \textbf{Capacity-Urgency Gap:} When timeline demands exceed available resources
+\item \textbf{Ownership Ambiguity:} When accountability is claimed but not assigned
+\item \textbf{Control Illusion:} When governance authority is asserted without enforcement mechanisms
+\item \textbf{Binary-Probabilistic Friction:} When deterministic frameworks govern stochastic systems
+\end{enumerate}
+
+\subsubsection{Phase: Concrete Interventions}
+
+\textbf{Definition:} A \textit{Phase} is a small, testable shift in process, policy, or resource allocation designed to restore coherence by addressing identified dissonances.
+
+\textbf{Purpose:} To convert diagnostic insight into actionable change with measurable outcomes.
+
+\textbf{Structure of a Lever (Phase Implementation):}
+
+Each Phase is formalized as a \textit{Lever} with four mandatory components:
+
+\begin{equation}
+\text{Lever} = (\text{Owner}, \text{Action}, \text{Metric}, \text{Horizon})
+\end{equation}
+
+Where:
+\begin{itemize}
+\item \textbf{Owner:} Specific individual or role accountable for execution
+\item \textbf{Action:} Concrete, observable intervention (verb-noun format)
+\item \textbf{Metric:} Quantifiable success criterion
+\item \textbf{Horizon:} Time-bound deadline (days/weeks/quarters)
+\end{itemize}
+
+\textbf{Example:}
+\begin{quote}
+\textit{Owner:} VP Customer Experience \\
+\textit{Action:} Create tiered SLA and publish \\
+\textit{Metric:} CSAT $\geq$ 4.5 \\
+\textit{Horizon:} 30 days
+\end{quote}
+
+\subsection{The Five-Step Operating Loop}
+
+The PMD methodology follows a deterministic, repeatable process:
+
+\begin{equation}
+\text{PMD}(I) = (\text{Extract} \circ \text{Map} \circ \text{Rank} \circ \text{Produce} \circ \text{Question})(I)
+\end{equation}
+
+Where $I$ represents the input text describing an organizational challenge, policy question, or system design.
+
+\subsubsection{Step 1: Extract}
+
+\textbf{Objective:} Systematically identify all relevant components from the input.
+
+\textbf{Extraction Categories:}
+\begin{enumerate}
+\item \textbf{Goals:} What outcomes are explicitly desired?
+\item \textbf{Claims:} What capabilities or conditions are asserted?
+\item \textbf{Fears:} What risks or failure modes are expressed?
+\item \textbf{Constraints:} What limitations are acknowledged (budget, time, policy)?
+\item \textbf{Stakeholders:} Who is affected or must act?
+\item \textbf{Time Horizon:} What is the decision or delivery timeline?
+\end{enumerate}
+
+\textbf{Algorithm:}
+\begin{verbatim}
+FUNCTION Extract(input_text):
+    parsed_data = {
+        'goals': [],
+        'claims': [],
+        'fears': [],
+        'constraints': [],
+        'stakeholders': set(),
+        'time_horizon': None
+    }
+    
+    FOR sentence IN tokenize(input_text):
+        IF contains_modal_verb(sentence, ['want', 'need', 'must']):
+            parsed_data['goals'].append(sentence)
+        IF contains_assertion(sentence):
+            parsed_data['claims'].append(sentence)
+        IF contains_risk_language(sentence):
+            parsed_data['fears'].append(sentence)
+        IF contains_limitation(sentence):
+            parsed_data['constraints'].append(sentence)
+        FOR entity IN extract_named_entities(sentence):
+            IF is_role_or_actor(entity):
+                parsed_data['stakeholders'].add(entity)
+        IF contains_temporal_reference(sentence):
+            parsed_data['time_horizon'] = extract_timeline(sentence)
+    
+    RETURN parsed_data
+\end{verbatim}
+
+\subsubsection{Step 2: Map Tensions}
+
+\textbf{Objective:} Identify contradictions and missing bindings between extracted components.
+
+\textbf{Tension Mapping Patterns:}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Component A} & \textbf{Component B} \\ \hline
+Stated goal & Actual incentive structure \\ \hline
+Urgency claim & Available capacity \\ \hline
+Risk acknowledged & Risk ownership assignment \\ \hline
+Control desired & Enforcement mechanism \\ \hline
+Compliance requirement & Probabilistic system output \\ \hline
+Abstract principle (``align'') & Concrete artifact (spec/contract) \\ \hline
+Collaboration intent & Binding mechanism (cadence/quorum) \\ \hline
+\end{tabular}
+\caption{Tension Mapping Patterns}
+\label{tab:tension_patterns}
+\end{table}
+
+\textbf{Algorithm:}
+\begin{verbatim}
+FUNCTION MapTensions(parsed_data):
+    tensions = []
+    
+    # Goal-Incentive Mismatch
+    FOR goal IN parsed_data['goals']:
+        FOR constraint IN parsed_data['constraints']:
+            IF undermines(constraint, goal):
+                tensions.append({
+                    'type': 'goal_incentive_mismatch',
+                    'components': [goal, constraint],
+                    'severity': 'high'
+                })
+    
+    # Urgency-Capacity Gap
+    IF parsed_data['time_horizon'] < minimum_delivery_time(parsed_data):
+        tensions.append({
+            'type': 'urgency_capacity_gap',
+            'severity': 'critical'
+        })
+    
+    # Risk-Ownership Ambiguity
+    FOR fear IN parsed_data['fears']:
+        IF NOT has_assigned_owner(fear, parsed_data['stakeholders']):
+            tensions.append({
+                'type': 'risk_ownership_ambiguity',
+                'components': [fear],
+                'severity': 'medium'
+            })
+    
+    # Abstract-Binding Missing
+    FOR claim IN parsed_data['claims']:
+        IF is_vibe_claim(claim):  # e.g., "align", "collaborate"
+            IF NOT has_artifact_binding(claim, parsed_data):
+                tensions.append({
+                    'type': 'abstract_binding_missing',
+                    'components': [claim],
+                    'severity': 'medium'
+                })
+    
+    RETURN tensions
+\end{verbatim}
+
+\subsubsection{Step 3: Rank Tensions}
+
+\textbf{Objective:} Prioritize identified tensions to focus intervention efforts.
+
+\textbf{Ranking Formula:}
+\begin{equation}
+\text{Priority}(T) = \text{Impact}(T) \times \text{Tractability}(T)
+\end{equation}
+
+Where:
+\begin{itemize}
+\item \textbf{Impact} $\in [1, 10]$: Magnitude of potential harm or organizational paralysis if unresolved
+\item \textbf{Tractability} $\in [0.1, 1.0]$: Feasibility of addressing within available resources and authority
+\end{itemize}
+
+\textbf{Impact Scoring Criteria:}
+\begin{itemize}
+\item \textbf{10:} Existential risk to organization or severe legal liability
+\item \textbf{7--9:} Major operational disruption or reputational damage
+\item \textbf{4--6:} Moderate efficiency loss or delayed strategic initiative
+\item \textbf{1--3:} Minor friction or localized team impact
+\end{itemize}
+
+\textbf{Tractability Scoring Criteria:}
+\begin{itemize}
+\item \textbf{0.9--1.0:} Within direct control, solvable in current time horizon
+\item \textbf{0.5--0.8:} Requires coordination but no external dependencies
+\item \textbf{0.2--0.4:} Requires executive approval or budget allocation
+\item \textbf{0.1:} Systemic constraint requiring multi-year structural change
+\end{itemize}
+
+\textbf{Algorithm:}
+\begin{verbatim}
+FUNCTION RankTensions(tensions):
+    FOR tension IN tensions:
+        tension['impact'] = score_impact(tension)
+        tension['tractability'] = score_tractability(tension)
+        tension['priority'] = tension['impact'] * tension['tractability']
+    
+    RETURN sort(tensions, key='priority', reverse=True)
+\end{verbatim}
+
+\subsubsection{Step 4: Produce Output Blocks}
+
+\textbf{Objective:} Generate standardized, actionable output in three required blocks.
+
+\textbf{Block A: Phase Mirror Dissonance}
+
+A bullet list (5--9 items) that:
+\begin{itemize}
+\item Reflects stated claims without endorsement
+\item Names identified tensions explicitly
+\item Confronts contradictions plainly
+\end{itemize}
+
+\textbf{Stylistic Requirements:}
+\begin{itemize}
+\item Short, declarative sentences
+\item Neutral, non-emotive tone
+\item No moralizing or judgment
+\item Direct naming of risks
+\end{itemize}
+
+\textbf{Example:}
+\begin{quote}
+\textbf{Phase Mirror Dissonance:}
+\begin{itemize}
+\item Cost reduction goal conflicts with white-glove service promise.
+\item QA budget absent makes compliance breaches likely.
+\item Ownership unclear for escalation when AI fails.
+\item AI autonomy desired but deterministic success required.
+\item No mechanism specified for accuracy-compliance tradeoff.
+\end{itemize}
+\end{quote}
+
+\textbf{Block B: Levers to Test Now}
+
+A table (3--7 items) specifying concrete interventions:
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|l|l|l|}
+\hline
+\textbf{Owner} & \textbf{Lever} & \textbf{Metric} & \textbf{Horizon} \\ \hline
+VP CX & Create tiered SLA & CSAT $\geq$ 4.5 & 30 days \\ \hline
+Ops & Add spot-QA 5\% tickets & Defect rate $\leq$ 1\% & 14 days \\ \hline
+Eng & Guardrails on responses & Policy violations $\leq$ 0.2\% & 21 days \\ \hline
+\end{tabular}
+\caption{Example Levers Table}
+\end{table}
+
+\textbf{Block C: Optional Artifact}
+
+One (and only one) of:
+\begin{enumerate}
+\item \textbf{Quote:} A memorable one-liner that encapsulates the core insight
+\item \textbf{Riddle:} A thought-provoking question or paradox
+\item \textbf{Checklist:} A tactical pre-flight list for implementation
+\end{enumerate}
+
+\textbf{Example Quotes:}
+\begin{itemize}
+\item ``Clarity hurts only what was pretending.''
+\item ``When plans depend on hope, add a kill-switch.''
+\item ``The mirror disagrees, the ego calls it broken.''
+\end{itemize}
+
+\subsubsection{Step 5: Pose Precision Question}
+
+\textbf{Objective:} Ask one (and only one) clarifying question if a blocking ambiguity prevents resolution.
+
+\textbf{Criteria for Precision Question:}
+\begin{itemize}
+\item A critical tradeoff remains unspecified
+\item Ownership assignment is ambiguous at the executive level
+\item Success metric definition is contested
+\item Multiple valid interpretations exist for a key constraint
+\end{itemize}
+
+\textbf{Format:} Single interrogative sentence, typically forcing a binary or prioritization choice.
+
+\textbf{Examples:}
+\begin{itemize}
+\item ``Which metric wins if cost and CSAT collide?''
+\item ``Does the agent optimize for accuracy or compliance?''
+\item ``Who arbitrates when a rule crosses FP tolerance threshold?''
+\end{itemize}
+
+\textbf{Anti-Pattern:} Do NOT ask open-ended questions like ``What are your thoughts?'' or ``How do you feel about this?'' These invite discussion rather than decision.
+
+sha256:722fc7cfeb9e2dac67b7d0b4f99ed26b7557b263f63e0bf865c8869a0e01223e
+
+\subsection{Standardized Output Templates}
+
+The PMD methodology provides three distinct output templates for different stakeholder contexts:
+
+\subsubsection{Template A: Standard Analysis}
+
+\textbf{Use Case:} Default format for most analyses; balances comprehensiveness with conciseness.
+
+\textbf{Structure:}
+\begin{verbatim}
+Phase Mirror Dissonance:
+• [Tension 1]
+• [Tension 2]
+• [Tension 3]
+• [Tension 4]
+• [Tension 5]
+
+Levers to Test Now:
+| Owner | Lever | Metric | Horizon |
+|-------|-------|--------|---------|
+| [Role] | [Action] | [KPI] | [Days] |
+| [Role] | [Action] | [KPI] | [Days] |
+| [Role] | [Action] | [KPI] | [Days] |
+
+Optional Artifact:
+[Quote/Riddle/Checklist]
+
+Precision Question:
+[Single clarifying question, if needed]
+\end{verbatim}
+
+\textbf{Length:} 120--220 words
+
+\subsubsection{Template B: Rapid Triage}
+
+\textbf{Use Case:} High time-pressure situations; short prompts; quick decision gates.
+
+\textbf{Structure:}
+\begin{verbatim}
+Top 3 Tensions:
+1. [Tension 1]
+2. [Tension 2]
+3. [Tension 3]
+
+Levers:
+• [Owner] → [Action] → [Metric] → [Horizon]
+• [Owner] → [Action] → [Metric] → [Horizon]
+• [Owner] → [Action] → [Metric] → [Horizon]
+
+Artifact:
+[Single quote]
+
+[Question only if blocking]
+\end{verbatim}
+
+\textbf{Length:} $\leq$ 140 words
+
+\subsubsection{Template C: Board Packet}
+
+\textbf{Use Case:} Executive and board-level reporting; strategic oversight.
+
+\textbf{Structure:}
+\begin{verbatim}
+Top 5 Ranked Tensions:
+1. [Tension] | Impact: [X] | Tractability: [Y] | Priority: [Z]
+2. [Tension] | Impact: [X] | Tractability: [Y] | Priority: [Z]
+3. [Tension] | Impact: [X] | Tractability: [Y] | Priority: [Z]
+4. [Tension] | Impact: [X] | Tractability: [Y] | Priority: [Z]
+5. [Tension] | Impact: [X] | Tractability: [Y] | Priority: [Z]
+
+Key Levers with Baseline & Target:
+| Owner | Lever | KPI | Baseline | Target | Horizon |
+|-------|-------|-----|----------|--------|---------|
+| [Role] | [Action] | [Metric] | [Current] | [Goal] | [Days] |
+
+Risk Register:
+| Risk | Trigger | Mitigation | Owner |
+|------|---------|------------|-------|
+| [Risk 1] | [Condition] | [Action] | [Role] |
+| [Risk 2] | [Condition] | [Action] | [Role] |
+| [Risk 3] | [Condition] | [Action] | [Role] |
+
+Review Cadence:
+[Proposed oversight frequency and forum]
+\end{verbatim}
+
+\textbf{Length:} 300--500 words
+
+\section{Application Domain: Agentic AI Governance}
+
+\subsection{The Autonomy-Governance Tension}
+
+Agentic AI systems—autonomous agents capable of reasoning, planning, and acting without constant human prompting—create a fundamental structural tension:
+
+\begin{equation}
+\text{Agentic AI Promise} \perp \text{Enterprise Governance Requirement}
+\end{equation}
+
+Where:
+\begin{itemize}
+\item \textbf{Agentic AI Promise:} Autonomous decision-making, adaptive behavior, permission to explore and fail
+\item \textbf{Enterprise Governance:} Deterministic guarantees, audit trails, human accountability, zero-failure tolerance
+\end{itemize}
+
+This is not a solvable contradiction—it is a permanent tension requiring explicit management through binding mechanisms.
+
+\subsection{Critical Dissonances in Agentic AI Systems}
+
+Applying the PMD framework to agentic AI reveals seven recurring dissonances:
+
+\subsubsection{Dissonance 1: Reasoning vs. Data Hygiene}
+
+\textbf{Tension:} An agent's capacity for causal reasoning exposes previously hidden gaps in data quality. Unlike black-box models that obscure data flaws, causal AI agents explicitly reason over datasets—meaning inaccurate, biased, or incomplete data leads to fundamentally wrongful conclusions with direct liability.
+
+\textbf{Mechanism:} Causal graphs and structural causal models require:
+\begin{itemize}
+\item Complete variable sets (all confounders identified)
+\item Accurate edge directions (true causal relationships)
+\item Valid conditional independence assumptions
+\end{itemize}
+
+\textbf{Governance Lever:}
+\begin{quote}
+\textbf{Owner:} Data Governance \\
+\textbf{Lever:} Quantify causal model validity score before deployment \\
+\textbf{Metric:} Graph Accuracy Score $\geq$ 0.90 \\
+\textbf{Horizon:} 14 days
+\end{quote}
+
+\subsubsection{Dissonance 2: Domain-Specific Precision vs. Platform Scalability}
+
+\textbf{Tension:} Organizations desire scalable, general-purpose AI platforms, but agentic systems deliver measurable ROI only when tuned to specific domain contexts with high-precision outputs.
+
+\textbf{Tradeoff:}
+\begin{itemize}
+\item \textbf{General-Purpose Platform:} Broad applicability, lower precision, slower adoption
+\item \textbf{Domain-Specific Agent:} Narrow scope, high precision, immediate business impact
+\end{itemize}
+
+\textbf{Phase Recommendation:} Pilot domain-specific agents first; abstract to platform after validation.
+
+\subsubsection{Dissonance 3: Autonomy vs. Deterministic Success}
+
+\textbf{Tension:} True autonomy implies permission to fail and learn. Enterprise governance demands deterministic, predictable success—particularly in high-stakes environments (finance, healthcare, critical infrastructure).
+
+\textbf{Resolution Framework:} Tiered governance models:
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Tier} & \textbf{Oversight Model} & \textbf{Use Case} \\ \hline
+Tier 0 & Fully autonomous (no human gate) & Low-stakes, reversible actions \\ \hline
+Tier 1 & Human-on-the-loop (review after action) & Medium-stakes, auditable \\ \hline
+Tier 2 & Human-in-the-loop (approve before action) & High-stakes, irreversible \\ \hline
+Tier 3 & Human-only (AI advisory) & Critical infrastructure, legal \\ \hline
+\end{tabular}
+\caption{Tiered Governance Model}
+\end{table}
+
+\subsubsection{Dissonance 4: Probabilistic Outputs vs. Binary Compliance}
+
+\textbf{Tension:} Agentic systems produce probabilistic outputs (Bayesian inference, confidence intervals). Legal and compliance frameworks operate on binary pass/fail logic.
+
+\textbf{Problem:} Machine-to-machine decision chains amplify this friction—when one agent's probabilistic output becomes another's input, uncertainty compounds.
+
+\textbf{Governance Artifact:}
+\begin{quote}
+\textbf{Spec:} Define what constitutes an ``acceptable error'' vs. a ``policy violation'' \\
+\textbf{Contract:} Map probabilistic confidence thresholds to liability tiers \\
+\textbf{SLA:} Commit to audit pass rate $\geq$ 95\%
+\end{quote}
+
+\subsubsection{Dissonance 5: Agency vs. Prediction (Liability Shift)}
+
+\textbf{Tension:} When a system shifts from \textit{prediction} (recommending action) to \textit{agency} (taking action), liability moves from the end-user to the system designer/operator.
+
+\textbf{Legal Exposure Categories:}
+\begin{itemize}
+\item \textbf{Errors \& Omissions (E\&O):} Faulty agent outputs causing financial harm
+\item \textbf{Cyber Liability:} Agent manipulation or adversarial attacks
+\item \textbf{Employment Practices Liability:} Discriminatory agent decisions in hiring, promotion, termination
+\end{itemize}
+
+\textbf{Governance Requirement:} Explicit assignment of risk ownership with insurance coverage mapping.
+
+\subsubsection{Dissonance 6: No-Code Interfaces vs. Causal Expertise}
+
+\textbf{Tension:} User-friendly no-code tools mask the deep theoretical expertise required to build valid causal models. This creates risk of employees with insufficient training deploying agents that produce faulty, liability-creating conclusions.
+
+\textbf{Mitigation Lever:}
+\begin{quote}
+\textbf{Owner:} Product \\
+\textbf{Lever:} Measure user error in no-code model logic \\
+\textbf{Metric:} Logical Validity Score $\geq$ 90\% \\
+\textbf{Horizon:} 30 days
+\end{quote}
+
+\textbf{Implementation:} Automated validation checks for:
+\begin{itemize}
+\item Causal graph acyclicity
+\item Conditional independence violations
+\item Simpson's paradox risks
+\item Collider bias introduction
+\end{itemize}
+
+\subsubsection{Dissonance 7: Transparency Rhetoric vs. Proprietary Infrastructure}
+
+\textbf{Tension:} Organizations claim commitment to AI transparency while building agents on proprietary, black-box platforms where decision-making logic is opaque.
+
+\textbf{Consequence:} When an agent makes an indefensible decision, the organization cannot explain \textit{why}—rendering the action legally and operationally unjustifiable.
+
+\textbf{Governance Binding:}
+\begin{quote}
+\textbf{SLA:} Platform provider must commit to explainability standards \\
+\textbf{Kill-Switch:} If transparency drops below threshold, agent pauses and escalates
+\end{quote}
+
+\subsection{The Compliance-Accuracy Tradeoff}
+
+The most critical policy decision in agentic AI governance is:
+
+\begin{equation}
+\boxed{\text{Does the agent optimize for the most accurate outcome or the most compliant one?}}
+\end{equation}
+
+This is not a system failure—it is a fundamental design choice requiring explicit policy encoding.
+
+\textbf{Scenario:} An agentic loan approval system:
+\begin{itemize}
+\item \textbf{Accuracy Optimization:} Uses all available data (including protected attributes) to minimize default risk
+\item \textbf{Compliance Optimization:} Excludes protected attributes to ensure regulatory adherence, accepting higher default rate
+\end{itemize}
+
+\textbf{PMD Framework Requirement:} The answer must be encoded as policy with explicit triggers:
+
+\begin{verbatim}
+IF agent_reasoning_conflicts_with_rules:
+    DO NOT freeze_or_hallucinate_compliance
+    ESCALATE_TO pre_defined_exception_handler
+    LOG rationale_and_context
+    AWAIT human_adjudication
+\end{verbatim}
+
+\textbf{Governance Artifact:} A formal ``Error Budget'' specification:
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|c|c|}
+\hline
+\textbf{Decision Type} & \textbf{Allowable FP Rate} & \textbf{Allowable FN Rate} \\ \hline
+Financial transaction approval & 0.1\% & 2\% \\ \hline
+Content moderation & 1\% & 5\% \\ \hline
+Medical diagnosis support & 0.01\% & 10\% \\ \hline
+\end{tabular}
+\caption{Example Error Budget by Domain}
+\end{table}
+
+\section{The Mirror Dissonance Oracle: Callable Protocol}
+
+\subsection{Motivation}
+
+The Phase Mirror Dissonance methodology, when applied manually, provides diagnostic value. However, for continuous governance enforcement—particularly in CI/CD pipelines, merge queues, and drift detection—a \textbf{callable, deterministic protocol} is required.
+
+The \textbf{Mirror Dissonance Oracle} is a software implementation of the PMD framework designed to:
+
+\begin{enumerate}
+\item Provide repeatability: Same inputs + same rules $\rightarrow$ same report
+\item Enable composability: Callable at multiple checkpoints (PR review, merge, baseline rotation)
+\item Ensure auditability: Outputs are artifacts with hashes, provenance, and diffability
+\item Enforce safety: Hard-coded guardrails, budget limits, redaction guarantees
+\end{enumerate}
+
+\subsection{Architectural Overview}
+
+\begin{verbatim}
+Input:
+    - Artifacts: diffs, workflows, configs, manifests
+    - Context: event_type (PR/merge/drift), repo, branch
+    - Risk Profile: strictness level (pilot vs. production)
+
+Process:
+    1. Load rule registry (MD-001, MD-002, ..., MD-NNN)
+    2. Execute detection logic for each rule
+    3. Collect findings with evidence (file:line:snippet)
+    4. Apply false-positive calibration
+    5. Enforce circuit-breaker thresholds
+    6. Generate dissonance report (JSON)
+
+Output:
+    - dissonance_report.json with:
+        * meta: oracle_version, rules_hash, budget_consumed
+        * items: findings with severity, evidence, suggested_fix
+        * summary: counts by severity
+        * machine_decision: pass/warn/block
+\end{verbatim}
+
+\subsection{Dissonance Report Schema}
+
+The canonical output format is a JSON object conforming to the following schema:
+
+\begin{verbatim}
+{
+  "meta": {
+    "oracle_version": "1.3.2",
+    "rules_hash": "sha256:a1b2c3...",
+    "invocation_context": {
+      "event_type": "pull_request",
+      "repo": "org/repo-name",
+      "branch": "feature/new-policy",
+      "timestamp": "2026-01-27T23:45:00Z"
+    },
+    "budget_consumed_ms": 1847,
+    "calibration_status": {
+      "fp_observability": {
+        "window_n": 200,
+        "observed_fpr": 0.003,
+        "breach": false
+      }
+    }
+  },
+  "items": [
+    {
+      "id": "MD-001-1",
+      "rule_id": "MD-001",
+      "rule_version": "1.2.0",
+      "severity": "high",
+      "claim": "Required status check contexts don't match stable job name",
+      "evidence": {
+        "file": ".github/branch-protection.json",
+        "line": 42,
+        "snippet": {
+          "redacted": true,
+          "value": "[REDACTED]",
+          "brand": "[NONCE-HASH]",
+          "mac": "[HMAC-SHA256]"
+        }
+      },
+      "suggested_fix": "Align protection contexts with workflow job IDs",
+      "block_recommended": true
+    }
+  ],
+  "summary": {
+    "total": 3,
+    "by_severity": {
+      "critical": 0,
+      "high": 1,
+      "medium": 2,
+      "low": 0
+    }
+  },
+  "machine_decision": {
+    "outcome": "warn",
+    "degraded": false,
+    "reason": "High-severity findings present but below block threshold"
+  }
+}
+\end{verbatim}
+
+sha256:e0968afc977bd0aaae878e673a891cd67c8f3b46e6fa8c6544e24d6f958dd6c6
+
+\subsection{Conformance Verification}
+
+Independent implementations can verify conformance with this schema 
+specification by executing the test vector suite published alongside 
+this defensive publication. The test suite provides cryptographic 
+verification that implementations produce byte-identical outputs 
+when processing identical inputs.
+
+\subsubsection{Test Vector Coverage}
+
+The conformance suite includes seven test vectors covering:
+
+\begin{enumerate}
+\item \textbf{Minimal Dissonance Report (tv-001):} End-to-end test 
+generating a complete report from simple natural language input. 
+Verifies meta block, items array, summary counts, and machine 
+decision structure.
+
+\item \textbf{Tension Ranking Calculation (tv-002):} Tests Impact × 
+Tractability priority formula with floating-point precision handling 
+and deterministic sorting.
+
+\item \textbf{False-Positive Rate Calculation (tv-003):} Validates FP 
+rate computation with edge cases including pending events (which must 
+be excluded from denominator) and breach detection logic.
+
+\item \textbf{Circuit-Breaker Threshold (tv-004):} Verifies circuit 
+breaker triggers precisely at threshold, degrading to warn-only mode 
+with appropriate reason string.
+
+\item \textbf{UTF-8 Normalization (tv-005):} Tests NFC normalization 
+handling decomposed characters (e.g., café as e + combining acute accent) 
+versus composed forms.
+
+\item \textbf{JSON Key Ordering (tv-006):} Validates lexicographic 
+key sorting with case-sensitive comparison (ASCII uppercase sorts 
+before lowercase).
+
+\item \textbf{Floating-Point Edge Cases (tv-007):} Confirms mandatory 
+rejection of NaN, Infinity, and -Infinity, plus correct handling of 
+negative zero and maximum precision decimals.
+\end{enumerate}
+
+\subsubsection{Test Vector Format}
+
+Each test vector includes:
+\begin{itemize}
+\item \textbf{id:} Unique identifier (e.g., "tv-001")
+\item \textbf{name:} Human-readable description
+\item \textbf{input:} Structured input object
+\item \textbf{expected\_output:} Canonical output object
+\item \textbf{canonical\_json:} Exact byte sequence with sorted keys 
+and trailing newline
+\item \textbf{sha256:} 64-character lowercase hex hash for verification
+\end{itemize}
+
+\subsubsection{Validation Procedure}
+
+To verify conformance:
+\begin{enumerate}
+\item Parse the \texttt{input} object from test vector
+\item Execute implementation to generate output
+\item Canonicalize output (NFC normalization, key sorting)
+\item Compute SHA-256 of UTF-8 bytes (including trailing \texttt{\textbackslash n})
+\item Compare computed hash to \texttt{sha256} field
+\item Test passes if and only if hashes match exactly
+\end{enumerate}
+
+\subsubsection{Accessing Test Vectors}
+
+\textbf{Primary Location:} Zenodo repository (DOI to be assigned) \\
+\textbf{Filename:} \texttt{pmd\_test\_vectors.json} \\
+\textbf{Format:} JSON with UTF-8 encoding \\
+\textbf{License:} CC0 1.0 Universal (Public Domain Dedication) \\
+\textbf{Hash:} \texttt{[to be computed upon finalization]}
+
+\textbf{Validation Command (Linux/macOS):}
+\begin{verbatim}
+cat pmd_test_vectors.json | jq --sort-keys -c '.vectors[0]' | sha256sum
+\end{verbatim}
+
+\textbf{Normative Reference:} For complete implementation requirements, 
+see Appendix C (Normative Implementation Profile).
+
+\subsection{Rule Registry Structure}
+
+Each rule is a self-contained module with standardized interface:
+
+\begin{verbatim}
+interface RuleDefinition {
+  id: string;              // e.g., "MD-001"
+  version: string;         // Semantic versioning
+  tier: "A" | "B";         // Tier A: fast; Tier B: deep
+  fp_tolerance: {
+    ceiling: number;       // Max allowable FP rate
+    floor: number;         // Min required FP rate
+  };
+  detect: (ctx: DetectionContext) => Finding[];
+  remediation: string;     // Human-readable fix guidance
+  status: "warn" | "blocking";
+  promotion_criteria?: string;
+}
+\end{verbatim}
+
+\textbf{Example Rule: MD-001}
+
+\begin{verbatim}
+export const MD_001: RuleDefinition = {
+  id: "MD-001",
+  version: "1.2.0",
+  tier: "A",
+  fp_tolerance: { ceiling: 0.005, floor: 0.001 },
+  
+  detect: (ctx) => {
+    const findings: Finding[] = [];
+    const protectionContexts = ctx.loadJSON('.github/branch-protection.json');
+    const workflowJobNames = ctx.extractWorkflowJobs();
+    
+    for (const context of protectionContexts.required_status_checks) {
+      if (!workflowJobNames.includes(context)) {
+        findings.push({
+          rule_id: "MD-001",
+          severity: "high",
+          claim: `Context '${context}' has no matching workflow job`,
+          evidence: {
+            file: '.github/branch-protection.json',
+            line: ctx.getLineNumber(context),
+            snippet: ctx.redactor.redact(context)
+          },
+          suggested_fix: `Create workflow job named '${context}' or update protection`
+        });
+      }
+    }
+    
+    return findings;
+  },
+  
+  remediation: "Align required status check contexts with stable workflow job names",
+  status: "blocking",
+  promotion_criteria: "200+ invocations with FPR < 0.5%"
+};
+\end{verbatim}
+
+sha256:a9cebfa9a6ac6a9ce5eab95557e5f7b5535d8285967bd877f4533e4ebdebcb59
+
+\subsection{False-Positive Calibration}
+
+The oracle maintains a durable FP tracking store to prevent runaway false positives:
+
+\begin{verbatim}
+interface FPEvent {
+  rule_id: string;
+  rule_version: string;
+  finding_id: string;
+  timestamp: number;
+  outcome: "false_positive" | "true_positive" | "pending";
+  suppression_ticket?: string;
+}
+
+function computeFPRate(rule_id: string, rule_version: string, 
+                       window_n: number): FPObservability {
+  const events = fpStore.query({
+    rule_id,
+    rule_version,
+    limit: window_n,
+    order: "desc"
+  });
+  
+  const fp_count = events.filter(e => e.outcome === "false_positive").length;
+  const total_count = events.filter(e => e.outcome !== "pending").length;
+  const observed_fpr = total_count > 0 ? fp_count / total_count : 0;
+  
+  return {
+    window_n: events.length,
+    fp_count,
+    observed_fpr,
+    breach: observed_fpr > rule.fp_tolerance.ceiling
+  };
+}
+\end{verbatim}
+
+\textbf{Automatic Demotion:} If a rule exceeds its FP ceiling, it is automatically demoted from ``blocking'' to ``warn'' status:
+
+\begin{verbatim}
+function demoteIfBreached(rule: BlockingRule, fpObs: FPObservability): Rule {
+  if (fpObs.breach) {
+    return {
+      ...rule,
+      status: "warn",
+      promotion_evidence: null,
+      demotion_reason: `FPR ${fpObs.observed_fpr} exceeds ceiling 
+                        ${rule.fp_tolerance.ceiling}`
+    };
+  }
+  return rule;
+}
+\end{verbatim}
+
+\subsection{Circuit-Breaker Pattern}
+
+To prevent blast-radius scenarios where the oracle blocks excessive PRs/hour, a circuit-breaker mechanism is enforced:
+
+\begin{verbatim}
+interface BlockCounter {
+  increment(key: string, ttl_seconds: number): Promise<number>;
+  get(key: string): Promise<number>;
+}
+
+const CIRCUIT_BREAKER_THRESHOLD = 10; // blocks per hour
+
+async function decide(findings: Finding[], 
+                      context: InvocationContext): Promise<MachineDecision> {
+  const blockKey = `blocks/${context.repo}/${hourBucket()}`;
+  const recentBlocks = await blockCounter.get(blockKey);
+  
+  if (recentBlocks >= CIRCUIT_BREAKER_THRESHOLD) {
+    return {
+      outcome: "warn",
+      degraded: true,
+      reason: "Circuit breaker triggered: block rate exceeds threshold"
+    };
+  }
+  
+  const shouldBlock = findings.some(f => f.block_recommended && 
+                                    f.severity === "high");
+  
+  if (shouldBlock) {
+    await blockCounter.increment(blockKey, 3600); // 1 hour TTL
+    return { outcome: "block", degraded: false };
+  }
+  
+  return { outcome: "pass", degraded: false };
+}
+\end{verbatim}
+
+\subsection{Boundary Clarification: Pattern vs. Credential}
+
+\textbf{Critical Distinction for Patent Prior Art:}
+
+This section discloses the \textit{pattern} of HMAC-based capability 
+branding as prior art, placing it in the public domain. The \textit{specific 
+nonce value} used in production systems is intentionally retained as an 
+operational security credential.
+
+\subsubsection{What is Disclosed (Public Domain)}
+
+The following elements are prior art and freely implementable:
+
+\begin{itemize}
+\item The \texttt{RedactedText} interface structure with fields: 
+\texttt{redacted}, \texttt{value}, \texttt{brand}, \texttt{mac}
+
+\item The branding algorithm: \texttt{brand = HMAC-SHA256(nonce, "redacted")}
+
+\item The integrity verification pattern: 
+\texttt{mac = HMAC-SHA256(nonce, value)}
+
+\item The validation algorithm using timing-safe comparison to prevent 
+side-channel attacks
+
+\item The requirement for cryptographically secure nonce generation 
+(minimum 256 bits entropy)
+
+\item The monthly rotation pattern with dual-nonce acceptance during 
+grace periods
+
+\item The use of parameter stores (AWS SSM, HashiCorp Vault, etc.) 
+for nonce management
+\end{itemize}
+
+\subsubsection{What is Retained (Operational Security)}
+
+The following are \textbf{not disclosed} and remain protected as 
+operational security:
+
+\begin{itemize}
+\item The actual nonce value(s) used in production systems
+
+\item The specific SSM Parameter Store path or secret management 
+system location
+
+\item The exact rotation schedule (monthly is disclosed; specific day/time is not)
+
+\item The grace period duration for dual-nonce acceptance (exists; exact hours is not disclosed)
+
+\item Monitoring thresholds and alerting logic for validation failures
+
+\item Incident response procedures for nonce compromise
+\end{itemize}
+
+\subsubsection{Rationale}
+
+Disclosing the actual nonce value would allow adversaries to forge valid 
+\texttt{RedactedText} objects, completely defeating the capability-based 
+security model. The nonce functions as a cryptographic credential, analogous 
+to a private key in public-key cryptography.
+
+The \textit{pattern} is prior art—preventing patents on HMAC-based 
+redaction schemes. The \textit{credential} is operational security—protecting 
+production systems from forgery attacks.
+
+\subsubsection{Guidance for Independent Implementations}
+
+Implementers should:
+\begin{enumerate}
+\item Generate a unique nonce using a cryptographically secure random 
+number generator:
+\begin{verbatim}
+openssl rand -hex 32  # Generates 256-bit nonce
+\end{verbatim}
+
+\item Store nonce in a secure parameter store or secret management system
+
+\item Implement nonce rotation (recommended: monthly, with 2-hour grace period)
+
+\item Never log, echo, or transmit the raw nonce value
+
+\item Use constant-time comparison for brand/MAC validation to prevent 
+timing side-channels
+
+\item Monitor validation failure rates as a security metric
+\end{enumerate}
+
+\textbf{Security Note:} The disclosed pattern enables interoperability 
+testing and patent prevention. Each deployment should use independently 
+generated nonces—there is no "shared secret" across implementations.
+
+\subsection{Redaction-by-Capability}
+
+To ensure evidence snippets never leak secrets, a brand-by-capability mechanism is enforced:
+
+\begin{verbatim}
+const BRAND_NONCE = loadFromSSM("guardian/redaction/nonce");
+
+interface RedactedText {
+  redacted: true;
+  value: string;          // Redacted content
+  brand: string;          // HMAC(NONCE, "redacted")
+  mac: string;            // HMAC(NONCE, value)
+}
+
+function redact(raw: string, context: RedactionContext): RedactedText {
+  let cleaned = raw;
+  
+  // Pattern-based redaction
+  cleaned = cleaned.replace(/ghp_[A-Za-z0-9]{36}/g, "[TOKEN-REDACTED]");
+  cleaned = cleaned.replace(/AKIA[A-Z0-9]{16}/g, "[AWS-KEY-REDACTED]");
+  cleaned = cleaned.replace(/-----BEGIN [A-Z ]+-----[\s\S]+?-----END/g, 
+                           "[PEM-REDACTED]");
+  
+  // Entropy-based redaction (gated by file type)
+  if (context.shouldApplyEntropyRedaction()) {
+    cleaned = redactHighEntropy(cleaned, threshold=4.5);
+  }
+  
+  return {
+    redacted: true,
+    value: cleaned,
+    brand: HMAC_SHA256(BRAND_NONCE, "redacted"),
+    mac: HMAC_SHA256(BRAND_NONCE, cleaned)
+  };
+}
+
+function isValidRedactedText(obj: any): boolean {
+  if (!obj.redacted || !obj.brand || !obj.mac) return false;
+  
+  const expectedBrand = HMAC_SHA256(BRAND_NONCE, "redacted");
+  const expectedMac = HMAC_SHA256(BRAND_NONCE, obj.value);
+  
+  return timingSafeEqual(obj.brand, expectedBrand) &&
+         timingSafeEqual(obj.mac, expectedMac);
+}
+\end{verbatim}
+
+sha256:248359a245b5b47d49d7b5894f7fdebf96ec2840a869015085debccec838454c
+
+\subsection{Integration Patterns}
+
+\textbf{GitHub Actions Workflow:}
+
+\begin{verbatim}
+name: Mirror Dissonance Check
+on: [pull_request, merge_group]
+
+jobs:
+  oracle:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Full history for drift detection
+      
+      - name: Run Mirror Dissonance Oracle
+        run: |
+          pnpm --filter @mirror-dissonance/oracle run check \
+            --mode ${{ github.event_name }} \
+            --output dissonance-report.json
+      
+      - name: Upload Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: dissonance-report
+          path: dissonance-report.json
+      
+      - name: Write Summary
+        run: |
+          pnpm --filter @mirror-dissonance/oracle run summarize \
+            --input dissonance-report.json \
+            >> $GITHUB_STEP_SUMMARY
+      
+      - name: Enforce Decision
+        run: |
+          OUTCOME=$(jq -r '.machine_decision.outcome' dissonance-report.json)
+          if [ "$OUTCOME" = "block" ]; then
+            echo "❌ Dissonance check failed"
+            exit 1
+          elif [ "$OUTCOME" = "warn" ]; then
+            echo "⚠️  Dissonance warnings present"
+            exit 0
+          else
+            echo "✅ Dissonance check passed"
+            exit 0
+          fi
+\end{verbatim}
+
+\textbf{Branch Protection Configuration:}
+
+\begin{verbatim}
+{
+  "required_status_checks": {
+    "strict": true,
+    "contexts": [
+      "Mirror Dissonance Check / oracle"
+    ]
+  },
+  "required_pull_request_reviews": {
+    "required_approving_review_count": 1,
+    "dismiss_stale_reviews": true
+  },
+  "enforce_admins": false,
+  "restrictions": null
+}
+\end{verbatim}
+
+\section{Implementation Guidelines}
+
+\subsection{Deployment Patterns}
+
+\subsubsection{Centralized Oracle Service}
+
+Deploy the Mirror Dissonance Oracle as a centralized service:
+
+\begin{itemize}
+\item \textbf{Infrastructure:} AWS Lambda + API Gateway, or Kubernetes deployment
+\item \textbf{Storage:} DynamoDB for FP events, S3 for report archives
+\item \textbf{Secrets:} SSM Parameter Store for redaction nonce
+\item \textbf{Monitoring:} CloudWatch for circuit-breaker alerts, FP rate tracking
+\end{itemize}
+
+\textbf{Advantages:}
+\begin{itemize}
+\item Centralized rule updates
+\item Shared FP calibration across repos
+\item Consistent redaction nonce
+\end{itemize}
+
+\textbf{Disadvantages:}
+\begin{itemize}
+\item Single point of failure
+\item Network latency on every invocation
+\end{itemize}
+
+\subsubsection{Embedded CLI Tool}
+
+Package the oracle as a CLI tool included in each repository:
+
+\begin{verbatim}
+pnpm add @mirror-dissonance/cli --save-dev
+
+# In CI workflow
+pnpm dlx @mirror-dissonance/cli check --mode pull_request
+\end{verbatim}
+
+\textbf{Advantages:}
+\begin{itemize}
+\item No external dependencies
+\item Fast local execution
+\item Offline capability
+\end{itemize}
+
+\textbf{Disadvantages:}
+\begin{itemize}
+\item Decentralized FP tracking
+\item Rule version drift across repos
+\end{itemize}
+
+\subsubsection{Hybrid Model (Recommended)}
+
+CLI tool for execution + centralized FP store:
+
+\begin{itemize}
+\item Oracle runs locally (fast, no network dependency)
+\item FP events reported to central store (async, best-effort)
+\item Rules fetched from central registry with caching
+\end{itemize}
+
+\subsection{Operational Runbooks}
+
+\subsubsection{Nonce Rotation Procedure}
+
+\textbf{Frequency:} Monthly or on-demand after security incident
+
+\textbf{Steps:}
+\begin{enumerate}
+\item Generate new nonce: \texttt{openssl rand -hex 32}
+\item Store as \texttt{guardian/redaction/nonce/v2} in SSM
+\item Update oracle config to accept both old and new nonce (grace period: 2 hours)
+\item Deploy updated oracle to all environments
+\item After grace period expires, delete old nonce from SSM
+\item Update \texttt{VALID\_NONCES} array to remove old version
+\end{enumerate}
+
+\textbf{Monitoring:} CloudWatch alarm on validation failures
+
+\subsubsection{Circuit-Breaker Response}
+
+\textbf{Trigger:} Block rate exceeds threshold (10 blocks/hour)
+
+\textbf{Automatic Response:}
+\begin{enumerate}
+\item Oracle degrades to warn-only mode
+\item \texttt{machine\_decision.degraded = true} in report
+\item Incident ticket auto-created in issue tracker
+\end{enumerate}
+
+\textbf{Human Response:}
+\begin{enumerate}
+\item Investigate root cause (new rule with high FP rate? Mass bad PRs?)
+\item If rule is faulty: demote rule to warn status, schedule fix
+\item If PRs are legitimately bad: temporary manual review process
+\item Reset block counter after resolution
+\end{enumerate}
+
+\subsubsection{False-Positive Feedback Loop}
+
+\textbf{Trigger:} Developer disputes a blocking finding
+
+\textbf{Process:}
+\begin{enumerate}
+\item Developer adds label \texttt{oracle:false-positive} to PR
+\item Creates issue with template: \texttt{FP Report: MD-XXX}
+\item Steward reviews within 24 hours
+\item If confirmed FP: Record in FP store, consider rule adjustment
+\item If true positive: Educate developer, close issue
+\end{enumerate}
+
+\textbf{Escalation:} If rule FP rate exceeds ceiling for 3 consecutive weeks, automatic demotion + mandatory rule revision.
+
+\subsection{Governance Framework}
+
+\subsubsection{Rule Stewardship}
+
+\textbf{Role:} Rule Registry Steward
+
+\textbf{Responsibilities:}
+\begin{itemize}
+\item Merge authority over \texttt{src/rules/*} directory
+\item Review and approve new rule proposals
+\item Monitor FP rates and enforce promotion/demotion criteria
+\item Maintain rule documentation and remediation guidance
+\item Quarterly rule registry audit
+\end{itemize}
+
+\textbf{Selection Criteria:}
+\begin{itemize}
+\item Deep understanding of PMD methodology
+\item Domain expertise in relevant systems (CI/CD, security, compliance)
+\item Track record of balanced judgment (not overly permissive or restrictive)
+\end{itemize}
+
+\subsubsection{Promotion Criteria}
+
+A rule may be promoted from ``warn'' to ``blocking'' status only if:
+
+\begin{enumerate}
+\item \textbf{Measurement Window:} $\geq$ 200 invocations recorded
+\item \textbf{FP Rate:} Observed FPR $<$ \texttt{fp\_tolerance.ceiling}
+\item \textbf{Stability:} No FPR spikes $>$ 2$\times$ ceiling in past 30 days
+\item \textbf{Documentation:} Remediation guidance clear and tested
+\item \textbf{Approval:} Steward + Security Lead sign-off
+\end{enumerate}
+
+\subsubsection{Demotion Triggers}
+
+A rule is automatically demoted from ``blocking'' to ``warn'' if:
+
+\begin{enumerate}
+\item \textbf{FP Breach:} Observed FPR exceeds \texttt{fp\_tolerance.ceiling}
+\item \textbf{Circuit Breaker:} Contributes to 3+ circuit-breaker events in 7 days
+\item \textbf{Security Incident:} Rule logic exploited or bypassed
+\item \textbf{Steward Override:} Explicit demotion by Rule Steward
+\end{enumerate}
+
+
+\section{Extensions and Future Work}
+
+\subsection{Hierarchical PMD}
+
+\textbf{Concept:} Distinguish between ``background PMD'' (always-on, O(1) invariant checks) and ``callable PMD'' (on-demand, deep semantic analysis).
+
+\textbf{Tiers:}
+\begin{itemize}
+\item \textbf{Tier A (Background):} Fast checks ($<$ 100ms): naming mismatches, missing files, schema violations, unpinned dependencies
+\item \textbf{Tier B (Callable):} Deep checks ($>$ 1s): cross-file semantic consistency, protection-workflow alignment, drift detection, causal graph validation
+\end{itemize}
+
+\textbf{Use Case:} Background PMD runs on every file save in IDE. Callable PMD runs at PR submit, merge queue, and scheduled drift detection.
+
+\subsection{Multi-Stakeholder Orchestration}
+
+\textbf{Challenge:} Large organizations have multiple teams with conflicting priorities. The PMD framework can be extended to explicitly model stakeholder tradeoffs.
+
+\textbf{Extension: Stakeholder Tension Matrix}
+
+\begin{verbatim}
+interface StakeholderTension {
+  stakeholder_a: string;
+  stakeholder_b: string;
+  tension: string;
+  mediation_mechanism: "escalate" | "weighted_vote" | "exec_decision";
+  quorum_required?: number;
+  decision_threshold?: number;
+}
+\end{verbatim}
+
+\textbf{Example:}
+\begin{quote}
+\textbf{Stakeholder A:} Engineering (wants speed) \\
+\textbf{Stakeholder B:} Compliance (wants audit trail) \\
+\textbf{Tension:} Fast deployment vs. complete documentation \\
+\textbf{Mediation:} Weighted vote (Eng 40\%, Compliance 40\%, CTO 20\%)
+\end{quote}
+
+\subsection{Causal PMD for Organizational Dynamics}
+
+\textbf{Concept:} Apply causal inference methods to organizational interventions.
+
+\textbf{Research Questions:}
+\begin{itemize}
+\item Does implementing a specific lever causally reduce the target tension?
+\item What is the treatment effect of introducing the Mirror Dissonance Oracle on CI/CD cycle time?
+\item Are there confounders (team size, domain complexity) that mediate the relationship?
+\end{itemize}
+
+\textbf{Method:}
+\begin{enumerate}
+\item Define causal graph: Lever $\rightarrow$ Metric, with confounders
+\item Collect observational data from multiple implementations
+\item Apply propensity score matching or instrumental variables
+\item Estimate Average Treatment Effect (ATE)
+\end{enumerate}
+
+\textbf{Open Questions:}
+\begin{itemize}
+\item Can we build a ``meta-PMD'' that analyzes PMD interventions themselves?
+\item What is the minimal set of binding artifacts required for governance efficacy?
+\end{itemize}
+
+\subsection{Integration with Formal Verification}
+
+\textbf{Concept:} Combine PMD's diagnostic power with formal methods for provable correctness.
+
+\textbf{Approach:}
+\begin{itemize}
+\item PMD identifies dissonances (e.g., ``Policy claims X but code does Y'')
+\item Formal verification tools (TLA+, Coq, Dafny) prove properties
+\item Integration: PMD generates formal specifications from policy documents; verifier checks code against specs
+\end{itemize}
+
+\textbf{Example:}
+\begin{verbatim}
+Policy: "All high-risk agent decisions require human approval"
+
+PMD detects:
+- Agent workflow missing approval gate
+- Approval timeout not specified
+
+Formal spec (TLA+):
+THEOREM HighRiskApproval ==
+  \A decision \in Decisions:
+    decision.risk_level = "high" =>
+      \E approval \in Approvals:
+        approval.decision_id = decision.id /\
+        approval.timestamp < decision.execution_timestamp
+
+Verifier: Checks that agent orchestration code satisfies theorem
+\end{verbatim}
+
+\subsection{Adaptive Governance with Reinforcement Learning}
+
+\textbf{Concept:} Use RL to learn optimal lever selection and parameter tuning.
+
+\textbf{Setup:}
+\begin{itemize}
+\item \textbf{State:} Current dissonance profile (tension vector)
+\item \textbf{Action:} Select lever(s) to implement
+\item \textbf{Reward:} Reduction in tension magnitude + increase in metric target achievement
+\item \textbf{Policy:} Learned mapping from dissonance states to optimal levers
+\end{itemize}
+
+\textbf{Challenges:}
+\begin{itemize}
+\item Organizational dynamics are non-stationary
+\item Interventions have delayed effects
+\item Credit assignment problem (which lever caused improvement?)
+\end{itemize}
+
+\textbf{Potential Solution:} Meta-learning approach where policy adapts to organizational context over time.
+
+\section{Patent Claims Prevention}
+
+\subsection{Comprehensive Claims Coverage}
+
+This defensive publication explicitly discloses the following to prevent patent claims by any party:
+
+\subsubsection{Method Claims}
+
+\textbf{Claim 1:} A method for organizational diagnostics comprising:
+\begin{enumerate}
+\item Extracting stated goals, claims, fears, constraints, and stakeholders from input text
+\item Mapping structural tensions between extracted components
+\item Ranking tensions by impact and tractability
+\item Generating standardized output blocks comprising dissonance list, actionable levers with owners/metrics/horizons, and optional artifact
+\item Optionally posing a single precision question to resolve blocking ambiguities
+\end{enumerate}
+
+\textbf{Claim 2:} A method for agentic AI governance comprising:
+\begin{enumerate}
+\item Identifying the compliance-accuracy tradeoff in autonomous agent behavior
+\item Encoding explicit policy rules defining when compliance overrides accuracy
+\item Implementing tiered governance models (human-in-loop vs. human-on-exception)
+\item Escalating conflicts between agent reasoning and hard-coded rules to exception handlers with logged rationale
+\end{enumerate}
+
+\textbf{Claim 3:} A method for false-positive calibration comprising:
+\begin{enumerate}
+\item Maintaining a durable store of rule invocation outcomes (true positive, false positive, pending)
+\item Computing observed FP rate over a sliding window
+\item Automatically demoting rules from blocking to warn status when FP rate exceeds tolerance ceiling
+\item Requiring measured promotion evidence before re-enabling blocking status
+\end{enumerate}
+
+\subsubsection{System Claims}
+
+\textbf{Claim 4:} A callable governance enforcement system comprising:
+\begin{enumerate}
+\item A rule registry storing rule definitions with detection logic, FP tolerance, and promotion criteria
+\item An invocation engine executing rules against input artifacts
+\item A redaction module using capability-based branding to prevent secret leakage
+\item A circuit-breaker module tracking block rate and degrading to warn-only when threshold exceeded
+\item A decision engine producing machine-readable pass/warn/block determinations
+\end{enumerate}
+
+\textbf{Claim 5:} A dissonance report data structure comprising:
+\begin{enumerate}
+\item Metadata block with oracle version, rules hash, invocation context, and budget consumed
+\item Items array containing findings with rule ID, severity, claim, evidence, and suggested fix
+\item Summary block with counts by severity
+\item Machine decision block with outcome, degraded status, and reason
+\end{enumerate}
+
+\subsubsection{Apparatus Claims}
+
+\textbf{Claim 6:} A computer-readable storage medium containing instructions that, when executed, perform the PMD five-step loop.
+
+\textbf{Claim 7:} A distributed system comprising multiple instances of the Mirror Dissonance Oracle sharing a centralized FP tracking store and redaction nonce service.
+
+\subsubsection{Article of Manufacture Claims}
+
+\textbf{Claim 8:} A software package distributable via package managers (npm, pip, cargo) providing:
+\begin{itemize}
+\item CLI tool for oracle invocation
+\item Library API for programmatic integration
+\item Rule development SDK with validation tools
+\item GitHub Actions workflow templates
+\end{itemize}
+
+\textbf{Claim 9:} A governance artifact template set comprising:
+\begin{itemize}
+\item Spec template for defining acceptable errors vs. violations
+\item Contract template for liability tier assignment
+\item SLA template for audit pass rate commitments
+\item Dataset validity scoring checklist
+\item Kill-switch governance trigger specification
+\end{itemize}
+\subsubsection{Implementation Profile Claims}
+
+\textbf{Claim 10:} A normative implementation profile for deterministic 
+organizational diagnostic systems comprising:
+\begin{enumerate}
+\item UTF-8 text encoding with Unicode NFC (Normalization Form C) 
+preprocessing and rejection of invalid byte sequences;
+
+\item Lexicographic JSON key ordering for canonical serialization, 
+ensuring deterministic output regardless of internal data structure 
+implementation;
+
+\item IEEE 754 double-precision floating-point arithmetic with 
+round-to-nearest-even tie-breaking and mandatory rejection of 
+special values (NaN, Infinity, -Infinity);
+
+\item ISO 8601 UTC timestamp normalization to second-level precision 
+with mandatory 'Z' timezone designator;
+
+\item SHA-256 cryptographic hash computation over canonicalized UTF-8 
+byte sequences for verifiable content integrity;
+
+\item Impact × Tractability ranking formula with deterministic 
+tie-breaking rules (descending impact, then alphabetical by type, 
+then input order);
+
+\item Mandatory error rejection (fail-loud) for all non-conformant 
+inputs including duplicate JSON keys, malformed timestamps, and 
+out-of-range parameter values.
+\end{enumerate}
+
+\textbf{Claim 11:} A conformance test suite for verifying organizational 
+diagnostic system implementations comprising:
+\begin{enumerate}
+\item A plurality of input-output test vector pairs, each comprising:
+\begin{itemize}
+\item A structured input object describing an organizational challenge 
+or system configuration;
+\item An expected canonical output object with deterministic field 
+ordering and formatting;
+\item A computed SHA-256 hash of the canonicalized output enabling 
+cryptographic verification of implementation correctness;
+\end{itemize}
+
+\item Test cases covering at minimum:
+\begin{itemize}
+\item End-to-end dissonance report generation from natural language input;
+\item Tension ranking calculation with floating-point precision edge cases;
+\item False-positive rate computation with pending event exclusion logic;
+\item Circuit-breaker threshold triggering at exact boundary conditions;
+\item UTF-8 normalization edge cases (decomposed vs. composed characters);
+\item JSON key ordering with case-sensitive lexicographic comparison;
+\item Floating-point special value rejection (NaN, Infinity validation);
+\end{itemize}
+
+\item A validation procedure specifying:
+\begin{itemize}
+\item Parsing and normalization steps for test vector inputs;
+\item Canonical output generation requirements;
+\item Hash computation methodology;
+\item Binary pass/fail criteria based on exact hash matching;
+\end{itemize}
+
+\item Test vector metadata including format version, license terms 
+(public domain or permissive open source), and references to the 
+normative specification governing conformance.
+\end{enumerate}
+
+\textbf{Variations Disclosed:} The conformance test suite may be 
+implemented in any machine-readable format including but not limited 
+to JSON, YAML, XML, Protocol Buffers, or custom domain-specific 
+languages. Test execution may be manual or automated via continuous 
+integration systems. Pass/fail criteria may include tolerance thresholds 
+for floating-point comparison in addition to or instead of exact hash 
+matching, provided tolerance values are explicitly specified.
+\subsection{Variations and Extensions}
+
+All variations of the disclosed methods, systems, and apparatuses are also placed in the public domain, including but not limited to:
+
+\begin{itemize}
+\item Alternative ranking formulas (e.g., $\text{Priority} = \text{Impact}^2 \times \text{Tractability}$)
+\item Different output template structures (e.g., XML, YAML, Protocol Buffers instead of JSON)
+\item Alternative storage backends (e.g., PostgreSQL, MongoDB instead of DynamoDB)
+\item Different redaction algorithms (e.g., differential privacy, k-anonymity)
+\item Integration with alternative CI/CD platforms (GitLab CI, CircleCI, Jenkins)
+\item Graphical user interfaces for manual PMD analysis
+\item Mobile applications for rapid triage mode
+\item Browser extensions for inline GitHub PR diagnostics
+\end{itemize}
+
+\section{Licensing and Usage}
+
+\subsection{Creative Commons Attribution 4.0}
+
+This publication is released under \textbf{CC BY 4.0}, granting:
+
+\begin{itemize}
+\item \textbf{Share:} Copy and redistribute in any medium or format
+\item \textbf{Adapt:} Remix, transform, and build upon the material for any purpose, including commercially
+\item \textbf{Attribution:} Must give appropriate credit, provide a link to the license, and indicate if changes were made
+\item \textbf{No Additional Restrictions:} Cannot apply legal terms or technological measures that legally restrict others from doing anything the license permits
+\end{itemize}
+
+\subsection{Trademark Notice}
+
+The following terms may be subject to trademark protection:
+
+\begin{itemize}
+\item \textbf{Phase Mirror Dissonance}
+\item \textbf{Mirror Dissonance Oracle}
+\end{itemize}
+
+\textbf{Trademark Usage:} While the methodologies disclosed herein are freely usable, use of these specific trademarks must comply with applicable trademark law and guidelines established by the trademark holder(s).
+
+\textbf{Certification Mark (Proposed):} A certification program may be established whereby implementations meeting specific criteria can be certified as ``PMD-Compliant'' This does not restrict use of the underlying methodologies, only the certification mark itself.
+
+\subsection{Implementation Freedom}
+
+Any individual, organization, or entity is free to:
+
+\begin{itemize}
+\item Implement the PMD methodology in any programming language or platform
+\item Create commercial products or services based on these methods
+\item Modify, extend, or adapt the framework for specific domains
+\item Integrate with proprietary systems without disclosure obligations
+\item Teach, train, and consult on these methodologies
+\end{itemize}
+
+\textbf{No Royalties or Fees:} No royalties, fees, or permissions are required for any use of the disclosed innovations.
+
+\section{Conclusion}
+
+\subsection{Summary of Contributions}
+
+This defensive publication has established comprehensive prior art for:
+
+\begin{enumerate}
+\item The \textbf{Phase Mirror Dissonance} methodology as a structured, repeatable framework for organizational diagnostics
+\item The \textbf{five-step operating loop} (Extract-Map-Rank-Produce-Question) as an algorithmic process
+\item \textbf{Application to agentic AI governance}, including the compliance-accuracy tradeoff framework and tiered oversight models
+\item The \textbf{Mirror Dissonance Oracle} as a callable, deterministic protocol for automated governance enforcement
+\item Novel mechanisms including \textbf{false-positive calibration}, \textbf{circuit-breaker patterns}, and \textbf{redaction-by-capability}
+\item Integration patterns for \textbf{CI/CD pipelines}, including GitHub Actions workflows and branch protection configurations
+\end{enumerate}
+
+\subsection{Impact and Availability}
+
+By publishing this disclosure under CC BY 4.0 and submitting to public archives (Zenodo, arXiv), we ensure:
+
+\begin{itemize}
+\item \textbf{Perpetual Availability:} These innovations remain freely accessible in perpetuity
+\item \textbf{Patent Prevention:} No party can obtain patent protection on disclosed claims
+\item \textbf{Innovation Acceleration:} Practitioners can build upon this foundation without legal uncertainty
+\item \textbf{Community Benefit:} Organizations worldwide can adopt robust governance frameworks
+\end{itemize}
+
+\subsection{Future Evolution}
+
+While this publication establishes prior art as of \today, the Phase Mirror project continues to evolve. Future developments will be documented through:
+
+\begin{itemize}
+\item Version-controlled public repositories (GitHub, GitLab)
+\item Updated defensive publications for novel extensions
+\item Academic publications in peer-reviewed venues
+\item Community contributions through open-source channels
+\end{itemize}
+
+\textbf{Invitation to Contribute:} Researchers, practitioners, and organizations are encouraged to extend, adapt, and improve upon these foundations. All derivative works that advance the state of organizational governance and AI safety are welcomed.
+
+\subsection{Acknowledgments}
+
+This work represents the synthesis of insights from organizational theory, software engineering, formal methods, causal inference, and governance practice. The authors acknowledge the broader community of researchers and practitioners whose work has informed these innovations.
+
+\textbf{Lead Theorist:} Ryan O. Van Gelder Theorist, Worthington, Ohio, United States
+
+\textbf{Publication Date:} \today
+
+\textbf{Contact:} For questions, clarifications, or collaboration inquiries regarding this defensive publication, please refer to the project documentation and public communication channels.
+
+\section*{Appendix A: Reference Implementation}
+\addcontentsline{toc}{section}{Appendix A: Reference Implementation}
+\subsection*{A.1 Complete Rule Example}
+
+\begin{verbatim}
+// packages/mirror-dissonance/src/rules/MD-002.ts
+
+import { RuleDefinition, Finding, DetectionContext } from '../types';
+
+/**
+ * MD-002: Workflow Installs Unpinned Binaries
+ * 
+ * Detects when GitHub Actions workflows install binaries without 
+ * pinning to specific versions or content hashes, creating supply
+ * chain vulnerability.
+ */
+export const MD_002: RuleDefinition = {
+  id: "MD-002",
+  version: "1.1.0",
+  tier: "A",
+  
+  fp_tolerance: {
+    ceiling: 0.010,  // Max 1% FP rate
+    floor: 0.001     // Target 0.1% FP rate
+  },
+  
+  detect: async (ctx: DetectionContext): Promise<Finding[]> => {
+    const findings: Finding[] = [];
+    const workflowFiles = ctx.glob('.github/workflows/*.{yml,yaml}');
+    
+    for (const file of workflowFiles) {
+      const content = await ctx.readFile(file);
+      const lines = content.split('\n');
+      
+      for (let i = 0; i < lines.length; i++) {
+        const line = lines[i];
+        
+        // Detect unpinned curl | sh patterns
+        if (/curl\s+.+\|\s*sh/.test(line)) {
+          findings.push({
+            rule_id: "MD-002",
+            rule_version: "1.1.0",
+            severity: "high",
+            claim: "Workflow installs binary via curl | sh without pinning",
+            evidence: {
+              file: file,
+              line: i + 1,
+              snippet: ctx.redactor.redact(line)
+            },
+            suggested_fix: "Pin to specific version or verify hash"
+          });
+        }
+        
+        // Detect unpinned npm/pip install -g
+        if (/npm\s+install\s+-g\s+\S+(?!@[\d.]+)/.test(line)) {
+          findings.push({
+            rule_id: "MD-002",
+            rule_version: "1.1.0",
+            severity: "medium",
+            claim: "npm install -g without version pin",
+            evidence: {
+              file: file,
+              line: i + 1,
+              snippet: ctx.redactor.redact(line)
+            },
+            suggested_fix: "Specify exact version: npm install -g pkg@1.2.3"
+          });
+        }
+      }
+    }
+    
+    return findings;
+  },
+  
+  remediation: `
+    Pinning Strategy Options:
+    1. Version Pin: npm install -g package@1.2.3
+    2. Hash Verification: curl -L <url> | shasum -a 256 -c <hash-file>
+    3. Lockfile Commit: Use package-lock.json and commit
+    4. Trusted Registry: Configure .npmrc to use internal mirror
+  `,
+  
+  status: "blocking",
+  
+  promotion_criteria: `
+    - 200+ workflow files scanned
+    - FPR < 1% over 30 days
+    - No critical bypasses detected
+    - Remediation documented and tested
+  `
+};
+\end{verbatim}
+
+\subsection*{A.2 CLI Entrypoint}
+
+\begin{verbatim}
+#!/usr/bin/env node
+// packages/mirror-dissonance/src/cli.ts
+
+import { Command } from 'commander';
+import { runOracle } from './oracle';
+import { initializeRedactor } from './redaction';
+import { validateConfig } from './config';
+
+const program = new Command();
+
+program
+  .name('mirror-dissonance')
+  .description('Phase Mirror Dissonance Oracle for governance enforcement')
+  .version('1.0.0');
+
+program
+  .command('check')
+  .description('Run dissonance check')
+  .option('--mode <type>', 'Invocation mode', 'pull_request')
+  .option('--output <file>', 'Output file path', 'dissonance-report.json')
+  .option('--strict', 'Fail-closed mode', false)
+  .option('--dry-run', 'Warn-only mode', false)
+  .action(async (options) => {
+    try {
+      // Validate environment configuration
+      validateConfig();
+      
+      // Initialize redaction subsystem
+      await initializeRedactor();
+      
+      // Run oracle
+      const report = await runOracle({
+        mode: options.mode,
+        strictMode: options.strict,
+        dryRun: options.dryRun
+      });
+      
+      // Write report
+      await fs.writeFile(
+        options.output,
+        JSON.stringify(report, null, 2)
+      );
+      
+      // Exit with appropriate code
+      if (report.machine_decision.outcome === 'block' && !options.dryRun) {
+        console.error('❌ Dissonance check BLOCKED');
+        process.exit(1);
+      } else if (report.machine_decision.outcome === 'warn') {
+        console.warn('⚠️  Dissonance warnings present');
+        process.exit(0);
+      } else {
+        console.log('✅ Dissonance check passed');
+        process.exit(0);
+      }
+    } catch (error) {
+      console.error('Fatal error:', error);
+      process.exit(2);
+    }
+  });
+
+program.parse();
+\end{verbatim}
+
+\section*{Appendix B: Glossary}
+\addcontentsline{toc}{section}{Appendix B: Glossary}
+\begin{description}
+\item[Agentic AI] Autonomous artificial intelligence systems capable of reasoning, planning, and taking actions without constant human prompting.
+
+\item[Artifact] A concrete, binding object (spec, contract, SLA, dataset) that replaces abstract governance language with measurable commitments.
+
+\item[Binding Mechanism] A formal process (forum, cadence, quorum, decision threshold) that replaces vague ``collaboration'' with enforceable structure.
+
+\item[Circuit Breaker] A protective pattern that automatically degrades a system from blocking mode to warn-only when error rates exceed thresholds.
+
+\item[Compliance-Accuracy Tradeoff] The fundamental choice in agentic systems between optimizing for regulatory compliance vs. optimal performance.
+
+\item[Defensive Publication] A public disclosure of an invention intended to establish prior art and prevent patent claims.
+
+\item[Dissonance] A structural tension, contradiction, or missing binding between components of a system or organization.
+
+\item[False-Positive (FP)] A finding incorrectly flagged as problematic by a detection rule.
+
+\item[Lever] A concrete intervention with assigned owner, measurable metric, and time horizon designed to address an identified dissonance.
+
+\item[Mirror] The act of reflecting stated claims back objectively without endorsement to create analytical distance.
+
+\item[Phase] A small, testable shift in process or policy designed to restore coherence by addressing dissonances.
+
+\item[PMD] Phase Mirror Dissonance—the diagnostic methodology disclosed in this publication.
+
+\item[Precision Question] A single, sharp clarifying question posed to resolve blocking ambiguities in decision-making.
+
+\item[Redaction-by-Capability] A security pattern where the ability to create valid redacted text objects is restricted to code with access to a secret brand nonce.
+
+\item[Rule Registry] A versioned, auditable collection of detection rules with explicit FP tolerance and promotion criteria.
+
+\item[Tiered Governance] A model distinguishing levels of human oversight (fully autonomous, human-on-loop, human-in-loop, human-only) based on risk.
+
+\item[Vibe Claim] Abstract, non-binding language (e.g., ``align,'' ``collaborate'') lacking concrete operational definitions or enforcement mechanisms.
+\end{description}
+
+\section*{Appendix C: Normative Implementation Profile}
+\addcontentsline{toc}{section}{Appendix C: Normative Implementation Profile}
+
+This appendix specifies the canonical implementation requirements for deterministic, verifiable outputs. Two independent implementations conforming to this profile MUST produce byte-identical results when given identical inputs. These requirements constitute the normative specification for Phase Mirror Dissonance conformance.
+
+\subsection*{C.1 Text Encoding}
+
+\begin{description}
+\item[Encoding:] UTF-8 (RFC 3629)
+
+\item[Normalization:] Unicode Normalization Form C (NFC) as specified in Unicode Standard Annex \#15. All input text MUST be normalized to NFC before processing.
+
+\item[Invalid Sequences:] Implementations MUST reject inputs containing invalid UTF-8 byte sequences with an error. No replacement characters (U+FFFD) may be substituted.
+
+\item[Line Endings:] All line endings MUST be normalized to LF (\texttt{\textbackslash n}, U+000A) before processing. CRLF (\texttt{\textbackslash r\textbackslash n}) and CR (\texttt{\textbackslash r}) sequences MUST be converted to LF.
+
+\item[Byte Order Mark (BOM):] If a UTF-8 BOM (bytes EF BB BF) is present at the start of input, it MUST be stripped before processing.
+
+\item[Whitespace:] Trailing whitespace on lines and trailing blank lines at end-of-file MUST be stripped before processing, except where explicitly required by format specifications (e.g., JSON trailing newline).
+\end{description}
+
+\textbf{Rationale:} NFC normalization ensures that "café" (composed é, U+00E9) and "café" (decomposed e + combining acute, U+0065 U+0301) are treated as identical, preventing spurious differences in hash computation.
+
+\subsection*{C.2 JSON Serialization}
+
+\begin{description}
+\item[Key Ordering:] Object keys MUST be sorted lexicographically (ascending, case-sensitive, by Unicode codepoint) before serialization. This ensures deterministic output regardless of internal hash table ordering.
+
+\item[Duplicate Keys:] JSON objects containing duplicate keys MUST be rejected with an error. Last-wins or first-wins semantics are NOT permitted.
+
+\item[Indentation:] Two-space indentation for nested structures. No tabs permitted.
+
+\item[Trailing Newline:] A single newline character (\texttt{\textbackslash n}) MUST appear at the end of the serialized JSON document.
+
+\item[Number Format:] 
+\begin{itemize}
+\item No leading zeros except for "0." (e.g., "007" is invalid, "0.7" is valid)
+\item No trailing decimal point (e.g., "42." is invalid, "42.0" or "42" are valid)
+\item Exponential notation permitted for very large/small numbers (e.g., "1.23e+10")
+\end{itemize}
+
+\item[Floating-Point:] IEEE 754 double precision (binary64), round-to-nearest-even tie-breaking.
+
+\item[Special Values:] The special floating-point values \texttt{NaN}, \texttt{Infinity}, and \texttt{-Infinity} MUST be rejected with an error. These values have no standard JSON representation.
+
+\item[String Escaping:] Control characters (U+0000 through U+001F) MUST be escaped using \texttt{\textbackslash uXXXX} notation. The solidus (/) MAY be escaped as \texttt{\textbackslash /} but is not required.
+
+\item[Null:] The JSON null value is permitted and MUST serialize as lowercase \texttt{null}.
+\end{description}
+
+\textbf{Example Canonical JSON:}
+\begin{verbatim}
+{
+  "items": [
+    {
+      "id": "MD-001-1",
+      "severity": "high"
+    }
+  ],
+  "meta": {
+    "oracle_version": "1.0.0"
+  }
+}
+\end{verbatim}
+
+Note: Keys are sorted (\texttt{items} before \texttt{meta}), two-space indent, trailing newline.
+
+\subsection*{C.3 Timestamp Format}
+
+\begin{description}
+\item[Format:] ISO 8601 date-time with UTC timezone: \texttt{YYYY-MM-DDTHH:MM:SSZ}
+
+\item[Timezone:] All timestamps MUST be normalized to UTC. The literal character \texttt{Z} (Zulu time) MUST be used as the timezone designator. Numeric offsets (e.g., \texttt{+00:00}) are NOT permitted.
+
+\item[Precision:] Second-level precision. Fractional seconds (milliseconds, microseconds) MUST NOT be included.
+
+\item[Calendar:] Proleptic Gregorian calendar.
+
+\item[Leap Seconds:] Implementations SHOULD handle leap seconds correctly but MAY represent them as 59.999... or 00 of the next minute, as long as the representation is deterministic.
+
+\item[Example:] \texttt{2026-01-28T05:02:00Z}
+\end{description}
+
+\textbf{Rationale:} ISO 8601 is widely supported and unambiguous. Enforcing UTC eliminates timezone conversion errors. Second precision is sufficient for governance timestamping while avoiding floating-point subsecond edge cases.
+
+\subsection*{C.4 Hash Computation}
+
+\begin{description}
+\item[Algorithm:] SHA-256 (FIPS 180-4)
+
+\item[Input:] UTF-8 encoded bytes of the canonicalized content (after NFC normalization, JSON key sorting, etc.)
+
+\item[Representation:] 64-character lowercase hexadecimal string with no prefix (no "0x", no "sha256:")
+
+\item[Verification:] The hash MUST be computed over the exact byte sequence, including trailing newline if present in the canonical form.
+\end{description}
+
+\textbf{Example:}
+\begin{verbatim}
+Input (UTF-8 bytes): {"key":"value"}\n
+SHA-256: 8b4a2e1f9d3c7a5e8b2f4d6a9c1e5b7d3f9a5c7e1b9d4f8a2e6c9b5d3f7a1e4
+\end{verbatim}
+
+\textbf{Validation Command (Linux/macOS):}
+\begin{verbatim}
+echo -n '{"key":"value"}' | sha256sum
+\end{verbatim}
+
+\subsection*{C.5 Tension Ranking Formula}
+
+\begin{description}
+\item[Impact Score:] Integer in range $[1, 10]$, where 10 = highest impact
+
+\item[Tractability Score:] Floating-point in range $[0.1, 1.0]$, rounded to 1 decimal place
+
+\item[Priority Calculation:] 
+\begin{equation*}
+\text{Priority} = \text{Impact} \times \text{Tractability}
+\end{equation*}
+Rounded to 1 decimal place using round-half-to-even (banker's rounding).
+
+\item[Tie-Breaking:] If two tensions have identical priority scores:
+\begin{enumerate}
+\item Sort by Impact (descending: higher impact first)
+\item If Impact is equal, sort by tension type alphabetically (ascending)
+\item If type is equal, maintain original input order (stable sort)
+\end{enumerate}
+\end{description}
+
+\textbf{Example:}
+\begin{itemize}
+\item Tension A: Impact = 8, Tractability = 0.7 $\Rightarrow$ Priority = 5.6
+\item Tension B: Impact = 5, Tractability = 0.9 $\Rightarrow$ Priority = 4.5
+\item Tension C: Impact = 6, Tractability = 0.4 $\Rightarrow$ Priority = 2.4
+\end{itemize}
+Ranking: A (5.6), B (4.5), C (2.4)
+
+\subsection*{C.6 Conformance Testing}
+
+Implementations claiming Phase Mirror Dissonance conformance MUST pass all test vectors published in the official test suite.
+
+\textbf{Test Vector Repository:} \\
+\url{https://zenodo.org/record/[DOI]/files/pmd_test_vectors.json}
+
+\textbf{Validation Procedure:}
+\begin{enumerate}
+\item Parse the \texttt{input} object from the test vector
+\item Apply normalization according to C.1 (UTF-8 NFC)
+\item Generate output according to specification
+\item Serialize output as canonical JSON according to C.2
+\item Compute SHA-256 hash according to C.4
+\item Compare computed hash to \texttt{sha256} field in test vector
+\item Test passes if and only if hashes match exactly (all 64 hex digits)
+\end{enumerate}
+
+\textbf{Test Suite Coverage:}
+\begin{itemize}
+\item Minimal dissonance report generation (end-to-end)
+\item Tension ranking with floating-point precision
+\item False-positive rate calculation with edge cases
+\item Circuit-breaker threshold triggering
+\item UTF-8 normalization (NFD vs. NFC)
+\item JSON key ordering (case-sensitive lexicographic)
+\item Floating-point special value rejection (NaN, Infinity)
+\end{itemize}
+
+\subsection*{C.7 Error Handling}
+
+Implementations MUST fail loudly and immediately when encountering:
+\begin{itemize}
+\item Invalid UTF-8 byte sequences
+\item JSON duplicate keys
+\item JSON NaN/Infinity values
+\item Timestamps with non-UTC timezone
+\item Impacts outside $[1, 10]$ range
+\item Tractability outside $[0.1, 1.0]$ range
+\end{itemize}
+
+Silent failures, warnings-only, or best-effort processing are NOT conformant.
+
+\subsection*{C.8 Reference Implementation}
+
+A reference implementation in TypeScript/JavaScript is planned for publication alongside this specification. The reference implementation will:
+\begin{itemize}
+\item Pass all conformance test vectors
+\item Include detailed comments mapping code to this specification
+\item Be released under MIT License for maximum reusability
+\item Serve as the canonical interpretation in case of specification ambiguity
+\end{itemize}
+
+\textbf{Note:} Until the reference implementation is published, this written specification is authoritative. In case of ambiguity, prioritize determinism and verifiability over performance or convenience.
+
+sha256:0c5f5b77a9f722bb21d5cf0f5d4d066002c3dc8f4f3c962eb8027ae83f1fad1b
+
+\end{document}

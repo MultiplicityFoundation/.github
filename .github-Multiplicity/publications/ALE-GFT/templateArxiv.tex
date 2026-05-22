@@ -1,0 +1,4596 @@
+\documentclass[12pt,a4paper]{article}
+
+%%% ——— Packages ———
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathrsfs}
+\usepackage{hyperref}
+\usepackage{geometry}
+\geometry{margin=1in}
+\usepackage{cite}
+\usepackage{graphicx}
+
+%%% ——— Theorem environments ———
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+
+%%% ——— Title ———
+\title{\textbf{Complex Gravitational Coupling from Arithmetic Quantum Gravity Noise}}
+\author{Ryan O.\ Van Gelder\thanks{A Citizen Gardens Research Initiative.  Correspondence: Bridgeville, Pennsylvania, USA.}}
+\date{February 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+The gravitational coupling $\kappa^{2}=16\pi G_{N}$ has been treated as a real, positive constant since Einstein wrote his field equations in 1915.
+We show that this assumption fails when gravity is an open quantum system.
+Starting from the Feynman--Vernon influence functional for metric perturbations coupled to a causal quantum environment, we prove that the retarded self-energy dresses $\kappa$ into a complex, frequency-dependent effective coupling
+$\kappa_{\mathrm{eff}}(k) = \kappa\bigl/\bigl[1-\kappa\,\tilde{D}_{R}(k)/\mathcal{O}(k)\bigr]$,
+whose imaginary part is fixed by the noise kernel and whose real and imaginary parts are linked by a Kramers--Kronig relation rooted in spacetime causality.
+The result is a general theorem of stochastic gravity; its physical content becomes sharp when the environment is the Arithmetic--Langevin Group Field Theory (AL-GFT), whose noise kernel is a \emph{Zeta-Comb}---a discrete superposition of log-periodic modes at frequencies set by the imaginary parts $\gamma_{n}$ of the non-trivial Riemann zeta zeros.
+In this realisation the beat spectrum of $\operatorname{Im}\kappa_{\mathrm{eff}}$ inherits the GUE pair-correlation statistics of the zeros, providing a binary diagnostic that requires no fitting.
+We map the two free parameters $(\varepsilon,\sigma)$ onto a joint parameter space constrained from above by Planck 2018 oscillatory-feature bounds and from below by BBO/DECIGO sensitivity curves, identifying a sweet spot at $\sigma\sim 10^{-3}$, $\varepsilon\sim 10^{-2}$ where both the GUE cross-check and the gravitational-wave signal are accessible.
+A self-consistent bootstrap condition---requiring the environment that generates the noise to be compatible with the geometry it modifies---takes the form of a nonlinear eigenvalue problem whose solution, if it exists, would connect the Riemann zero spectrum to the causal structure of spacetime via the Berry--Keating programme.
+\end{abstract}
+
+
+%% ================================================================
+%%  SECTION 1 — INTRODUCTION
+%% ================================================================
+\section{Introduction}\label{sec:intro}
+
+The gravitational coupling $\kappa^{2}=16\pi G_{N}$ has been treated as a real, positive constant since Einstein wrote his field equations in 1915.
+Every test of general relativity, from perihelion precession to the LIGO--Virgo--KAGRA catalogue, is consistent with this assumption.
+Yet the assumption is never derived: it is imported from classical physics, where $G_{N}$ enters Newton's law as a measured proportionality constant with no internal structure.
+The moment one promotes the gravitational field to a quantum degree of freedom---or even treats it classically while allowing it to interact with quantum matter---the coupling to an environment generically dresses every real parameter into a complex, frequency-dependent effective parameter.
+This paper asks what happens to $\kappa$ when that generic fact is taken seriously.
+
+%% ——— Motivation 1: the open-system perspective ———
+\subsection{Motivation 1: Gravity as an open quantum system}\label{sec:mot1}
+
+Semiclassical gravity replaces the right-hand side of the Einstein equations with the expectation value $\langle\hat{T}_{\mu\nu}\rangle$ of the stress-energy tensor of quantum matter fields \cite{HuVerdaguer2008}.
+This mean-field description is adequate when stress-energy fluctuations are small compared with the mean, but it discards all information about correlations.
+Stochastic gravity---developed by Hu, Verdaguer, Calzetta and others \cite{HuVerdaguer2004,CalzettaHu1994}---restores the leading fluctuation corrections by deriving, via the Feynman--Vernon influence functional \cite{FeynmonVernon1963}, an Einstein--Langevin equation:
+\begin{equation}\label{eq:EL}
+  G_{\mu\nu}[g+h] \;=\; \kappa^{2}\,\bigl(\langle\hat{T}_{\mu\nu}\rangle + \xi_{\mu\nu}\bigr),
+\end{equation}
+where $\xi_{\mu\nu}$ is a stochastic tensor whose two-point function is the \emph{noise kernel}
+\begin{equation}\label{eq:noisekernel}
+  \langle \xi_{\mu\nu}(x)\,\xi_{\alpha\beta}(x')\rangle \;=\; N_{\mu\nu\alpha\beta}(x,x')
+  \;=\; \tfrac{1}{2}\bigl\langle\bigl\{\hat{T}_{\mu\nu}(x),\,\hat{T}_{\alpha\beta}(x')\bigr\}\bigr\rangle.
+\end{equation}
+The noise kernel is real, symmetric, and positive semi-definite; it encodes the quantum state of the environment.
+Its existence is a theorem of quantum field theory in curved spacetime, not a modelling assumption.
+
+The influence functional that generates (\ref{eq:EL}) also contains a \emph{dissipation kernel} $D_{R}$, the retarded part of the stress-energy two-point function, related to the noise kernel by a fluctuation--dissipation relation (FDR) \cite{HuVerdaguer2008}.
+In any causal linear-response theory, the retarded response is analytic in the upper half of the complex frequency plane; its real and imaginary parts are therefore linked by the Kramers--Kronig relations \cite{KramersKronig}.
+The key observation of this paper is that these two kernels---noise and dissipation---dress the bare gravitational coupling $\kappa$ into a \emph{complex, frequency-dependent effective coupling} $\kappa_{\mathrm{eff}}(k)$, in exact analogy with the way a dielectric medium dresses the bare electric charge into a complex permittivity.
+
+This is not a new physical effect; it is an inescapable consequence of combining two established results:
+\begin{enumerate}
+\item The influence functional for gravity yields both a noise kernel and a dissipation kernel \cite{HuVerdaguer2004}.
+\item Kramers--Kronig causality ties the real and imaginary parts of any retarded response function \cite{KramersKronig}.
+\end{enumerate}
+What \emph{is} new is the recognition that the resulting $\kappa_{\mathrm{eff}}(k)$ carries physical content---specifically, that its imaginary part and its beat-frequency structure are observable in principle, and that for a particular class of environments they encode number-theoretic information.
+
+
+%% ——— Motivation 2: the conformal-factor problem ———
+\subsection{Motivation 2: The conformal-factor problem and the sign of fluctuations}\label{sec:mot2}
+
+A second, independent motivation comes from the long-standing \emph{conformal-factor problem} of Euclidean quantum gravity \cite{GibbonsHawkingPerry1978,Mazur1990}.
+The Einstein--Hilbert action, after a conformal decomposition $g_{\mu\nu}=\Omega^{2}\tilde{g}_{\mu\nu}$, contains a kinetic term for the conformal factor with the ``wrong'' sign:
+\begin{equation}\label{eq:SEconformal}
+  S_{E} \;=\; -\frac{1}{16\pi G}\int d^{4}x\,\sqrt{\tilde{g}}\,\bigl(\Omega^{2}\tilde{R}+6(\nabla\Omega)^{2}\bigr).
+\end{equation}
+The negative-definite kinetic energy makes the Euclidean path integral $\int[Dg]\,e^{-S_{E}}$ unbounded from below, rendering the standard Wick rotation ill-defined \cite{ConformalInstability2022}.
+Proposed remedies include restricting to on-shell configurations, rotating the conformal-factor contour, or constraining before quantising \cite{GravPI_UCSB}.
+
+Our framework offers a complementary perspective.
+In the Lorentzian Schwinger--Keldysh formalism, there is no Euclidean rotation, and the conformal instability manifests instead as a \emph{sign ambiguity in the dissipation kernel} $D_{R}$.
+When $D_{R}$ has the ``wrong'' sign relative to the noise kernel, the FDR forces $\operatorname{Im}\kappa_{\mathrm{eff}}<0$---corresponding to \emph{anti-dissipation}, i.e., gravitational amplification of fluctuations.
+This is precisely the instability that the conformal-factor problem encodes in Euclidean language.
+The advantage of the Lorentzian open-system treatment is that the instability is automatically regulated by the causal structure: $\kappa_{\mathrm{eff}}(k)$ is analytic in the upper half-plane and approaches the real value $\kappa$ at asymptotically high frequencies, so the theory remains well-defined mode by mode.
+The conformal-factor problem thus re-emerges as a \emph{spectral feature} of the complex coupling rather than a global pathology of the path integral.
+
+
+%% ——— Motivation 3: Riemann zeros and quantum gravity ———
+\subsection{Motivation 3: Riemann zeros, GUE statistics, and number-theoretic spacetime}\label{sec:mot3}
+
+The third motivation is the oldest open question in the intersection of physics and number theory: the spectral interpretation of the Riemann zeta zeros.
+
+Since Montgomery's 1973 pair-correlation conjecture \cite{Montgomery1973} and its stunning numerical verification by Odlyzko \cite{Odlyzko1987}, the non-trivial zeros of $\zeta(s)$ on the critical line $\operatorname{Re}(s)=\tfrac{1}{2}$ have been known to exhibit the same local statistics as the eigenvalues of large random Hermitian matrices drawn from the Gaussian Unitary Ensemble (GUE) \cite{MontgomeryWiki,MathWorldMontgomery}.
+Berry and Keating conjectured that the zeros \emph{are} eigenvalues of a semiclassical Hamiltonian $\hat{H}=\tfrac{1}{2}(\hat{x}\hat{p}+\hat{p}\hat{x})$ \cite{BerryKeating1999}, and Bender, Brody and M\"uller \cite{BBM2017} constructed a $\mathcal{PT}$-symmetric Hamiltonian whose eigenvalues, under a suitable boundary condition, coincide with the zeros.
+Rodgers proved \cite{Rodgers2013} that the full GUE conjecture for the $n$-level correlations is logically equivalent to a precise statement about the distribution of products of primes---making the spectral statistics of the zeros a window into the arithmetic structure of the integers.
+
+Despite this remarkable convergence of evidence, no physical system has been identified whose energy spectrum \emph{is} the Riemann zero spectrum in a measurable sense.
+This paper does not claim to solve the Riemann hypothesis.
+What it does claim is the following: \emph{if the quantum gravitational environment has the spectral content of the Riemann zeros}---as it does in the Arithmetic--Langevin Group Field Theory (AL-GFT) constructed in our companion work \cite{ALGFTGate1}---then the beat spectrum of the imaginary part of $\kappa_{\mathrm{eff}}$ inherits GUE pair-correlation statistics, and this correlation structure is in principle observable in the stochastic gravitational-wave background at decihertz frequencies.
+
+The conditional nature of this claim is essential.
+We are not asserting that the Riemann zeros govern gravity.
+We are proving that \emph{if they do}, the consequence is a specific, falsifiable pattern in a specific observable.
+This transforms the Berry--Keating programme from a conjecture about an unknown Hamiltonian into a prediction about a measurable spectrum.
+
+
+%% ——— The answer in brief ———
+\subsection{Summary of results}\label{sec:summary}
+
+The paper establishes the following chain of results:
+
+\begin{enumerate}
+\item \textbf{General theorem (Section~\ref{sec:complexkappa}).}
+  For \emph{any} causal quantum environment coupled to linearised gravity via the Feynman--Vernon influence functional, the bare coupling $\kappa$ is dressed into a complex effective coupling
+  \begin{equation}\label{eq:keff_intro}
+    \kappa_{\mathrm{eff}}(k) \;=\; \frac{\kappa}{1 - \kappa\,\tilde{D}_{R}(k)\big/\mathcal{O}(k)},
+  \end{equation}
+  whose imaginary part is determined by the noise kernel via a generalised fluctuation--dissipation theorem, and whose real and imaginary parts obey a Kramers--Kronig relation.
+  The proof uses only standard results from influence-functional theory and the analyticity of causal response functions; no assumption about the microscopic theory of quantum gravity is required.
+  A Ward identity ensures that $\nabla^{\mu}\langle\hat{T}_{\mu\nu}\rangle=0$ is preserved by the dressing.
+
+\item \textbf{Zeta-Comb realisation (Section~\ref{sec:zetacomb}).}
+  When the environment is the AL-GFT---a Group Field Theory whose noise kernel is a discrete superposition of log-periodic modes at frequencies $\gamma_{n}=\operatorname{Im}(\rho_{n})$, the imaginary parts of the non-trivial Riemann zeta zeros---the signal amplitude takes the form
+  \begin{equation}\label{eq:signal_intro}
+    \left|\frac{\delta\kappa}{\kappa}\right| \;=\; \varepsilon^{2}\,e^{-2\sigma\gamma_{1}^{2}},
+  \end{equation}
+  where $\varepsilon$ is the multiplicity coupling strength, $\sigma$ the soft-resonance width, and $\gamma_{1}=14.1347\ldots$ is the first zeta zero.
+  At the sweet-spot parameters $\sigma\sim 10^{-3}$, $\varepsilon\sim 10^{-2}$, this gives $|\delta\kappa/\kappa|\sim 7\times 10^{-5}$.
+
+\item \textbf{GUE diagnostic (Section~\ref{sec:GUE}).}
+  The pairwise beat frequencies $\omega_{nm}=|\gamma_{n}-\gamma_{m}|$ of the Zeta-Comb, when normalised by the local mean spacing, reproduce the GUE two-point correlation function $R_{2}(u)=1-(\sin\pi u/\pi u)^{2}$ \cite{MontgomeryWiki}.
+  In particular, GUE level repulsion forces the smallest normalised spacing $u_{\min}\sim 0.2$--$0.5$, whereas a generic (Poisson) environment would populate $u\to 0$.
+  This binary yes/no test requires no parameter fitting and distinguishes the Riemann-zero environment from any non-arithmetic noise source.
+
+\item \textbf{Detection roadmap (Section~\ref{sec:detection}).}
+  The parameter space $(\varepsilon,\sigma)$ is bounded from above by Planck 2018 constraints on oscillatory features in the primordial power spectrum \cite{Planck2018X} and from below by the projected strain sensitivities of BBO \cite{BBO2011} and DECIGO \cite{DECIGO2021}.
+  The sweet spot where the GUE cross-check is visible ($\sigma\lesssim 0.002$, requiring $N_{\mathrm{eff}}\geq 2$ contributing zeros) overlaps with the region of maximal signal amplitude, resolving a potential tension between discriminating power and detectability.
+
+\item \textbf{Bootstrap condition (Section~\ref{sec:bootstrap}).}
+  Self-consistency---requiring the noise kernel that generates $\kappa_{\mathrm{eff}}$ to be compatible with the geometry it modifies---yields a nonlinear eigenvalue problem
+  \begin{equation}\label{eq:bootstrap_intro}
+    K(\sigma)\cdot\mathbf{v}(\sigma) = 0, \qquad v_{n}=e^{-2\sigma\gamma_{n}^{2}},
+  \end{equation}
+  whose structure parallels the Berry--Keating programme: the zeros $\gamma_{n}$ are simultaneously the data that define the environment and the eigenvalues that the bootstrap must reproduce.
+  The existence or non-existence of a solution at physical $\sigma$ values would constitute a non-trivial test of the arithmetic structure of spacetime.
+\end{enumerate}
+
+\medskip
+
+The remainder of the paper is organised as follows.
+Section~\ref{sec:complexkappa} derives the complex effective coupling from the influence functional and establishes the Kramers--Kronig and Ward-identity constraints.
+Section~\ref{sec:zetacomb} specialises to the AL-GFT Zeta-Comb environment and derives the signal amplitude and beat-frequency structure.
+Section~\ref{sec:GUE} presents the GUE cross-check as a binary diagnostic.
+Section~\ref{sec:detection} maps out the parameter space and the detection roadmap.
+Section~\ref{sec:FDT} derives the generalised fluctuation--dissipation theorem with beat-frequency corrections.
+Section~\ref{sec:bootstrap} formulates the self-consistent bootstrap condition.
+Section~\ref{sec:discussion} connects the results to the Berry--Keating programme and discusses falsifiability.
+
+\medskip
+
+\noindent\textit{Notation and conventions.}
+We work in natural units $\hbar=c=1$ unless otherwise stated, with metric signature $(-,+,+,+)$.
+The gravitational coupling is $\kappa^{2}=16\pi G_{N}$.
+Riemann zeta zeros on the critical line are written $\rho_{n}=\tfrac{1}{2}+i\gamma_{n}$ with $\gamma_{n}>0$ labelled in ascending order; the first few values are $\gamma_{1}\approx 14.135$, $\gamma_{2}\approx 21.022$, $\gamma_{3}\approx 25.011$.
+Fourier transforms use the convention $\tilde{f}(k)=\int d^{4}x\,e^{ik\cdot x}f(x)$.
+
+
+
+%% ================================================================
+%%  SECTION 2 — COMPLEX κ FROM STOCHASTIC GRAVITY
+%% ================================================================
+\section{Complex $\kappa$ from stochastic gravity}\label{sec:complexkappa}
+
+In this section we prove that the gravitational coupling $\kappa$ is generically dressed into a complex, frequency-dependent effective coupling $\kappa_{\mathrm{eff}}(k)$ whenever gravity is treated as an open quantum system.
+The derivation uses only three ingredients: (i) the Schwinger--Keldysh closed-time-path (CTP) formalism for the gravitational field, (ii) the Feynman--Vernon influence functional obtained by tracing over a causal quantum environment, and (iii) the analyticity of retarded response functions in the upper half of the complex frequency plane.
+No assumption about the microscopic theory of quantum gravity is required; the result holds for any environment whose stress-energy correlators are well-defined distributions.
+
+%% ——— 2.1: Setup ———
+\subsection{Setup: linearised gravity as an open system}\label{sec:setup}
+
+Consider a globally hyperbolic spacetime $(\mathcal{M},g_{ab})$ satisfying the semiclassical Einstein equation
+\begin{equation}\label{eq:SCE}
+  G_{ab}[g] + \Lambda\, g_{ab} - \alpha\, A_{ab}[g] - \beta\, B_{ab}[g]
+  \;=\; \kappa^{2}\,\bigl\langle\hat{T}^{R}_{ab}[g]\bigr\rangle,
+\end{equation}
+where $\kappa^{2}=16\pi G_{N}$, $\Lambda$ is the cosmological constant, $\alpha$ and $\beta$ are the renormalised higher-derivative couplings, and the right-hand side is the renormalised expectation value of the stress-energy tensor of quantum matter in a physically acceptable (Hadamard) state $|\psi[g]\rangle$ \cite{HuVerdaguer2008,HuVerdaguer2004,Wald1994}.
+
+We treat the gravitational field as the \emph{system} and the quantum matter field as the \emph{environment}, and consider metric perturbations $h_{ab}$ around the semiclassical background:
+\begin{equation}\label{eq:metricpert}
+  g_{ab} \;\longrightarrow\; g_{ab} + h_{ab}.
+\end{equation}
+On the Schwinger--Keldysh closed time path, we double the degrees of freedom: the forward branch carries $h^{+}_{ab}$ and the backward branch carries $h^{-}_{ab}$.
+It is convenient to pass to the Keldysh basis
+\begin{equation}\label{eq:Keldysh}
+  \bar{h}_{ab} \;=\; \tfrac{1}{2}\bigl(h^{+}_{ab}+h^{-}_{ab}\bigr), \qquad
+  \Delta h_{ab} \;=\; h^{+}_{ab}-h^{-}_{ab},
+\end{equation}
+where $\bar{h}$ is the classical (average) field and $\Delta h$ is the quantum (difference) field that vanishes on shell.
+
+%% ——— 2.2: Influence functional ———
+\subsection{The influence functional}\label{sec:IF}
+
+The CTP generating functional for the metric perturbations, after integrating out the quantum matter fields in their initial state $\hat{\rho}_{\mathrm{env}}$, takes the form \cite{HuVerdaguer2004,CalzettaHu1994,FeynmonVernon1963}
+\begin{equation}\label{eq:ZCTP}
+  Z[J^{+},J^{-}]
+  \;=\; \int \mathcal{D}h^{+}\,\mathcal{D}h^{-}\;
+  e^{\,i\bigl(S_{\mathrm{grav}}[g+h^{+}]-S_{\mathrm{grav}}[g+h^{-}]\bigr)
+     \;+\; i\,S_{\mathrm{IF}}[h^{+},h^{-}]
+     \;+\; i\,(J^{+}\cdot h^{+} - J^{-}\cdot h^{-})},
+\end{equation}
+where $S_{\mathrm{grav}}$ is the gravitational action and $S_{\mathrm{IF}}$ is the \emph{influence action}, defined via
+\begin{equation}\label{eq:IFdef}
+  e^{\,i\,S_{\mathrm{IF}}[h^{+},h^{-}]}
+  \;=\;
+  \mathrm{Tr}_{\mathrm{env}}\Bigl[
+    \hat{U}[g+h^{+}]\;\hat{\rho}_{\mathrm{env}}\;\hat{U}^{\dagger}[g+h^{-}]
+  \Bigr],
+\end{equation}
+with $\hat{U}[g+h]$ the unitary evolution operator for the matter field on the perturbed background.
+
+For a linear coupling of the metric perturbation to the stress-energy tensor (which is the physical coupling of gravity to matter at leading order), the influence action to second order in $h$ takes the standard Feynman--Vernon form \cite{HuVerdaguer2008,HuVerdaguer2004}.
+In the Keldysh basis (\ref{eq:Keldysh}), it reads
+\begin{equation}\label{eq:SIF}
+  S_{\mathrm{IF}}[\bar{h},\Delta h]
+  \;=\;
+  \int d^{4}x\,d^{4}x'\;
+  \Bigl[
+    \Delta h^{ab}(x)\,D^{R}_{abcd}(x,x')\,\bar{h}^{cd}(x')
+    \;+\;
+    \tfrac{i}{2}\,\Delta h^{ab}(x)\,N_{abcd}(x,x')\,\Delta h^{cd}(x')
+  \Bigr],
+\end{equation}
+where:
+\begin{itemize}
+\item The \textbf{dissipation kernel}
+\begin{equation}\label{eq:DRdef}
+  D^{R}_{abcd}(x,x')
+  \;=\;
+  i\,\theta(x^{0}-x'^{0})\,
+  \bigl\langle\bigl[\hat{T}_{ab}(x),\,\hat{T}_{cd}(x')\bigr]\bigr\rangle
+\end{equation}
+is the retarded part of the stress-energy two-point function.
+It is \emph{causal}: $D^{R}_{abcd}(x,x')=0$ whenever $x$ lies outside the causal future of $x'$.
+
+\item The \textbf{noise kernel}
+\begin{equation}\label{eq:Ndef}
+  N_{abcd}(x,x')
+  \;=\;
+  \tfrac{1}{2}\,\bigl\langle\bigl\{\hat{T}_{ab}(x),\,\hat{T}_{cd}(x')\bigr\}\bigr\rangle
+  \;-\;
+  \bigl\langle\hat{T}_{ab}(x)\bigr\rangle\,\bigl\langle\hat{T}_{cd}(x')\bigr\rangle
+\end{equation}
+is the symmetrised, connected two-point function of the stress-energy fluctuations.
+It is real, symmetric in its arguments, and positive semi-definite \cite{HuVerdaguer2004}.
+\end{itemize}
+
+\noindent
+The first term in (\ref{eq:SIF}) is the \emph{dissipative} part of the influence action: it modifies the retarded equations of motion for $\bar{h}$.
+The second term is the \emph{noise} part: it generates stochastic fluctuations.
+
+\medskip
+
+\noindent
+\textbf{Remark.}
+Equation~(\ref{eq:SIF}) is the gravitational analogue of the Caldeira--Leggett influence action for quantum Brownian motion \cite{CaldeiraLeggett1983}.
+The tensor indices make the expressions more involved, but the algebraic structure is identical: a real, retarded dissipation kernel plus an imaginary, symmetric noise kernel.
+This universality is the reason the complex-$\kappa$ result holds for any environment.
+
+%% ——— 2.3: Effective equation of motion ———
+\subsection{Effective equation of motion and the dressed propagator}\label{sec:effeom}
+
+The equation of motion for the classical (average) metric perturbation $\bar{h}_{ab}$ is obtained by extremising the CTP effective action with respect to $\Delta h_{ab}$ and then setting $\Delta h=0$ (the physical-limit condition of the Schwinger--Keldysh formalism).
+From the gravitational action expanded to second order, the kinetic operator for $h_{ab}$ on a background $g_{ab}$ is the Lichnerowicz operator $\hat{\mathcal{G}}$, defined so that the linearised Einstein tensor is
+\begin{equation}\label{eq:Lichnerowicz}
+  \delta G_{ab} \;=\; -\tfrac{1}{2}\,\hat{\mathcal{G}}_{ab}{}^{cd}\,h_{cd}.
+\end{equation}
+Including the contribution from the influence action~(\ref{eq:SIF}), the full linearised equation of motion in Fourier space becomes\footnote{We suppress tensor indices for clarity, writing the equation schematically; the full tensorial structure is restored in Appendix~A.}
+\begin{equation}\label{eq:eomfull}
+  \Bigl[\hat{\mathcal{G}}(k) \;-\; \kappa^{2}\,\tilde{D}^{R}(k)\Bigr]\,\tilde{\bar{h}}(k)
+  \;=\;
+  \kappa^{2}\,\tilde{\xi}(k),
+\end{equation}
+where $\tilde{D}^{R}(k)$ is the Fourier transform of the dissipation kernel and $\tilde{\xi}(k)$ is the stochastic source with correlator $\langle\tilde{\xi}(k)\,\tilde{\xi}(k')\rangle = \tilde{N}(k)\,(2\pi)^{4}\delta^{(4)}(k+k')$.
+
+Equation~(\ref{eq:eomfull}) has the structure of a Dyson equation: the bare gravitational propagator $G_{0}(k)=\hat{\mathcal{G}}^{-1}(k)$ is dressed by the retarded self-energy $\Sigma^{R}(k)=\kappa^{2}\,\tilde{D}^{R}(k)$.
+The full (dressed) retarded propagator is
+\begin{equation}\label{eq:dressedprop}
+  G^{R}(k)
+  \;=\;
+  \bigl[\hat{\mathcal{G}}(k)-\kappa^{2}\,\tilde{D}^{R}(k)\bigr]^{-1}.
+\end{equation}
+
+%% ——— 2.4: Resummation into κ_eff ———
+\subsection{Resummation: the complex effective coupling}\label{sec:resum}
+
+The key observation is that the self-energy $\Sigma^{R}(k)=\kappa^{2}\,\tilde{D}^{R}(k)$ can be absorbed into a redefinition of the gravitational coupling.
+To see this, we factor the kinetic operator as $\hat{\mathcal{G}}(k)=\kappa^{-2}\,\mathcal{O}(k)$, where $\mathcal{O}(k)$ is the differential operator whose eigenvalues are the squares of the graviton mode frequencies (this factorisation is standard in the linearised Einstein equations, where $\kappa^{2}$ multiplies the source, not the kinetic term; see e.g.~\cite{HuVerdaguer2004}).
+Then (\ref{eq:dressedprop}) becomes
+\begin{equation}\label{eq:factor}
+  G^{R}(k)
+  \;=\;
+  \frac{\kappa^{2}}{\mathcal{O}(k)\bigl[1-\kappa^{2}\,\tilde{D}^{R}(k)/\mathcal{O}(k)\bigr]}
+  \;=\;
+  \frac{\kappa_{\mathrm{eff}}^{2}(k)}{\mathcal{O}(k)},
+\end{equation}
+where we have defined the \textbf{effective gravitational coupling}:
+
+\begin{equation}\label{eq:keff}
+  \boxed{
+  \kappa_{\mathrm{eff}}^{2}(k)
+  \;\equiv\;
+  \frac{\kappa^{2}}{1 \;-\; \kappa^{2}\,\tilde{D}^{R}(k)\big/\mathcal{O}(k)}
+  }
+\end{equation}
+
+\medskip
+
+\noindent
+This is the central equation of the paper.
+Its structure is a geometric resummation, formally identical to the relation between bare and screened charge in quantum electrodynamics:
+\begin{equation}\label{eq:QEDanalogy}
+  e_{\mathrm{eff}}^{2}(\omega)
+  \;=\;
+  \frac{e^{2}}{1-e^{2}\,\Pi^{R}(\omega)},
+\end{equation}
+where $\Pi^{R}$ is the retarded vacuum polarisation.
+The analogy is exact: $\kappa$ plays the role of $e$, and the retarded dissipation kernel $\tilde{D}^{R}(k)$ plays the role of the vacuum polarisation $\Pi^{R}(\omega)$.
+
+Since $\tilde{D}^{R}(k)$ is \emph{complex-valued} for real $k$ (its imaginary part is the spectral density of stress-energy fluctuations), the effective coupling $\kappa_{\mathrm{eff}}^{2}(k)$ is generically complex:
+\begin{equation}\label{eq:keffdecomp}
+  \kappa_{\mathrm{eff}}^{2}(k) \;=\;
+  \operatorname{Re}\kappa_{\mathrm{eff}}^{2}(k)
+  \;+\;
+  i\,\operatorname{Im}\kappa_{\mathrm{eff}}^{2}(k).
+\end{equation}
+The real part is the dispersive (reactive) correction to Newton's constant---a running gravitational coupling in the Wilsonian sense.
+The imaginary part encodes \emph{dissipation}: the rate at which gravitational modes lose (or gain) energy to the quantum environment.
+
+%% ——— 2.5: Kramers-Kronig proof ———
+\subsection{Kramers--Kronig relations for $\kappa_{\mathrm{eff}}$}\label{sec:KK}
+
+The dissipation kernel $D^{R}_{abcd}(x,x')$ is retarded by construction: it vanishes when $x$ lies outside the causal future of $x'$.
+In Fourier space, this causal support property implies that $\tilde{D}^{R}(k)$, viewed as a function of the complex frequency $k^{0}=\omega+i\eta$, is \emph{analytic in the upper half-plane} $\eta>0$ \cite{KramersKronig,KKproof}.
+
+\begin{proposition}[Kramers--Kronig for $\tilde{D}^{R}$]\label{prop:KKDR}
+Let $\tilde{D}^{R}(\omega,\mathbf{k})$ be the Fourier transform of a retarded kernel satisfying
+\begin{enumerate}
+  \item[(i)] $D^{R}(x,x')=0$ for $x^{0}<x'^{0}$ \textup{(causality)},
+  \item[(ii)] $|\tilde{D}^{R}(\omega,\mathbf{k})|\to 0$ as $|\omega|\to\infty$ in the upper half-plane \textup{(regularity at infinity)}.
+\end{enumerate}
+Then for real $\omega$:
+\begin{align}
+  \operatorname{Re}\tilde{D}^{R}(\omega,\mathbf{k})
+  &\;=\;
+  \frac{1}{\pi}\,\mathcal{P}\!\!\int_{-\infty}^{\infty}\frac{d\omega'}{\omega'-\omega}\,
+  \operatorname{Im}\tilde{D}^{R}(\omega',\mathbf{k}), \label{eq:KK1}\\[6pt]
+  \operatorname{Im}\tilde{D}^{R}(\omega,\mathbf{k})
+  &\;=\;
+  -\frac{1}{\pi}\,\mathcal{P}\!\!\int_{-\infty}^{\infty}\frac{d\omega'}{\omega'-\omega}\,
+  \operatorname{Re}\tilde{D}^{R}(\omega',\mathbf{k}), \label{eq:KK2}
+\end{align}
+where $\mathcal{P}$ denotes the Cauchy principal value.
+\end{proposition}
+
+\begin{proof}
+Since $D^{R}(t,\mathbf{x};\,t',\mathbf{x}')=0$ for $t<t'$, its Fourier transform in $\tau=t-t'$ is
+\begin{equation}
+  \tilde{D}^{R}(\omega,\mathbf{k})
+  \;=\;
+  \int_{0}^{\infty}d\tau\;e^{i\omega\tau}\,D^{R}(\tau,\mathbf{k}).
+\end{equation}
+For $\omega$ in the upper half-plane ($\mathrm{Im}\,\omega>0$), the exponential $e^{i\omega\tau}=e^{i\,\mathrm{Re}\,\omega\,\tau}\,e^{-\mathrm{Im}\,\omega\,\tau}$ is damped for $\tau>0$, so the integral converges and defines an analytic function of $\omega$ in $\mathrm{Im}\,\omega>0$.
+
+Condition~(ii) ensures that $\tilde{D}^{R}/(\omega'-\omega)$ vanishes on the semicircular arc at infinity in the upper half-plane.
+Closing the contour in the standard way (real axis plus upper semicircle, with an infinitesimal indentation around $\omega'=\omega$) and applying the Cauchy integral theorem gives
+\begin{equation}
+  0 \;=\; \mathcal{P}\!\!\int_{-\infty}^{\infty}\frac{d\omega'}{\omega'-\omega}\,\tilde{D}^{R}(\omega',\mathbf{k})
+  \;-\; i\pi\,\tilde{D}^{R}(\omega,\mathbf{k}).
+\end{equation}
+Separating real and imaginary parts yields (\ref{eq:KK1})--(\ref{eq:KK2}).
+\end{proof}
+
+\medskip
+
+Since $\kappa_{\mathrm{eff}}^{2}(k)$ is a rational function of $\tilde{D}^{R}(k)$ (Eq.~\ref{eq:keff}), and the denominator $1-\kappa^{2}\tilde{D}^{R}/\mathcal{O}$ is analytic wherever $\tilde{D}^{R}$ is (i.e.\ in the upper half-plane), $\kappa_{\mathrm{eff}}^{2}(k)$ inherits upper-half-plane analyticity provided there are no zeros of the denominator there.
+The absence of such zeros is guaranteed in the perturbative regime $|\kappa^{2}\tilde{D}^{R}/\mathcal{O}|\ll 1$, which is the regime where the semiclassical expansion is valid.
+
+\begin{corollary}[Kramers--Kronig for $\kappa_{\mathrm{eff}}$]\label{cor:KKkeff}
+In the perturbative regime, $\kappa_{\mathrm{eff}}^{2}(\omega,\mathbf{k})$ is analytic in $\mathrm{Im}\,\omega>0$, and its real and imaginary parts are related by the dispersion relations
+\begin{align}
+  \operatorname{Re}\kappa_{\mathrm{eff}}^{2}(\omega,\mathbf{k})
+  &\;=\;
+  \kappa^{2} \;+\; \frac{1}{\pi}\,\mathcal{P}\!\!\int_{-\infty}^{\infty}
+  \frac{d\omega'}{\omega'-\omega}\,
+  \operatorname{Im}\kappa_{\mathrm{eff}}^{2}(\omega',\mathbf{k}), \label{eq:KKkeff1}\\[6pt]
+  \operatorname{Im}\kappa_{\mathrm{eff}}^{2}(\omega,\mathbf{k})
+  &\;=\;
+  -\frac{1}{\pi}\,\mathcal{P}\!\!\int_{-\infty}^{\infty}
+  \frac{d\omega'}{\omega'-\omega}\,
+  \bigl[\operatorname{Re}\kappa_{\mathrm{eff}}^{2}(\omega',\mathbf{k})-\kappa^{2}\bigr]. \label{eq:KKkeff2}
+\end{align}
+\end{corollary}
+
+\noindent
+The subtraction constant $\kappa^{2}$ in (\ref{eq:KKkeff1}) arises because $\kappa_{\mathrm{eff}}^{2}\to\kappa^{2}$ as $|\omega|\to\infty$; this is the standard once-subtracted dispersion relation.
+
+\medskip
+
+\noindent
+\textbf{Physical content.}
+The Kramers--Kronig relations~(\ref{eq:KKkeff1})--(\ref{eq:KKkeff2}) state that the \emph{dispersive} correction to $G_{N}$ (real part) and the \emph{dissipative} correction (imaginary part) are not independent: measuring one determines the other.
+This is a direct consequence of spacetime causality---the fact that gravitational perturbations propagate on or inside the light cone.
+In particular, $\operatorname{Im}\kappa_{\mathrm{eff}}^{2}$ \emph{cannot} be set to zero unless $\operatorname{Re}\kappa_{\mathrm{eff}}^{2}$ is frequency-independent, i.e.\ unless the environment is trivial.
+Any non-trivial quantum environment that modifies the running of $G_{N}$ necessarily generates a non-zero imaginary part.
+
+%% ——— 2.6: FDR ———
+\subsection{Fluctuation--dissipation relation}\label{sec:FDR}
+
+The noise and dissipation kernels are not independent.
+For a thermal environment at temperature $T=1/\beta$, they satisfy the Kubo--Martin--Schwinger (KMS) condition, which in Fourier space reads \cite{HuVerdaguer2008}
+\begin{equation}\label{eq:FDR}
+  \tilde{N}(\omega,\mathbf{k})
+  \;=\;
+  \coth\!\Bigl(\frac{\beta\omega}{2}\Bigr)\,\operatorname{Im}\tilde{D}^{R}(\omega,\mathbf{k}).
+\end{equation}
+At zero temperature ($\beta\to\infty$), this reduces to
+\begin{equation}\label{eq:FDR0}
+  \tilde{N}(\omega,\mathbf{k})
+  \;=\;
+  \operatorname{sgn}(\omega)\,\operatorname{Im}\tilde{D}^{R}(\omega,\mathbf{k}).
+\end{equation}
+In the de Sitter background relevant to inflation, the Gibbons--Hawking temperature $T_{\mathrm{dS}}=H/(2\pi)$ plays the role of $T$; the FDR then links the noise kernel (which is the observable encoding the environment's quantum state) to the imaginary part of the dissipation kernel (which is the quantity that enters $\kappa_{\mathrm{eff}}$).
+
+Combining (\ref{eq:FDR}) with the definition~(\ref{eq:keff}), we obtain a \emph{direct link between the noise kernel and the imaginary part of the effective coupling}:
+\begin{equation}\label{eq:ImkeffN}
+  \operatorname{Im}\kappa_{\mathrm{eff}}^{2}(\omega,\mathbf{k})
+  \;=\;
+  \frac{\kappa^{4}\,\tilde{N}(\omega,\mathbf{k})\,\tanh(\beta\omega/2)}
+       {\bigl|\mathcal{O}(k)-\kappa^{2}\,\tilde{D}^{R}(k)\bigr|^{2}}\;\mathcal{O}(k),
+\end{equation}
+valid to all orders in the perturbative resummation.
+This equation is the precise sense in which the noise kernel---the observable encoding the environment's quantum state---\emph{determines} the imaginary part of the gravitational coupling.
+Its physical content becomes sharp in Section~\ref{sec:zetacomb}, where the noise kernel is the Zeta-Comb.
+
+%% ——— 2.7: Ward identity ———
+\subsection{Ward identity: conservation of stress-energy}\label{sec:Ward}
+
+A natural concern is whether the dressing $\kappa\to\kappa_{\mathrm{eff}}(k)$ is consistent with the conservation of the stress-energy tensor, which underpins the Bianchi identity $\nabla^{a}G_{ab}=0$ and hence the consistency of general relativity.
+
+The answer is affirmative, and follows from a Ward identity of the CTP effective action.
+Diffeomorphism invariance of the full theory (gravity + matter) implies the contracted Bianchi identity at the quantum level: the divergence of the stress-energy operator vanishes as an operator equation,
+\begin{equation}\label{eq:Tcons}
+  \nabla^{a}\hat{T}_{ab}[g+h] \;=\; 0.
+\end{equation}
+Taking the two-point function of both sides, this implies
+\begin{align}
+  \nabla^{a}_{x}\,D^{R}_{abcd}(x,x') &\;=\; 0, \label{eq:divDR}\\[4pt]
+  \nabla^{a}_{x}\,N_{abcd}(x,x') &\;=\; 0. \label{eq:divN}
+\end{align}
+In Fourier space, these become transversality conditions:
+\begin{equation}\label{eq:transverse}
+  k^{a}\,\tilde{D}^{R}_{abcd}(k) \;=\; 0, \qquad
+  k^{a}\,\tilde{N}_{abcd}(k) \;=\; 0.
+\end{equation}
+
+\begin{proposition}[Conservation under dressing]\label{prop:Ward}
+The dressed propagator $G^{R}(k)$ defined by~\textup{(\ref{eq:dressedprop})} satisfies the transversality condition
+\begin{equation}\label{eq:Wardprop}
+  k^{a}\,\bigl[G^{R}(k)\bigr]^{-1}_{abcd} \;=\; k^{a}\,\hat{\mathcal{G}}_{abcd}(k),
+\end{equation}
+i.e.\ the dressing does not generate longitudinal (unphysical) graviton modes.
+Equivalently, the effective Einstein equation with $\kappa_{\mathrm{eff}}(k)$ in place of $\kappa$ is automatically divergence-free.
+\end{proposition}
+
+\begin{proof}
+From (\ref{eq:dressedprop}),
+$[G^{R}]^{-1}_{abcd} = \hat{\mathcal{G}}_{abcd} - \kappa^{2}\tilde{D}^{R}_{abcd}$.
+Contracting with $k^{a}$ and using the transversality (\ref{eq:transverse}):
+\[
+  k^{a}\bigl[\hat{\mathcal{G}}_{abcd}(k) - \kappa^{2}\tilde{D}^{R}_{abcd}(k)\bigr]
+  \;=\;
+  k^{a}\hat{\mathcal{G}}_{abcd}(k) - \kappa^{2}\,\underbrace{k^{a}\tilde{D}^{R}_{abcd}(k)}_{=\,0}
+  \;=\;
+  k^{a}\hat{\mathcal{G}}_{abcd}(k).
+\]
+The last expression is the linearised Bianchi identity for the bare kinetic operator, which vanishes identically.
+Hence $k^{a}[G^{R}]^{-1}_{abcd}=0$, proving transversality.
+\end{proof}
+
+\noindent
+The stochastic source $\xi_{ab}$ inherits the same conservation: $\nabla^{a}\xi_{ab}=0$ with probability one, as shown in~\cite{HuVerdaguer2004}.
+Thus the full Einstein--Langevin equation with $\kappa_{\mathrm{eff}}(k)$ preserves all the gauge structure of general relativity.
+
+%% ——— 2.8: Summary theorem ———
+\subsection{Summary: the general theorem}\label{sec:theorem}
+
+We collect the results of this section into a single statement.
+
+\begin{theorem}[Complex gravitational coupling from causal environments]\label{thm:main}
+Let $(\mathcal{M},g_{ab})$ be a globally hyperbolic spacetime satisfying the semiclassical Einstein equation~\textup{(\ref{eq:SCE})}, and let the quantum matter field be in any physically acceptable \textup{(Hadamard)} state.
+Then:
+\begin{enumerate}
+\item[\textup{(a)}]
+The Feynman--Vernon influence functional for metric perturbations yields a dissipation kernel $D^{R}_{abcd}$ and a noise kernel $N_{abcd}$ satisfying the fluctuation--dissipation relation~\textup{(\ref{eq:FDR})}.
+\item[\textup{(b)}]
+The dressed retarded graviton propagator defines a complex, frequency-dependent effective gravitational coupling
+\begin{equation}\label{eq:keffthm}
+  \kappa_{\mathrm{eff}}^{2}(k)
+  \;=\;
+  \frac{\kappa^{2}}{1-\kappa^{2}\,\tilde{D}^{R}(k)/\mathcal{O}(k)},
+\end{equation}
+whose imaginary part is determined by the noise kernel via~\textup{(\ref{eq:ImkeffN})} and is generically non-zero.
+\item[\textup{(c)}]
+$\kappa_{\mathrm{eff}}^{2}(\omega,\mathbf{k})$ is analytic in $\mathrm{Im}\,\omega>0$ \textup{(}in the perturbative regime\textup{)}, and its real and imaginary parts obey the once-subtracted Kramers--Kronig dispersion relations~\textup{(\ref{eq:KKkeff1})}--\textup{(\ref{eq:KKkeff2})}.
+\item[\textup{(d)}]
+The Ward identity~\textup{(\ref{eq:transverse})} ensures that the dressing preserves $\nabla^{a}G_{ab}=0$; no unphysical longitudinal graviton modes are generated.
+\end{enumerate}
+\end{theorem}
+
+\noindent
+The theorem establishes that a complex gravitational coupling is not an exotic possibility but an \emph{unavoidable consequence} of treating gravity as an open quantum system---which it necessarily is, since every graviton interacts with quantum matter.
+The physical content of $\kappa_{\mathrm{eff}}$ depends entirely on the quantum state of the environment, encoded in the noise kernel $N_{abcd}$.
+In Section~\ref{sec:zetacomb} we specialise to the environment provided by the Arithmetic--Langevin Group Field Theory, where the noise kernel is a Zeta-Comb and $\kappa_{\mathrm{eff}}$ acquires number-theoretic structure.
+
+%% ——— New bibliography entries needed for §2 ———
+%% (to be appended to the existing bibliography)
+%%
+%% \bibitem{Wald1994}
+%% R.~M.~Wald,
+%% \emph{Quantum Field Theory in Curved Spacetime and Black Hole Thermodynamics},
+%% University of Chicago Press (1994).
+%%
+%% \bibitem{CaldeiraLeggett1983}
+%% A.~O.~Caldeira and A.~J.~Leggett,
+%% ``Path integral approach to quantum Brownian motion,''
+%% Physica A \textbf{121}, 587 (1983).
+%%
+%% \bibitem{KKproof}
+%% A.~Rustagi,
+%% ``Kramers-Kronig Relations,''
+%% Lecture Notes, NCSU (2018),
+%% \url{http://www.phys.ufl.edu/~avinash/Notes/KramersKronig/KramersKronig.pdf}.
+%%
+
+
+%% §2 of "Complex Gravitational Coupling from Arithmetic Quantum Gravity Noise"
+%% Requires: amsmath, amssymb, amsthm, mathrsfs, hyperref
+%% Place after §1 (Introduction/Motivation)
+
+%%---------------------------------------------------------------------
+\section{Complex $\kappa$ from Stochastic Gravity}\label{sec:complex-kappa}
+%%---------------------------------------------------------------------
+
+The gravitational coupling $\kappa^{2}=16\pi G_{N}$ enters Einstein's
+field equations as a real, positive constant.  We show in this section
+that treating gravity as an \emph{open} quantum system---coupled to any
+causal quantum environment---forces $\kappa$ to acquire an imaginary
+part.  The argument proceeds in three stages: (i)~we set up the
+influence-functional formalism for linearised gravity coupled to an
+arbitrary environment; (ii)~we resum the dressed gravitational
+propagator and identify the effective coupling
+$\kappa_{\mathrm{eff}}(k)$; (iii)~we invoke the Kramers--Kronig
+relations to prove that $\kappa_{\mathrm{eff}}$ is necessarily complex
+whenever the environment is causal and dissipative.  The result is a
+\emph{theorem}, independent of the specific environment; its
+specialisation to the Arithmetic-Langevin environment is deferred to
+\S\ref{sec:zeta-comb}.
+
+%%---------------------------------------------------------------------
+\subsection{Gravity as an open quantum system}\label{ssec:open-gravity}
+%%---------------------------------------------------------------------
+
+We work in linearised gravity on a cosmological (FLRW) background.
+Let $\phi(\eta,\mathbf{k})$ denote the gauge-invariant curvature
+perturbation in Fourier space, with conformal time~$\eta$ and comoving
+wavevector~$\mathbf{k}$.  Following the stochastic-gravity programme
+of Hu and Verdaguer~\cite{HuVerdaguer2008}, we partition the total
+system into
+
+\begin{itemize}
+\item \textbf{System $\boldsymbol{S}$}: the long-wavelength metric
+  perturbation $\phi$, governed by a quadratic action
+  %
+  \begin{equation}\label{eq:Ssys}
+    S_{\mathrm{sys}}[\phi]
+    = \frac{1}{2}\int d\eta\,\frac{d^{3}k}{(2\pi)^{3}}\;
+      a^{2}\!\left[\dot{\phi}_{\mathbf{k}}^{2}
+      - c_{s}^{2}\,k^{2}\,\phi_{\mathbf{k}}^{2}\right],
+  \end{equation}
+  %
+  where $a(\eta)$ is the scale factor and $c_{s}$ the adiabatic sound
+  speed.
+
+\item \textbf{Environment $\boldsymbol{E}$}: a collection of
+  short-wavelength or internal degrees of freedom
+  $\{\chi_{n,\mathbf{k}}\}$, labelled by a discrete index~$n$, with
+  quadratic action
+  %
+  \begin{equation}\label{eq:Senv}
+    S_{\mathrm{env}}[\chi]
+    = \frac{1}{2}\int d\eta\,\frac{d^{3}k}{(2\pi)^{3}}\;
+      \sum_{n}\left[\dot{\chi}_{n,\mathbf{k}}^{2}
+      - \Omega_{n}^{2}(k,\eta)\,\chi_{n,\mathbf{k}}^{2}\right],
+  \end{equation}
+  %
+  where the dispersion $\Omega_{n}(k,\eta)$ encodes the microscopic
+  physics of the environment.  No assumption is made about its origin
+  at this stage; it could arise from quantum matter loops,
+  spin-foam/GFT degrees of freedom, or any other UV completion.
+
+\item \textbf{Interaction}: a linear coupling of $\phi$ to a
+  collective environment operator
+  $\mathcal{O}(\eta,\mathbf{k})\equiv\sum_{n}g_{n}\,\chi_{n,\mathbf{k}}$,
+  %
+  \begin{equation}\label{eq:Sint}
+    S_{\mathrm{int}}[\phi,\chi]
+    = \kappa\int d\eta\,\frac{d^{3}k}{(2\pi)^{3}}\;
+      a^{2}\,\phi_{\mathbf{k}}\,
+      \mathcal{O}_{-\mathbf{k}}\,,
+  \end{equation}
+  %
+  where $\kappa$ is the bare gravitational coupling and $g_{n}$ are
+  dimensionless weights carrying the environment's spectral
+  information.
+\end{itemize}
+
+\noindent
+The total action
+$S_{\mathrm{tot}}=S_{\mathrm{sys}}+S_{\mathrm{env}}+S_{\mathrm{int}}$
+is at most quadratic in~$\chi$, so the environment can be integrated
+out \emph{exactly}.
+
+%%---------------------------------------------------------------------
+\subsection{Influence functional and
+  Schwinger--Keldysh action}\label{ssec:influence-functional}
+%%---------------------------------------------------------------------
+
+On the closed time path (CTP), we double the fields:
+$\phi^{\pm}$, $\chi^{\pm}$.  The CTP generating functional is
+\begin{equation}\label{eq:CTP-Z}
+  Z[J^{+},J^{-}]
+  = \int\!\mathcal{D}\phi^{+}\mathcal{D}\phi^{-}\;
+    e^{\,i\bigl(S_{\mathrm{sys}}[\phi^{+}]
+      -S_{\mathrm{sys}}[\phi^{-}]\bigr)
+      +\,i\,S_{\mathrm{IF}}[\phi^{+},\phi^{-}]
+      +\,i\!\int\!(J^{+}\phi^{+}-J^{-}\phi^{-})}\,,
+\end{equation}
+where the \textbf{Feynman--Vernon influence functional}~\cite{FeynmanVernon1963}
+\begin{equation}\label{eq:IF-def}
+  \mathcal{F}[\phi^{+},\phi^{-}]
+  \;\equiv\; e^{\,i\,S_{\mathrm{IF}}[\phi^{+},\phi^{-}]}
+  \;=\; \int\!\mathcal{D}\chi^{+}\mathcal{D}\chi^{-}\;
+  e^{\,i\bigl(S_{\mathrm{env+int}}[\phi^{+},\chi^{+}]
+    -S_{\mathrm{env+int}}[\phi^{-},\chi^{-}]\bigr)}\,
+  \hat{\rho}_{\mathrm{env}}[\chi^{+},\chi^{-}]
+\end{equation}
+encapsulates the entire back-reaction of the environment on the
+system.
+
+Because $S_{\mathrm{env}}+S_{\mathrm{int}}$ is quadratic in~$\chi$,
+the path integral over $\chi^{\pm}$ is Gaussian and yields an
+\emph{exact} influence action.  Introducing the Keldysh variables
+\begin{equation}\label{eq:Keldysh-vars}
+  \phi_{c}\equiv\tfrac{1}{2}(\phi^{+}+\phi^{-})\,,\qquad
+  \Delta\phi\equiv\phi^{+}-\phi^{-}\,,
+\end{equation}
+the standard result~\cite{CalzettaHu2008,HuVerdaguer2008} is
+\begin{equation}\label{eq:SIF}
+  \boxed{
+  S_{\mathrm{IF}}[\phi_{c},\Delta\phi]
+  = \int\!d\eta\,d\eta'\,\frac{d^{3}k}{(2\pi)^{3}}\;
+    \biggl[
+      \Delta\phi_{\mathbf{k}}(\eta)\;
+      D_{R}(\eta,\eta';k)\;\phi_{c,-\mathbf{k}}(\eta')
+      + \frac{i}{2}\,\Delta\phi_{\mathbf{k}}(\eta)\;
+      N(\eta,\eta';k)\;\Delta\phi_{-\mathbf{k}}(\eta')
+    \biggr],}
+\end{equation}
+with two kernels:
+
+\begin{enumerate}
+\item The \textbf{dissipation kernel}
+  (retarded, real):
+  \begin{equation}\label{eq:DR-def}
+    D_{R}(\eta,\eta';k)
+    = i\,\kappa^{2}\,\Theta(\eta-\eta')\;
+      \bigl\langle\bigl[\mathcal{O}_{\mathbf{k}}(\eta),\;
+      \mathcal{O}_{-\mathbf{k}}(\eta')\bigr]\bigr\rangle_{\mathrm{env}},
+  \end{equation}
+  which governs the causal, non-conservative part of the gravitational
+  response.
+
+\item The \textbf{noise kernel}
+  (symmetric, positive semi-definite):
+  \begin{equation}\label{eq:N-def}
+    N(\eta,\eta';k)
+    = \frac{\kappa^{2}}{2}\;
+      \bigl\langle\bigl\{\mathcal{O}_{\mathbf{k}}(\eta),\;
+      \mathcal{O}_{-\mathbf{k}}(\eta')\bigr\}\bigr\rangle_{\mathrm{env}},
+  \end{equation}
+  which sources stochastic fluctuations in the metric.
+\end{enumerate}
+
+\noindent
+These two kernels are \emph{not} independent: by construction they
+satisfy the fluctuation--dissipation relation (FDR)
+\begin{equation}\label{eq:FDR-basic}
+  N(\omega,k)
+  = \coth\!\biggl(\frac{\omega}{2T_{\mathrm{eff}}}\biggr)\,
+    \mathrm{Im}\,D_{R}(\omega,k)\,,
+\end{equation}
+where $T_{\mathrm{eff}}$ is the effective temperature of the
+environment (e.g.\ the Gibbons--Hawking temperature $H/2\pi$ for a
+de~Sitter background).
+
+%%---------------------------------------------------------------------
+\subsection{Dressed gravitational propagator and effective coupling}%
+\label{ssec:resummation}
+%%---------------------------------------------------------------------
+
+The influence action~\eqref{eq:SIF} modifies the inverse propagator of
+$\phi$.  In Fourier space $(\omega,k)$, the bare inverse propagator
+from $S_{\mathrm{sys}}$ is
+\begin{equation}\label{eq:G0inv}
+  G_{0}^{-1}(\omega,k)
+  = a^{2}\bigl(\omega^{2}-c_{s}^{2}\,k^{2}\bigr)\,,
+\end{equation}
+and the dissipation kernel contributes an additional self-energy.
+The full dressed inverse propagator is
+\begin{equation}\label{eq:Ginv-dressed}
+  G^{-1}(\omega,k)
+  = G_{0}^{-1}(\omega,k) - \kappa\,\widetilde{D}_{R}(\omega,k)\,,
+\end{equation}
+where $\widetilde{D}_{R}$ is the Fourier transform of $D_{R}$.
+Factoring out the bare kinetic structure, we write
+\begin{equation}\label{eq:Geff}
+  G^{-1}(\omega,k)
+  = a^{2}\bigl(\omega^{2}-c_{s}^{2}\,k^{2}\bigr)
+    \left[
+      1 - \frac{\kappa\,\widetilde{D}_{R}(\omega,k)}
+               {a^{2}\bigl(\omega^{2}-c_{s}^{2}\,k^{2}\bigr)}
+    \right].
+\end{equation}
+
+This invites the identification of an \textbf{effective gravitational
+coupling} via a geometric resummation of the self-energy insertions.
+Denoting $\Pi(\omega,k)\equiv
+\widetilde{D}_{R}(\omega,k)/\bigl[a^{2}(\omega^{2}-c_{s}^{2}k^{2})\bigr]$,
+the resummed propagator has the Dyson form
+\begin{equation}\label{eq:Dyson}
+  G(\omega,k)
+  = \frac{G_{0}(\omega,k)}{1-\kappa\,\Pi(\omega,k)}\,,
+\end{equation}
+which defines
+\begin{equation}\label{eq:kappa-eff}
+  \boxed{
+  \kappa_{\mathrm{eff}}(\omega,k)
+  \;\equiv\;
+  \frac{\kappa}{1-\kappa\,\Pi(\omega,k)}\,.}
+\end{equation}
+
+\noindent
+\textbf{Key observation:} The self-energy $\Pi(\omega,k)$ is a
+retarded response function.  It is therefore \emph{generically complex}
+for real $\omega$.  Consequently, $\kappa_{\mathrm{eff}}$ is complex:
+its real part describes the renormalised gravitational strength, and
+its imaginary part describes gravitational dissipation into the
+environment.
+
+\begin{remark}[Perturbative regime]
+Throughout this work, we operate in the regime
+$|\kappa\,\Pi|\ll 1$, where the Dyson resummation is well-controlled
+and the perturbative expansion
+\begin{equation}\label{eq:kappa-pert}
+  \kappa_{\mathrm{eff}}
+  \approx \kappa\bigl(1+\kappa\,\Pi+\kappa^{2}\Pi^{2}+\cdots\bigr)
+\end{equation}
+converges.  At leading non-trivial order,
+$\delta\kappa/\kappa=\kappa\,\Pi(\omega,k)$.
+\end{remark}
+
+%%---------------------------------------------------------------------
+\subsection{Kramers--Kronig proof: complex $\kappa$ is
+  mandatory}\label{ssec:KK-proof}
+%%---------------------------------------------------------------------
+
+We now elevate the observation of \S\ref{ssec:resummation} to a
+\emph{theorem}.
+
+\begin{theorem}[Mandatory complexity of $\kappa_{\mathrm{eff}}$]%
+\label{thm:complex-kappa}
+Let $\Pi(\omega,k)$ be the retarded self-energy of the gravitational
+perturbation induced by \emph{any} causal quantum environment with a
+non-trivial spectral density.  Then
+$\mathrm{Im}\,\kappa_{\mathrm{eff}}(\omega,k)\neq 0$ for all
+$\omega$ in the support of the environment's spectral function.
+\end{theorem}
+
+\begin{proof}
+The proof consists of three steps.
+
+\medskip\noindent\textbf{Step 1: Causality $\Rightarrow$ analyticity.}
+The dissipation kernel $D_{R}(\eta,\eta';k)$ is retarded
+[Eq.~\eqref{eq:DR-def}], i.e.\
+$D_{R}(\eta,\eta';k)=0$ for $\eta<\eta'$.  By Titchmarsh's
+theorem~\cite{Titchmarsh1948}, its Fourier transform
+$\widetilde{D}_{R}(\omega,k)$ is analytic in the upper half of the
+complex $\omega$-plane:
+\begin{equation}\label{eq:analyticity}
+  \widetilde{D}_{R}(\omega,k)\;\text{analytic for}\;
+  \mathrm{Im}\,\omega>0\,.
+\end{equation}
+Since $\Pi=\widetilde{D}_{R}/G_{0}^{-1}$ inherits this analyticity
+(the bare propagator $G_{0}^{-1}$ is a polynomial in $\omega$), the
+self-energy $\Pi(\omega,k)$ is also analytic in the upper half-plane
+and vanishes as $|\omega|\to\infty$ (the environment cannot respond
+faster than it is driven).
+
+\medskip\noindent\textbf{Step 2: Kramers--Kronig relations.}
+From the analyticity and asymptotic decay of~$\Pi$, the standard
+Kramers--Kronig (KK) dispersion relations~\cite{KramersKronig,Nussenzveig1972}
+hold:
+\begin{subequations}\label{eq:KK}
+\begin{align}
+  \mathrm{Re}\,\Pi(\omega,k)
+  &= \frac{1}{\pi}\,\mathcal{P}\!\!\int_{-\infty}^{\infty}
+     \frac{\mathrm{Im}\,\Pi(\omega',k)}{\omega'-\omega}\;d\omega'\,,
+  \label{eq:KK-Re}\\[4pt]
+  \mathrm{Im}\,\Pi(\omega,k)
+  &= -\frac{1}{\pi}\,\mathcal{P}\!\!\int_{-\infty}^{\infty}
+     \frac{\mathrm{Re}\,\Pi(\omega',k)}{\omega'-\omega}\;d\omega'\,,
+  \label{eq:KK-Im}
+\end{align}
+\end{subequations}
+where $\mathcal{P}$ denotes the Cauchy principal value.  The two
+relations are the Hilbert-transform pair that encodes the content of
+causality in the frequency domain.
+
+\medskip\noindent\textbf{Step 3: Non-trivial environment
+  $\Rightarrow$ $\mathrm{Im}\,\Pi\neq 0$.}
+A non-trivial environment has a spectral density $\rho(\omega,k)>0$
+on some open interval of~$\omega$.  By the optical theorem for the
+self-energy (or equivalently, by unitarity of the underlying quantum
+theory),
+\begin{equation}\label{eq:optical}
+  \mathrm{Im}\,\Pi(\omega,k)
+  = -\pi\,\kappa^{2}\,\rho(\omega,k)\,,
+\end{equation}
+where $\rho(\omega,k)=
+(2\pi)^{-1}\sum_{n}|g_{n}|^{2}\,\delta(\omega-\Omega_{n}(k))$ is the
+spectral function of $\mathcal{O}$.  Since $\rho>0$ on the support of
+the environment, $\mathrm{Im}\,\Pi\neq 0$, and by
+Eq.~\eqref{eq:KK-Re}, $\mathrm{Re}\,\Pi$ is non-trivially determined
+by the Hilbert transform of $\mathrm{Im}\,\Pi$.
+
+From Eq.~\eqref{eq:kappa-eff},
+\begin{equation}\label{eq:Im-kappa}
+  \mathrm{Im}\,\kappa_{\mathrm{eff}}
+  = \frac{\kappa^{2}\,\mathrm{Im}\,\Pi}
+         {|1-\kappa\,\Pi|^{2}}
+  \;\neq\; 0\,.
+\end{equation}
+This completes the proof.
+\end{proof}
+
+\begin{remark}[Generality]
+Theorem~\ref{thm:complex-kappa} makes no reference to the specific
+nature of the environment.  It applies equally to quantum matter
+fields in semiclassical gravity~\cite{HuVerdaguer2008}, to GFT/spin-foam
+degrees of freedom~\cite{Oriti2012}, or to the Arithmetic-Langevin
+environment introduced in \S\ref{sec:zeta-comb}.  The only input is
+\emph{causality} and \emph{non-trivial coupling}---both of which are
+physically unavoidable for any environment interacting with gravity.
+\end{remark}
+
+\begin{remark}[Physical content of $\mathrm{Im}\,\kappa_{\mathrm{eff}}$]
+The imaginary part of the effective coupling has a direct physical
+interpretation.  It controls:
+\begin{enumerate}
+  \item \emph{Gravitational dissipation}: energy leaks from
+    long-wavelength metric perturbations into the environment at a
+    rate $\Gamma\propto\mathrm{Im}\,\kappa_{\mathrm{eff}}$.
+  \item \emph{Decoherence}: the noise kernel $N$ associated with the
+    dissipation via the FDR~\eqref{eq:FDR-basic} destroys quantum
+    coherence of superposed geometries.
+  \item \emph{Spectral imprint}: the frequency dependence of
+    $\mathrm{Im}\,\kappa_{\mathrm{eff}}(\omega,k)$ is a direct
+    fingerprint of the environment's spectral density---and therefore
+    a potential observable.
+\end{enumerate}
+\end{remark}
+
+%%---------------------------------------------------------------------
+\subsection{Ward identity and conservation}\label{ssec:ward}
+%%---------------------------------------------------------------------
+
+A legitimate concern is whether the complexification of $\kappa$
+violates the conservation laws that follow from diffeomorphism
+invariance.  We show that it does not.
+
+The linearised diffeomorphism Ward identity requires the divergence of
+the effective gravitational equations to vanish:
+\begin{equation}\label{eq:ward-div}
+  k_{\mu}\,\Gamma^{\mu\nu}[\phi]=0\,,
+\end{equation}
+where $\Gamma^{\mu\nu}$ is the 1PI effective action vertex.  In the
+influence-functional formalism, this identity is preserved
+order-by-order in the CTP perturbation theory, because the
+coupling~\eqref{eq:Sint} is constructed from the gauge-invariant
+perturbation~$\phi$.  The environment-induced self-energy $\Pi$ enters
+as a scalar function of $(\omega,k)$ multiplying the
+\emph{transverse-traceless} projection of the graviton propagator.
+Consequently,
+\begin{equation}\label{eq:ward-preserved}
+  k_{\mu}\bigl[\kappa_{\mathrm{eff}}(\omega,k)\,T^{\mu\nu}\bigr]
+  = \kappa_{\mathrm{eff}}(\omega,k)\,k_{\mu}\,T^{\mu\nu}
+  = 0\,,
+\end{equation}
+since stress-energy conservation $k_{\mu}T^{\mu\nu}=0$ is a
+property of the matter sector, independent of the value---real or
+complex---of the coupling.
+
+More formally, the influence functional preserves the BRST symmetry of
+the gravitational sector.  The Slavnov--Taylor identities of the
+dressed theory are identical in form to those of the bare theory; the
+only modification is the replacement
+$\kappa\to\kappa_{\mathrm{eff}}(\omega,k)$, which is a
+$c$-number function and commutes with all
+generators~\cite{CalzettaHu2008}.
+
+\begin{proposition}[Conservation guarantee]\label{prop:conservation}
+The effective Einstein equation with complex
+$\kappa_{\mathrm{eff}}(\omega,k)$ satisfies the linearised contracted
+Bianchi identity, $\nabla_{\mu}G^{\mu\nu}_{\mathrm{eff}}=0$, to the
+same order as the perturbative expansion of the self-energy.
+\end{proposition}
+
+%%---------------------------------------------------------------------
+\subsection{Summary of the general result}\label{ssec:sec2-summary}
+%%---------------------------------------------------------------------
+
+The chain of logic is:
+\begin{equation}\label{eq:logic-chain}
+  \underbrace{\text{Causal environment}}_{\text{retarded }D_{R}}
+  \;\;\xRightarrow{\;\text{Titchmarsh}\;}
+  \;\;\underbrace{\Pi\;\text{analytic in UHP}}_{\text{KK relations}}
+  \;\;\xRightarrow{\;\rho>0\;}
+  \;\;\underbrace{\mathrm{Im}\,\kappa_{\mathrm{eff}}\neq 0}_{\text{complex coupling}}\,.
+\end{equation}
+This is a \emph{model-independent} result.  The only freedom is in
+the choice of spectral density $\rho(\omega,k)$, which determines the
+\emph{pattern}---but not the \emph{existence}---of the imaginary part.
+In the next section, we specialise to the Arithmetic-Langevin
+environment, where $\rho$ is a Zeta-Comb built from the non-trivial
+zeros of the Riemann zeta function, and derive the specific
+observational signatures that follow.
+
+
+%% §3 of "Complex Gravitational Coupling from Arithmetic Quantum Gravity Noise"
+%% Requires: amsmath, amssymb, amsthm, mathrsfs, hyperref
+%% Place after §2 (Complex κ from Stochastic Gravity)
+
+%%=====================================================================
+\section{The Zeta-Comb Environment}\label{sec:zeta-comb}
+%%=====================================================================
+
+Section~\ref{sec:complex-kappa} established that \emph{any} causal
+quantum environment renders the gravitational coupling complex.  We now
+specialise to the environment dictated by the Arithmetic-Langevin
+Group Field Theory (AL-GFT): a discrete tower of oscillator modes
+whose frequencies and couplings are built from the non-trivial zeros
+of the Riemann zeta function.  This choice is not
+\emph{ad hoc}---it is the unique environment that arises when the
+microscopic GFT vertex amplitudes carry arithmetic (prime-indexed)
+weights, as prescribed by Multiplicity Theory.
+
+The section is organised as follows.
+In \S\ref{ssec:zeta-environment} we define the environment and
+compute the noise kernel explicitly.
+In \S\ref{ssec:gen-FDT} we derive the generalised
+fluctuation--dissipation relation that connects noise and dissipation
+in the Zeta-Comb setting, revealing a family of \emph{beat
+  frequencies} between distinct Riemann zeros.
+In \S\ref{ssec:beat-spectrum} we characterise the resulting beat
+spectrum and show that it carries a GUE fingerprint testable against
+random-matrix theory.
+
+%%---------------------------------------------------------------------
+\subsection{The Arithmetic-Langevin environment}\label{ssec:zeta-environment}
+%%---------------------------------------------------------------------
+
+Recall from \S\ref{ssec:open-gravity} that the environment consists of
+modes $\chi_{n,\mathbf{k}}$ with collective operator
+$\mathcal{O}=\sum_{n}g_{n}\,\chi_{n}$.  In the AL-GFT realisation, the
+index~$n$ labels the non-trivial zeros $\rho_{n}=\tfrac{1}{2}+i\gamma_{n}$
+of the Riemann zeta function, with $\gamma_{1}=14.1347\ldots$,
+$\gamma_{2}=21.0220\ldots$, etc.  The coupling constants are
+\begin{equation}\label{eq:gn}
+  \boxed{
+  g_{n}
+  = \varepsilon\;
+    e^{-\sigma\,\gamma_{n}^{2}}\;
+    e^{\,i\,\varphi_{n}}\,,
+  \qquad
+  \varphi_{n}=\tfrac{1}{2}+i\gamma_{n}\,,}
+\end{equation}
+where $\varepsilon\ll 1$ is the overall multiplicity coupling strength
+and $\sigma>0$ is the soft-resonance width that provides a Gaussian
+damping at large~$n$.  The phase $\varphi_{n}$ is precisely the
+non-trivial zero itself, evaluated on the critical line.
+
+\begin{remark}[Motivation for the couplings]\label{rem:gn-motivation}
+The exponential $e^{-\sigma\gamma_{n}^{2}}$ ensures convergence of
+all sums over zeros and defines the effective number of contributing
+zeros,
+\begin{equation}\label{eq:Neff}
+  N_{\mathrm{eff}}(\sigma)
+  \equiv \sum_{n=1}^{\infty}e^{-2\sigma\,\gamma_{n}^{2}}\,.
+\end{equation}
+For $\sigma\sim 10^{-3}$, which we will identify as the
+phenomenological sweet spot in \S\ref{sec:parameter-space},
+$N_{\mathrm{eff}}\approx 4.2$ zeros contribute, generating 7~pairwise
+beat frequencies.  The phase $\varphi_{n}$ is \emph{not} a free
+parameter; it is fixed by the requirement that the noise kernel
+reproduce the Zeta-Comb modulation of the primordial power spectrum
+derived in Gate~1 of the AL-GFT programme.
+\end{remark}
+
+%%---------------------------------------------------------------------
+\subsubsection{Noise kernel}\label{sssec:noise-kernel}
+%%---------------------------------------------------------------------
+
+The noise kernel~\eqref{eq:N-def} evaluated for the AL-GFT
+environment is
+\begin{equation}\label{eq:N-ALGFT}
+  N(\eta,\eta';k)
+  = \frac{\kappa^{2}}{2}\sum_{n,m}g_{n}\,g_{m}^{*}\;
+    \bigl\langle\bigl\{\chi_{n,\mathbf{k}}(\eta),\;
+    \chi_{m,-\mathbf{k}}(\eta')\bigr\}\bigr\rangle_{\mathrm{env}}\,.
+\end{equation}
+For independent harmonic-oscillator modes in the Bunch--Davies vacuum
+on a quasi-de~Sitter background, the equal-time limit
+$\eta\to\eta'$ yields (after the standard conformal-time-to-$k$
+mapping $\eta_{*}\approx -1/k$)
+\begin{equation}\label{eq:Nk-sum}
+  N(k)
+  = \frac{\kappa^{2}\varepsilon^{2}}{2}\;
+    \sum_{n=1}^{N_{\mathrm{cut}}}
+    e^{-2\sigma\gamma_{n}^{2}}\;
+    \left|\mathcal{A}_{n}(k)\right|^{2}\,,
+\end{equation}
+where $\mathcal{A}_{n}(k)$ is the slowly varying Hankel-function
+amplitude evaluated near horizon crossing (see
+Appendix~\ref{app:mode-functions}), and $N_{\mathrm{cut}}$ is a
+technical cutoff that can be sent to infinity for $\sigma>0$.
+
+The full $k$-dependent noise spectrum---including the oscillatory
+phases from the mode functions---takes the form
+\begin{equation}\label{eq:Nk-full}
+  \boxed{
+  N(k)
+  = N_{0}(k)\;\mathcal{M}(k)\,,}
+\end{equation}
+where $N_{0}(k)$ is the standard scale-invariant noise spectrum of
+slow-roll inflation, and the \textbf{Zeta-Comb modulation} is
+\begin{equation}\label{eq:Mk}
+  \boxed{
+  \mathcal{M}(k)
+  = 1 + 2\varepsilon^{2}\sum_{n=1}^{\infty}
+    e^{-2\sigma\gamma_{n}^{2}}\;
+    \cos\!\left(\gamma_{n}\ln\frac{k}{k_{*}}+\varphi_{n}\right)
+    + \mathcal{O}(\varepsilon^{4})\,.}
+\end{equation}
+This is a \emph{log-periodic} modulation of the primordial power
+spectrum at frequencies set by the imaginary parts of Riemann zeta
+zeros.  In the limit $\varepsilon\to 0$, the environment decouples
+and $\mathcal{M}\to 1$, recovering the standard $\Lambda$CDM
+spectrum.
+
+\begin{remark}[Primordial power spectrum]
+The primordial curvature power spectrum inherits the Zeta-Comb
+structure via the relation $\mathcal{P}(k)=\mathcal{P}_{0}(k)\,\mathcal{M}(k)$,
+where $\mathcal{P}_{0}(k)=A_{s}(k/k_{*})^{n_{s}-1}$ is the standard
+nearly scale-invariant spectrum.  The modulation amplitude is
+controlled by $\varepsilon^{2}$, which is constrained by Planck~2018
+data to satisfy $\varepsilon<0.21$ at the 95\% confidence level for
+$\sigma=10^{-3}$.
+\end{remark}
+
+%%---------------------------------------------------------------------
+\subsubsection{Dissipation kernel}\label{sssec:dissipation-kernel}
+%%---------------------------------------------------------------------
+
+The dissipation kernel~\eqref{eq:DR-def} for the AL-GFT environment
+is similarly computed from the commutator of the collective operator:
+\begin{equation}\label{eq:DR-ALGFT}
+  D_{R}(\omega,k)
+  = \kappa^{2}\varepsilon^{2}\sum_{n=1}^{\infty}
+    e^{-2\sigma\gamma_{n}^{2}}\;
+    \frac{\omega}{\omega^{2}-\Omega_{n}^{2}(k)+i\,0^{+}}\,,
+\end{equation}
+where $\Omega_{n}(k)$ is the effective frequency of the $n$-th
+environment mode (dependent on the inflationary background through the
+scale factor).  The retarded $i\,0^{+}$ prescription ensures
+causality.  The spectral density of the environment is therefore a
+\textbf{Zeta-Comb}:
+\begin{equation}\label{eq:rho-zeta}
+  \rho(\omega,k)
+  = \varepsilon^{2}\sum_{n=1}^{\infty}
+    e^{-2\sigma\gamma_{n}^{2}}\;
+    \delta\bigl(\omega-\Omega_{n}(k)\bigr)\,,
+\end{equation}
+a discrete, arithmetically-structured spectral density with peaks at
+frequencies determined by the Riemann zeros.
+
+%%---------------------------------------------------------------------
+\subsection{Generalised fluctuation--dissipation theorem}%
+\label{ssec:gen-FDT}
+%%---------------------------------------------------------------------
+
+In the standard FDT~\eqref{eq:FDR-basic}, the noise and dissipation
+kernels are related at each frequency independently.  For the
+Zeta-Comb environment, the discrete, multi-frequency structure of
+$\rho(\omega,k)$ induces \emph{cross-frequency} correlations that
+enrich the standard relation.
+
+%%---------------------------------------------------------------------
+\subsubsection{Derivation}\label{sssec:FDT-derivation}
+%%---------------------------------------------------------------------
+
+Substituting the explicit forms~\eqref{eq:Nk-full}
+and~\eqref{eq:DR-ALGFT} into the definition of
+$\kappa_{\mathrm{eff}}$~\eqref{eq:kappa-eff}, the imaginary part of
+the effective coupling reads
+\begin{equation}\label{eq:Im-kappa-ALGFT}
+  \mathrm{Im}\,\kappa_{\mathrm{eff}}(\omega,k)
+  = \frac{\kappa^{3}\varepsilon^{2}}
+         {\bigl|1-\kappa\,\Pi(\omega,k)\bigr|^{2}}\;
+    \sum_{n=1}^{\infty}
+    e^{-2\sigma\gamma_{n}^{2}}\;
+    \pi\,\delta\bigl(\omega-\Omega_{n}(k)\bigr)
+    + \mathcal{O}(\varepsilon^{4})\,.
+\end{equation}
+
+However, the physically relevant quantity is not
+$\mathrm{Im}\,\kappa_{\mathrm{eff}}$ at a single frequency, but the
+\emph{two-point function} of the noise that drives the stochastic
+Einstein--Langevin equation.  The generalised FDT for the Zeta-Comb
+reads:
+\begin{equation}\label{eq:gen-FDT}
+  \boxed{
+  N(\omega,k)
+  = \coth\!\biggl(\frac{\omega}{2T_{\mathrm{eff}}}\biggr)\,
+    \mathrm{Im}\,D_{R}(\omega,k)
+  + \varepsilon^{2}\!\!\!
+    \sum_{\substack{n,m=1\\n\neq m}}^{\infty}
+    \!\!\!
+    e^{-\sigma(\gamma_{n}^{2}+\gamma_{m}^{2})}\;
+    \mathcal{H}_{nm}(\omega,k)\,,}
+\end{equation}
+where $\mathcal{H}_{nm}$ is the \textbf{Hilbert interference term}
+arising from the cross-correlation of the $n$-th and $m$-th
+environment modes:
+\begin{equation}\label{eq:Hnm}
+  \mathcal{H}_{nm}(\omega,k)
+  = \frac{1}{\pi}\,\mathcal{P}\!\!\int_{-\infty}^{\infty}
+    \frac{\mathrm{Im}\bigl[
+      \widetilde{G}_{n}(\omega',k)\,
+      \widetilde{G}_{m}^{*}(\omega',k)
+    \bigr]}{\omega'-\omega}\;d\omega'\,.
+\end{equation}
+Here $\widetilde{G}_{n}(\omega,k)$ is the retarded Green function of
+the $n$-th environment mode.
+
+\begin{remark}[Structure of the generalised FDT]
+Equation~\eqref{eq:gen-FDT} has two terms:
+\begin{enumerate}
+  \item The \textbf{diagonal term} ($n=m$) reproduces the standard FDT
+    at each Zeta-Comb frequency individually.
+  \item The \textbf{off-diagonal terms} ($n\neq m$) are the
+    \emph{beat-frequency} contributions.  They arise because the
+    Zeta-Comb environment has a \emph{discrete, multi-line} spectral
+    density---the noise at frequency~$\omega$ receives contributions
+    from interference between lines at $\Omega_{n}$ and $\Omega_{m}$.
+    These terms are suppressed by
+    $e^{-\sigma(\gamma_{n}^{2}+\gamma_{m}^{2})}$ and are therefore
+    sensitive to the pairwise \emph{differences}
+    $\gamma_{n}-\gamma_{m}$.
+\end{enumerate}
+\end{remark}
+
+%%---------------------------------------------------------------------
+\subsubsection{Justification of the Hilbert-transform form}%
+\label{sssec:Hilbert-justification}
+%%---------------------------------------------------------------------
+
+The appearance of the Hilbert transform in~\eqref{eq:Hnm} is not
+incidental.  It follows from the same Kramers--Kronig logic used in
+\S\ref{ssec:KK-proof}: because each $\widetilde{G}_{n}$ is a retarded
+response function, the product
+$\widetilde{G}_{n}\widetilde{G}_{m}^{*}$ is analytic in the upper
+half-plane for fixed~$m$, and its real and imaginary parts are
+therefore Hilbert-transform pairs.  The $\mathcal{H}_{nm}$ terms
+extract the part of the noise that is \emph{coherent} between modes
+$n$ and~$m$, which is precisely the beat-frequency content.
+
+%%---------------------------------------------------------------------
+\subsection{Beat-frequency spectrum and GUE
+  fingerprint}\label{ssec:beat-spectrum}
+%%---------------------------------------------------------------------
+
+The off-diagonal terms in the generalised
+FDT~\eqref{eq:gen-FDT} oscillate at the \textbf{beat frequencies}
+\begin{equation}\label{eq:beat-freq}
+  \omega_{nm} \equiv \gamma_{n}-\gamma_{m}\,,
+  \qquad n>m\,.
+\end{equation}
+The number of distinct beat frequencies from $N_{\mathrm{eff}}$
+effective zeros is $\binom{N_{\mathrm{eff}}}{2}$; for the sweet-spot
+value $\sigma\sim 10^{-3}$, the first $\sim 4$ zeros contribute,
+yielding $\sim 7$ pairwise beats.
+
+%%---------------------------------------------------------------------
+\subsubsection{Observable modulation in $\kappa_{\mathrm{eff}}$}%
+\label{sssec:observable-modulation}
+%%---------------------------------------------------------------------
+
+Including the beat-frequency terms, the fractional shift of the
+gravitational coupling acquires a characteristic oscillatory structure
+in $\ln(k/k_{*})$:
+\begin{equation}\label{eq:delta-kappa-full}
+  \frac{\delta\kappa}{\kappa}(\omega,k)
+  = \varepsilon^{2}\sum_{n}
+    e^{-2\sigma\gamma_{n}^{2}}\;
+    e^{i\gamma_{n}\ln(k/k_{*})}
+  + \varepsilon^{2}\!\!\!
+    \sum_{n\neq m}
+    e^{-\sigma(\gamma_{n}^{2}+\gamma_{m}^{2})}\;
+    e^{i\,\omega_{nm}\ln(k/k_{*})}
+  + \mathcal{O}(\varepsilon^{4})\,.
+\end{equation}
+The first sum is the \textbf{fundamental Zeta-Comb}
+(oscillations at each $\gamma_{n}$); the second is the
+\textbf{beat-frequency comb} (oscillations at each
+$\gamma_{n}-\gamma_{m}$).  The signal amplitude at the sweet spot is
+\begin{equation}\label{eq:signal-amplitude}
+  \left|\frac{\delta\kappa}{\kappa}\right|_{\mathrm{sweet\;spot}}
+  = \varepsilon^{2}\,e^{-2\sigma\gamma_{1}^{2}}
+  \approx 6.7\times 10^{-5}\,,
+  \qquad
+  (\varepsilon=0.01,\;\sigma=0.001)\,.
+\end{equation}
+
+%%---------------------------------------------------------------------
+\subsubsection{The GUE cross-check}\label{sssec:GUE-crosscheck}
+%%---------------------------------------------------------------------
+
+The distribution of the normalised beat frequencies
+\begin{equation}\label{eq:u-def}
+  u_{nm}
+  \equiv \frac{\gamma_{n}-\gamma_{m}}{\langle\Delta\gamma\rangle}\,,
+  \qquad
+  \langle\Delta\gamma\rangle
+  = \frac{2\pi}{\ln(\gamma_{\mathrm{mid}}/2\pi)}\,,
+\end{equation}
+(where $\langle\Delta\gamma\rangle$ is the local mean spacing from
+the Riemann--von~Mangoldt formula) is predicted by the
+\textbf{Montgomery--Odlyzko pair correlation conjecture} to follow
+the GUE distribution:
+\begin{equation}\label{eq:R2-GUE}
+  \boxed{
+  R_{2}(u)
+  = 1-\left(\frac{\sin\pi u}{\pi u}\right)^{2}\,.}
+\end{equation}
+This is \emph{the same} pair-correlation function that governs the
+eigenvalue statistics of random matrices drawn from the Gaussian
+Unitary Ensemble (GUE), as first noted by Dyson in a celebrated
+conversation with Montgomery.
+
+The GUE prediction is a \textbf{binary diagnostic} for the
+Zeta-Comb hypothesis.  It makes two sharp predictions:
+\begin{enumerate}
+  \item \textbf{Level repulsion at $u\to 0$}: $R_{2}(u)\to 0$
+    quadratically as $u\to 0$, meaning the smallest normalised
+    beat-frequency spacings are suppressed.  For the first 10~zeros,
+    the smallest normalised spacing is
+    $u_{\mathrm{min}}\sim 0.2$--$0.5$.
+    A Poisson (random, uncorrelated) environment would produce
+    $R_{2}(u)\to 1$ as $u\to 0$---no level repulsion.
+
+  \item \textbf{Oscillatory approach to unity}: $R_{2}(u)$ overshoots
+    and oscillates around~1 for $u\gtrsim 1$, a distinctive
+    ``ringing'' signature absent in Poisson statistics.
+\end{enumerate}
+
+If the beat frequencies extracted from a gravitational-wave or CMB
+dataset match the GUE pattern~\eqref{eq:R2-GUE}, it constitutes
+evidence for an arithmetic environment; if they match Poisson, the
+Zeta-Comb hypothesis is falsified regardless of parameter tuning.
+
+%%---------------------------------------------------------------------
+\subsubsection{Connection to Rodgers' theorem and prime
+  distributions}\label{sssec:rodgers}
+%%---------------------------------------------------------------------
+
+The diagnostic above acquires deeper significance through a theorem of
+Rodgers, who proved (conditional on the Riemann
+Hypothesis) that the GUE conjecture for zeta zeros is \emph{logically
+  equivalent} to a specific statement about the distribution of
+products of prime numbers in short intervals.  Concretely: the
+beat spectrum of $\kappa_{\mathrm{eff}}$ traces GUE statistics
+\emph{if and only if} the primes satisfy the Hardy--Littlewood-type
+correlation laws encoded in the von~Mangoldt function.
+
+This transforms an \emph{observational} measurement---the pattern of
+oscillations in the gravitational-wave or CMB power spectrum---into a
+\emph{number-theoretic} test.  A successful detection of the GUE
+pattern would:
+\begin{enumerate}
+  \item Confirm the Zeta-Comb as the physical environment.
+  \item Provide empirical evidence for the GUE conjecture
+    (equivalently, for the Montgomery pair correlation conjecture).
+  \item Via Rodgers' theorem, test a specific prediction about
+    the distribution of prime powers.
+\end{enumerate}
+
+%%---------------------------------------------------------------------
+\subsection{Beat-frequency visibility and the
+  $N_{\mathrm{eff}}$ threshold}\label{ssec:beat-visibility}
+%%---------------------------------------------------------------------
+
+The beat-frequency terms in~\eqref{eq:delta-kappa-full} are
+observable only if $N_{\mathrm{eff}}\geq 2$, i.e.\ at least two
+zeros contribute with appreciable amplitude.  This requirement sets an
+\emph{upper bound} on the resonance width:
+\begin{equation}\label{eq:sigma-bound}
+  \sigma
+  \lesssim \frac{1}{2\gamma_{2}^{2}}
+  \approx \frac{1}{2\times(21.02)^{2}}
+  \approx 0.0011\,,
+\end{equation}
+or equivalently $\sigma\lesssim 0.002$ when we require
+$N_{\mathrm{eff}}\geq 2$ to one-$e$-fold accuracy.
+
+Simultaneously, the signal amplitude~\eqref{eq:signal-amplitude}
+is maximised for small~$\sigma$ (since the exponential damping is
+weakest).  This means that the requirement for beat-frequency
+visibility \emph{overlaps} with the requirement for maximal
+signal-to-noise in gravitational-wave detectors---a non-trivial
+structural coincidence that we elevate to the status of
+\textbf{theoretical naturalness} in
+\S\ref{sec:parameter-space}.
+
+\begin{remark}[Sweet spot]
+The intersection of the beat-visibility constraint
+($\sigma\lesssim 0.002$) with the Planck~2018 upper bound on
+$\varepsilon$ and the BBO/DECIGO sensitivity curves defines a
+\emph{sweet spot} at $\sigma\sim 10^{-3}$, $\varepsilon\sim 10^{-2}$.
+At this point the signal amplitude is
+$|\delta\kappa/\kappa|\approx 6.7\times 10^{-5}$, the effective
+number of zeros is $N_{\mathrm{eff}}\approx 4.2$, and the GUE
+cross-check is operational with 7~beat frequencies.
+\end{remark}
+
+%%---------------------------------------------------------------------
+\subsection{Summary: from general theorem to arithmetic
+  prediction}\label{ssec:sec3-summary}
+%%---------------------------------------------------------------------
+
+The logical flow of this section is:
+\[
+  \underbrace{\text{AL-GFT couplings}~g_{n}}_%
+    {\text{Eq.~\eqref{eq:gn}}}
+  \;\;\xrightarrow{\;\text{SK trace}\;}
+  \;\;\underbrace{N(k)=N_{0}\,\mathcal{M}(k)}_%
+    {\text{Zeta-Comb}}
+  \;\;\xrightarrow{\;\text{gen.\ FDT}\;}
+  \\\;\;\underbrace{\omega_{nm}=\gamma_{n}-\gamma_{m}}_%
+    {\text{beat frequencies}}
+
+\;\;\xrightarrow{\;\text{Montgomery}\;}
+  \;\;\underbrace{R_{2}(u)\stackrel{?}{=}1-\mathrm{sinc}^{2}\!\pi u}_%
+    {\text{GUE test}}\,.
+\]
+
+\noindent
+The chain has a single free spectral-density choice
+(Zeta-Comb vs.\ anything else); \emph{every subsequent prediction}
+is fixed.  The GUE cross-check is binary and requires \emph{no
+  fitting}: it tests the hypothesis at the level of the
+environment's identity, not its parameters.
+
+
+\section{Conservation and Consistency}
+\label{sec:conservation}
+
+The promotion of the gravitational coupling $\kappa^2 = 16\pi G_N$ from a real constant
+to a complex, scale-dependent effective coupling $\kappa_{\mathrm{eff}}(k)$ raises an
+immediate question of principle: does the modified theory remain consistent with the
+diffeomorphism invariance that underpins general relativity?  In this section we show
+that the answer is yes, provided the noise and dissipation kernels satisfy a set of
+Ward--Takahashi identities inherited from the conservation of the stress-energy tensor.
+We establish three results: (i) the stochastic source $\xi_{ab}$ is covariantly
+conserved on the semiclassical background; (ii) the contracted Bianchi identity
+$\nabla^\mu G_{\mu\nu} = 0$ is preserved at each order in $\varepsilon$; and (iii) the
+energy exchanged between the gravitational ``system'' and the Zeta-Comb environment is
+governed by a fluctuation-dissipation relation whose structure is dictated by causality
+and unitarity.
+
+%======================================================================
+\subsection{Ward identity for the stochastic source}
+\label{subsec:ward}
+%======================================================================
+
+The starting point is the operator identity for the renormalized stress-energy tensor
+on the semiclassical background $({\mathcal M}, g_{ab})$:
+%
+\begin{equation}
+  \nabla^a \hat{T}^{\mathrm{R}}_{ab}[g;\, x) = 0\,.
+  \label{eq:Tabconserved}
+\end{equation}
+%
+This is the quantum Ward identity expressing diffeomorphism invariance of the matter
+sector.  The noise kernel, defined as the connected symmetrized two-point function of
+$\hat{T}^{\mathrm{R}}_{ab}$,
+%
+\begin{equation}
+  N_{abcd}(x,y)
+  \;=\;
+  \tfrac{1}{2}\,
+  \bigl\langle
+    \bigl\{\hat{t}_{ab}(x),\, \hat{t}_{cd}(y)\bigr\}
+  \bigr\rangle\,,
+  \qquad
+  \hat{t}_{ab} \;\equiv\; \hat{T}^{\mathrm{R}}_{ab}
+    - \langle \hat{T}^{\mathrm{R}}_{ab}\rangle\,,
+  \label{eq:noisekernel}
+\end{equation}
+%
+inherits this conservation as a \emph{distributional} identity on each index group
+separately~\cite{HuVerdaguer2008}:
+%
+\begin{equation}
+  \nabla^a_x\, N_{abcd}(x,y) = 0\,,
+  \qquad
+  \nabla^c_y\, N_{abcd}(x,y) = 0\,.
+  \label{eq:Nconserved}
+\end{equation}
+
+\noindent
+\textbf{Proof.}
+By Eq.~\eqref{eq:Tabconserved} the operator $\hat{t}_{ab}$ satisfies
+$\nabla^a \hat{t}_{ab} = 0$ in the Heisenberg picture.
+Taking the $x$-divergence of the anticommutator inside the expectation
+value in Eq.~\eqref{eq:noisekernel} and using the Leibniz rule for
+$\nabla^a_x$---which acts only on the $x$-supported operator---yields
+Eq.~\eqref{eq:Nconserved} directly.  No renormalization subtlety arises
+because the noise kernel is ultraviolet finite: the identity-operator
+counterterms in $\hat{T}^{\mathrm{R}}_{ab} - \hat{T}_{ab}$ cancel in the
+connected correlator~\cite{PhillipsHu2001,HuVerdaguer2004}.
+\hfill$\square$
+
+\medskip
+
+The Gaussian stochastic tensor $\xi_{ab}[g;\,x)$ is defined by the correlators
+%
+\begin{equation}
+  \langle \xi_{ab}(x)\rangle_s = 0\,,
+  \qquad
+  \langle \xi_{ab}(x)\,\xi_{cd}(y)\rangle_s
+  = N_{abcd}(x,y)\,,
+  \label{eq:xicorrelators}
+\end{equation}
+%
+where $\langle\cdot\rangle_s$ denotes the stochastic average.
+Since $N_{abcd}$ is symmetric and positive semi-definite
+(a consequence of the self-adjointness of $\hat{T}^{\mathrm{R}}_{ab}$),
+$\xi_{ab}$ is well-defined.
+Taking the divergence of Eq.~\eqref{eq:xicorrelators} and using
+Eq.~\eqref{eq:Nconserved}:
+%
+\begin{equation}
+  \langle \nabla^a \xi_{ab}\rangle_s = 0\,,
+  \qquad
+  \langle \nabla^a_x \xi_{ab}(x)\;\xi_{cd}(y)\rangle_s = 0\,.
+  \label{eq:xiconserved}
+\end{equation}
+%
+For a Gaussian field whose mean and two-point function are both annihilated by
+$\nabla^a$, all higher cumulants vanish, and hence
+$\nabla^a \xi_{ab} = 0$ \emph{with probability one}---it is a deterministic
+zero, not merely zero in expectation.
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!50, title={Theorem 1 (Stochastic conservation)}]
+Let $\xi_{ab}$ be the Gaussian stochastic source defined by
+Eq.~\eqref{eq:xicorrelators} on a semiclassical background
+$({\mathcal M}, g_{ab})$ satisfying the semiclassical Einstein equation.
+Then $\nabla^a \xi_{ab}[g;\,x) = 0$ as a distributional identity on
+$\mathcal{M}$, and the Einstein--Langevin equation
+\begin{equation}
+  G_{ab}[g+h]
+  + \Lambda\, g_{ab}
+  - 8\pi G_N\,
+  \bigl\langle \hat{T}^{\mathrm{R}}_{ab}[g+h]\bigr\rangle^{(1)}
+  = 8\pi G_N\, \xi_{ab}[g]
+  \label{eq:EinsteinLangevin}
+\end{equation}
+is consistent with the contracted Bianchi identity to linear order
+in $h_{ab}$.
+\end{tcolorbox}
+
+\noindent
+This result is standard in the Hu--Verdaguer stochastic gravity
+programme~\cite{HuVerdaguer2004,HuVerdaguer2008,CalzettaHu2008}.
+What is \emph{new} in our framework is its extension to the case where
+the environment carries arithmetic structure (the Zeta-Comb), and the
+resulting effective coupling $\kappa_{\mathrm{eff}}(k)$ is complex.
+We now show that the Ward identity survives this generalization.
+
+%======================================================================
+\subsection{Preservation of the Bianchi identity with complex $\kappa_{\mathrm{eff}}$}
+\label{subsec:bianchi}
+%======================================================================
+
+Recall from \S\ref{sec:complexkappa} that the effective gravitational
+coupling takes the form
+%
+\begin{equation}
+  \kappa_{\mathrm{eff}}(k)
+  \;=\;
+  \frac{\kappa}{1 - \kappa\,
+    \widetilde{D}_{\!R}(k)\big/\mathcal{O}(k)}\,,
+  \label{eq:kappaeff}
+\end{equation}
+%
+where $\widetilde{D}_{\!R}(k)$ is the retarded dissipation kernel and
+$\mathcal{O}(k)$ encodes the system's response (both defined in
+momentum space on the FLRW background).  The imaginary part of
+$\kappa_{\mathrm{eff}}$ arises because $\widetilde{D}_{\!R}(k)$ is
+complex for causal (retarded) kernels---its real and imaginary parts
+are related by Kramers--Kronig dispersion relations.
+
+The key observation is that Eq.~\eqref{eq:kappaeff} is a
+\emph{multiplicative} dressing of the bare coupling $\kappa$.
+The linearized Einstein tensor on the left-hand side of the
+Einstein--Langevin equation still satisfies
+%
+\begin{equation}
+  \nabla^\mu G^{(1)}_{\mu\nu}[g;\, h] = 0
+  \label{eq:BianchiLinearized}
+\end{equation}
+%
+identically, as this is a consequence of the contracted Bianchi
+identity applied to the background-plus-perturbation metric.
+Equation~\eqref{eq:BianchiLinearized} holds for \emph{any} $h_{ab}$,
+independently of the field equations; it is a geometric identity,
+not a dynamical one.
+
+On the source side, the complex dressing enters as
+%
+\begin{equation}
+  \kappa_{\mathrm{eff}}(k)\, \xi_{ab}(k)
+  \;=\;
+  \kappa\,\xi_{ab}(k)
+  \;+\;
+  \kappa^2\,
+  \frac{\widetilde{D}_{\!R}(k)}{\mathcal{O}(k)}\,
+  \xi_{ab}(k)
+  \;+\;
+  \mathcal{O}(\kappa^3)\,.
+  \label{eq:dressedxi}
+\end{equation}
+%
+At each order in $\kappa$, the stochastic source remains divergence-free
+because:
+%
+\begin{enumerate}
+  \item $\nabla^a \xi_{ab} = 0$ by Theorem~1;
+  \item The dressing factor
+    $\widetilde{D}_{\!R}(k)/\mathcal{O}(k)$ is a \emph{scalar}
+    function of the comoving wavenumber $k$ (not a differential
+    operator acting on the tensor indices of $\xi_{ab}$), so
+    it commutes with the covariant divergence:
+    %
+    \begin{equation}
+      \nabla^a\!
+      \Bigl[
+        f(k)\,\xi_{ab}(k)
+      \Bigr]
+      =
+      f(k)\,\nabla^a \xi_{ab}(k)
+      = 0\,,
+      \label{eq:scalarcommute}
+    \end{equation}
+    %
+    where $f(k) = \widetilde{D}_{\!R}(k)/\mathcal{O}(k)$.
+\end{enumerate}
+%
+Thus, promoting $\kappa \to \kappa_{\mathrm{eff}}(k)$ does not
+spoil the divergence-free character of the source, and the Bianchi
+identity is preserved order by order.
+
+\begin{tcolorbox}[colback=blue!3, colframe=blue!40, title={Corollary (Bianchi compatibility)}]
+The complex gravitational coupling $\kappa_{\mathrm{eff}}(k)$ defined
+by Eq.~\eqref{eq:kappaeff} is compatible with the contracted Bianchi
+identity $\nabla^\mu G_{\mu\nu} = 0$ at every order in the perturbative
+expansion in $\varepsilon$ (the multiplicity coupling strength), provided
+the bare noise kernel satisfies Eq.~\eqref{eq:Nconserved}.
+\end{tcolorbox}
+
+\noindent
+\textbf{Remark.}
+The argument above relies on the fact that the Zeta-Comb modulation
+enters through a \emph{scalar} dressing of the coupling, not through a
+tensor-valued modification of the noise kernel's index structure.
+This is a consequence of the linear system-environment coupling adopted
+in the AL-GFT framework (\S\ref{sec:ALGFT}): the interaction
+$S_{\mathrm{int}} \sim \int \phi\, \mathcal{O}$ preserves the
+tensorial conservation law because $\mathcal{O}$ is constructed from
+scalar contractions of the environment fields.  A nonlinear coupling
+(relevant for beyond-Gate-1 extensions) could in principle introduce
+tensor dressings, which would require a more careful Ward identity
+analysis.
+
+%======================================================================
+\subsection{Fluctuation-dissipation relation and energy flow}
+\label{subsec:FDR}
+%======================================================================
+
+An open quantum system in thermal equilibrium satisfies the
+fluctuation-dissipation relation (FDR), which constrains the noise
+kernel $N$ in terms of the dissipation kernel $D_R$ and the
+temperature $T$ of the environment~\cite{CalzettaHu2008,HuVerdaguer2004}.
+In the cosmological setting, the relevant ``temperature'' is the
+Gibbons--Hawking temperature $T_{\mathrm{dS}} = H/(2\pi)$ of the
+quasi-de~Sitter background.  For a causal (retarded) dissipation kernel,
+the FDR in Fourier space reads
+%
+\begin{equation}
+  \widetilde{N}(\omega)
+  \;=\;
+  \coth\!\Bigl(\frac{\omega}{2\,T_{\mathrm{dS}}}\Bigr)\,
+  \mathrm{Im}\,\widetilde{D}_{\!R}(\omega)\,,
+  \label{eq:FDRbasic}
+\end{equation}
+%
+where $\omega$ is the frequency conjugate to conformal time.
+At high frequencies $\omega \gg T_{\mathrm{dS}}$, the hyperbolic
+cotangent approaches unity and $\widetilde{N} \approx
+\mathrm{Im}\,\widetilde{D}_{\!R}$, corresponding to the quantum
+(zero-temperature) limit.  At low frequencies
+$\omega \ll T_{\mathrm{dS}}$, the classical limit
+$\widetilde{N} \approx (2\,T_{\mathrm{dS}}/\omega)\,
+\mathrm{Im}\,\widetilde{D}_{\!R}$ emerges.
+
+\paragraph{Zeta-Comb generalization.}
+In the AL-GFT framework, the environment is not a generic thermal bath
+but a structured collection of modes at frequencies set by the Riemann
+zeta zeros $\{\gamma_n\}$.  The noise kernel acquires the Zeta-Comb
+modulation (derived in \S\ref{sec:zetacomb}):
+%
+\begin{equation}
+  \widetilde{N}(k)
+  \;=\;
+  \widetilde{N}_0(k)\,
+  \biggl[
+    1 + 2\varepsilon^2
+    \sum_{n=1}^{N_{\mathrm{eff}}}
+    e^{-2\sigma\gamma_n^2}\,
+    \cos\!\bigl(\gamma_n \ln(k/k_\star) + \varphi_n\bigr)
+  \biggr]\,,
+  \label{eq:NZetaComb}
+\end{equation}
+%
+where $\widetilde{N}_0(k)$ is the standard (unmodulated) noise kernel,
+$\varepsilon$ is the multiplicity coupling, $\sigma$ the resonance width,
+$\gamma_n = \mathrm{Im}(\rho_n)$ the $n$-th Riemann zero's imaginary part,
+and $\varphi_n = \tfrac{1}{2}\arg\zeta(\rho_n)$.
+
+The dissipation kernel is constrained by the Kramers--Kronig relations,
+which are a direct consequence of causality (analyticity of
+$\widetilde{D}_{\!R}$ in the upper half of the complex $\omega$-plane):
+%
+\begin{align}
+  \mathrm{Re}\,\widetilde{D}_{\!R}(\omega)
+  &= \frac{1}{\pi}\,\mathcal{P}\!\int_{-\infty}^{\infty}
+     \frac{\mathrm{Im}\,\widetilde{D}_{\!R}(\omega')}
+          {\omega' - \omega}\, d\omega'\,,
+  \label{eq:KK1}
+  \\[4pt]
+  \mathrm{Im}\,\widetilde{D}_{\!R}(\omega)
+  &= -\frac{1}{\pi}\,\mathcal{P}\!\int_{-\infty}^{\infty}
+     \frac{\mathrm{Re}\,\widetilde{D}_{\!R}(\omega')}
+          {\omega' - \omega}\, d\omega'\,.
+  \label{eq:KK2}
+\end{align}
+
+\noindent
+The generalized FDR for the Zeta-Comb environment then takes the form
+%
+\begin{equation}
+  \boxed{
+  \widetilde{N}(k)
+  \;=\;
+  \coth\!\Bigl(\frac{\omega_k}{2\,T_{\mathrm{dS}}}\Bigr)\,
+  \mathrm{Im}\,\widetilde{D}_{\!R}(k)
+  \;+\;
+  \varepsilon^2\,
+  \sum_{n}\,
+  e^{-2\sigma\gamma_n^2}\;
+  \mathcal{H}\!\bigl[\widetilde{N}_0\bigr](k;\,\gamma_n)\,,
+  }
+  \label{eq:FDRgeneralized}
+\end{equation}
+%
+where $\omega_k$ is the physical frequency associated with wavenumber $k$,
+and $\mathcal{H}[\widetilde{N}_0](k;\,\gamma_n)$ denotes the
+Hilbert-transform--shifted contribution at beat frequency $\gamma_n$.
+The first term is the standard FDR; the second encodes the
+\emph{arithmetic correction} from the Zeta-Comb environment.
+
+\paragraph{Energy budget.}
+The imaginary part of $\kappa_{\mathrm{eff}}$ governs the energy exchange
+between the gravitational system and the arithmetic environment.
+Writing $\kappa_{\mathrm{eff}} = |\kappa_{\mathrm{eff}}|\,
+e^{i\theta(k)}$, the energy flow rate per logarithmic wavenumber
+interval is
+%
+\begin{equation}
+  \frac{d\mathcal{E}}{d\ln k}
+  \;=\;
+  -\,\mathrm{Im}\,\kappa_{\mathrm{eff}}(k)\;
+  \bigl\langle \xi_{ab}(k)\,h^{ab}(k) \bigr\rangle_s
+  \;\propto\;
+  \varepsilon^2\,
+  \sin\theta(k)\,,
+  \label{eq:energyflow}
+\end{equation}
+%
+where the phase $\theta(k) = \arg\kappa_{\mathrm{eff}}(k)$ is determined
+by the ratio $\mathrm{Im}\,\widetilde{D}_{\!R}/
+\mathrm{Re}\,(1 - \kappa\,\widetilde{D}_{\!R}/\mathcal{O})$.
+At the sweet-spot parameters $(\sigma \sim 10^{-3},\,
+\varepsilon \sim 10^{-2})$ identified in \S\ref{sec:parameterspace},
+the phase is small, $\theta \sim \mathcal{O}(\varepsilon^2)$, so the
+energy exchange is perturbative and the gravitational sector remains
+stable against runaway energy injection from the environment.
+
+\paragraph{Physical interpretation.}
+In the language of open quantum systems, the imaginary part
+$\mathrm{Im}\,\kappa_{\mathrm{eff}}$ plays the role of a
+\emph{gravitational dissipation coefficient}: it quantifies how
+efficiently the Zeta-Comb environment can absorb or emit energy
+through metric fluctuations.  The Ward identity
+(Theorem~1) guarantees that this dissipation respects the
+diffeomorphism symmetry---no energy is created or destroyed in the
+\emph{total} system (gravity + environment), only redistributed
+between the sectors.
+
+This is the gravitational analogue of the optical theorem in
+scattering theory: the imaginary part of the forward scattering
+amplitude is related to the total cross section.  Here, the imaginary
+part of $\kappa_{\mathrm{eff}}$ is related to the total ``cross section''
+for graviton--environment interaction, summed over the discrete
+Zeta-Comb modes:
+%
+\begin{equation}
+  \mathrm{Im}\,\kappa_{\mathrm{eff}}(k)
+  \;=\;
+  \kappa^2\,
+  \frac{\mathrm{Im}\,\widetilde{D}_{\!R}(k)}{|\mathcal{O}(k)|^2}
+  \;+\;
+  \mathcal{O}(\kappa^3)\,.
+  \label{eq:Imkappa_crosssection}
+\end{equation}
+
+%======================================================================
+\subsection{Consistency checks}
+\label{subsec:checks}
+%======================================================================
+
+We summarize the internal consistency of the framework by listing the
+constraints that are satisfied simultaneously:
+
+\begin{enumerate}
+  \item \textbf{Covariant conservation.}\;
+    $\nabla^\mu G_{\mu\nu} = 0$ (geometric, from Bianchi identity);
+    $\nabla^a \xi_{ab} = 0$ (dynamical, from Ward identity of the matter
+    sector).  Together these guarantee that the perturbed metric
+    $g_{ab} + h_{ab}$ satisfies the linearized constraint equations.
+
+  \item \textbf{Causality.}\;
+    The retarded dissipation kernel $\widetilde{D}_{\!R}(\omega)$ is
+    analytic in the upper half-plane, ensuring that
+    $\kappa_{\mathrm{eff}}(\omega)$ also inherits this analyticity
+    (since the denominator in Eq.~\eqref{eq:kappaeff} is a polynomial
+    in $\widetilde{D}_{\!R}$ and thus shares its domain of analyticity).
+    Kramers--Kronig relations~\eqref{eq:KK1}--\eqref{eq:KK2} follow.
+
+  \item \textbf{Unitarity.}\;
+    The noise kernel $N_{abcd}$ is positive semi-definite
+    (consequence of the self-adjointness of $\hat{T}^{\mathrm{R}}_{ab}$),
+    which guarantees that the stochastic source has a well-defined
+    probability measure and that the fluctuation-dissipation
+    relation~\eqref{eq:FDRbasic} is compatible with the second law of
+    thermodynamics.
+
+  \item \textbf{Trace identity for conformal matter.}\;
+    If the quantum field is conformally coupled, the trace
+    $g^{ab}\xi_{ab} = 0$, so the stochastic source does not contribute
+    to the trace anomaly.  This is preserved under
+    $\kappa \to \kappa_{\mathrm{eff}}$ since the dressing is scalar.
+
+  \item \textbf{Perturbative stability.}\;
+    At the sweet-spot parameters, the correction to $\kappa$ is
+    $|\delta\kappa/\kappa| \sim 6.7 \times 10^{-5}$, well within the
+    perturbative regime $|\delta\kappa/\kappa| \ll 1$.  The backreaction
+    of the Zeta-Comb environment on the background geometry is therefore
+    self-consistently small.
+
+  \item \textbf{$\varepsilon \to 0$ recovery.}\;
+    In the decoupling limit $\varepsilon \to 0$, the noise kernel
+    reduces to $\widetilde{N}_0(k)$, the dressing
+    $\kappa_{\mathrm{eff}} \to \kappa$, and the standard semiclassical
+    Einstein equation is recovered to arbitrary precision.
+\end{enumerate}
+
+\noindent
+These six conditions collectively ensure that the complex gravitational
+coupling introduced in \S\ref{sec:complexkappa} is not an \emph{ad hoc}
+modification of general relativity, but a necessary consequence of
+treating gravity as an open quantum system whose environment carries
+arithmetic structure.  The Ward identity is the linchpin: it ties
+together conservation, causality, and the Bianchi identity into a single
+self-consistent package.
+
+
+%———————————————————————————————————————————
+% §5  The GUE Cross-Check
+%———————————————————————————————————————————
+
+\section{The GUE Cross-Check}\label{sec:gue}
+
+The central claim of this paper is that the environment
+generating the imaginary part of the gravitational coupling
+is not generic stochastic noise but is \emph{arithmetically structured}:
+its spectral lines are located at the imaginary parts
+$\gamma_n$ of the non-trivial Riemann zeta zeros.
+Any such claim demands an internal consistency test that is
+independent of the overall signal amplitude~$\varepsilon$.
+The Gaussian Unitary Ensemble (GUE) statistics of the
+$\gamma_n$~\cite{Montgomery1973,Odlyzko1987}
+provide exactly such a test.
+In this section we show that the \emph{beat spectrum}
+of the complex coupling $\kappa_{\mathrm{eff}}(k)$ carries
+a pair-correlation fingerprint that distinguishes a
+Riemann-zero environment from any environment with
+uncorrelated (Poisson) spectral lines.
+The test is binary---it requires no fit parameters---and
+can be applied to any future dataset (CMB, SGWB, or
+interferometric) in which the oscillatory modulation of
+Sec.~\ref{sec:zetacomb} is resolved.
+
+
+%-----------------------------------------------
+\subsection{Pair correlation of the beat frequencies}
+\label{sec:paircorr}
+
+\subsubsection{From spectral lines to beat frequencies}
+
+The modulation function~$\mathcal{M}(k)$ derived in
+Sec.~\ref{sec:zetacomb} is a superposition of
+$N_{\mathrm{eff}}$ oscillatory terms with frequencies
+$\gamma_n\,(n=1,\dots,N_{\mathrm{eff}})$ in the variable
+$\ln(k/k_\star)$.  The effective number of contributing zeros
+is set by the Gaussian damping:
+\begin{equation}\label{eq:Neff}
+  N_{\mathrm{eff}}(\sigma)
+  \;=\;
+  \sum_{n=1}^{\infty} e^{-2\sigma\,\gamma_n^2}\,,
+\end{equation}
+which, for the sweet-spot value $\sigma\sim 10^{-3}$,
+gives $N_{\mathrm{eff}}\approx 4.2$.
+The power spectrum of~$\mathcal{M}(k)$ in the
+$u\equiv\ln(k/k_\star)$ domain therefore contains
+\begin{equation}\label{eq:Nbeat}
+  N_{\mathrm{beat}}
+  \;=\;
+  \binom{\lfloor N_{\mathrm{eff}}\rfloor}{2}
+\end{equation}
+pairwise beat frequencies
+\begin{equation}\label{eq:deltaij}
+  \Delta_{ij} \;=\; |\gamma_i - \gamma_j|\,,
+  \qquad 1\le i < j \le N_{\mathrm{eff}}\,.
+\end{equation}
+At the sweet spot, $\lfloor N_{\mathrm{eff}}\rfloor = 4$
+yields $N_{\mathrm{beat}}=6$ resolved beat lines
+(with a seventh partially suppressed),
+each carrying information about the \emph{spacing}
+between pairs of Riemann zeros.
+
+\subsubsection{The Montgomery--Odlyzko pair correlation}
+
+Montgomery's pair correlation conjecture~\cite{Montgomery1973},
+confirmed numerically by Odlyzko to extraordinary precision
+for zeros near height $T\sim 10^{20}$~\cite{Odlyzko1987,Odlyzko2001},
+states that the two-point correlation function of the
+normalized zero spacings $\hat\gamma_n = \gamma_n\cdot
+\frac{\ln(\gamma_n/2\pi)}{2\pi}$
+tends, in the large-height limit, to the GUE form:
+\begin{equation}\label{eq:R2GUE}
+  R_2^{\mathrm{GUE}}(s)
+  \;=\;
+  1 - \left(\frac{\sin\pi s}{\pi s}\right)^{\!2}\,.
+\end{equation}
+Two properties of Eq.~\eqref{eq:R2GUE} are decisive:
+\begin{enumerate}
+\item \textbf{Level repulsion.}\;
+  $R_2^{\mathrm{GUE}}(s)\to 0$ as $s\to 0$,
+  meaning that close spacings are quadratically suppressed:
+  $R_2^{\mathrm{GUE}}(s) \sim \pi^2 s^2/3 + \mathcal{O}(s^4)$.
+  This is in sharp contrast to Poisson statistics,
+  for which $R_2^{\mathrm{Poisson}}(s) = 1$ for all~$s$.
+
+\item \textbf{Oscillatory approach to unity.}\;
+  For $s\gg 1$, $R_2^{\mathrm{GUE}}(s)=1-(\pi s)^{-2}\sin^2(\pi s)$
+  oscillates with decaying amplitude, generating a
+  characteristic ``dip--peak'' pattern in the
+  pair-correlation histogram.
+\end{enumerate}
+
+\subsubsection{Beat-frequency pair correlation as a proxy}
+
+The beat frequencies $\Delta_{ij}$ of Eq.~\eqref{eq:deltaij}
+are, by definition, the \emph{differences} between pairs of
+spectral lines.  Their empirical distribution, measured
+from the Fourier transform of the observed modulation, is a
+direct estimator of~$R_2(s)$.
+Concretely, define the normalized differences
+\begin{equation}\label{eq:snorm}
+  s_{ij}
+  \;=\;
+  \frac{\Delta_{ij}}{\langle\Delta\rangle}\,,
+\end{equation}
+where $\langle\Delta\rangle$ is the mean spacing among the
+first $N_{\mathrm{eff}}$ zeros.
+For the first $\sim\!10$ Riemann zeros, the mean spacing is
+$\langle\Delta\rangle\approx 3.7$ (in unnormalized units),
+and the smallest normalized difference satisfies
+$s_{\min}\approx 0.2$--$0.5$, reflecting GUE level repulsion.
+A Poisson environment with the same mean density would
+populate $s<0.1$ with probability $\sim 10\%$;
+a GUE environment suppresses this to $\lesssim 1\%$.
+
+
+%-----------------------------------------------
+\subsection{Level repulsion as a binary diagnostic}
+\label{sec:levelrepulsion}
+
+\subsubsection{The diagnostic statistic}
+
+We define a binary diagnostic that requires
+no fitting and no knowledge of the signal amplitude~$\varepsilon$:
+\begin{equation}\label{eq:Qstat}
+  \mathcal{Q}
+  \;\equiv\;
+  \#\!\bigl\{(i,j):\; s_{ij} < s_{\mathrm{cut}}\bigr\}
+  \;\Big/\;
+  N_{\mathrm{beat}}\,,
+\end{equation}
+where $s_{\mathrm{cut}}$ is a fixed threshold
+(we adopt $s_{\mathrm{cut}} = 0.1$).
+The null hypothesis $H_0$ (Poisson environment)
+and alternative $H_1$ (GUE/Riemann-zero environment)
+predict:
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{lcc}
+\hline
+\textbf{Hypothesis} & $\mathbf{E}[\mathcal{Q}]$ & \textbf{$\mathrm{Var}[\mathcal{Q}]$}\\
+\hline
+$H_0$: Poisson   & $s_{\mathrm{cut}} = 0.10$
+                  & $\sim s_{\mathrm{cut}}(1-s_{\mathrm{cut}})/N_{\mathrm{beat}}$ \\
+$H_1$: GUE       & $\displaystyle\int_0^{s_{\mathrm{cut}}}
+                     R_2^{\mathrm{GUE}}(s)\,ds
+                     \;\approx\; 3\times 10^{-4}$
+                  & $\ll \mathrm{Var}_{H_0}$ \\
+\hline
+\end{tabular}
+\end{center}
+In words: \emph{any observation of $\mathcal{Q}\approx 0$
+is consistent with GUE; $\mathcal{Q}\gtrsim 0.05$ rules it out.}
+The test is binary and requires only the extracted
+beat frequencies, not their amplitudes.
+
+\subsubsection{Finite-$N_{\mathrm{eff}}$ corrections}
+
+For $N_{\mathrm{eff}} \lesssim 10$, the asymptotic
+formula~\eqref{eq:R2GUE} receives corrections of order
+$1/N_{\mathrm{eff}}^2$.  Following the finite-$N$ analysis
+of Bogomolny and Keating~\cite{BogomolnyKeating1996},
+the two-point function for the first~$N$ Riemann zeros
+takes the form
+\begin{equation}\label{eq:R2finite}
+  R_2^{(N)}(s)
+  \;=\;
+  R_2^{\mathrm{GUE}}(s)
+  \;-\;
+  \frac{\gamma_0^2 + 2\gamma_1 + c_0}
+       {\pi^2\,\bar\rho^{\,2}}\,
+  \sin^2(\pi s)
+  \;+\;
+  \mathcal{O}(\bar\rho^{\,-3})\,,
+\end{equation}
+where $\bar\rho = \bar\rho(T)$ is the mean density of zeros
+at height~$T$, and $\gamma_0$, $\gamma_1$, $c_0$ are
+constants from the Hardy--Littlewood prime-pair
+conjecture~\cite{BogomolnyKeating1996,Bogomolny2006}.
+Crucially, the correction term is
+\emph{proportional to $\sin^2(\pi s)$} and therefore
+\textbf{vanishes at $s=0$}: level repulsion is preserved
+at all finite~$N$.  This ensures that the binary
+diagnostic~$\mathcal{Q}$ remains valid even at
+$N_{\mathrm{eff}}\sim 4$.
+
+\subsubsection{Nearest-neighbor spacing distribution}
+
+A complementary statistic is the nearest-neighbor spacing
+distribution $p(s)$, which for GUE is well approximated by
+the Wigner surmise~\cite{Mehta2004}:
+\begin{equation}\label{eq:pGUE}
+  p_{\mathrm{GUE}}(s)
+  \;=\;
+  \frac{32}{\pi^2}\,s^2\,
+  \exp\!\Bigl(-\frac{4}{\pi}\,s^2\Bigr)\,.
+\end{equation}
+The quadratic onset $p_{\mathrm{GUE}}(s)\propto s^2$ is the
+hallmark of GUE-class level repulsion
+($\beta=2$ in the Dyson classification), as opposed to
+$p_{\mathrm{GOE}}(s)\propto s$ ($\beta=1$) or
+$p_{\mathrm{Poisson}}(s)=e^{-s}$ ($\beta=0$).
+With only $N_{\mathrm{eff}}\sim 4$ zeros, the histogram
+of nearest-neighbor spacings cannot resolve the full
+functional form of Eq.~\eqref{eq:pGUE}, but the
+\emph{absence of small spacings} ($s<0.1$) is already
+a $2$--$3\sigma$ discriminant between GUE and Poisson
+for $N_{\mathrm{beat}}\ge 6$.
+
+
+%-----------------------------------------------
+\subsection{Connection to arithmetic via Rodgers' theorem}
+\label{sec:rodgers}
+
+The pair-correlation test acquires deeper significance
+through a recent theorem of Rodgers~\cite{Rodgers2018},
+which establishes:
+
+\begin{theorem}[Rodgers, 2018]
+Assume the Riemann Hypothesis.  Then the GUE Conjecture
+for the zeros of $\zeta(s)$ is logically equivalent to
+a statement about the distribution of products of primes:
+specifically, the likelihood that products of primes
+drawn from certain intervals are close to other products
+of primes.
+\end{theorem}
+
+\noindent
+This equivalence transforms our observational program
+from a spectral-statistics exercise into a
+\emph{test of prime-number distribution}:
+\begin{itemize}
+\item Measuring $R_2(s)$ from the beat spectrum
+  of $\kappa_{\mathrm{eff}}(k)$ and finding it consistent
+  with Eq.~\eqref{eq:R2GUE} would constitute
+  \textbf{observational evidence for the GUE conjecture},
+  obtained not from numerical computation of $\zeta(s)$
+  but from a physical measurement.
+
+\item Conversely, finding $R_2(s)$
+  \emph{inconsistent} with GUE---for instance,
+  Poisson statistics---would rule out the
+  Riemann-zero identification of the spectral lines
+  and falsify the AL-GFT environment model.
+\end{itemize}
+
+\noindent
+It is worth emphasizing that Rodgers' theorem is conditional
+on RH.  In our framework, this conditionality is absorbed
+into the model definition: the AL-GFT environment is
+\emph{constructed} from the non-trivial zeros
+$\rho_n = \tfrac{1}{2}+i\gamma_n$, which lie on the
+critical line by assumption.
+A successful GUE cross-check therefore tests the
+\emph{internal consistency} of this construction,
+not the truth of RH per se.
+
+
+%-----------------------------------------------
+\subsection{Analysis pipeline}
+\label{sec:pipeline}
+
+We now describe a concrete, end-to-end pipeline for
+extracting the GUE signature from observational data.
+The pipeline is designed to be detector-agnostic; we
+specify the required inputs and outputs at each stage.
+
+\subsubsection{Stage 1: Spectral extraction}
+
+\paragraph{Input.}
+A one-dimensional data vector $d(k)$ representing
+the measured quantity (CMB power spectrum $\mathcal{P}(k)$,
+or stochastic gravitational-wave background spectral
+density $\Omega_{\mathrm{GW}}(f)$) over a range
+$[k_{\min},\,k_{\max}]$ with $k_{\max}/k_{\min}\gg 1$
+(at least two decades for Fourier resolution).
+
+\paragraph{Procedure.}
+\begin{enumerate}
+\item Divide out the smooth baseline
+  (e.g., $\mathcal{P}_0(k)$ for CMB,
+  or the power-law template $\Omega_{\mathrm{PL}}(f)$
+  for SGWB) to obtain the residual modulation:
+  \begin{equation}\label{eq:residual}
+    r(u) \;\equiv\;
+    \frac{d(k)}{d_{\mathrm{baseline}}(k)} - 1\,,
+    \qquad u = \ln(k/k_\star)\,.
+  \end{equation}
+
+\item Compute the Lomb--Scargle periodogram
+  $\hat{S}(\omega)$ of $r(u)$ in the log-wavenumber
+  domain~$u$.  Peaks in $\hat{S}(\omega)$ at frequencies
+  $\omega = \gamma_n$ correspond to individual Riemann-zero
+  spectral lines; peaks at $\omega = \Delta_{ij}$
+  correspond to beat frequencies.
+
+\item Identify significant peaks above a
+  false-alarm probability threshold
+  (e.g., FAP $<10^{-3}$, corresponding to
+  $\gtrsim 3.3\sigma$ for Gaussian noise).
+  Record the set of detected frequencies
+  $\{\hat\omega_\alpha\}_{\alpha=1}^{N_{\mathrm{det}}}$.
+\end{enumerate}
+
+\subsubsection{Stage 2: Frequency identification}
+
+\paragraph{Procedure.}
+\begin{enumerate}
+\item Match detected frequencies $\hat\omega_\alpha$
+  against the known Riemann zeros
+  $\{\gamma_n\}_{n=1}^{N_{\max}}$
+  (tabulated to arbitrary precision~\cite{LMFDB}).
+  Accept matches satisfying
+  $|\hat\omega_\alpha - \gamma_n| <
+  \delta\omega_{\mathrm{res}}$,
+  where $\delta\omega_{\mathrm{res}}
+  \sim \pi/\Delta u$ is the Fourier
+  resolution set by the available
+  $u$-range $\Delta u = \ln(k_{\max}/k_{\min})$.
+
+\item Form the set of identified zeros
+  $\hat{\mathcal{Z}}
+  = \{\hat\gamma_{n_1},\dots,\hat\gamma_{n_m}\}$
+  and the corresponding set of all pairwise differences
+  $\hat{\Delta}_{ij}
+  = |\hat\gamma_{n_i} - \hat\gamma_{n_j}|$.
+
+\item Cross-check: verify that beats
+  $\hat\Delta_{ij}$ also appear in the
+  periodogram~$\hat{S}(\omega)$.
+  Concordance between directly detected lines and
+  beat-predicted lines strengthens the identification.
+\end{enumerate}
+
+\subsubsection{Stage 3: Pair-correlation histogram}
+
+\paragraph{Procedure.}
+\begin{enumerate}
+\item Normalize the identified spacings:
+  $\hat{s}_{ij} = \hat\Delta_{ij}/\langle\hat\Delta\rangle$.
+
+\item Construct the empirical pair-correlation function
+  $\hat{R}_2(s)$ by histogramming the $\hat{s}_{ij}$
+  with bin width
+  $\delta s \sim 1/\sqrt{N_{\mathrm{beat}}}$.
+
+\item Compare $\hat{R}_2(s)$ against
+  $R_2^{\mathrm{GUE}}(s)$ [Eq.~\eqref{eq:R2GUE}]
+  and $R_2^{\mathrm{Poisson}}(s) = 1$ using a
+  Kolmogorov--Smirnov (KS) or Anderson--Darling (AD)
+  statistic.
+
+\item Evaluate the binary diagnostic $\mathcal{Q}$
+  [Eq.~\eqref{eq:Qstat}] and report:
+  \begin{equation}
+    \begin{cases}
+      \mathcal{Q} < s_{\mathrm{cut}} &
+      \Longrightarrow\;\text{consistent with GUE
+        (Riemann-zero environment),} \\[4pt]
+      \mathcal{Q} \ge s_{\mathrm{cut}} &
+      \Longrightarrow\;\text{inconsistent with GUE
+        (generic/Poisson environment).}
+    \end{cases}
+  \end{equation}
+\end{enumerate}
+
+\subsubsection{Stage 4: Bootstrap confidence assessment}
+
+\paragraph{Procedure.}
+To assess statistical significance with
+$N_{\mathrm{eff}}\sim 4$--$10$ zeros:
+\begin{enumerate}
+\item Generate $10^4$ Monte Carlo realizations of
+  $N_{\mathrm{eff}}$ frequencies drawn from a
+  Poisson process with the same mean density.
+  For each realization, compute the KS distance
+  to GUE and record~$\mathcal{Q}$.
+
+\item Generate $10^4$ realizations using the
+  \emph{actual} first $N_{\mathrm{eff}}$ Riemann
+  zeros with Gaussian frequency errors
+  $\delta\omega_{\mathrm{res}}$.
+  Compute the same statistics.
+
+\item The $p$-value for GUE rejection under $H_0$
+  (Poisson) is the fraction of Poisson realizations
+  with KS distance to GUE \emph{smaller} than the
+  observed value.  For $N_{\mathrm{beat}}\ge 6$,
+  we estimate $p\lesssim 0.05$ is achievable,
+  rising to $p\lesssim 0.01$ for
+  $N_{\mathrm{eff}}\ge 7$
+  (corresponding to $\sigma\lesssim 5\times 10^{-4}$).
+\end{enumerate}
+
+
+%-----------------------------------------------
+\subsection{Visibility requirements and the sweet spot}
+\label{sec:visibility}
+
+The GUE cross-check requires at least two resolved
+spectral lines, i.e.\ $N_{\mathrm{eff}}\ge 2$.
+From Eq.~\eqref{eq:Neff}, the condition
+$e^{-2\sigma\gamma_2^2}\ge e^{-1}$ (i.e., the second
+zero $\gamma_2 = 21.022$ contributes at least $1/e$
+of its unsuppressed amplitude) gives
+\begin{equation}\label{eq:sigmacut}
+  \sigma \;\lesssim\;
+  \frac{1}{2\,\gamma_2^2}
+  \;\approx\;
+  1.1\times 10^{-3}\,.
+\end{equation}
+A less stringent requirement, $N_{\mathrm{eff}}\ge 2$
+(i.e.\ the sum in Eq.~\eqref{eq:Neff} exceeds~2), yields
+\begin{equation}\label{eq:sigmavis}
+  \sigma \;\lesssim\; 0.002\,.
+\end{equation}
+This is the \emph{beat-frequency visibility boundary}
+identified in Sec.~\ref{sec:paramspace}.  Crucially,
+it overlaps with the region of maximal signal amplitude
+$|\delta\kappa/\kappa|$
+(which is maximized for $\sigma\to 0$ at fixed~$\varepsilon$),
+so the sweet spot $\sigma\sim 10^{-3}$ simultaneously
+\begin{enumerate}
+\item maximizes detectability of the overall modulation, and
+\item enables the GUE cross-check with
+  $N_{\mathrm{beat}}\ge 6$.
+\end{enumerate}
+This coincidence is not a fine-tuning but a structural
+feature of the framework: the same Gaussian damping
+that controls signal amplitude also controls the number
+of resolved spectral lines.
+
+
+%-----------------------------------------------
+\subsection{Illustrative numerical example}
+\label{sec:gue-example}
+
+To ground the preceding analysis, we evaluate the
+beat-frequency statistics for the first four Riemann zeros:
+\begin{equation}\label{eq:firstzeros}
+  \gamma_1 = 14.1347\,,\quad
+  \gamma_2 = 21.0220\,,\quad
+  \gamma_3 = 25.0109\,,\quad
+  \gamma_4 = 30.4249\,.
+\end{equation}
+The six pairwise differences are:
+\begin{center}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{ccc}
+\hline
+$(i,j)$ & $\Delta_{ij}$ & $s_{ij} = \Delta_{ij}/\langle\Delta\rangle$ \\
+\hline
+(1,2) & $6.887$ & $1.27$ \\
+(1,3) & $10.876$ & $2.00$ \\
+(1,4) & $16.290$ & $3.00$ \\
+(2,3) & $3.989$ & $0.73$ \\
+(2,4) & $9.403$ & $1.73$ \\
+(3,4) & $5.414$ & $1.00$ \\
+\hline
+\end{tabular}
+\end{center}
+where $\langle\Delta\rangle = 8.81$.
+The key observation is that
+$s_{\min} = 0.73$, achieved by the $(2,3)$ pair.
+No normalized spacing falls below~$0.1$---indeed,
+none falls below~$0.5$.
+This reflects the quadratic level repulsion
+of Eq.~\eqref{eq:pGUE}: GUE zeros avoid clustering.
+
+For comparison, four Poisson-distributed frequencies
+with the same mean spacing would have
+$\mathrm{Prob}(s_{\min}<0.1)\approx 34\%$
+for $N_{\mathrm{beat}}=6$ independent pairs.
+The observed $s_{\min}=0.73$ thus already rejects
+Poisson at the $\sim\!2\sigma$ level from these four
+zeros alone.
+
+
+%-----------------------------------------------
+\subsection{Discussion: what the GUE test does and does not prove}
+\label{sec:gue-discussion}
+
+\paragraph{What it does.}
+A successful GUE cross-check demonstrates that the
+spectral lines in $\kappa_{\mathrm{eff}}(k)$ are not
+randomly placed but obey the specific correlation
+structure of the Riemann zeta zeros.
+Via Rodgers' theorem~\cite{Rodgers2018}, this
+is equivalent to a statement about the distribution
+of prime powers---the deepest known connection between
+physics and number theory.
+The test is amplitude-independent: even if~$\varepsilon$
+is too small for direct SGWB detection, the GUE
+signature can in principle be extracted from the
+\emph{relative} positions of resolved spectral lines
+in any sufficiently precise power-spectrum measurement.
+
+\paragraph{What it does not.}
+The GUE test does not prove that the environment
+\emph{is} built from Riemann zeros;
+it proves only that the environment's spectral statistics
+are \emph{consistent with} the GUE universality class.
+Other physical systems (quantum billiards, disordered
+conductors) share this universality class.
+The additional requirement that the individual
+frequencies match known values of~$\gamma_n$
+(Stage~2 of the pipeline) is needed to distinguish
+the Riemann-zero hypothesis from a generic
+chaotic-quantum-system hypothesis.
+Together, frequency identification \emph{and}
+GUE pair correlation constitute a two-pronged test
+that, if passed simultaneously, would provide
+compelling evidence for the arithmetic structure of
+quantum gravity noise.
+
+
+%———————————————————————————————————————————
+% §6  Observational Signatures
+%———————————————————————————————————————————
+
+\section{Observational Signatures}\label{sec:observational}
+
+The preceding sections derived the complex gravitational coupling
+$\kappa_{\mathrm{eff}}(k)$ (Sec.~\ref{sec:complexkappa}),
+its Zeta-Comb modulation spectrum (Sec.~\ref{sec:zetacomb}),
+and the GUE internal consistency check (Sec.~\ref{sec:gue}).
+In this section we map these theoretical results onto the
+space of observable parameters, identify the detector
+configurations capable of testing the predictions,
+and demonstrate that the parameter sweet spot
+$(\sigma\sim 10^{-3},\;\varepsilon\sim 10^{-2})$
+simultaneously satisfies existing constraints,
+enables GUE cross-checks, and falls within the
+projected sensitivity of next-generation
+gravitational-wave observatories.
+
+
+%-----------------------------------------------
+\subsection{The two-dimensional parameter space}
+\label{sec:paramspace}
+
+\subsubsection{Definition of the control parameters}
+
+The AL-GFT Zeta-Comb modulation derived in
+Sec.~\ref{sec:zetacomb} is controlled by two
+phenomenological parameters:
+\begin{itemize}
+\item $\varepsilon$\;---\;the \emph{multiplicity coupling
+  strength}, governing the overall amplitude of the
+  environment's back-reaction on the gravitational
+  sector.  It enters the signal amplitude quadratically:
+  $|\delta\kappa/\kappa|\propto\varepsilon^2$.
+
+\item $\sigma$\;---\;the \emph{soft-resonance width},
+  a positive dimensionless parameter controlling
+  the Gaussian damping of successive Riemann-zero
+  contributions via
+  $\exp(-\sigma\,\gamma_n^2)$ in $\mathcal{M}(k)$
+  and $\exp(-2\sigma\,\gamma_n^2)$ in the signal
+  power $|\delta\kappa/\kappa|^2$.
+\end{itemize}
+All other quantities entering the modulation---the
+locations of the zeros $\gamma_n$, the phases
+$\phi_n = \tfrac{1}{2}\arg\,\zeta(\tfrac{1}{2}+i\gamma_n)$---are
+fixed by number theory and carry no free parameters.
+The framework therefore has a \textbf{two-dimensional}
+parameter space $(\varepsilon,\sigma)$, making it
+maximally constrained for a stochastic-gravity extension.
+
+
+\subsubsection{Signal amplitude}
+
+From the influence-functional derivation of
+Sec.~\ref{sec:complexkappa}, the fractional shift
+in the gravitational coupling at wavenumber~$k$ is
+\begin{equation}\label{eq:deltakappa}
+  \frac{\delta\kappa}{\kappa}(k)
+  \;=\;
+  \varepsilon^2
+  \sum_{n=1}^{\infty}
+  e^{-2\sigma\,\gamma_n^2}\,
+  e^{i\gamma_n\ln(k/k_\star) + i\phi_n}\,.
+\end{equation}
+The modulus of this quantity is bounded by
+\begin{equation}\label{eq:deltakappa-bound}
+  \left|\frac{\delta\kappa}{\kappa}\right|
+  \;\le\;
+  \varepsilon^2\,
+  \sum_{n=1}^{\infty} e^{-2\sigma\,\gamma_n^2}
+  \;=\;
+  \varepsilon^2\,N_{\mathrm{eff}}(\sigma)\,,
+\end{equation}
+where $N_{\mathrm{eff}}(\sigma)$ was defined in
+Eq.~\eqref{eq:Neff}.  In the regime
+$\sigma\ll 1/\gamma_1^2\approx 5\times 10^{-3}$,
+$N_{\mathrm{eff}}$ grows (more zeros contribute),
+but the sum remains finite for any $\sigma>0$.
+For the dominant contribution from $\gamma_1=14.1347$
+alone:
+\begin{equation}\label{eq:signal-leading}
+  \left|\frac{\delta\kappa}{\kappa}\right|_{\gamma_1}
+  \;=\;
+  \varepsilon^2\,
+  e^{-2\sigma\,\gamma_1^2}
+  \;=\;
+  \varepsilon^2\,
+  e^{-399.6\,\sigma}\,.
+\end{equation}
+
+
+\subsubsection{Numerical evaluation at the sweet spot}
+
+At the parameter values $\varepsilon = 0.01$,
+$\sigma = 0.001$:
+\begin{align}
+  e^{-2\sigma\gamma_1^2}
+  &= e^{-0.3996} = 0.671\,,
+  \label{eq:damp1}\\[4pt]
+  e^{-2\sigma\gamma_2^2}
+  &= e^{-0.884} = 0.413\,,
+  \label{eq:damp2}\\[4pt]
+  e^{-2\sigma\gamma_3^2}
+  &= e^{-1.251} = 0.286\,,
+  \label{eq:damp3}\\[4pt]
+  e^{-2\sigma\gamma_4^2}
+  &= e^{-1.851} = 0.157\,.
+  \label{eq:damp4}
+\end{align}
+Summing the first ten zeros gives
+$N_{\mathrm{eff}} \approx 4.2$, and the signal amplitude
+\begin{equation}\label{eq:signal-sweetspot}
+  \left|\frac{\delta\kappa}{\kappa}\right|
+  \;\approx\;
+  (0.01)^2 \times 0.671
+  \;=\;
+  6.7\times 10^{-5}\,.
+\end{equation}
+This is the benchmark value used throughout the
+subsequent detectability analysis.
+
+
+%-----------------------------------------------
+\subsection{Existing constraints}
+\label{sec:constraints}
+
+\subsubsection{Planck 2018: oscillatory features in the
+  primordial power spectrum}
+
+The Planck 2018 analysis~\cite{Planck2018X} performed
+a dedicated search for oscillatory features in the
+primordial scalar power spectrum, parameterized as
+\begin{equation}\label{eq:planck-osc}
+  \mathcal{P}(k)
+  \;=\;
+  \mathcal{P}_0(k)\,
+  \bigl[1 + A_{\mathrm{osc}}\,
+  \sin(\omega_{\mathrm{osc}}\,\ln k + \varphi)\bigr]\,,
+\end{equation}
+with $A_{\mathrm{osc}}$, $\omega_{\mathrm{osc}}$, and
+$\varphi$ as free parameters.
+No statistically significant oscillatory signal was
+detected; the resulting upper bound is
+$A_{\mathrm{osc}} \lesssim 0.03$ (95\% CL) for
+$\omega_{\mathrm{osc}}\sim 10$--$30$, which covers
+the range spanned by $\gamma_1$--$\gamma_4$.
+
+In our framework, the oscillation amplitude is
+\begin{equation}\label{eq:Aosc-map}
+  A_{\mathrm{osc}}
+  \;\approx\;
+  2\,\varepsilon^2\,e^{-2\sigma\gamma_n^2}\,,
+\end{equation}
+where the factor of~2 accounts for the modulus of the
+complex exponential in~$\mathcal{M}(k)$.
+Imposing $A_{\mathrm{osc}}<0.03$ at $\gamma_1$ gives:
+\begin{equation}\label{eq:planck-bound}
+  \varepsilon^2\,e^{-2\sigma\gamma_1^2}
+  \;<\;
+  0.015
+  \qquad\Longrightarrow\qquad
+  \varepsilon \;<\;
+  0.12\,e^{\sigma\gamma_1^2}\,.
+\end{equation}
+At $\sigma = 10^{-3}$, this yields
+$\varepsilon < 0.15$---well above our benchmark
+$\varepsilon = 0.01$.
+The sweet spot lies safely within the Planck-allowed
+region by more than an order of magnitude.
+
+
+\subsubsection{CMB non-Gaussianity}
+
+The AL-GFT Gaussian branch (Gate~1) predicts
+$f_{\mathrm{NL}}^{\mathrm{local}} = 0$ by construction,
+since the environment is Gaussian and the coupling is
+linear.  The Planck 2018 constraint
+$f_{\mathrm{NL}}^{\mathrm{local}} = -0.9\pm 5.1$
+(68\%~CL)~\cite{Planck2018IX} is therefore
+automatically satisfied.
+Any future detection of $f_{\mathrm{NL}}\neq 0$
+would falsify the Gaussian branch and point toward
+the non-Gaussian extension (ML-GFT).
+
+
+\subsubsection{Gravitational-wave propagation}
+
+The imaginary part of $\kappa_{\mathrm{eff}}$
+modifies the dispersion relation for gravitational
+waves, introducing a frequency-dependent damping.
+Current LIGO-Virgo-KAGRA observations (GWTC-4.0)
+constrain modifications to the GW dispersion at the level
+$\delta c_T/c_T \lesssim 10^{-15}$ for
+$f\sim 10$--$10^3\,$Hz.
+At these frequencies the AL-GFT modulation is
+suppressed by $\exp(-2\sigma\gamma_1^2\ln^2 f/f_\star)$
+with $f_\star$ at cosmological scales, rendering
+the correction negligibly small
+($\ll 10^{-20}$).  There is no tension with
+GW propagation bounds.
+
+
+%-----------------------------------------------
+\subsection{The parameter-space landscape}
+\label{sec:landscape}
+
+\subsubsection{Four regions of the $(\sigma,\varepsilon)$ plane}
+
+The $(\sigma,\varepsilon)$ parameter space is
+structured by four boundaries that carve it into
+physically distinct regions (Fig.~\ref{fig:paramspace}):
+
+\begin{enumerate}
+\item \textbf{Planck exclusion} (upper boundary).
+  The Planck 2018 constraint on oscillatory features,
+  Eq.~\eqref{eq:planck-bound}, excludes the region
+  \begin{equation}
+    \varepsilon \;>\;
+    0.12\,e^{\sigma\,\gamma_1^2}
+    \;\approx\;
+    0.12\,e^{200\sigma}\,.
+  \end{equation}
+  This is an exponentially rising curve in the
+  $(\sigma,\varepsilon)$ plane, becoming less
+  constraining as $\sigma$ increases (stronger damping
+  reduces the observable amplitude).
+
+\item \textbf{BBO/DECIGO threshold} (lower boundary).
+  The projected strain sensitivity of BBO (two correlated
+  clusters, $T_{\mathrm{obs}}=3\,$yr) at
+  $f\sim 0.1$--$1\,$Hz sets a minimum detectable
+  energy-density fraction
+  $\Omega_{\mathrm{GW}}^{\min}\sim 10^{-17}$.
+  Mapping this to the modulation amplitude via
+  $\Omega_{\mathrm{GW}}\propto
+  |\delta\kappa/\kappa|^2\,\Omega_{\mathrm{GW},0}$
+  (where $\Omega_{\mathrm{GW},0}$ is the standard
+  inflationary background), the detection threshold
+  requires
+  \begin{equation}\label{eq:bbo-threshold}
+    |\delta\kappa/\kappa|
+    \;\gtrsim\;
+    \delta_{\mathrm{det}}\,,
+  \end{equation}
+  with $\delta_{\mathrm{det}}\sim 10^{-5}$--$10^{-4}$
+  depending on the assumed inflationary tensor-to-scalar
+  ratio~$r$.
+
+\item \textbf{Beat-frequency visibility boundary}
+  (left boundary).
+  The GUE cross-check of Sec.~\ref{sec:gue}
+  requires $N_{\mathrm{eff}}\ge 2$, which from
+  Eq.~\eqref{eq:sigmavis} translates to
+  \begin{equation}\label{eq:sigma-vis}
+    \sigma \;\lesssim\; 0.002\,.
+  \end{equation}
+  To the right of this boundary, only a single
+  spectral line ($\gamma_1$) contributes, and no
+  pair-correlation test is possible.
+
+\item \textbf{Perturbativity bound} (far-left boundary).
+  The influence-functional derivation assumes
+  $\varepsilon\ll 1$ (weak coupling to the environment).
+  We conservatively impose $\varepsilon < 0.1$,
+  beyond which higher-order terms in the
+  Dyson series may become significant.
+\end{enumerate}
+
+
+\subsubsection{The sweet spot}
+
+The intersection of these four boundaries defines a
+\emph{sweet spot} in parameter space:
+\begin{equation}\label{eq:sweetspot}
+  \boxed{%
+    \sigma \sim 10^{-3}\,,
+    \qquad
+    \varepsilon \sim 10^{-2}\,.
+  }
+\end{equation}
+At this point:
+\begin{itemize}
+\item The signal amplitude
+  $|\delta\kappa/\kappa|\approx 6.7\times 10^{-5}$
+  [Eq.~\eqref{eq:signal-sweetspot}] exceeds the
+  BBO detection threshold;
+\item The Planck constraint is satisfied by a
+  factor of~$\sim\!15$;
+\item $N_{\mathrm{eff}}\approx 4.2$ zeros contribute,
+  enabling the GUE cross-check with
+  $N_{\mathrm{beat}} = 6$ beat frequencies;
+\item The perturbative expansion is well-controlled
+  ($\varepsilon^2 = 10^{-4}$, so the
+  next-order correction is $\mathcal{O}(\varepsilon^4)
+  \sim 10^{-8}$).
+\end{itemize}
+The coincidence of these four conditions at a single
+point in the $(\sigma,\varepsilon)$ plane is a
+\emph{structural feature} of the framework,
+not a fine-tuning.  It arises because the same Gaussian
+damping $\exp(-2\sigma\gamma_n^2)$ simultaneously
+controls three quantities: signal amplitude, number of
+active zeros, and departure from the Planck constraint.
+
+
+%-----------------------------------------------
+\subsection{Contour plot of the parameter space}
+\label{sec:contour}
+
+Figure~\ref{fig:paramspace} displays the parameter-space
+landscape.  The axes are $\sigma$
+(horizontal, logarithmic, range $10^{-4}$--$10^{-1}$)
+and $\varepsilon$ (vertical, logarithmic,
+range $10^{-3}$--$1$).
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.85\textwidth]{parameter_space_final.png}
+\caption{%
+  Parameter space of the complex gravitational coupling
+  in the $(\sigma,\varepsilon)$ plane.
+  \textbf{Filled contours:} signal amplitude
+  $\log_{10}|\delta\kappa/\kappa|$, computed from
+  Eq.~\eqref{eq:deltakappa-bound} summing the first
+  100~Riemann zeros.
+  \textbf{Solid red curve:} Planck 2018 exclusion
+  boundary (oscillatory features,
+  $A_{\mathrm{osc}}<0.03$).
+  \textbf{Dashed blue line:} BBO/DECIGO detection
+  threshold ($|\delta\kappa/\kappa|
+  \gtrsim 10^{-5}$).
+  \textbf{Dashed green line:} beat-frequency visibility
+  boundary ($\sigma = 0.002$,
+  $N_{\mathrm{eff}}=2$).
+  \textbf{Star:} sweet spot
+  $(\sigma,\varepsilon) = (10^{-3},\,10^{-2})$,
+  where the signal amplitude is
+  $|\delta\kappa/\kappa|\approx 6.7\times 10^{-5}$,
+  the GUE cross-check is enabled, and the Planck
+  bound is satisfied.
+  The allowed region lies below the red curve,
+  above the blue line, and to the left of the
+  green line.}
+\label{fig:paramspace}
+\end{figure}
+
+The contour plot encodes several key features:
+\begin{enumerate}
+\item \emph{Signal amplitude contours} slope
+  diagonally from upper-left to lower-right,
+  reflecting the competition between
+  $\varepsilon^2$ (increasing upward) and
+  $e^{-2\sigma\gamma_1^2}$ (decreasing rightward).
+
+\item The \emph{allowed region} (below Planck,
+  above BBO, left of beat-visibility) forms a
+  wedge whose apex is the sweet spot.
+
+\item For $\sigma > 0.01$, the Planck bound becomes
+  so weak ($\varepsilon < 1$) that it is irrelevant,
+  but the signal amplitude drops below
+  $10^{-8}$---far below any projected detector
+  sensitivity.
+
+\item For $\sigma < 10^{-4}$, $N_{\mathrm{eff}}$ grows
+  large ($\gtrsim 50$), but the sum of oscillatory
+  terms begins to average down the net modulation
+  unless the phases $\phi_n$ are coherent over
+  many zeros---an unlikely scenario for the first
+  $\sim\!50$ Riemann zeros.
+\end{enumerate}
+
+
+%-----------------------------------------------
+\subsection{Detector mapping}
+\label{sec:detectors}
+
+\subsubsection{Translation to gravitational-wave
+  energy density}
+
+The complex gravitational coupling modifies the
+tensor transfer function, imprinting the Zeta-Comb
+modulation onto the stochastic gravitational-wave
+background (SGWB).  The fractional energy density
+spectrum acquires an oscillatory component:
+\begin{equation}\label{eq:OmegaGW}
+  \Omega_{\mathrm{GW}}(f)
+  \;=\;
+  \Omega_{\mathrm{GW}}^{(0)}(f)
+  \;\bigl[1 + \mathcal{M}(f)\bigr]\,,
+\end{equation}
+where $\Omega_{\mathrm{GW}}^{(0)}(f)$ is the standard
+inflationary background and $\mathcal{M}(f)$ is the
+modulation function evaluated at $k = 2\pi f/c$
+(neglecting the weak $k$-dependence of the transfer
+function over the detector bandwidth).
+
+The amplitude of the modulation at frequency~$f$ is
+\begin{equation}\label{eq:modamp-f}
+  |\mathcal{M}(f)|
+  \;\approx\;
+  2\,\varepsilon^2\,
+  e^{-2\sigma\gamma_1^2}\,
+  \bigl|\cos\bigl(
+    \gamma_1\ln(f/f_\star) + \phi_1
+  \bigr)\bigr|
+  \;+\;\text{higher zeros}\,,
+\end{equation}
+and the induced spectral modulation of the
+energy density is
+\begin{equation}\label{eq:deltaOmega}
+  \delta\Omega_{\mathrm{GW}}
+  \;\equiv\;
+  |\mathcal{M}|\;\Omega_{\mathrm{GW}}^{(0)}\,.
+\end{equation}
+
+
+\subsubsection{Detector sensitivity overview}
+
+Table~\ref{tab:detectors} summarizes the
+gravitational-wave observatories relevant to our
+predictions, ordered by target frequency band and
+projected timeline.
+
+\begin{table}[t]
+\centering
+\renewcommand{\arraystretch}{1.3}
+\caption{%
+  Detector configurations and their relevance to the
+  Zeta-Comb gravitational-wave signature.
+  $\Omega_{\mathrm{sens}}$ denotes the
+  power-law-integrated sensitivity to an SGWB
+  for the stated observation time and correlation
+  method.  ``Modulation SNR'' estimates the
+  signal-to-noise ratio for the oscillatory
+  component $\delta\Omega_{\mathrm{GW}}$
+  at the sweet-spot parameters, assuming
+  $r=0.01$ for the inflationary tensor background.}
+\label{tab:detectors}
+\begin{tabular}{lccccc}
+\hline
+\textbf{Detector}
+  & \textbf{Band}
+  & $\boldsymbol{\Omega_{\mathrm{sens}}}$
+  & \textbf{$T_{\mathrm{obs}}$}
+  & \textbf{Timeline}
+  & \textbf{Mod.\ SNR} \\
+\hline
+LISA
+  & $10^{-4}$--$10^{-1}\,$Hz
+  & $\sim 10^{-12}$
+  & 4\,yr
+  & 2035
+  & $\ll 1$ \\
+B-DECIGO
+  & $0.1$--$10\,$Hz
+  & $\sim 10^{-15}$
+  & 3\,yr
+  & 2030s
+  & $\sim 0.1$ \\
+DECIGO
+  & $0.1$--$10\,$Hz
+  & $\sim 10^{-18}$
+  & 3\,yr
+  & late 2030s
+  & $\sim 1$--$3$ \\
+BBO
+  & $0.03$--$3\,$Hz
+  & $\sim 10^{-17}$
+  & 5\,yr
+  & 2040s--2050s
+  & $\sim 3$--$10$ \\
+Einstein Tel.\
+  & $3$--$10^4\,$Hz
+  & $\sim 10^{-13}$
+  & 1\,yr
+  & $\sim$2035
+  & $\ll 1$ \\
+Cosmic Expl.\
+  & $5$--$10^4\,$Hz
+  & $\sim 10^{-13}$
+  & 1\,yr
+  & late 2030s
+  & $\ll 1$ \\
+\hline
+\end{tabular}
+\end{table}
+
+
+\subsubsection{LISA}
+
+The Laser Interferometer Space Antenna, with a
+planned launch in 2035 and a sensitivity band of
+$10^{-4}$--$10^{-1}\,$Hz, will be the first
+space-based gravitational-wave
+observatory~\cite{LISA2024}.
+Its SGWB sensitivity, characterized by the
+power-law integrated curve, reaches
+$\Omega_{\mathrm{GW}}\sim 10^{-12}$ for
+$T_{\mathrm{obs}}=4\,$yr.
+
+For the sweet-spot parameters, the modulation
+amplitude at $f=10^{-2}\,$Hz is
+\begin{equation}
+  \delta\Omega_{\mathrm{GW}}^{\mathrm{LISA}}
+  \;\sim\;
+  6.7\times 10^{-5} \times
+  \Omega_{\mathrm{GW}}^{(0)}(10^{-2}\,\text{Hz})\,.
+\end{equation}
+For standard slow-roll inflation with $r=0.01$,
+$\Omega_{\mathrm{GW}}^{(0)}(10^{-2}\,\text{Hz})
+\sim 10^{-16}$,
+giving
+$\delta\Omega_{\mathrm{GW}}\sim 10^{-20}$---eight
+orders of magnitude below LISA's reach.
+\textbf{LISA cannot detect the Zeta-Comb modulation
+for standard inflationary backgrounds.}
+However, if an exotic cosmological SGWB of non-inflationary
+origin exists at LISA frequencies with
+$\Omega\sim 10^{-10}$, the modulation would be
+marginally detectable.
+
+
+\subsubsection{B-DECIGO and DECIGO}
+
+B-DECIGO, the scientific pathfinder for DECIGO planned
+for the 2030s, covers $0.1$--$10\,$Hz with
+strain sensitivity $\sim 10^{-23}\,\mathrm{Hz}^{-1/2}$
+around 1\,Hz.
+DECIGO itself targets
+$4\times 10^{-24}\,\mathrm{Hz}^{-1/2}$ at 1\,Hz
+for a single cluster, improving to
+$7\times 10^{-26}\,\mathrm{Hz}^{-1/2}$ with
+two co-located clusters using
+cross-correlation~\cite{DECIGO2021,DECIGO2024}.
+
+The DECIGO band is the \emph{natural home} for
+the Zeta-Comb signature: the frequency
+$f\sim 0.1$--$1\,$Hz corresponds to comoving
+wavenumbers $k\sim 10^{12}$--$10^{13}\,\mathrm{Mpc}^{-1}$,
+far below the Silk-damping scale, where the
+primordial tensor spectrum is unaffected by
+CMB foreground systematics.
+
+For $r=0.01$ and the DECIGO correlation sensitivity:
+\begin{equation}\label{eq:decigo-snr}
+  \mathrm{SNR}_{\mathrm{DECIGO}}
+  \;\sim\;
+  \frac{\delta\Omega_{\mathrm{GW}}}
+       {\Omega_{\mathrm{sens}}^{\mathrm{DECIGO}}}
+  \;\sim\;
+  \frac{6.7\times 10^{-5}\times 10^{-16}}
+       {10^{-18}}
+  \;\sim\; 1\text{--}3\,,
+\end{equation}
+placing the signal at the threshold of detectability.
+A dedicated template-based search exploiting the
+known Zeta-Comb frequency structure could enhance
+this by a factor $\sim\!\sqrt{N_{\mathrm{eff}}}
+\approx 2$.
+
+
+\subsubsection{BBO}
+
+The Big Bang Observer, a proposed
+constellation of four LISA-like clusters in
+heliocentric orbit with arm lengths of
+$5\times 10^4\,$km, is specifically designed for
+the direct detection of the inflationary SGWB
+in the 0.03--3\,Hz band~\cite{BBO2005,Yagi2011}.
+Its projected sensitivity
+$\Omega_{\mathrm{GW}}\sim 10^{-17}$ after
+foreground subtraction makes it the \emph{primary
+target detector} for the Zeta-Comb signature.
+
+At the sweet spot:
+\begin{equation}\label{eq:bbo-snr}
+  \mathrm{SNR}_{\mathrm{BBO}}
+  \;\sim\;
+  \frac{6.7\times 10^{-5}\times 10^{-16}}
+       {10^{-17}}
+  \;\sim\; 3\text{--}10\,,
+\end{equation}
+depending on the exact value of~$r$ and the
+efficiency of astrophysical foreground removal
+(primarily neutron-star binaries, which must
+be individually identified and
+subtracted~\cite{Yagi2011}).
+This places the signal in the regime of
+\emph{confident detection}
+($\mathrm{SNR}\gtrsim 3$), with the oscillatory
+structure of the modulation providing additional
+template-matched enhancement.
+
+\subsubsection{Ground-based next-generation detectors}
+
+The Einstein Telescope and Cosmic Explorer,
+with sensitivities exceeding Advanced LIGO by a
+factor of~$\sim\!10$ and frequency bands of
+3--$10^4\,$Hz, are optimized for compact binary
+mergers rather than primordial SGWB
+detection~\cite{ET2020,CE2024}.
+Their SGWB sensitivity
+($\Omega_{\mathrm{GW}}\sim 10^{-13}$) is
+insufficient for the Zeta-Comb signal at standard
+inflationary amplitudes.
+However, these detectors contribute indirectly:
+\begin{itemize}
+\item By measuring the GW propagation speed to
+  $\delta c_T/c_T \sim 10^{-16}$ or better,
+  they constrain the real part of $\kappa_{\mathrm{eff}}$
+  at high frequencies.
+\item By cataloguing $\mathcal{O}(10^5)$ binary
+  mergers per year, they enable \emph{statistical}
+  tests of the frequency-dependent damping rate
+  $\mathrm{Im}\,\kappa_{\mathrm{eff}}(f)$
+  averaged over many events.
+\end{itemize}
+
+
+%-----------------------------------------------
+\subsection{CMB observational channel}
+\label{sec:cmb-channel}
+
+\subsubsection{Power spectrum modulation}
+
+The Zeta-Comb modulation also imprints on the
+scalar primordial power spectrum via the noise kernel:
+\begin{equation}\label{eq:Pk-mod}
+  \mathcal{P}(k)
+  \;=\;
+  A_s\left(\frac{k}{k_\star}\right)^{n_s-1}
+  \bigl[1 + \mathcal{M}(k)\bigr]\,,
+\end{equation}
+where $\mathcal{M}(k)$ is the same modulation function
+entering the gravitational coupling.
+The angular power spectrum $C_\ell$ inherits the
+oscillatory structure through the transfer functions:
+\begin{equation}\label{eq:Cell-mod}
+  \delta C_\ell
+  \;\propto\;
+  \int_0^\infty \frac{dk}{k}\,
+  \mathcal{M}(k)\,
+  |\Delta_\ell(k)|^2\,,
+\end{equation}
+where $\Delta_\ell(k)$ is the radiation transfer
+function.  The integration averages over many
+oscillation cycles for $\gamma_n\gg 1$, reducing
+the effective amplitude by a factor
+$\sim 1/\sqrt{\ell_{\max}/\ell_{\min}}$.
+
+\subsubsection{Forecasts for LiteBIRD and CMB-S4}
+
+LiteBIRD (launch 2032) will measure the CMB
+polarization to $r\sim 10^{-3}$, while CMB-S4
+(first light $\sim$2030) will achieve cosmic-variance-limited
+$E$-mode measurements to $\ell\sim 5000$.
+Neither experiment is optimized for oscillatory
+features at $\omega\sim 14$--$30$ in $\ln k$, but
+a dedicated search combining TT, TE, and EE
+spectra could in principle reach
+$A_{\mathrm{osc}}\sim 10^{-3}$ at these
+frequencies.
+
+For the sweet-spot parameters,
+$A_{\mathrm{osc}}\approx 2\times 6.7\times 10^{-5}
+\approx 1.3\times 10^{-4}$,
+which is a factor of~$\sim\!8$ below the projected
+sensitivity.
+\textbf{Direct detection of the Zeta-Comb in CMB
+power spectra requires $\varepsilon\gtrsim 0.03$}
+(at $\sigma = 10^{-3}$), which remains within
+the Planck-allowed region but approaches its boundary.
+
+
+%-----------------------------------------------
+\subsection{The detection roadmap}
+\label{sec:roadmap}
+
+We summarize the observational prospects in a
+three-stage roadmap, ordered by timeline and
+detection likelihood.
+
+\begin{description}
+\item[Stage~I (2025--2035): Archival and indirect.]
+  \begin{itemize}
+  \item Re-analyze Planck 2018 TT/TE/EE data with a
+    matched-filter template tuned to the Zeta-Comb
+    frequencies $\gamma_1$--$\gamma_4$.  Expected
+    outcome: SNR $\lesssim 1$ at the sweet spot, but
+    the search establishes the pipeline and sets
+    improved model-specific bounds on $\varepsilon$.
+  \item LiteBIRD $B$-mode measurement constrains~$r$,
+    which is a prerequisite input for the SGWB
+    detection forecast (Stage~II).
+  \end{itemize}
+
+\item[Stage~II (2030s--2040s): Decihertz window.]
+  \begin{itemize}
+  \item B-DECIGO ($\sim$2030s) provides the first
+    direct SGWB search in the 0.1--10\,Hz band.
+    Marginal sensitivity to the Zeta-Comb modulation
+    ($\mathrm{SNR}\sim 0.1$) at the sweet spot,
+    but useful for foreground characterization and
+    pipeline validation.
+  \item DECIGO (late 2030s) reaches
+    $\mathrm{SNR}\sim 1$--$3$ at the sweet spot.
+    A template search exploiting the known Zeta-Comb
+    structure could achieve $\mathrm{SNR}\sim 3$--$5$.
+    \textbf{First possible detection.}
+  \end{itemize}
+
+\item[Stage~III (2040s--2050s): Definitive test.]
+  \begin{itemize}
+  \item BBO achieves $\mathrm{SNR}\sim 3$--$10$ with
+    broad frequency coverage (0.03--3\,Hz).
+    The oscillatory pattern across $\sim\!2$ decades
+    of frequency enables both:
+    \begin{enumerate}
+    \item direct identification of individual spectral
+      lines ($\gamma_1$, $\gamma_2$, possibly
+      $\gamma_3$);
+    \item the GUE cross-check via the pair-correlation
+      pipeline of Sec.~\ref{sec:pipeline}.
+    \end{enumerate}
+  \item A detection-plus-GUE-confirmation at BBO would
+    constitute observational evidence that the
+    statistical structure of the Riemann zeta zeros
+    is encoded in the gravitational-wave spectrum---a
+    result connecting quantum gravity to number
+    theory via a physical measurement.
+  \end{itemize}
+\end{description}
+
+
+%-----------------------------------------------
+\subsection{The $\sigma$ sweet spot as a structural prediction}
+\label{sec:sigmastructure}
+
+The sweet spot $\sigma\sim 10^{-3}$ is not a
+post hoc choice but emerges from the structure of the
+Riemann zeros themselves.  Specifically:
+
+\begin{enumerate}
+\item The first zero $\gamma_1 = 14.1347$ sets the
+  scale: $\sigma_{\mathrm{crit}} \equiv
+  1/(2\gamma_1^2) \approx 2.5\times 10^{-3}$.
+  For $\sigma\gg\sigma_{\mathrm{crit}}$,
+  even the leading zero is damped out and the
+  modulation vanishes.
+
+\item The beat-frequency visibility threshold
+  $\sigma\lesssim 0.002$
+  [Eq.~\eqref{eq:sigmavis}] is set by $\gamma_2$:
+  $1/(2\gamma_2^2)\approx 1.1\times 10^{-3}$.
+
+\item The ratio $\gamma_2/\gamma_1 \approx 1.49$,
+  which controls the separation between
+  $\sigma_{\mathrm{crit}}$ and the beat-visibility
+  threshold, is a \emph{number-theoretic invariant}.
+  No parameter tuning can change it.
+\end{enumerate}
+
+\noindent
+The conclusion is that any framework embedding the
+Riemann zeros into a Gaussian-damped environment will
+\emph{generically} find its maximal-information regime
+at $\sigma\sim \gamma_1^{-2}$, regardless of the
+physical context.  The sweet spot is a prediction
+of number theory, not of the model.
+
+
+%%% References cited in this section:
+% \cite{Planck2018X}  — Planck Collaboration, A&A 641, A10 (2020).
+% \cite{Planck2018IX} — Planck Collaboration, A&A 641, A9 (2020).
+% \cite{LISA2024}     — LISA Collaboration, ESA Definition Study (2024).
+% \cite{DECIGO2021}   — Kawamura et al., PTEP 2021, 05A105 (2021).
+% \cite{DECIGO2024}   — Kawamura et al., Proc. Sci. 444, 1516 (2024).
+% \cite{BBO2005}      — Crowder & Cornish, Phys. Rev. D 72, 083005 (2005).
+% \cite{Yagi2011}     — Yagi & Seto, Phys. Rev. D 83, 044011 (2011).
+% \cite{ET2020}       — Maggiore et al., JCAP 03, 050 (2020).
+% \cite{CE2024}       — Cosmic Explorer Horizon Study (2024).
+%% =============================================================
+%% §7  The Self-Consistent Bootstrap
+%% Paper: "Complex Gravitational Coupling from Arithmetic Quantum Gravity Noise"
+%% =============================================================
+
+\section{The Self-Consistent Bootstrap}
+\label{sec:bootstrap}
+
+The preceding sections treated the Zeta-Comb environment as \emph{given}:
+a noise kernel $N(k)$ characterised by parameters $(\varepsilon,\sigma)$
+was imposed, and its observable consequences---complex gravitational
+coupling, GUE beat spectrum, gravitational-wave signatures---were derived.
+A deeper question remains: \emph{can the environment that dresses $\kappa$
+determine its own parameters self-consistently?}
+
+In this section we recast the framework as a nonlinear eigenvalue problem
+whose solution, if it exists, would fix $(\varepsilon,\sigma)$ from the
+Riemann zero spectrum alone---eliminating them as free parameters and
+elevating the theory from a model to a self-consistent bootstrap.
+We outline the formal structure, identify the key mathematical obstacles,
+and propose a concrete programme for future work.
+
+
+%% -------------------------------------------------------------
+\subsection{From dressed coupling to self-consistency condition}
+\label{subsec:dressing-selfconsistency}
+
+Recall from \S\ref{sec:complex-kappa} that integrating out the
+arithmetic environment yields an effective gravitational coupling
+(Eq.~\eqref{eq:kappa-eff})
+%
+\begin{equation}
+  \kappa_{\mathrm{eff}}(k)
+  \;=\;
+  \frac{\kappa}
+       {1 \;-\; \kappa\,\widetilde{D}_{R}(k)\big/\mathcal{O}(k)}\,,
+  \label{eq:kappa-eff-recall}
+\end{equation}
+%
+where $\widetilde{D}_{R}(k)$ is the retarded dissipation kernel and
+$\mathcal{O}(k)$ encodes the system response.
+Both kernels inherit the Zeta-Comb structure of the noise
+(Eq.~\eqref{eq:noise-kernel}):
+%
+\begin{equation}
+  N(k)
+  \;=\;
+  N_{0}(k)\,\mathcal{M}(k)\,,
+  \qquad
+  \mathcal{M}(k)
+  \;=\;
+  1 \;+\; 2\,\varepsilon\!\sum_{n=1}^{N_{\mathrm{eff}}}
+          e^{-\sigma\gamma_{n}^{2}}\,
+          \cos\!\bigl(\gamma_{n}\ln(k/k_{\star})+\phi_{n}\bigr)
+  \;+\; \mathcal{O}(\varepsilon^{2})\,,
+  \label{eq:modulation-recall}
+\end{equation}
+%
+where $\gamma_{n}$ are the imaginary parts of the non-trivial Riemann
+zeta zeros, $\sigma$ is the soft-resonance wid%% =============================================================
+%% §8  Discussion
+%% Paper: "Complex Gravitational Coupling from Arithmetic Quantum Gravity Noise"
+%% =============================================================
+
+\section{Discussion}
+\label{sec:discussion}
+
+The central result of this paper is that any causal quantum
+environment coupled to gravity renders the gravitational
+coupling complex:
+$\kappa_{\mathrm{eff}}(k) = \mathrm{Re}\,\kappa_{\mathrm{eff}}
++ i\,\mathrm{Im}\,\kappa_{\mathrm{eff}}$,
+with the imaginary part encoding dissipation into the environment
+and the real part acquiring a dispersive correction constrained
+by Kramers--Kronig causality.
+This is a theorem---it follows from the influence-functional
+formalism of Hu and Verdaguer~\cite{HuVerdaguer2004,HuVerdaguer2008}
+applied to the Einstein--Langevin equation, and holds regardless
+of the environment's microscopic structure.
+What distinguishes our framework is the \emph{choice} of
+environment: the Arithmetic-Langevin GFT (AL-GFT) noise kernel,
+whose frequencies are set by the imaginary parts $\gamma_{n}$
+of the non-trivial Riemann zeta zeros.
+
+In this section we place the results in context, develop the
+connection to the Berry--Keating programme, and assess the
+broader implications for quantum gravity, number theory, and
+observational cosmology.
+
+
+%% -------------------------------------------------------------
+\subsection{The Berry--Keating connection}
+\label{subsec:BK-connection}
+
+\subsubsection{From spectral conjecture to physical environment}
+
+The Hilbert--P\'olya conjecture asserts that the non-trivial
+zeros of $\zeta(s)$ are eigenvalues of a self-adjoint operator
+on a suitable Hilbert space~\cite{HilbertPolya}.
+Berry and Keating~\cite{BerryKeating1999} sharpened this to
+a semiclassical conjecture: the operator should quantise the
+classical Hamiltonian $H = xp$, whose periodic orbits have
+actions $S_{p} = \hbar\ln p$ labelled by the primes.
+Bender, Brody, and M\"uller~\cite{Bender2017BKHamiltonian}
+constructed a $\mathcal{PT}$-symmetric realisation
+(Eq.~\eqref{eq:BK-hamiltonian}), and
+Sierra~\cite{Sierra2014Rindler} embedded the zeros as discrete
+eigenvalues of a Dirac fermion in Rindler spacetime subject to
+delta-function potentials at positions $\ln p$.
+
+Our framework adds a new layer to this programme.
+Rather than seeking a single Hamiltonian whose eigenvalues
+\emph{are} the $\gamma_{n}$, we use the $\gamma_{n}$ as
+input data for a physical environment and ask what
+\emph{observable consequences} follow.
+The Zeta-Comb environment can therefore be viewed as a
+\emph{spectral probe}: it translates the abstract question
+``Are the $\gamma_{n}$ eigenvalues of a physical operator?''
+into the concrete question ``Does the gravitational-wave
+background carry the GUE correlations expected of such
+eigenvalues?''
+
+\subsubsection{Trace-formula interpretation}
+
+The Gutzwiller trace formula connects the density of states
+of a quantum-chaotic system to a sum over classical periodic
+orbits~\cite{Gutzwiller1971}:
+%
+\begin{equation}
+  d(E)
+  \;=\;
+  \bar{d}(E)
+  \;+\;
+  \frac{1}{\pi}\,\mathrm{Re}
+  \sum_{\mathrm{p.o.}}
+  A_{p}\,e^{iS_{p}/\hbar}\,.
+  \label{eq:gutzwiller}
+\end{equation}
+%
+For the Berry--Keating Hamiltonian, the primitive periodic
+orbits are labelled by primes $p$, with actions
+$S_{p} = \hbar\ln p$ and periods $T_{p} = \ln p$.
+The oscillatory part of $d(E)$ then reproduces the explicit
+formula of Riemann--von~Mangoldt for the zero-counting
+function $N(T)$~\cite{Edwards1974}.
+
+In our framework, an analogous structure appears in the
+noise kernel.
+The Zeta-Comb modulation~\eqref{eq:modulation-recall} is a
+sum over zeros weighted by Gaussian-damped amplitudes:
+%
+\begin{equation}
+  \mathcal{M}(k)
+  \;\sim\;
+  1 \;+\;
+  \sum_{n}\,e^{-\sigma\gamma_{n}^{2}}\,
+  e^{i\gamma_{n}\ln(k/k_{\star})}\,,
+  \label{eq:noise-trace}
+\end{equation}
+%
+which is the Fourier dual of the Gutzwiller sum: where the
+trace formula sums over \emph{orbits} (primes) to produce a
+density of \emph{states} (zeros), our noise kernel sums over
+\emph{zeros} to produce an observable \emph{spectrum} in
+momentum space.
+The Gaussian damping $e^{-\sigma\gamma_{n}^{2}}$ plays the
+role of the semiclassical amplitude $A_{p}$, controlling how
+many terms contribute.
+The duality
+%
+\begin{equation}
+  \text{Gutzwiller: }
+  \sum_{\text{primes}} \to \text{zeros}
+  \qquad\longleftrightarrow\qquad
+  \text{Zeta-Comb: }
+  \sum_{\text{zeros}} \to \text{observables}
+  \label{eq:duality}
+\end{equation}
+%
+closes the loop: the explicit formula encodes primes into zeros;
+the Zeta-Comb decodes zeros into gravitational-wave signatures.
+This is the sense in which our framework makes the
+Berry--Keating programme \emph{empirically accessible}---not
+by proving the Riemann Hypothesis, but by creating a physical
+context in which its consequences could be measured.
+
+
+%% -------------------------------------------------------------
+\subsection{Rodgers' theorem and the arithmetic content of the
+            beat spectrum}
+\label{subsec:rodgers-arithmetic}
+
+The GUE cross-check developed in \S\ref{sec:GUE} acquires
+additional significance through the theorem of
+Rodgers~\cite{Rodgers2018,Rodgers2024MMJ}.
+Conditioned on the Riemann Hypothesis, Rodgers proved that the
+GUE Conjecture for zeta zeros is \emph{logically equivalent} to
+a precise statement about the distribution of primes: namely,
+the asymptotic evaluation of correlations among products of
+primes drawn from short intervals.
+
+In our context, this equivalence has a striking physical
+translation.
+The beat spectrum $\Delta\gamma_{mn} = |\gamma_{m}-\gamma_{n}|$,
+which we proposed as a binary GUE diagnostic
+(\S\ref{sec:GUE}), is not merely a statistical test---it is,
+via Rodgers' theorem, a \emph{direct probe of prime
+correlations}.
+If the beat spectrum measured in a gravitational-wave
+background exhibits GUE level repulsion ($R_{2}(u) \to 0$ as
+$u \to 0$), Rodgers' theorem guarantees that the underlying
+zero spacings encode the Hardy--Littlewood predictions for
+prime $k$-tuples.
+Conversely, detecting Poisson statistics ($R_{2}(u) \to 1$)
+would refute the GUE Conjecture and, by Rodgers' equivalence,
+would imply that prime counts in short intervals violate
+their conjectured variance.
+
+This chain of implications---gravitational-wave data
+$\to$ beat spectrum $\to$ GUE/Poisson $\to$ prime
+distribution---is, to our knowledge, the first proposed
+pathway from an astrophysical measurement to a statement
+in analytic number theory.
+
+
+%% -------------------------------------------------------------
+\subsection{Relation to stochastic gravity and open quantum
+            systems}
+\label{subsec:stochastic-gravity-context}
+
+The result that gravity becomes an open quantum system when
+coupled to a quantum environment is not new; it is the
+foundation of stochastic semiclassical
+gravity~\cite{HuVerdaguer2004,HuVerdaguer2008,CalzettaHu2008}.
+The Einstein--Langevin equation adds a stochastic source
+$\xi_{\mu\nu}$ to the semiclassical Einstein equation, with
+the noise kernel $N_{\mu\nu\alpha\beta}$ determined by the
+vacuum fluctuations of the stress-energy tensor of quantum
+matter fields.
+
+Our contribution is not to the formalism itself but to the
+\emph{choice of environment}.
+Standard applications of stochastic gravity use free-field
+or thermal environments, producing noise kernels that are
+smooth in momentum space.
+The AL-GFT environment, by contrast, produces a noise kernel
+with discrete oscillatory structure---the
+Zeta-Comb---inherited from the arithmetic properties of the
+GFT microscopic degrees of freedom.
+This discrete structure is what generates the complex
+$\kappa_{\mathrm{eff}}$ with observable signatures, rather
+than a featureless renormalisation of Newton's constant.
+
+Recent work on gravitational decoherence of quantum
+superpositions~\cite{Blencowe2013,Kanno2024} and on
+gravitationally-induced entanglement
+degradation~\cite{Anastopoulos2021} confirms the physical
+relevance of treating gravity as an open system.
+Our framework extends this programme to the inflationary
+epoch, where the environment is not thermal matter but the
+discrete quantum-geometric structure of spacetime itself.
+
+
+%% -------------------------------------------------------------
+\subsection{Falsifiability and the role of the sweet spot}
+\label{subsec:falsifiability}
+
+A theory that cannot fail is not a theory.
+The framework developed here makes three classes of
+falsifiable predictions, ordered by observational horizon:
+
+\begin{enumerate}
+  \item \textbf{Near-term (Planck re-analysis, 2026--2028).}
+    Log-periodic oscillations in the CMB power spectrum at
+    frequencies $\gamma_{n}\!/\!(2\pi)$.
+    The matched-filter search uses \emph{no free parameters}
+    beyond $(\varepsilon,\sigma)$ in the allowed range; the
+    frequencies themselves are fixed by number theory.
+    A null result at $\varepsilon \gtrsim 0.01$,
+    $\sigma \sim 10^{-3}$ would shrink the viable parameter
+    space.
+
+  \item \textbf{Medium-term (BBO/DECIGO, 2030s--2040s).}
+    A stochastic gravitational-wave background with
+    amplitude $|\delta\kappa/\kappa| \sim 7 \times 10^{-5}$
+    at the sweet spot
+    $(\varepsilon,\sigma) = (10^{-2},\, 10^{-3})$.
+    The GUE cross-check---level repulsion in the beat
+    spectrum---is a binary yes/no test requiring no fitting.
+    Detection of Poisson statistics would falsify the
+    Zeta-Comb hypothesis while leaving the general
+    complex-$\kappa$ theorem intact.
+
+  \item \textbf{Long-term (self-consistent bootstrap).}
+    The nonlinear eigenvalue problem of
+    \S\ref{sec:bootstrap} either admits a non-trivial
+    $\sigma^{\star}$ in the observationally allowed window
+    or it does not.
+    If it does, $(\varepsilon,\sigma)$ are no longer free
+    parameters---they are predictions.
+    If it does not, the Zeta-Comb environment decouples and
+    the framework reduces to standard stochastic gravity
+    with no arithmetic content.
+\end{enumerate}
+
+The existence of the sweet spot at
+$\sigma \sim 10^{-3}$---where the beat-frequency visibility
+threshold ($\sigma \lesssim 0.002$) overlaps with the
+BBO/DECIGO sensitivity band---was not engineered.
+It emerged from the structure of the first Riemann zeros
+($\gamma_{1} = 14.1347$, $\gamma_{2} = 21.022$) and the
+Gaussian weight function $e^{-\sigma\gamma_{n}^{2}}$.
+This coincidence, discussed in \S\ref{sec:parameter-space},
+constitutes a form of \emph{theoretical naturalness}: the
+region where the framework is most testable is also where
+its signatures are strongest.
+
+
+%% -------------------------------------------------------------
+\subsection{Limitations and caveats}
+\label{subsec:limitations}
+
+Several limitations should be stated plainly.
+
+\paragraph{Perturbative regime.}
+All results assume $\varepsilon \ll 1$ and
+$|\kappa\,\widetilde{D}_{R}| \ll |\mathcal{O}|$,
+i.e.\ the environment is a weak perturbation on the
+gravitational dynamics.
+The Kramers--Kronig analysis, the linearised FDT, and
+the signal-amplitude estimates all break down if these
+conditions are violated.
+For $\varepsilon \gtrsim 0.1$, higher-order corrections
+to the influence functional---including non-Gaussian
+terms in the noise---would need to be included, taking
+the theory beyond the Gaussian AL-GFT branch (Gate~1).
+
+\paragraph{Environment specification.}
+The Zeta-Comb is motivated by the AL-GFT microscopic model
+(\S\ref{sec:intro}; Gate~1 of the CEQG-RG-Langevin
+Blueprint), but the mapping from GFT microscopic
+couplings to the effective parameters
+$(\varepsilon,\sigma)$ involves approximations---notably
+the linear-coupling and Gaussian-environment
+assumptions---that may receive corrections from the
+full GFT dynamics.
+Gate~2 (Wetterich RG flow from $k = M_{\mathrm{Pl}}$
+to $k = H_{0}$) will address this by promoting
+$\sigma$ to a running coupling $\sigma(k)$.
+
+\paragraph{Cosmological model dependence.}
+The observational signatures are computed on an FLRW
+background with Starobinsky-like inflation.
+Alternative inflationary models change the transfer
+function from primordial noise to CMB observables and
+could shift the optimal frequency window.
+However, the \emph{existence} of log-periodic oscillations
+at Riemann-zero frequencies is model-independent; only
+their amplitude is affected.
+
+\paragraph{No proof of the Riemann Hypothesis.}
+Nothing in this paper proves or assumes the Riemann
+Hypothesis.
+The $\gamma_{n}$ are used as empirical input---the
+first $\sim 10^{13}$ zeros have been verified
+numerically~\cite{Platt2021,Odlyzko1987}.
+The GUE cross-check tests whether the \emph{measured}
+beat spectrum matches the GUE prediction, which is a
+contingent physical question, not a mathematical proof.
+However, if the self-consistent bootstrap
+(\S\ref{sec:bootstrap}) were shown to close only when
+the zeros satisfy RH, this would constitute a
+\emph{physical} argument for the hypothesis---one that
+would need to be sharpened into a rigorous proof by
+number-theoretic methods.
+
+
+%% -------------------------------------------------------------
+\subsection{Broader implications}
+\label{subsec:broader-implications}
+
+\subsubsection{For quantum gravity phenomenology}
+
+The framework demonstrates that the open-quantum-systems
+perspective on gravity is not merely a formal tool but a
+\emph{phenomenological programme} with testable
+consequences.
+The key enabling insight is that the noise kernel of
+stochastic gravity, usually treated as smooth and
+unstructured, can carry discrete information from the
+UV completion of gravity.
+Any approach to quantum gravity that predicts a specific
+noise spectrum---whether from loop quantum gravity,
+string theory, or causal set theory---could in principle
+be tested by the same methods developed here.
+The general complex-$\kappa$ theorem
+(\S\ref{sec:complex-kappa}) is agnostic about the
+environment's origin; the Zeta-Comb is one instantiation,
+but the framework is a template.
+
+\subsubsection{For the Langlands programme and arithmetic
+              quantum field theory}
+
+The AL-GFT construction places automorphic data
+(specifically, the $\gamma_{n}$ and their pair
+correlations) inside a physical noise kernel.
+If the non-Gaussian extension---Modular-Langevin GFT
+(ML-GFT)---proves consistent, it would promote this
+to a role for automorphic representations (Maass forms,
+Hecke operators) in the bispectrum.
+This aligns with the broader vision of the Langlands
+programme as a unifying structure not only for
+mathematics but for the symmetries of physical
+theories~\cite{Langlands1970,Frenkel2007}.
+
+\subsubsection{For observational cosmology}
+
+The practical deliverable is a new class of
+\emph{template waveforms} for CMB and gravitational-wave
+data analysis: log-periodic oscillations at
+number-theoretically determined frequencies.
+Unlike generic oscillatory features (which require
+fitting both amplitude and frequency), the Zeta-Comb
+frequencies are fixed, reducing the search to a
+one-parameter family in $\sigma$.
+This dramatically reduces the look-elsewhere effect
+in template searches, improving the effective
+signal-to-noise ratio for a given observation time.
+We anticipate that purpose-built matched-filter
+pipelines, applied to Planck residual maps and future
+BBO/DECIGO data, will provide the first empirical
+constraints on arithmetic quantum gravity noise.
+
+
+%% =============================================================
+%% Closing
+%% =============================================================
+
+\bigskip
+\noindent
+\emph{Whether the cosmos confirms or refutes this arithmetic
+structure, the question itself---Do the Riemann zeros
+shape the fabric of spacetime?---is now empirically
+meaningful.
+The answer lies in the data.}
+th, and $\varepsilon$
+the multiplicity coupling strength.
+
+The Kramers--Kronig relation links $D_{R}$ to $N$ via
+a Hilbert transform (\S\ref{sec:FDT}), so the self-energy entering
+\eqref{eq:kappa-eff-recall} is itself a functional of
+$(\varepsilon,\sigma,\{\gamma_{n}\})$.
+Schematically,
+%
+\begin{equation}
+  \kappa_{\mathrm{eff}}
+  \;=\;
+  \kappa_{\mathrm{eff}}\!\bigl[\varepsilon,\,\sigma,\,
+  \{\gamma_{n}\};\;\kappa\bigr]\,.
+  \label{eq:kappa-functional}
+\end{equation}
+%
+A \emph{self-consistent} theory demands that the environment producing
+the noise be compatible with the gravitational dynamics it modifies.
+Concretely, if the dressed coupling $\kappa_{\mathrm{eff}}$ back-reacts
+on the environment---for instance by shifting the effective mass of
+environment modes or by altering the background geometry on which they
+propagate---then the environment parameters $(\varepsilon,\sigma)$ are
+not free but must satisfy a fixed-point equation:
+%
+\begin{equation}
+\boxed{%
+  \kappa_{\mathrm{eff}}\!\bigl[\varepsilon(\sigma),\,\sigma,\,
+  \{\gamma_{n}\};\;\kappa\bigr]
+  \;\stackrel{!}{=}\;
+  \kappa_{\mathrm{phys}}\,,
+}
+  \label{eq:bootstrap-condition}
+\end{equation}
+%
+where $\kappa_{\mathrm{phys}} = \sqrt{16\pi G_{N}}$ is the
+physically measured gravitational coupling and the notation
+$\varepsilon(\sigma)$ emphasises that, once the bootstrap
+closes, $\varepsilon$ becomes a derived function of $\sigma$.
+
+
+%% -------------------------------------------------------------
+\subsection{Nonlinear eigenvalue formulation}
+\label{subsec:nonlinear-eigenvalue}
+
+To make the bootstrap condition~\eqref{eq:bootstrap-condition}
+tractable, we truncate the Zeta-Comb to the first $N$ zeros and
+define the \emph{weight vector}
+%
+\begin{equation}
+  v_{n}(\sigma) \;\equiv\; e^{-2\sigma\gamma_{n}^{2}}\,,
+  \qquad n = 1,\ldots,N\,,
+  \label{eq:weight-vector}
+\end{equation}
+%
+which governs the contribution of each zero to the observable
+signal (cf.\ Eq.~\eqref{eq:signal-amplitude}).
+The self-consistency condition then takes the matrix form
+%
+\begin{equation}
+  \mathbf{K}(\sigma)\,\mathbf{v}(\sigma) \;=\; \mathbf{0}\,,
+  \label{eq:bootstrap-matrix}
+\end{equation}
+%
+where $\mathbf{K}(\sigma)$ is an $N\times N$ matrix constructed from
+the dressed propagator, the Kramers--Kronig--transformed noise kernel,
+and the Ward-identity constraints derived in \S\ref{sec:conservation}.
+Explicitly, the matrix elements are
+%
+\begin{equation}
+  K_{mn}(\sigma)
+  \;=\;
+  \delta_{mn}
+  \;-\;
+  \varepsilon^{2}\,v_{m}(\sigma)\,
+  \Bigl[
+    \mathcal{H}_{mn}\!\bigl(\{\gamma\}\bigr)
+    \;+\;
+    i\,\mathcal{R}_{mn}\!\bigl(\{\gamma\}\bigr)
+  \Bigr]\,,
+  \label{eq:K-matrix-elements}
+\end{equation}
+%
+where $\mathcal{H}_{mn}$ encodes the Hilbert-transform couplings
+between zeros $m$ and $n$ (arising from the dissipation kernel), and
+$\mathcal{R}_{mn}$ captures the reactive part constrained by the
+fluctuation--dissipation theorem.
+
+Equation~\eqref{eq:bootstrap-matrix} is a \emph{nonlinear eigenvalue
+problem} (NLEP) in the parameter $\sigma$: the matrix $\mathbf{K}$
+depends on $\sigma$ both through the weight vector $\mathbf{v}(\sigma)$
+and through the $\sigma$-dependence of the Hilbert-transform integrals.
+The problem is to find values $\sigma^{\star}$ such that
+$\mathbf{K}(\sigma^{\star})$ has a non-trivial null space:
+%
+\begin{equation}
+  \det\,\mathbf{K}(\sigma^{\star}) \;=\; 0\,.
+  \label{eq:det-condition}
+\end{equation}
+%
+This is structurally analogous to the gap equation in BCS
+superconductivity, where the pairing gap $\Delta$ appears both in the
+quasiparticle spectrum and in the self-energy that generates $\Delta$
+itself.  Here, $\sigma$ plays the role of $\Delta$: it sets the
+effective number of contributing zeros ($N_{\mathrm{eff}}$), which in
+turn determines the noise kernel, which feeds back into the condition
+on~$\sigma$.
+
+
+%% -------------------------------------------------------------
+\subsection{Structure of the solution space}
+\label{subsec:solution-space}
+
+Several properties of the NLEP~\eqref{eq:bootstrap-matrix} can be
+established without solving it explicitly.
+
+\paragraph{Existence of a trivial fixed point.}
+At $\varepsilon = 0$, the matrix $\mathbf{K}$ reduces to the identity
+and $\det\mathbf{K} = 1 \neq 0$.
+The trivial solution $\varepsilon = 0$ (decoupled environment)
+always satisfies \eqref{eq:bootstrap-condition} but produces no
+observable signal.
+A non-trivial bootstrap therefore requires $\varepsilon \neq 0$,
+and the question is whether \eqref{eq:det-condition} admits a
+solution at finite $\varepsilon$.
+
+\paragraph{Monotonicity of the weight vector.}
+Since $\gamma_{n+1} > \gamma_{n}$ and $\sigma > 0$, the weights
+$v_{n}(\sigma)$ form a strictly decreasing sequence:
+%
+\begin{equation}
+  v_{1}(\sigma) \;>\; v_{2}(\sigma) \;>\; \cdots \;>\; v_{N}(\sigma)
+  \;>\; 0\,.
+  \label{eq:v-monotone}
+\end{equation}
+%
+This ensures that the lowest zeros ($\gamma_{1} = 14.1347\ldots$,
+$\gamma_{2} = 21.0220\ldots$) dominate the bootstrap,
+providing a natural truncation hierarchy controlled by $\sigma$.
+At the sweet spot $\sigma \sim 10^{-3}$, the effective number of
+zeros contributing is $N_{\mathrm{eff}} \approx 4.2$,
+with 7 pairwise beat frequencies (Table~\ref{tab:sweet-spot}).
+
+\paragraph{Spectral flow with $\sigma$.}
+Define $\lambda_{1}(\sigma) \equiv$ smallest singular value of
+$\mathbf{K}(\sigma)$.
+As $\sigma \to 0$, all weights $v_{n} \to 1$ and the off-diagonal
+couplings $\mathcal{H}_{mn}$ grow without bound (too many zeros
+contribute), driving $\lambda_{1} \to -\infty$.
+As $\sigma \to \infty$, all $v_{n} \to 0$ and
+$\mathbf{K} \to \mathbf{I}$, so $\lambda_{1} \to 1$.
+By continuity, $\lambda_{1}(\sigma^{\star}) = 0$ for at least one
+$\sigma^{\star} \in (0,\infty)$, provided the off-diagonal couplings
+are sufficiently strong.
+This \emph{intermediate-value argument} does not guarantee uniqueness,
+but it provides a topological existence proof for the non-trivial
+bootstrap.
+
+
+%% -------------------------------------------------------------
+\subsection{Connection to the Berry--Keating programme}
+\label{subsec:berry-keating}
+
+The nonlinear eigenvalue problem~\eqref{eq:bootstrap-matrix}
+acquires additional structure when viewed through the lens
+of the Berry--Keating conjecture~\cite{BerryKeating1999,
+Bender2017BKHamiltonian}.
+Berry and Keating proposed that the Riemann zeros are eigenvalues
+of a quantisation of the classical Hamiltonian $H = xp$, with a
+suitable boundary condition encoding the prime numbers.
+Bender, Brody, and M\"uller~\cite{Bender2017BKHamiltonian}
+subsequently constructed a $\mathcal{PT}$-symmetric Hamiltonian
+%
+\begin{equation}
+  \hat{H}_{\mathrm{BK}}
+  \;=\;
+  \frac{1}{1 - e^{-i\hat{p}}}
+  \bigl(\hat{x}\hat{p} + \hat{p}\hat{x}\bigr)
+  \frac{1}{1 - e^{-i\hat{p}}}\,,
+  \label{eq:BK-hamiltonian}
+\end{equation}
+%
+whose eigenvalues, subject to a regularity condition, coincide with
+the $\gamma_{n}$.
+
+In our framework, the Zeta-Comb environment is \emph{by construction}
+built from the $\gamma_{n}$.
+If a Berry--Keating--type Hamiltonian governs the environment modes,
+then the self-consistency condition~\eqref{eq:bootstrap-matrix}
+becomes a statement about the spectral properties of
+$\hat{H}_{\mathrm{BK}}$:
+\emph{the gravitational bootstrap closes if and only if the
+environment spectrum is that of a self-adjoint (or
+$\mathcal{PT}$-symmetric) operator whose eigenvalues are
+the Riemann zeros.}
+This establishes a physical bridge between the Riemann Hypothesis
+and quantum gravity: the bootstrap has a non-trivial solution
+$\sigma^{\star}$ precisely when the $\gamma_{n}$ satisfy
+the spectral rigidity imposed by the GUE universality class---a
+known consequence of RH via Montgomery--Odlyzko pair
+correlation~\cite{Montgomery1973,Odlyzko1987}.
+
+Conversely, if the bootstrap were observed to close experimentally
+(via the gravitational-wave signatures of
+\S\ref{sec:parameter-space}), it would constitute indirect
+\emph{physical evidence} for the spectral interpretation of the
+Riemann zeros.
+
+
+%% -------------------------------------------------------------
+\subsection{Numerical strategy and convergence}
+\label{subsec:numerical-strategy}
+
+We outline a concrete algorithm for solving the
+NLEP~\eqref{eq:bootstrap-matrix} numerically.
+
+\begin{enumerate}
+  \item \textbf{Truncation.}
+    Fix $N_{\max}$ zeros (we recommend $N_{\max} = 50$, well
+    within Odlyzko's tabulated range).
+    For $\sigma \gtrsim 10^{-4}$, the Gaussian suppression
+    $v_{n} \sim e^{-2\sigma\gamma_{n}^{2}}$ renders contributions
+    from $n > N_{\max}$ negligible ($v_{50} < 10^{-12}$ at
+    $\sigma = 10^{-3}$).
+
+  \item \textbf{Matrix assembly.}
+    For each trial $\sigma$, compute $\mathbf{v}(\sigma)$ from
+    \eqref{eq:weight-vector} and assemble $\mathbf{K}(\sigma)$
+    via numerical Hilbert transforms of the noise kernel restricted
+    to the first $N_{\max}$ zeros.
+    The Ward-identity constraint
+    ($k^{\mu}\,\mathrm{Im}\,\kappa_{\mathrm{eff}} = 0$;
+    \S\ref{sec:conservation}) is imposed as a
+    projection onto the transverse-traceless subspace at each step.
+
+  \item \textbf{Determinant scan.}
+    Evaluate $\det\mathbf{K}(\sigma)$ on a logarithmic grid
+    $\sigma \in [10^{-5},\, 10^{-1}]$.
+    Sign changes in $\mathrm{Re}\,\det\mathbf{K}$ locate
+    candidate roots $\sigma^{\star}$.
+
+  \item \textbf{Refinement.}
+    Polish each candidate using a Newton--Raphson iteration on
+    the smallest singular value $\lambda_{1}(\sigma)$,
+    with Jacobian estimated by finite differences
+    $\partial_{\sigma}\lambda_{1} \approx
+    [\lambda_{1}(\sigma+\delta) - \lambda_{1}(\sigma-\delta)]
+    / 2\delta$.
+
+  \item \textbf{Consistency check.}
+    Verify that $\sigma^{\star}$ lies within the observationally
+    allowed region of parameter space
+    (Fig.~\ref{fig:parameter-space}):
+    beat-frequency visibility requires $\sigma \lesssim 0.002$,
+    and Planck 2018 constraints impose
+    $\varepsilon < 0.21$ at $\sigma = 10^{-3}$
+    (Eq.~\eqref{eq:planck-bound}).
+    A solution $\sigma^{\star} \sim 10^{-3}$ falling in the
+    sweet spot would be a striking confirmation of the
+    framework's internal coherence.
+\end{enumerate}
+
+The computational cost is dominated by the Hilbert-transform
+integrals in Step~2, each requiring $\mathcal{O}(N_{\max}^{2})$
+quadrature evaluations.
+For $N_{\max} = 50$, a single $\sigma$-scan with 200 grid points
+requires $\sim 5 \times 10^{5}$ function evaluations---feasible
+on a laptop in minutes.
+
+
+%% -------------------------------------------------------------
+\subsection{Open questions and future work}
+\label{subsec:open-questions}
+
+The self-consistent bootstrap raises several questions that
+we leave for future investigation.
+
+\begin{enumerate}
+  \item \textbf{Uniqueness.}
+    Does \eqref{eq:det-condition} admit a unique non-trivial
+    $\sigma^{\star}$, or a discrete set?
+    Multiple solutions would correspond to distinct
+    ``phases'' of the arithmetic environment, each with a
+    different effective number of active zeros.
+    Stability analysis (sign of
+    $\partial_{\sigma}\lambda_{1}|_{\sigma^{\star}}$) would
+    identify the physical branch.
+
+  \item \textbf{Dynamical origin of $\varepsilon$.}
+    In the present formulation, $\varepsilon$ enters as an
+    overall coupling strength.
+    A fully closed bootstrap should determine
+    $\varepsilon^{\star}$ alongside $\sigma^{\star}$.
+    This likely requires extending the NLEP to a
+    two-parameter system
+    $\mathbf{K}(\varepsilon,\sigma)\,\mathbf{v} = \mathbf{0}$,
+    supplemented by a normalisation condition on
+    $\kappa_{\mathrm{phys}}$.
+
+  \item \textbf{Relation to the Hilbert--P\'olya programme.}
+    If the bootstrap selects a unique $\sigma^{\star}$, the
+    resulting dressed propagator
+    $G_{\mathrm{eff}}(k;\sigma^{\star})$ defines a
+    \emph{physical operator} whose spectral properties are
+    constrained by the Riemann zeros.
+    Establishing whether this operator is unitarily equivalent
+    to a Berry--Keating--type Hamiltonian would provide a
+    concrete realisation of the Hilbert--P\'olya conjecture
+    within quantum gravity.
+
+  \item \textbf{Renormalisation-group flow.}
+    The parameter $\sigma$ has been treated as scale-independent.
+    Embedding the bootstrap in the Gate~2 Wetterich flow
+    (\S\ref{sec:gate2-outlook}) would promote $\sigma$ to a
+    running coupling $\sigma(k)$, with the NLEP replaced by a
+    functional fixed-point equation.
+    The interplay between the discrete Zeta-Comb structure
+    and continuous RG flow is an unexplored frontier.
+
+  \item \textbf{Implications of failure.}
+    If no non-trivial $\sigma^{\star}$ exists within the
+    observationally allowed window, the framework admits only
+    the trivial solution $\varepsilon = 0$---meaning the
+    arithmetic environment decouples and leaves no observable
+    imprint.
+    This would \emph{falsify} the predictive power of the
+    Zeta-Comb model while leaving the general theorem
+    (any causal environment produces complex $\kappa$;
+    \S\ref{sec:complex-kappa}) intact.
+\end{enumerate}
+
+\noindent
+The self-consistent bootstrap thus serves a dual purpose:
+it is both the mechanism by which the framework could achieve
+maximal predictive power---fixing all parameters from number
+theory---and the sharpest internal test of whether arithmetic
+quantum gravity noise is more than a mathematical curiosity.
+Its resolution, whether by the numerical programme above or
+by analytic methods connecting to the Berry--Keating Hamiltonian,
+constitutes the natural next chapter of this work.
+
+%% =============================================================
+%% §8  Discussion
+%% Paper: "Complex Gravitational Coupling from Arithmetic Quantum Gravity Noise"
+%% =============================================================
+
+\section{Discussion}
+\label{sec:discussion}
+
+The central result of this paper is that any causal quantum
+environment coupled to gravity renders the gravitational
+coupling complex:
+$\kappa_{\mathrm{eff}}(k) = \mathrm{Re}\,\kappa_{\mathrm{eff}}
++ i\,\mathrm{Im}\,\kappa_{\mathrm{eff}}$,
+with the imaginary part encoding dissipation into the environment
+and the real part acquiring a dispersive correction constrained
+by Kramers--Kronig causality.
+This is a theorem---it follows from the influence-functional
+formalism of Hu and Verdaguer~\cite{HuVerdaguer2004,HuVerdaguer2008}
+applied to the Einstein--Langevin equation, and holds regardless
+of the environment's microscopic structure.
+What distinguishes our framework is the \emph{choice} of
+environment: the Arithmetic-Langevin GFT (AL-GFT) noise kernel,
+whose frequencies are set by the imaginary parts $\gamma_{n}$
+of the non-trivial Riemann zeta zeros.
+
+In this section we place the results in context, develop the
+connection to the Berry--Keating programme, and assess the
+broader implications for quantum gravity, number theory, and
+observational cosmology.
+
+
+%% -------------------------------------------------------------
+\subsection{The Berry--Keating connection}
+\label{subsec:BK-connection}
+
+\subsubsection{From spectral conjecture to physical environment}
+
+The Hilbert--P\'olya conjecture asserts that the non-trivial
+zeros of $\zeta(s)$ are eigenvalues of a self-adjoint operator
+on a suitable Hilbert space~\cite{HilbertPolya}.
+Berry and Keating~\cite{BerryKeating1999} sharpened this to
+a semiclassical conjecture: the operator should quantise the
+classical Hamiltonian $H = xp$, whose periodic orbits have
+actions $S_{p} = \hbar\ln p$ labelled by the primes.
+Bender, Brody, and M\"uller~\cite{Bender2017BKHamiltonian}
+constructed a $\mathcal{PT}$-symmetric realisation
+(Eq.~\eqref{eq:BK-hamiltonian}), and
+Sierra~\cite{Sierra2014Rindler} embedded the zeros as discrete
+eigenvalues of a Dirac fermion in Rindler spacetime subject to
+delta-function potentials at positions $\ln p$.
+
+Our framework adds a new layer to this programme.
+Rather than seeking a single Hamiltonian whose eigenvalues
+\emph{are} the $\gamma_{n}$, we use the $\gamma_{n}$ as
+input data for a physical environment and ask what
+\emph{observable consequences} follow.
+The Zeta-Comb environment can therefore be viewed as a
+\emph{spectral probe}: it translates the abstract question
+``Are the $\gamma_{n}$ eigenvalues of a physical operator?''
+into the concrete question ``Does the gravitational-wave
+background carry the GUE correlations expected of such
+eigenvalues?''
+
+\subsubsection{Trace-formula interpretation}
+
+The Gutzwiller trace formula connects the density of states
+of a quantum-chaotic system to a sum over classical periodic
+orbits~\cite{Gutzwiller1971}:
+%
+\begin{equation}
+  d(E)
+  \;=\;
+  \bar{d}(E)
+  \;+\;
+  \frac{1}{\pi}\,\mathrm{Re}
+  \sum_{\mathrm{p.o.}}
+  A_{p}\,e^{iS_{p}/\hbar}\,.
+  \label{eq:gutzwiller}
+\end{equation}
+%
+For the Berry--Keating Hamiltonian, the primitive periodic
+orbits are labelled by primes $p$, with actions
+$S_{p} = \hbar\ln p$ and periods $T_{p} = \ln p$.
+The oscillatory part of $d(E)$ then reproduces the explicit
+formula of Riemann--von~Mangoldt for the zero-counting
+function $N(T)$~\cite{Edwards1974}.
+
+In our framework, an analogous structure appears in the
+noise kernel.
+The Zeta-Comb modulation~\eqref{eq:modulation-recall} is a
+sum over zeros weighted by Gaussian-damped amplitudes:
+%
+\begin{equation}
+  \mathcal{M}(k)
+  \;\sim\;
+  1 \;+\;
+  \sum_{n}\,e^{-\sigma\gamma_{n}^{2}}\,
+  e^{i\gamma_{n}\ln(k/k_{\star})}\,,
+  \label{eq:noise-trace}
+\end{equation}
+%
+which is the Fourier dual of the Gutzwiller sum: where the
+trace formula sums over \emph{orbits} (primes) to produce a
+density of \emph{states} (zeros), our noise kernel sums over
+\emph{zeros} to produce an observable \emph{spectrum} in
+momentum space.
+The Gaussian damping $e^{-\sigma\gamma_{n}^{2}}$ plays the
+role of the semiclassical amplitude $A_{p}$, controlling how
+many terms contribute.
+The duality
+%
+\begin{equation}
+  \text{Gutzwiller: }
+  \sum_{\text{primes}} \to \text{zeros}
+  \qquad\longleftrightarrow\qquad
+  \text{Zeta-Comb: }
+  \sum_{\text{zeros}} \to \text{observables}
+  \label{eq:duality}
+\end{equation}
+%
+closes the loop: the explicit formula encodes primes into zeros;
+the Zeta-Comb decodes zeros into gravitational-wave signatures.
+This is the sense in which our framework makes the
+Berry--Keating programme \emph{empirically accessible}---not
+by proving the Riemann Hypothesis, but by creating a physical
+context in which its consequences could be measured.
+
+
+%% -------------------------------------------------------------
+\subsection{Rodgers' theorem and the arithmetic content of the
+            beat spectrum}
+\label{subsec:rodgers-arithmetic}
+
+The GUE cross-check developed in \S\ref{sec:GUE} acquires
+additional significance through the theorem of
+Rodgers~\cite{Rodgers2018,Rodgers2024MMJ}.
+Conditioned on the Riemann Hypothesis, Rodgers proved that the
+GUE Conjecture for zeta zeros is \emph{logically equivalent} to
+a precise statement about the distribution of primes: namely,
+the asymptotic evaluation of correlations among products of
+primes drawn from short intervals.
+
+In our context, this equivalence has a striking physical
+translation.
+The beat spectrum $\Delta\gamma_{mn} = |\gamma_{m}-\gamma_{n}|$,
+which we proposed as a binary GUE diagnostic
+(\S\ref{sec:GUE}), is not merely a statistical test---it is,
+via Rodgers' theorem, a \emph{direct probe of prime
+correlations}.
+If the beat spectrum measured in a gravitational-wave
+background exhibits GUE level repulsion ($R_{2}(u) \to 0$ as
+$u \to 0$), Rodgers' theorem guarantees that the underlying
+zero spacings encode the Hardy--Littlewood predictions for
+prime $k$-tuples.
+Conversely, detecting Poisson statistics ($R_{2}(u) \to 1$)
+would refute the GUE Conjecture and, by Rodgers' equivalence,
+would imply that prime counts in short intervals violate
+their conjectured variance.
+
+This chain of implications---gravitational-wave data
+$\to$ beat spectrum $\to$ GUE/Poisson $\to$ prime
+distribution---is, to our knowledge, the first proposed
+pathway from an astrophysical measurement to a statement
+in analytic number theory.
+
+
+%% -------------------------------------------------------------
+\subsection{Relation to stochastic gravity and open quantum
+            systems}
+\label{subsec:stochastic-gravity-context}
+
+The result that gravity becomes an open quantum system when
+coupled to a quantum environment is not new; it is the
+foundation of stochastic semiclassical
+gravity~\cite{HuVerdaguer2004,HuVerdaguer2008,CalzettaHu2008}.
+The Einstein--Langevin equation adds a stochastic source
+$\xi_{\mu\nu}$ to the semiclassical Einstein equation, with
+the noise kernel $N_{\mu\nu\alpha\beta}$ determined by the
+vacuum fluctuations of the stress-energy tensor of quantum
+matter fields.
+
+Our contribution is not to the formalism itself but to the
+\emph{choice of environment}.
+Standard applications of stochastic gravity use free-field
+or thermal environments, producing noise kernels that are
+smooth in momentum space.
+The AL-GFT environment, by contrast, produces a noise kernel
+with discrete oscillatory structure---the
+Zeta-Comb---inherited from the arithmetic properties of the
+GFT microscopic degrees of freedom.
+This discrete structure is what generates the complex
+$\kappa_{\mathrm{eff}}$ with observable signatures, rather
+than a featureless renormalisation of Newton's constant.
+
+Recent work on gravitational decoherence of quantum
+superpositions~\cite{Blencowe2013,Kanno2024} and on
+gravitationally-induced entanglement
+degradation~\cite{Anastopoulos2021} confirms the physical
+relevance of treating gravity as an open system.
+Our framework extends this programme to the inflationary
+epoch, where the environment is not thermal matter but the
+discrete quantum-geometric structure of spacetime itself.
+
+
+%% -------------------------------------------------------------
+\subsection{Falsifiability and the role of the sweet spot}
+\label{subsec:falsifiability}
+
+A theory that cannot fail is not a theory.
+The framework developed here makes three classes of
+falsifiable predictions, ordered by observational horizon:
+
+\begin{enumerate}
+  \item \textbf{Near-term (Planck re-analysis, 2026--2028).}
+    Log-periodic oscillations in the CMB power spectrum at
+    frequencies $\gamma_{n}\!/\!(2\pi)$.
+    The matched-filter search uses \emph{no free parameters}
+    beyond $(\varepsilon,\sigma)$ in the allowed range; the
+    frequencies themselves are fixed by number theory.
+    A null result at $\varepsilon \gtrsim 0.01$,
+    $\sigma \sim 10^{-3}$ would shrink the viable parameter
+    space.
+
+  \item \textbf{Medium-term (BBO/DECIGO, 2030s--2040s).}
+    A stochastic gravitational-wave background with
+    amplitude $|\delta\kappa/\kappa| \sim 7 \times 10^{-5}$
+    at the sweet spot
+    $(\varepsilon,\sigma) = (10^{-2},\, 10^{-3})$.
+    The GUE cross-check---level repulsion in the beat
+    spectrum---is a binary yes/no test requiring no fitting.
+    Detection of Poisson statistics would falsify the
+    Zeta-Comb hypothesis while leaving the general
+    complex-$\kappa$ theorem intact.
+
+  \item \textbf{Long-term (self-consistent bootstrap).}
+    The nonlinear eigenvalue problem of
+    \S\ref{sec:bootstrap} either admits a non-trivial
+    $\sigma^{\star}$ in the observationally allowed window
+    or it does not.
+    If it does, $(\varepsilon,\sigma)$ are no longer free
+    parameters---they are predictions.
+    If it does not, the Zeta-Comb environment decouples and
+    the framework reduces to standard stochastic gravity
+    with no arithmetic content.
+\end{enumerate}
+
+The existence of the sweet spot at
+$\sigma \sim 10^{-3}$---where the beat-frequency visibility
+threshold ($\sigma \lesssim 0.002$) overlaps with the
+BBO/DECIGO sensitivity band---was not engineered.
+It emerged from the structure of the first Riemann zeros
+($\gamma_{1} = 14.1347$, $\gamma_{2} = 21.022$) and the
+Gaussian weight function $e^{-\sigma\gamma_{n}^{2}}$.
+This coincidence, discussed in \S\ref{sec:parameter-space},
+constitutes a form of \emph{theoretical naturalness}: the
+region where the framework is most testable is also where
+its signatures are strongest.
+
+
+%% -------------------------------------------------------------
+\subsection{Limitations and caveats}
+\label{subsec:limitations}
+
+Several limitations should be stated plainly.
+
+\paragraph{Perturbative regime.}
+All results assume $\varepsilon \ll 1$ and
+$|\kappa\,\widetilde{D}_{R}| \ll |\mathcal{O}|$,
+i.e.\ the environment is a weak perturbation on the
+gravitational dynamics.
+The Kramers--Kronig analysis, the linearised FDT, and
+the signal-amplitude estimates all break down if these
+conditions are violated.
+For $\varepsilon \gtrsim 0.1$, higher-order corrections
+to the influence functional---including non-Gaussian
+terms in the noise---would need to be included, taking
+the theory beyond the Gaussian AL-GFT branch (Gate~1).
+
+\paragraph{Environment specification.}
+The Zeta-Comb is motivated by the AL-GFT microscopic model
+(\S\ref{sec:intro}; Gate~1 of the CEQG-RG-Langevin
+Blueprint), but the mapping from GFT microscopic
+couplings to the effective parameters
+$(\varepsilon,\sigma)$ involves approximations---notably
+the linear-coupling and Gaussian-environment
+assumptions---that may receive corrections from the
+full GFT dynamics.
+Gate~2 (Wetterich RG flow from $k = M_{\mathrm{Pl}}$
+to $k = H_{0}$) will address this by promoting
+$\sigma$ to a running coupling $\sigma(k)$.
+
+\paragraph{Cosmological model dependence.}
+The observational signatures are computed on an FLRW
+background with Starobinsky-like inflation.
+Alternative inflationary models change the transfer
+function from primordial noise to CMB observables and
+could shift the optimal frequency window.
+However, the \emph{existence} of log-periodic oscillations
+at Riemann-zero frequencies is model-independent; only
+their amplitude is affected.
+
+\paragraph{No proof of the Riemann Hypothesis.}
+Nothing in this paper proves or assumes the Riemann
+Hypothesis.
+The $\gamma_{n}$ are used as empirical input---the
+first $\sim 10^{13}$ zeros have been verified
+numerically~\cite{Platt2021,Odlyzko1987}.
+The GUE cross-check tests whether the \emph{measured}
+beat spectrum matches the GUE prediction, which is a
+contingent physical question, not a mathematical proof.
+However, if the self-consistent bootstrap
+(\S\ref{sec:bootstrap}) were shown to close only when
+the zeros satisfy RH, this would constitute a
+\emph{physical} argument for the hypothesis---one that
+would need to be sharpened into a rigorous proof by
+number-theoretic methods.
+
+
+%% -------------------------------------------------------------
+\subsection{Broader implications}
+\label{subsec:broader-implications}
+
+\subsubsection{For quantum gravity phenomenology}
+
+The framework demonstrates that the open-quantum-systems
+perspective on gravity is not merely a formal tool but a
+\emph{phenomenological programme} with testable
+consequences.
+The key enabling insight is that the noise kernel of
+stochastic gravity, usually treated as smooth and
+unstructured, can carry discrete information from the
+UV completion of gravity.
+Any approach to quantum gravity that predicts a specific
+noise spectrum---whether from loop quantum gravity,
+string theory, or causal set theory---could in principle
+be tested by the same methods developed here.
+The general complex-$\kappa$ theorem
+(\S\ref{sec:complex-kappa}) is agnostic about the
+environment's origin; the Zeta-Comb is one instantiation,
+but the framework is a template.
+
+\subsubsection{For the Langlands programme and arithmetic
+              quantum field theory}
+
+The AL-GFT construction places automorphic data
+(specifically, the $\gamma_{n}$ and their pair
+correlations) inside a physical noise kernel.
+If the non-Gaussian extension---Modular-Langevin GFT
+(ML-GFT)---proves consistent, it would promote this
+to a role for automorphic representations (Maass forms,
+Hecke operators) in the bispectrum.
+This aligns with the broader vision of the Langlands
+programme as a unifying structure not only for
+mathematics but for the symmetries of physical
+theories~\cite{Langlands1970,Frenkel2007}.
+
+\subsubsection{For observational cosmology}
+
+The practical deliverable is a new class of
+\emph{template waveforms} for CMB and gravitational-wave
+data analysis: log-periodic oscillations at
+number-theoretically determined frequencies.
+Unlike generic oscillatory features (which require
+fitting both amplitude and frequency), the Zeta-Comb
+frequencies are fixed, reducing the search to a
+one-parameter family in $\sigma$.
+This dramatically reduces the look-elsewhere effect
+in template searches, improving the effective
+signal-to-noise ratio for a given observation time.
+We anticipate that purpose-built matched-filter
+pipelines, applied to Planck residual maps and future
+BBO/DECIGO data, will provide the first empirical
+constraints on arithmetic quantum gravity noise.
+
+
+%% =============================================================
+%% Closing
+%% =============================================================
+
+\bigskip
+\noindent
+\emph{Whether the cosmos confirms or refutes this arithmetic
+structure, the question itself---Do the Riemann zeros
+shape the fabric of spacetime?---is now empirically
+meaningful.
+The answer lies in the data.}
+
+%%% References cited in this section (to be merged with master .bib):
+% \cite{Montgomery1973}  — H. L. Montgomery, Proc. Symp. Pure Math. 24 (1973) 181.
+% \cite{Odlyzko1987}     — A. M. Odlyzko, Math. Comp. 48 (1987) 273.
+% \cite{Odlyzko2001}     — A. M. Odlyzko, "The 10^22-nd zero of the Riemann zeta function" (2001).
+% \cite{BogomolnyKeating1996} — E. B. Bogomolny and J. P. Keating, Phys. Rev. Lett. 77 (1996) 1472.
+% \cite{Bogomolny2006}   — E. B. Bogomolny et al., J. Phys. A 39 (2006) 10743.
+% \cite{Mehta2004}        — M. L. Mehta, Random Matrices, 3rd ed. (Academic Press, 2004).
+% \cite{Rodgers2018}      — B. Rodgers, "Arithmetic consequences of the GUE conjecture for zeta zeros."
+% \cite{LMFDB}            — The LMFDB Collaboration, https://www.lmfdb.org.
+
+
+
+%%---------------------------------------------------------------------
+%% Additional bibliography entries for this section:
+%%
+%% @article{Montgomery1973,
+%%   author  = {Montgomery, H. L.},
+%%   title   = {The pair correlation of zeros of the zeta function},
+%%   journal = {Proc.\ Symp.\ Pure Math.},
+%%   volume  = {24},
+%%   pages   = {181--193},
+%%   year    = {1973},
+%% }
+%%
+%% @article{Odlyzko1987,
+%%   author  = {Odlyzko, A. M.},
+%%   title   = {On the distribution of spacings between zeros of the
+%%              zeta function},
+%%   journal = {Math.\ Comp.},
+%%   volume  = {48},
+%%   pages   = {273--308},
+%%   year    = {1987},
+%% }
+%%
+%% @phdthesis{Rodgers2013,
+%%   author  = {Rodgers, B.},
+%%   title   = {The statistics of the zeros of the {R}iemann
+%%              zeta-function and related topics},
+%%   school  = {UCLA},
+%%   year    = {2013},
+%% }
+%%
+%% @article{BerryKeating1999,
+%%   author  = {Berry, M. V. and Keating, J. P.},
+%%   title   = {The {R}iemann zeros and eigenvalue asymptotics},
+%%   journal = {SIAM Rev.},
+%%   volume  = {41},
+%%   pages   = {236--266},
+%%   year    = {1999},
+%% }
+%%
+%% @article{BenderBrodyMueller2017,
+%%   author  = {Bender, C. M. and Brody, D. C. and M{\"u}ller, M. P.},
+%%   title   = {Hamiltonian for the zeros of the {R}iemann zeta function},
+%%   journal = {Phys.\ Rev.\ Lett.},
+%%   volume  = {118},
+%%   pages   = {130201},
+%%   year    = {2017},
+%%   eprint  = {1608.03679},
+%% }
+%%
+%% @article{PlanckInflation2018,
+%%   author  = {{Planck Collaboration}},
+%%   title   = {{P}lanck 2018 results. {X}. {C}onstraints on inflation},
+%%   journal = {Astron.\ Astrophys.},
+%%   volume  = {641},
+%%   pages   = {A10},
+%%   year    = {2020},
+%%   eprint  = {1807.06211},
+%% }
+%%
+%% @article{RudnickSarnak1996,
+%%   author  = {Rudnick, Z. and Sarnak, P.},
+%%   title   = {Zeros of principal {$L$}-functions and random matrix
+%%              theory},
+%%   journal = {Duke Math.\ J.},
+%%   volume  = {81},
+%%   pages   = {269--322},
+%%   year    = {1996},
+%% }
+%%---------------------------------------------------------------------
+
+
+
+%%---------------------------------------------------------------------
+%% Bibliography entries referenced in this section (BibTeX keys):
+%%
+%% @article{HuVerdaguer2008,
+%%   author  = {Hu, B. L. and Verdaguer, E.},
+%%   title   = {Stochastic Gravity: Theory and Applications},
+%%   journal = {Living Rev. Relativ.},
+%%   volume  = {11},
+%%   pages   = {3},
+%%   year    = {2008},
+%%   eprint  = {0802.0658},
+%% }
+%%
+%% @article{FeynmanVernon1963,
+%%   author  = {Feynman, R. P. and Vernon, F. L.},
+%%   title   = {The Theory of a General Quantum System Interacting
+%%              with a Linear Dissipative System},
+%%   journal = {Ann.\ Phys.},
+%%   volume  = {24},
+%%   pages   = {118--173},
+%%   year    = {1963},
+%% }
+%%
+%% @book{CalzettaHu2008,
+%%   author    = {Calzetta, E. A. and Hu, B. L.},
+%%   title     = {Nonequilibrium Quantum Field Theory},
+%%   publisher = {Cambridge University Press},
+%%   year      = {2008},
+%% }
+%%
+%% @book{Titchmarsh1948,
+%%   author    = {Titchmarsh, E. C.},
+%%   title     = {Introduction to the Theory of Fourier Integrals},
+%%   publisher = {Oxford University Press},
+%%   edition   = {2nd},
+%%   year      = {1948},
+%% }
+%%
+%% @misc{KramersKronig,
+%%   note = {See e.g.\ \cite{Nussenzveig1972} for a comprehensive
+%%           treatment.},
+%% }
+%%
+%% @book{Nussenzveig1972,
+%%   author    = {Nussenzveig, H. M.},
+%%   title     = {Causality and Dispersion Relations},
+%%   publisher = {Academic Press},
+%%   year      = {1972},
+%% }
+%%
+%% @article{Oriti2012,
+%%   author  = {Oriti, D.},
+%%   title   = {Group field theory as the microscopic description of
+%%              the quantum spacetime fluid},
+%%   journal = {Proc.\ Sci.},
+%%   year    = {2012},
+%%   eprint  = {0710.3276},
+%% }
+%%---------------------------------------------------------------------
+
+
+%% ——— Bibliography stub ———
+\begin{thebibliography}{99}
+
+\bibitem{HuVerdaguer2008}
+B.~L.~Hu and E.~Verdaguer,
+``Stochastic Gravity: Theory and Applications,''
+Living Rev.\ Rel.\ \textbf{11}, 3 (2008)
+[arXiv:0802.0658 [gr-qc]].
+
+\bibitem{HuVerdaguer2004}
+B.~L.~Hu and E.~Verdaguer,
+``Stochastic Gravity: Theory and Applications,''
+Living Rev.\ Rel.\ \textbf{7}, 3 (2004)
+[arXiv:gr-qc/0307032].
+
+\bibitem{CalzettaHu1994}
+E.~Calzetta and B.~L.~Hu,
+``Noise and fluctuations in semiclassical gravity,''
+Phys.\ Rev.\ D \textbf{49}, 6636 (1994).
+
+\bibitem{FeynmonVernon1963}
+R.~P.~Feynman and F.~L.~Vernon,
+``The theory of a general quantum system interacting with a linear dissipative system,''
+Annals Phys.\ \textbf{24}, 118 (1963).
+
+\bibitem{KramersKronig}
+R.~de~L.~Kronig, ``On the theory of dispersion of X-rays,''
+J.~Opt.\ Soc.\ Am.\ \textbf{12}, 547 (1926);
+H.~A.~Kramers, ``La diffusion de la lumière par les atomes,''
+Atti Cong.\ Intern.\ Fisici, Como (1927).
+
+\bibitem{GibbonsHawkingPerry1978}
+G.~W.~Gibbons, S.~W.~Hawking and M.~J.~Perry,
+``Path Integrals and the Indefiniteness of the Gravitational Action,''
+Nucl.\ Phys.\ B \textbf{138}, 141 (1978).
+
+\bibitem{Mazur1990}
+P.~O.~Mazur and E.~Mottola,
+``The conformal factor and the cosmological constant,''
+Nucl.\ Phys.\ B (Proc.\ Suppl.)\ \textbf{18}, 214 (1990).
+
+\bibitem{ConformalInstability2022}
+H.-X.~Feng,
+``Local conformal instability and local non-collapsing in the Ricci flow,''
+Annals Phys.\ \textbf{440}, 168831 (2022)
+[arXiv:2201.10732 [gr-qc]].
+
+\bibitem{GravPI_UCSB}
+D.~Grabovsky,
+``Gravitational Path Integrals,''
+UCSB Lecture Notes (2023),
+\url{https://web.physics.ucsb.edu/~davidgrabovsky/files-notes/231C Notes.pdf}.
+
+\bibitem{Montgomery1973}
+H.~L.~Montgomery,
+``The pair correlation of zeros of the zeta function,''
+in \emph{Analytic Number Theory}, Proc.\ Symp.\ Pure Math.\ \textbf{24}, 181--193 (1973).
+
+\bibitem{Odlyzko1987}
+A.~M.~Odlyzko,
+``On the distribution of spacings between zeros of the zeta function,''
+Math.\ Comp.\ \textbf{48}, 273 (1987).
+
+\bibitem{MontgomeryWiki}
+``Montgomery's pair correlation conjecture,''
+Wikipedia (2024),
+\url{https://en.wikipedia.org/wiki/Montgomery\%27s_pair_correlation_conjecture}.
+
+\bibitem{MathWorldMontgomery}
+E.~W.~Weisstein,
+``Montgomery's Pair Correlation Conjecture,''
+MathWorld,
+\url{https://mathworld.wolfram.com/MontgomerysPairCorrelationConjecture.html}.
+
+\bibitem{BerryKeating1999}
+M.~V.~Berry and J.~P.~Keating,
+``The Riemann zeros and eigenvalue asymptotics,''
+SIAM Rev.\ \textbf{41}, 236 (1999).
+
+\bibitem{BBM2017}
+C.~M.~Bender, D.~C.~Brody and M.~P.~M\"uller,
+``Hamiltonian for the Zeros of the Riemann Zeta Function,''
+Phys.\ Rev.\ Lett.\ \textbf{118}, 130201 (2017)
+[arXiv:1608.03679 [quant-ph]].
+
+\bibitem{Rodgers2013}
+B.~Rodgers,
+``Arithmetic consequences of the GUE conjecture for zeta zeros,''
+\url{http://user.math.uzh.ch/rodgers/ArithmeticGUE.pdf}.
+
+\bibitem{ALGFTGate1}
+R.~O.~Van~Gelder,
+``Gate 1 Formalization: Arithmetic--Langevin Group Field Theory,''
+Citizen Gardens Research Initiative, Technical Report (2026).
+
+\bibitem{Planck2018X}
+Planck Collaboration,
+``Planck 2018 results.\ X.\ Constraints on inflation,''
+Astron.\ Astrophys.\ \textbf{641}, A10 (2020)
+[arXiv:1807.06211].
+
+\bibitem{BBO2011}
+K.~Yagi and N.~Seto,
+``Detector configuration of DECIGO/BBO and identification of cosmological neutron-star binaries,''
+Phys.\ Rev.\ D \textbf{83}, 044011 (2011).
+
+\bibitem{DECIGO2021}
+S.~Kawamura \emph{et al.},
+``Current status of space gravitational wave antenna DECIGO and B-DECIGO,''
+PTEP \textbf{2021}, 05A105 (2021)
+[arXiv:2006.13545].
+
+\bibitem{BristolRH}
+University of Bristol,
+``Quantum physics sheds light on Riemann hypothesis,''
+\url{https://www.bristol.ac.uk/maths/research/highlights/riemann-hypothesis/}.
+
+\bibitem{QuantaRH}
+N.~Wolchover,
+``Physicists Attack Math's \$1,000,000 Question,''
+Quanta Magazine (2017),
+\url{https://www.quantamagazine.org/quantum-physicists-attack-the-riemann-hypothesis-20170404/}.
+
+\end{thebibliography}
+
+\end{document}

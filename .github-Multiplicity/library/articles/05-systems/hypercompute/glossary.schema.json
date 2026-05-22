@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://multiplicity.foundation/schemas/hypercompute/glossary.schema.json",
+  "title": "Semantic Hypercomputational Glossary",
+  "type": "object",
+  "required": [
+    "glossary_id",
+    "version",
+    "generated_on",
+    "sources",
+    "entries"
+  ],
+  "properties": {
+    "glossary_id": {
+      "type": "string",
+      "pattern": "^shf-glossary$"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^v[0-9]+\\.[0-9]+$"
+    },
+    "generated_on": {
+      "type": "string",
+      "format": "date"
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "entries": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/entry"
+      }
+    }
+  },
+  "$defs": {
+    "entry": {
+      "type": "object",
+      "required": [
+        "id",
+        "term",
+        "category",
+        "status",
+        "type_signature",
+        "domain",
+        "units",
+        "definition",
+        "aliases",
+        "source_refs"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9_]+$"
+        },
+        "term": {
+          "type": "string",
+          "minLength": 1
+        },
+        "category": {
+          "type": "string",
+          "enum": [
+            "operational",
+            "speculative",
+            "derived"
+          ]
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "canonical",
+            "alias",
+            "deprecated"
+          ]
+        },
+        "type_signature": {
+          "type": "string"
+        },
+        "domain": {
+          "type": "string"
+        },
+        "units": {
+          "type": "string"
+        },
+        "definition": {
+          "type": "string",
+          "minLength": 1
+        },
+        "aliases": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "source_refs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,12 @@
+# CODEOWNERS
+# Add repository code owners below in the format:
+# <path> <owner> [<owner> ...]
+# Example:
+# /articles/ @CitizenGardens-org/maintainers
+# Replace the placeholders with valid GitHub usernames or teams.
+
+# Default owner for all files (uncomment and edit as needed)
+# * @your-org/your-team
+
+# Articles maintainers
+# /articles/ @your-username

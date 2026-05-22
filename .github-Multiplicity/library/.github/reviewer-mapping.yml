@@ -1,0 +1,8 @@
+# Example reviewer mapping. Customize this to your organization.
+# Patterns use standard glob semantics similar to fnmatch: articles/00-foundations/**
+articles/00-foundations/**:
+  - 'your-foundations-reviewer'
+articles/01-operators/**:
+  - 'your-operators-reviewer'
+articles/**:
+  - 'your-core-maintainer'

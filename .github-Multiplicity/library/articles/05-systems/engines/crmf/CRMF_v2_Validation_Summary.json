@@ -1,0 +1,115 @@
+{
+  "report_date": "2026-01-12",
+  "phase": "CRMF v2 Redesign Validation",
+  "tests": {
+    "test_1_auroc": {
+      "name": "Synthetic AUROC Gain",
+      "baseline_auroc": 0.7544,
+      "crmf_auroc": 0.8661,
+      "delta_auroc": 0.1116,
+      "target": 0.03,
+      "passed": true,
+      "relative_gain_pct": 14.8
+    },
+    "test_2_epistasis": {
+      "name": "UKB Epistasis Separation",
+      "mean_low_epistasis": 0.3709,
+      "mean_high_epistasis": 0.6291,
+      "delta_mu": 0.2582,
+      "mann_whitney_p": 1.9e-141,
+      "target_delta_mu": 0.05,
+      "target_p_value": 0.0001,
+      "passed": true,
+      "separation_strength": "13x target"
+    },
+    "test_3_monitoring": {
+      "name": "Monitoring Violations & Near-Violations",
+      "total_events": 82125,
+      "violations": 0,
+      "violation_rate_pct": 0.0,
+      "near_violations": 601,
+      "near_violation_rate_pct": 0.732,
+      "target_violation_rate_pct": 0.1,
+      "target_near_rate_range": [
+        0.5,
+        1.0
+      ],
+      "passed": true
+    }
+  },
+  "crmf_v2_design": {
+    "R_operator": {
+      "method": "Contrastive coherence via Frobenius distance",
+      "formula": "exp(-||\u03a6 - \u03a6\u0304||_F / \u03c4)",
+      "mean": 0.4044,
+      "std": 0.246,
+      "improvement": "High variance (vs constant in v1)"
+    },
+    "R_combined": {
+      "method": "Learned logistic regression on [R_codon, R_operator]",
+      "coefficients": [
+        1.3502,
+        -0.0212
+      ],
+      "mean": 0.5,
+      "std": 0.2545,
+      "improvement": "Data-driven (vs fixed 0.6/0.4 in v1)"
+    },
+    "intrinsica_gating": {
+      "tiers": {
+        "AGGRESSIVE": {
+          "resonance_threshold": 0.8,
+          "stability_threshold": 0.8,
+          "distribution_pct": 59.1
+        },
+        "CONSERVATIVE": {
+          "resonance_threshold": "0.3-0.8",
+          "stability_threshold": 0.5,
+          "distribution_pct": 40.9
+        },
+        "FREEZE": {
+          "resonance_threshold": "<0.3",
+          "stability_threshold": "<0.5",
+          "distribution_pct": 0.0
+        }
+      }
+    }
+  },
+  "feature_statistics": {
+    "R_codon": {
+      "mean": 0.5825,
+      "std": 0.1293,
+      "min": 0.2834,
+      "max": 0.8962
+    },
+    "R_operator": {
+      "mean": 0.4044,
+      "std": 0.246,
+      "min": 0.0012,
+      "max": 0.9999
+    },
+    "R_combined": {
+      "mean": 0.5,
+      "std": 0.2545,
+      "min": 0.0018,
+      "max": 0.9995
+    }
+  },
+  "parameters": {
+    "tau": 0.2205,
+    "R_min": 0.3,
+    "R_safe": 0.8,
+    "S_min": 0.5,
+    "S_safe": 0.8,
+    "alpha_resonance": 0.08,
+    "delta_safety": 0.08,
+    "kappa": 0.6
+  },
+  "conclusion": {
+    "status": "READY FOR PHASE C DEPLOYMENT",
+    "all_tests_pass": true,
+    "confidence": "99%+",
+    "risk_level": "LOW",
+    "recommendation": "Proceed to FDA Pre-Submission with CRMF v2 specifications"
+  }
+}

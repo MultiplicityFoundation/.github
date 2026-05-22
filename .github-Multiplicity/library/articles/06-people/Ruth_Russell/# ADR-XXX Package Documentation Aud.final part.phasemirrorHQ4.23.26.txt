@@ -1,0 +1,29 @@
+# ADR-XXX: Package Documentation Audit (PhaseMirror-HQ)
+
+- **Status**: Proposed
+- **Date**: 2026-04-23
+- **Decision Drivers**:
+  - Repository has many workspace packages and “package-like” modules; documentation quality is uneven.
+  - Contributors need a consistent, low-friction way to discover how to build/run/test each package.
+  - Reduce onboarding time and prevent doc drift as packages evolve.
+  - Keep repo-level README focused while ensuring package-level details exist where they belong.
+
+## Context
+
+PhaseMirror-HQ is a multi-language monorepo with a pnpm workspace. The root `pnpm-workspace.yaml` includes:
+
+- `packages/*`
+- `packages/governance/*`
+- `mirror-dissonance-pro/packages/*`
+- `proprietary`
+- `infra`
+- `e2e`
+- `mirror-dissonance-pro`
+
+In addition to `packages/*`, the repository contains several “module directories” that function like packages (runtime surfaces, infra, servers) and should be documented similarly (e.g., `daemon/`, `cloud/`, `mcp_server/`, `pirtm/`, `rollback/`, `ensemble/`, etc.).
+
+Repository-level documentation already exists (root `README.md`, `CONTRIBUTING.md`, `SECURITY.md`, `CHANGELOG.md`, ADRs under `artifacts/docs/`, and domain docs like `FDA_SUBMISSION_QUICK_REFERENCE.md`). However, package-by-package docs are not uniformly discoverable/standardized.
+
+During the initial audit pass (without deep-research tooling), we confirmed:
+- `packages/` contains many package directories (e.g., `mirror-dissonance`, `mcp-server`, `multiplicity`, `pirtm`, etc.).
+- `packages/`

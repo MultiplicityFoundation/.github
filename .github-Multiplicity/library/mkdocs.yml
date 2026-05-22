@@ -1,0 +1,17 @@
+site_name: Multiplicity Library
+docs_dir: .
+
+theme:
+  name: mkdocs
+
+nav:
+  - Home: README.md
+  - Master Index: articles/index.md
+  - Tags: tags/index.md
+  - Library JSON: index.json
+  - Glossary: glossary/index.md
+  - Articles:
+      - Foundations: articles/00-foundations/index.md
+      - Operators: articles/01-operators/index.md
+      - Implementations: articles/02-implementations/index.md
+      - Case Studies: articles/03-case-studies/index.md

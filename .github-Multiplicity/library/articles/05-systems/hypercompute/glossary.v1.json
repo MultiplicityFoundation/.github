@@ -1,0 +1,209 @@
+{
+  "glossary_id": "shf-glossary",
+  "version": "v1.0",
+  "generated_on": "2026-03-13",
+  "sources": [
+    "./Semantic_Hypercomputational_Field.json",
+    "./Hypercomputational_Number_Field.json",
+    "./SYSTEMS AND METHODS FOR PRIME-BASED QUANTUM AND NEUROMORPHIC COMPUTATION AND MEMORY.json",
+    "./ADR-SHF-003-number-field-stratification-and-morphisms.md",
+    "./ADR-SHF-006-hardware-mapping-and-safety-boundaries.md"
+  ],
+  "entries": [
+    {
+      "id": "prime_indexed_section",
+      "term": "Prime-Indexed Section",
+      "category": "operational",
+      "status": "canonical",
+      "type_signature": "section(U) -> value",
+      "domain": "sheaf over prime-indexed base",
+      "units": "dimensionless",
+      "definition": "A local sheaf section keyed by prime-associated coordinates and used as a primitive representational unit.",
+      "aliases": [
+        "prime section"
+      ],
+      "source_refs": [
+        "Semantic_Hypercomputational_Field.json"
+      ]
+    },
+    {
+      "id": "phi_topos",
+      "term": "Phi-Topos",
+      "category": "speculative",
+      "status": "canonical",
+      "type_signature": "category with sheaf structure",
+      "domain": "semantic-hypercomputational geometry",
+      "units": "n/a",
+      "definition": "A proposed topological or categorical substrate where prime-indexed semantic fields and morphisms are defined.",
+      "aliases": [
+        "Phi topos"
+      ],
+      "source_refs": [
+        "Semantic_Hypercomputational_Field.json",
+        "Hypercomputational_Number_Field.json"
+      ]
+    },
+    {
+      "id": "meaning_wavefunction",
+      "term": "Meaning-Wavefunction",
+      "category": "speculative",
+      "status": "canonical",
+      "type_signature": "psi: Qp -> C",
+      "domain": "prime-indexed field states",
+      "units": "model-dependent",
+      "definition": "A field variable used to encode semantic state amplitudes over prime-indexed coordinates.",
+      "aliases": [
+        "psi field"
+      ],
+      "source_refs": [
+        "Semantic_Hypercomputational_Field.json"
+      ]
+    },
+    {
+      "id": "sheaf_morphism",
+      "term": "Sheaf Morphism",
+      "category": "operational",
+      "status": "canonical",
+      "type_signature": "F -> G",
+      "domain": "sheaf transformation",
+      "units": "n/a",
+      "definition": "A structure-preserving map between sheaf objects that represents an admissible computational transformation.",
+      "aliases": [],
+      "source_refs": [
+        "Semantic_Hypercomputational_Field.json",
+        "ADR-SHF-003-number-field-stratification-and-morphisms.md"
+      ]
+    },
+    {
+      "id": "lambda_m",
+      "term": "Lambda_m",
+      "category": "speculative",
+      "status": "canonical",
+      "type_signature": "scalar parameter",
+      "domain": "curvature modulation",
+      "units": "model-dependent",
+      "definition": "A proposed multiplicity constant used as a modulation term in recursive dynamics and curvature expressions.",
+      "aliases": [
+        "multiplicity constant"
+      ],
+      "source_refs": [
+        "Semantic_Hypercomputational_Field.json",
+        "Hypercomputational_Number_Field.json"
+      ]
+    },
+    {
+      "id": "recursive_operator_xi_t",
+      "term": "Recursive Operator Xi(t)",
+      "category": "derived",
+      "status": "canonical",
+      "type_signature": "state evolution operator",
+      "domain": "time-indexed tensor evolution",
+      "units": "n/a",
+      "definition": "A recurrence operator representing state evolution under prime-harmonic and commutator-driven updates.",
+      "aliases": [
+        "Xi(t)"
+      ],
+      "source_refs": [
+        "Semantic_Hypercomputational_Field.json"
+      ]
+    },
+    {
+      "id": "atomic_semantic_unit",
+      "term": "Atomic-Semantic Unit",
+      "category": "operational",
+      "status": "canonical",
+      "type_signature": "local computational primitive",
+      "domain": "hardware and simulation representation",
+      "units": "n/a",
+      "definition": "A local unit used to encode and transform prime-indexed semantic state in simulation or hardware pathways.",
+      "aliases": [
+        "ASU"
+      ],
+      "source_refs": [
+        "Semantic_Hypercomputational_Field.json"
+      ]
+    },
+    {
+      "id": "prime_harmonic_tensor_flow",
+      "term": "Prime-Harmonic Tensor Flow",
+      "category": "speculative",
+      "status": "canonical",
+      "type_signature": "tensor flow process",
+      "domain": "prime-indexed dynamics",
+      "units": "n/a",
+      "definition": "A proposed dynamic regime where tensor evolution is modulated by prime-harmonic structure.",
+      "aliases": [],
+      "source_refs": [
+        "Semantic_Hypercomputational_Field.json",
+        "Hypercomputational_Number_Field.json"
+      ]
+    },
+    {
+      "id": "stratification_chain_n_q_r_c",
+      "term": "N-Q-R-C Stratification Chain",
+      "category": "derived",
+      "status": "canonical",
+      "type_signature": "ordered layer chain",
+      "domain": "number field semantics",
+      "units": "n/a",
+      "definition": "An ordered chain describing transitions from natural to rational to real to complex number-field layers.",
+      "aliases": [
+        "N -> Q -> R -> C"
+      ],
+      "source_refs": [
+        "Hypercomputational_Number_Field.json",
+        "ADR-SHF-003-number-field-stratification-and-morphisms.md"
+      ]
+    },
+    {
+      "id": "monster_group_memory_kernel",
+      "term": "Monster Group Memory Kernel",
+      "category": "speculative",
+      "status": "canonical",
+      "type_signature": "stabilization kernel",
+      "domain": "memory correction and state stabilization",
+      "units": "n/a",
+      "definition": "A proposed memory stabilization mechanism based on group-theoretic actions associated with the Monster group.",
+      "aliases": [
+        "Monster memory"
+      ],
+      "source_refs": [
+        "Semantic_Hypercomputational_Field.json",
+        "SYSTEMS AND METHODS FOR PRIME-BASED QUANTUM AND NEUROMORPHIC COMPUTATION AND MEMORY.json"
+      ]
+    },
+    {
+      "id": "semantic_inertia",
+      "term": "Semantic Inertia",
+      "category": "speculative",
+      "status": "canonical",
+      "type_signature": "mass-like derived quantity",
+      "domain": "mass-meaning mapping",
+      "units": "model-dependent",
+      "definition": "A proposed mapping where semantic field properties contribute to mass-like behavior in the model.",
+      "aliases": [
+        "mass-meaning equivalence"
+      ],
+      "source_refs": [
+        "Semantic_Hypercomputational_Field.json",
+        "Hypercomputational_Number_Field.json"
+      ]
+    },
+    {
+      "id": "feasibility_tier",
+      "term": "Feasibility Tier",
+      "category": "operational",
+      "status": "canonical",
+      "type_signature": "tier label",
+      "domain": "hardware claim governance",
+      "units": "n/a",
+      "definition": "A maturity label for hardware claims: Tier 0 simulated, Tier 1 emulated, Tier 2 physically prototyped.",
+      "aliases": [
+        "hardware maturity tier"
+      ],
+      "source_refs": [
+        "ADR-SHF-006-hardware-mapping-and-safety-boundaries.md"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+ CM procedures. set it in the main
+
+verify (you can redact token when sharing)
+grep -E '^AIISTECH_WEBHOOK_BASE_URL=|^AIISTECH_WEBHOOK_TOKEN=' .env
+AIISTECH_WEBHOOK_BASE_URL=https://api.aistechtech.com
+AIISTECH_WEBHOOK_TOKEN=367bb25af9b3b48ed966c196d42f2bd43926c2c605a879c718cb9e786b5603ed

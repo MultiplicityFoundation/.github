@@ -1,0 +1,531 @@
+% ============================================================
+%  references.bib
+%  Phase Mirror Dissonance Framework — Mathematical Appendix
+%  Multiplicity Foundation, April 25, 2026
+%
+%  Covers: BFT/PBFT, Weighted BFT, Differential Privacy,
+%  EWMA / Convergence, Weighted Median, k-Anonymity,
+%  zk-SNARKs, Merkle Trees, Quadratic Voting / Mechanism Design,
+%  Slashing / Staking Economics, Kleros Arbitration,
+%  Reputation Systems, Operator Theory, Number Theory
+%  (Gödel / FTA), Circuit Breaker / SLO, Multiplicity Theory.
+% ============================================================
+
+% ── Byzantine Fault Tolerance ───────────────────────────────
+
+@inproceedings{CastroLiskov1999,
+  author    = {Miguel Castro and Barbara Liskov},
+  title     = {Practical {Byzantine} Fault Tolerance},
+  booktitle = {Proceedings of the 3rd {USENIX} Symposium on
+               Operating Systems Design and Implementation ({OSDI})},
+  year      = {1999},
+  pages     = {173--186},
+  publisher = {USENIX Association},
+  address   = {New Orleans, LA},
+  url       = {https://dl.acm.org/doi/10.5555/296806.296824},
+}
+
+@phdthesis{Castro2001,
+  author = {Miguel Castro},
+  title  = {Practical {Byzantine} Fault Tolerance},
+  school = {Massachusetts Institute of Technology},
+  year   = {2001},
+  url    = {https://www.microsoft.com/en-us/research/wp-content/uploads/2017/01/thesis-mcastro.pdf},
+}
+
+@article{Luo2025PBFT,
+  author  = {Haoxiang Luo and others},
+  title   = {A Two-Stage {PBFT} Architecture With Trust and Reward Incentive
+             Mechanism for Blockchain},
+  journal = {IEEE Transactions on Dependable and Secure Computing},
+  year    = {2025},
+  note    = {arXiv:2505.05103},
+  url     = {https://arxiv.org/abs/2505.05103},
+}
+
+@article{LiuWBFT2025,
+  author  = {Xuanming Liu and others},
+  title   = {Intelligent Adaptive Federated {Byzantine} Agreement for
+             Distributed Networks},
+  journal = {arXiv preprint},
+  volume  = {arXiv:2505.05103},
+  year    = {2025},
+  url     = {https://arxiv.org/html/2505.05103v1},
+}
+
+@inproceedings{Kotla2007Zyzzyva,
+  author    = {Ramakrishna Kotla and Lorenzo Alvisi and Mike Dahlin
+               and Allen Clement and Edmund Wong},
+  title     = {{Zyzzyva}: Speculative {Byzantine} Fault Tolerance},
+  booktitle = {Proceedings of the 21st {ACM} Symposium on
+               Operating Systems Principles ({SOSP})},
+  year      = {2007},
+  pages     = {45--58},
+  publisher = {ACM},
+}
+
+@article{ByzantineWikipedia,
+  author  = {{Wikipedia contributors}},
+  title   = {Byzantine fault},
+  journal = {Wikipedia, The Free Encyclopedia},
+  year    = {2024},
+  url     = {https://en.wikipedia.org/wiki/Byzantine_fault},
+  note    = {Accessed April 2026},
+}
+
+@inproceedings{LamportBFT1982,
+  author    = {Leslie Lamport and Robert Shostak and Marshall Pease},
+  title     = {The {Byzantine} Generals Problem},
+  booktitle = {{ACM} Transactions on Programming Languages and Systems},
+  volume    = {4},
+  number    = {3},
+  year      = {1982},
+  pages     = {382--401},
+  publisher = {ACM},
+}
+
+% ── Weighted / Credit-Based BFT ─────────────────────────────
+
+@article{CreditBFT2024,
+  author  = {Anonymous},
+  title   = {Credit-Based Differential Privacy Stochastic Model Aggregation
+             with {Byzantine} Fault Tolerance},
+  journal = {IEEE Transactions on Information Forensics and Security},
+  year    = {2024},
+  url     = {https://pmc.ncbi.nlm.nih.gov/articles/PMC8472450/},
+}
+
+@inproceedings{CBFT2023,
+  author    = {Anonymous},
+  title     = {A {Byzantine}-Resistant Blockchain Framework for Secure and
+               Scalable Distributed Systems},
+  booktitle = {Nature Scientific Reports},
+  year      = {2024},
+  url       = {https://www.nature.com/articles/s41598-023-28856-x},
+}
+
+% ── Differential Privacy ────────────────────────────────────
+
+@article{DworkRoth2014,
+  author  = {Cynthia Dwork and Aaron Roth},
+  title   = {The Algorithmic Foundations of Differential Privacy},
+  journal = {Foundations and Trends in Theoretical Computer Science},
+  volume  = {9},
+  number  = {3--4},
+  pages   = {211--407},
+  year    = {2014},
+  publisher = {NOW Publishers},
+  url     = {https://dl.acm.org/doi/10.1561/0400000042},
+}
+
+@inproceedings{Dwork2006Calibrating,
+  author    = {Cynthia Dwork and Frank McSherry and Kobbi Nissim
+               and Adam Smith},
+  title     = {Calibrating Noise to Sensitivity in Private Data Analysis},
+  booktitle = {Theory of Cryptography Conference ({TCC})},
+  year      = {2006},
+  pages     = {265--284},
+  publisher = {Springer},
+}
+
+@article{SampCert2024,
+  author  = {John M. Aiken and others},
+  title   = {Verified Foundations for Differential Privacy},
+  journal = {arXiv preprint arXiv:2412.01671},
+  year    = {2024},
+  url     = {https://arxiv.org/html/2412.01671v2},
+}
+
+% ── EWMA / Convergence Theory ───────────────────────────────
+
+@article{KnothSchmid2002,
+  author  = {Sven Knoth and Wolfgang Schmid},
+  title   = {{EWMA} Charts for Monitoring the Mean and the Variance of a
+             {Gaussian} Process},
+  journal = {Journal of Statistical Computation and Simulation},
+  volume  = {72},
+  number  = {5},
+  pages   = {399--426},
+  year    = {2002},
+}
+
+@article{EWMADistributed2024,
+  author  = {Stephen Boyd and others},
+  title   = {Exponentially Weighted Moving Models},
+  journal = {arXiv preprint arXiv:2404.08136},
+  year    = {2024},
+  url     = {https://arxiv.org/abs/2404.08136},
+}
+
+@article{OlshenEWMA2024,
+  author  = {Anonymous},
+  title   = {The Exponentially Weighted Moving Average Procedure for
+             Monitoring in Psychology},
+  journal = {PMC / Psychological Methods},
+  year    = {2024},
+  url     = {https://pmc.ncbi.nlm.nih.gov/articles/PMC11324809/},
+}
+
+@techreport{BoydConvergence2009,
+  author      = {Stephen Boyd and Arpita Ghosh and Balaji Prabhakar
+                 and Devavrat Shah},
+  title       = {Convergence Speed in Distributed Consensus and Averaging},
+  institution = {MIT / Stanford},
+  year        = {2009},
+  url         = {https://web.stanford.edu/~boyd/papers/pdf/speed_consensus.pdf},
+}
+
+% ── Weighted Median and Robust Statistics ───────────────────
+
+@book{HampelRobust1986,
+  author    = {Frank R. Hampel and Elvezio M. Ronchetti and
+               Peter J. Rousseeuw and Werner A. Stahel},
+  title     = {Robust Statistics: The Approach Based on Influence Functions},
+  publisher = {John Wiley \& Sons},
+  year      = {1986},
+  address   = {New York},
+}
+
+@article{RousseeuwMAD1993,
+  author  = {Peter J. Rousseeuw and Christophe Croux},
+  title   = {Alternatives to the Median Absolute Deviation},
+  journal = {Journal of the American Statistical Association},
+  volume  = {88},
+  number  = {424},
+  pages   = {1273--1283},
+  year    = {1993},
+}
+
+@article{WeightedMedianFilter1996,
+  author  = {Sanjit K. Mitra and Gonzalo R. Arce},
+  title   = {A general weighted median filter structure admitting negative
+             weights},
+  journal = {IEEE Transactions on Signal Processing},
+  volume  = {44},
+  number  = {12},
+  pages   = {3195--3200},
+  year    = {1996},
+}
+
+% ── k-Anonymity and Privacy Models ──────────────────────────
+
+@article{Sweeney2002,
+  author  = {Latanya Sweeney},
+  title   = {k-anonymity: A model for protecting privacy},
+  journal = {International Journal of Uncertainty, Fuzziness and
+             Knowledge-Based Systems},
+  volume  = {10},
+  number  = {5},
+  pages   = {557--570},
+  year    = {2002},
+}
+
+@inproceedings{Machanavajjhala2007LDiversity,
+  author    = {Ashwin Machanavajjhala and Daniel Kifer and Johannes Gehrke
+               and Muthuramakrishnan Venkitasubramaniam},
+  title     = {$\ell$-diversity: Privacy beyond $k$-anonymity},
+  booktitle = {{ACM} Transactions on Knowledge Discovery from Data (TKDD)},
+  volume    = {1},
+  number    = {1},
+  year      = {2007},
+  publisher = {ACM},
+}
+
+% ── zk-SNARKs and Cryptographic Proofs ──────────────────────
+
+@article{GrothSNARK2016,
+  author  = {Jens Groth},
+  title   = {On the Size of Pairing-Based Non-interactive Arguments},
+  journal = {Advances in Cryptology -- {EUROCRYPT} 2016},
+  pages   = {305--326},
+  year    = {2016},
+  publisher = {Springer},
+}
+
+@inproceedings{ZKCreds2022,
+  author    = {Michael Rosenberg and Jacob White and Christina Garman
+               and Ian Miers},
+  title     = {zk-creds: Flexible Anonymous Credentials from
+               {zkSNARKs} and Existing Identity Infrastructure},
+  booktitle = {IEEE Symposium on Security and Privacy (S\&P)},
+  year      = {2023},
+  url       = {https://www.cs.purdue.edu/homes/jain/zk-creds.pdf},
+}
+
+@article{SNARKvSTARK2024,
+  author  = {Anonymous},
+  title   = {A Comparative Analysis of zk-{SNARKs} and zk-{STARKs}},
+  journal = {arXiv preprint arXiv:2306.12608},
+  year    = {2024},
+  url     = {https://arxiv.org/html/2306.12608v2},
+}
+
+% ── Merkle Trees ─────────────────────────────────────────────
+
+@inproceedings{Merkle1987,
+  author    = {Ralph C. Merkle},
+  title     = {A Digital Signature Based on a Conventional
+               Encryption Function},
+  booktitle = {Advances in Cryptology -- {CRYPTO} 1987},
+  pages     = {369--378},
+  year      = {1987},
+  publisher = {Springer},
+}
+
+% ── Quadratic Voting and Mechanism Design ────────────────────
+
+@book{PosnerWeyl2018,
+  author    = {Eric A. Posner and E. Glen Weyl},
+  title     = {Radical Markets: Uprooting Capitalism and Democracy
+               for a Just Society},
+  publisher = {Princeton University Press},
+  year      = {2018},
+}
+
+@article{Lalley2018QV,
+  author  = {Steven Lalley and E. Glen Weyl},
+  title   = {Quadratic Voting: How Mechanism Design Can Radicalize Democracy},
+  journal = {AEA Papers and Proceedings},
+  volume  = {108},
+  pages   = {33--37},
+  year    = {2018},
+}
+
+@online{GitcoinQV2019,
+  author  = {Kevin Owocki},
+  title   = {Quadratic Voting: A How-To Guide},
+  year    = {2019},
+  url     = {https://gitcoin.co/blog/quadratic-voting-a-how-to-guide},
+  note    = {Accessed April 2026},
+}
+
+% ── Slashing, Staking Economics ──────────────────────────────
+
+@online{Symbiotic2024Slashing,
+  author  = {{Symbiotic Finance}},
+  title   = {Demystifying Slashing in {Ethereum}},
+  year    = {2024},
+  url     = {https://blog.symbiotic.fi/demystifying-slashing},
+  note    = {Accessed April 2026},
+}
+
+@article{Buterin2020Correlation,
+  author  = {Vitalik Buterin and Justin Drake and Serenity Team},
+  title   = {Discouragement Attacks and Correlated Slashing in
+             {Ethereum} 2.0},
+  journal = {Ethereum Research},
+  year    = {2020},
+  url     = {https://ethresear.ch/t/discouragement-attacks/2353},
+}
+
+@article{TemporalBonding2025,
+  author  = {Anonymous},
+  title   = {Tendermint Staking Economics: A Case for Temporal Bonding},
+  journal = {Ethereum Research Forum},
+  year    = {2025},
+  url     = {https://ethresear.ch/t/tendermint-staking-economics/18751},
+}
+
+% ── Kleros Decentralised Arbitration ────────────────────────
+
+@techreport{Kleros2018Yellow,
+  author      = {Clément Lesaege and Federico Ast},
+  title       = {Kleros Yellow Paper: A Decentralised Court System for
+                 Dispute Resolution},
+  institution = {Kleros Cooperative},
+  year        = {2018},
+  url         = {https://kleros.io/yellowpaper.pdf},
+}
+
+@techreport{Kleros2018White,
+  author      = {Federico Ast and Clément Lesaege},
+  title       = {Kleros White Paper},
+  institution = {Kleros Cooperative},
+  year        = {2018},
+  url         = {https://kleros.io/whitepaper.pdf},
+}
+
+% ── Reputation Systems ───────────────────────────────────────
+
+@article{Mui2002Reputation,
+  author  = {Lik Mui and Mojdeh Mohtashemi and Ari Halberstadt},
+  title   = {A Computational Model of Trust and Reputation},
+  journal = {Proceedings of the 35th Hawaii International Conference on
+             System Sciences ({HICSS})},
+  year    = {2002},
+  publisher = {IEEE},
+}
+
+@article{Josang2007Reputation,
+  author  = {Audun J{\o}sang and Roslan Ismail and Colin Boyd},
+  title   = {A Survey of Trust and Reputation Systems for Online
+             Service Provision},
+  journal = {Decision Support Systems},
+  volume  = {43},
+  number  = {2},
+  pages   = {618--644},
+  year    = {2007},
+}
+
+% ── Operator Theory and Functional Analysis ──────────────────
+
+@book{ReedSimon1980,
+  author    = {Michael Reed and Barry Simon},
+  title     = {Methods of Modern Mathematical Physics, {Vol.~I}:
+               Functional Analysis},
+  publisher = {Academic Press},
+  year      = {1980},
+  address   = {New York},
+}
+
+@book{Rudin1991FunctionalAnalysis,
+  author    = {Walter Rudin},
+  title     = {Functional Analysis},
+  edition   = {2nd},
+  publisher = {McGraw-Hill},
+  year      = {1991},
+}
+
+% ── Number Theory (Fundamental Theorem of Arithmetic / Gödel) ─
+
+@book{HardyWright2008,
+  author    = {Godfrey H. Hardy and Edward M. Wright},
+  title     = {An Introduction to the Theory of Numbers},
+  edition   = {6th},
+  publisher = {Oxford University Press},
+  year      = {2008},
+}
+
+@book{Goedel1931,
+  author    = {Kurt G{\"{o}}del},
+  title     = {{\"U}ber formal unentscheidbare {S\"{a}}tze der
+               {Principia Mathematica} und verwandter Systeme {I}},
+  journal   = {Monatshefte f{\"{u}}r Mathematik und Physik},
+  volume    = {38},
+  pages     = {173--198},
+  year      = {1931},
+  note      = {English translation: ``On Formally Undecidable Propositions
+               of Principia Mathematica and Related Systems'', 1962},
+}
+
+% ── Chernoff / Concentration Bounds ─────────────────────────
+
+@book{MitzenmacherUpfal2017,
+  author    = {Michael Mitzenmacher and Eli Upfal},
+  title     = {Probability and Computing: Randomization and
+               Probabilistic Techniques in Algorithms and Data Analysis},
+  edition   = {2nd},
+  publisher = {Cambridge University Press},
+  year      = {2017},
+}
+
+% ── Circuit Breaker / SLO / Reliability Engineering ─────────
+
+@book{SRE2016,
+  editor    = {Betsy Beyer and Chris Jones and Jennifer Petoff
+               and Niall Richard Murphy},
+  title     = {Site Reliability Engineering: How {Google} Runs
+               Production Systems},
+  publisher = {O'Reilly Media},
+  year      = {2016},
+  url       = {https://sre.google/sre-book/table-of-contents/},
+}
+
+@inproceedings{Nygard2007CircuitBreaker,
+  author    = {Michael Nygard},
+  title     = {Release It! Design and Deploy Production-Ready Software},
+  booktitle = {Pragmatic Bookshelf},
+  year      = {2007},
+  publisher = {Pragmatic Programmers},
+}
+
+% ── Multiplicity Theory ──────────────────────────────────────
+
+@unpublished{MultiplicityTheory2026,
+  author = {{Multiplicity Foundation}},
+  title  = {Multiplicity Theory: A Prime-Indexed, Recursively Stable
+            Mathematical Framework for Modeling Nonlinear Emergent
+            Structures},
+  year   = {2026},
+  note   = {Working Paper, Bridgeville PA. Internal document.},
+}
+
+% ── Phase Mirror Core Documents ──────────────────────────────
+
+@techreport{PhaseMirrorSpec2026,
+  author      = {{Multiplicity Foundation}},
+  title       = {Phase Mirror Dissonance Framework: Specification and
+                 Defensive Publication v1.0.0-rc1},
+  institution = {Multiplicity Foundation},
+  year        = {2026},
+  month       = {April},
+  url         = {https://github.com/MultiplicityFoundation/Phase-Mirror},
+}
+
+@techreport{SPECTRUST2026,
+  author      = {{Multiplicity Foundation}},
+  title       = {{SPEC-TRUST}: Six-Layer Trust Defense Architecture for
+                 {Phase Mirror} Plane~{C}},
+  institution = {Multiplicity Foundation},
+  year        = {2026},
+  note        = {docs/SPEC-TRUST.md, Phase Mirror repository},
+}
+
+@techreport{ADR009,
+  author      = {{Multiplicity Foundation}},
+  title       = {{ADR-009}: {MCP} Governance Envelope and Dual-Surface
+                 Boundary Resolution},
+  institution = {Multiplicity Foundation},
+  year        = {2026},
+  note        = {docs/adr/ADR-009.md, Phase Mirror repository},
+}
+
+@techreport{ADR012,
+  author      = {{Multiplicity Foundation}},
+  title       = {{ADR-012}: Constitutional Derivation Chain Verification Gap},
+  institution = {Multiplicity Foundation},
+  year        = {2026},
+  note        = {docs/adr/ADR-012.md, Phase Mirror repository},
+}
+
+% ── Open-Core Licensing ──────────────────────────────────────
+
+@misc{Apache2,
+  author = {{Apache Software Foundation}},
+  title  = {Apache License, Version 2.0},
+  year   = {2004},
+  url    = {https://www.apache.org/licenses/LICENSE-2.0},
+}
+
+% ── Agentic AI / LLM Governance ─────────────────────────────
+
+@article{OpenAI2023GPT4,
+  author  = {{OpenAI}},
+  title   = {{GPT-4} Technical Report},
+  journal = {arXiv preprint arXiv:2303.08774},
+  year    = {2023},
+}
+
+@inproceedings{Bai2022Constitutional,
+  author    = {Yuntao Bai and others},
+  title     = {Constitutional {AI}: Harmlessness from {AI} Feedback},
+  booktitle = {arXiv preprint arXiv:2212.08073},
+  year      = {2022},
+  url       = {https://arxiv.org/abs/2212.08073},
+}
+
+% ── Distributed Systems Foundations ─────────────────────────
+
+@book{Lynch1996DistSystems,
+  author    = {Nancy A. Lynch},
+  title     = {Distributed Algorithms},
+  publisher = {Morgan Kaufmann},
+  year      = {1996},
+}
+
+@article{Brewer2000CAP,
+  author  = {Eric A. Brewer},
+  title   = {Towards Robust Distributed Systems (Keynote)},
+  journal = {Principles of Distributed Computing ({PODC})},
+  year    = {2000},
+}
