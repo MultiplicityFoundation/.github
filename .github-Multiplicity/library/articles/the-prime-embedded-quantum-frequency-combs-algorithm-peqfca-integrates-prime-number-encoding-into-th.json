@@ -1,0 +1,16 @@
+{
+  "slug": "the-prime-embedded-quantum-frequency-combs-algorithm-peqfca-integrates-prime-number-encoding-into-th",
+  "path": "articles/05-systems/algorithms/P-FREQUENCYCOMBS.md",
+  "title": "The **Prime-Embedded Quantum Frequency Combs Algorithm (PEQFCA)** integrates **prime-number encoding** into the generation and manipulation of **quantum frequency combs**. A **quantum frequency comb** consists of a spectrum of discrete, evenly spaced frequency modes, often used in **quantum communication**, **quantum metrology**, and **quantum computing**. By embedding **prime numbers** into the **mode structure**, **photon generation**, and **interaction dynamics** of the frequency comb, we introduce **dynamic modulation** that enables finer control over the properties of the comb, such as mode spacing, quantum entanglement, and coherence.",
+  "status": "draft",
+  "version": "0.1.0",
+  "tags": [
+    "multiplicity"
+  ],
+  "created": "2026-03-20",
+  "updated": "2026-03-20",
+  "stratum": "",
+  "operator_class": "",
+  "xi_domain": "",
+  "csl_role": ""
+}

@@ -127,7 +127,8 @@ def _slugify(text: str) -> str:
     s = re.sub(r"-{2,}", "-", s).strip("-")
     # Ensure pattern: only a-z0-9 and single dashes
     s = re.sub(r"[^a-z0-9\-]", "", s)
-    return s or "slug"
+    # Truncate to avoid 'File name too long' errors
+    return s[:100].strip("-") or "slug"
 
 
 def _should_exclude(rel_posix: str, extra_patterns: Optional[List[str]] = None) -> bool:
@@ -183,7 +184,15 @@ def load_articles(root: Path, articles_dir: Path, only_files: Optional[List[Path
         operator_class = str(fm.get("operator_class", "")).strip().lower()
         xi_domain = str(fm.get("xi_domain", "")).strip()
         csl_role = str(fm.get("csl_role", "")).strip().lower()
-        slug = str(fm.get("slug", "")).strip() or _slugify(title or md.stem)
+        
+        # Truncate slug to avoid 'File name too long' errors
+        slug = str(fm.get("slug", "")).strip()
+        if not slug:
+            slug = _slugify(title or md.stem)
+        else:
+            # Re-slugify to ensure it's clean and truncated
+            slug = _slugify(slug)
+            
         version = str(fm.get("version", "")).strip()
 
         # Minimal normalization

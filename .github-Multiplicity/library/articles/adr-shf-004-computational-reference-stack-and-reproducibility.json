@@ -1,0 +1,16 @@
+{
+  "slug": "adr-shf-004-computational-reference-stack-and-reproducibility",
+  "path": "articles/05-systems/hypercompute/ADR-SHF-004-computational-reference-stack-and-reproducibility.md",
+  "title": "ADR-SHF-004: Computational Reference Stack and Reproducibility",
+  "status": "draft",
+  "version": "0.1.0",
+  "tags": [
+    "multiplicity"
+  ],
+  "created": "2026-03-20",
+  "updated": "2026-03-20",
+  "stratum": "",
+  "operator_class": "",
+  "xi_domain": "",
+  "csl_role": ""
+}

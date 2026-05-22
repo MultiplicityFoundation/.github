@@ -1,0 +1,16 @@
+{
+  "slug": "the-prime-embedded-quantum-information-well-algorithm-peqiwa-introduces-the-concept-of-a-quantum-wel",
+  "path": "articles/05-systems/algorithms/P-INFOWELL.md",
+  "title": "The **Prime-Embedded Quantum Information Well Algorithm (PEQIWA)** introduces the concept of a **quantum well** integrated with **prime-number encoding**. In quantum mechanics, **quantum wells** are potential wells that confine particles such as electrons, trapping them in discrete energy levels. These structures are vital in describing phenomena in **semiconductor physics**, **quantum computing**, and **quantum information theory**. By embedding **prime numbers** into the potential structure of quantum wells, the **energy levels**, **state evolution**, and **information storage** in the well can be dynamically controlled, allowing for **fine-tuned management** of quantum information processes.",
+  "status": "draft",
+  "version": "0.1.0",
+  "tags": [
+    "multiplicity"
+  ],
+  "created": "2026-03-20",
+  "updated": "2026-03-20",
+  "stratum": "",
+  "operator_class": "",
+  "xi_domain": "",
+  "csl_role": ""
+}

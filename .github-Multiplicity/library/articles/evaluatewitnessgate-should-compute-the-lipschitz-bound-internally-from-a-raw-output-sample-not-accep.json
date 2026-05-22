@@ -1,0 +1,16 @@
+{
+  "slug": "evaluatewitnessgate-should-compute-the-lipschitz-bound-internally-from-a-raw-output-sample-not-accep",
+  "path": "articles/05-systems/engines/ADR-002.5 EvaluateWitnessGate.md",
+  "title": "evaluateWitnessGate() should compute the Lipschitz bound internally from a raw output sample, not accept it as a pre-computed input—but using a computation path that is structurally independent from the ContractionCertificate's lipschitzUpper field. The answer preserves ADR-002's independence requirement while closing the trust boundary.",
+  "status": "draft",
+  "version": "0.1.0",
+  "tags": [
+    "multiplicity"
+  ],
+  "created": "2026-03-20",
+  "updated": "2026-03-20",
+  "stratum": "",
+  "operator_class": "",
+  "xi_domain": "",
+  "csl_role": ""
+}

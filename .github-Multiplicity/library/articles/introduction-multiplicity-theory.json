@@ -1,0 +1,17 @@
+{
+  "slug": "introduction-multiplicity-theory",
+  "path": "articles/00-foundations/intro.md",
+  "title": "Introduction to Multiplicity Theory",
+  "status": "stable",
+  "version": "1.0.0",
+  "tags": [
+    "Multiplicity",
+    "Foundations"
+  ],
+  "created": "2025-12-06",
+  "updated": "2025-12-07",
+  "stratum": "0",
+  "operator_class": "",
+  "xi_domain": "",
+  "csl_role": ""
+}

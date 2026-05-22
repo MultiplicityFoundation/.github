@@ -1,0 +1,16 @@
+{
+  "slug": "linear-bounded-automaton-lba",
+  "path": "articles/05-systems/automata/A-LINEARBOUND.md",
+  "title": "**Linear Bounded Automaton (LBA)**",
+  "status": "draft",
+  "version": "0.1.0",
+  "tags": [
+    "multiplicity"
+  ],
+  "created": "2026-03-20",
+  "updated": "2026-03-20",
+  "stratum": "",
+  "operator_class": "",
+  "xi_domain": "",
+  "csl_role": ""
+}

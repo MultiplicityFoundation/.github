@@ -1,0 +1,16 @@
+{
+  "slug": "the-prime-embedded-quantum-j-multiplicity-algorithm-peqjma-introduces-prime-number-encoding-into-the",
+  "path": "articles/05-systems/algorithms/P-JMULTIPLICITY.md",
+  "title": "The **Prime-Embedded Quantum J Multiplicity Algorithm (PEQJMA)** introduces **prime-number encoding** into the framework of **angular momentum algebra** (denoted by J operators) and **quantum multiplicity**. In quantum mechanics, **angular momentum** plays a crucial role in describing the rotational symmetries of quantum systems, whether these are **orbital angular momentum**, **spin angular momentum**, or the **total angular momentum** of particles. The operators JxJ\\_xJx​, JyJ\\_yJy​, and JzJ\\_zJz​ represent the angular momentum components, while J2J\\^2J2 gives the total angular momentum.",
+  "status": "draft",
+  "version": "0.1.0",
+  "tags": [
+    "multiplicity"
+  ],
+  "created": "2026-03-20",
+  "updated": "2026-03-20",
+  "stratum": "",
+  "operator_class": "",
+  "xi_domain": "",
+  "csl_role": ""
+}

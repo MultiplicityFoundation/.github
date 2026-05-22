@@ -1,0 +1,16 @@
+{
+  "slug": "the-prime-embedded-quantum-complexity-algorithm-peqca-introduces-prime-number-encoding-into-the-stud",
+  "path": "articles/05-systems/algorithms/P-COMPLEXITY.md",
+  "title": "The **Prime-Embedded Quantum Complexity Algorithm (PEQCA)** introduces **prime-number encoding** into the study and management of **quantum complexity**, which measures the resources required to perform a quantum computation, such as time (quantum gate depth), space (number of qubits), and the difficulty of preparing quantum states or implementing quantum circuits. **Quantum complexity theory** is fundamental in understanding the boundaries between classical and quantum computing, including problems in **quantum supremacy**, **quantum cryptography**, and **quantum error correction**.",
+  "status": "draft",
+  "version": "0.1.0",
+  "tags": [
+    "multiplicity"
+  ],
+  "created": "2026-03-20",
+  "updated": "2026-03-20",
+  "stratum": "",
+  "operator_class": "",
+  "xi_domain": "",
+  "csl_role": ""
+}

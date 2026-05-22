@@ -1,0 +1,16 @@
+{
+  "slug": "a-protocol-for-offline-reinforcement-learning-to-optimize-vasopressor-dosing-in-the-intensive-care-u",
+  "path": "articles/04-domains/healthcare/rl-vassopressor/A Protocol for Offline Reinforcement Learning to Optimize Vasopressor Dosing in the Intensive Care Unit.md",
+  "title": "A Protocol for Offline Reinforcement Learning to Optimize Vasopressor Dosing in the Intensive Care Unit",
+  "status": "draft",
+  "version": "0.1.0",
+  "tags": [
+    "multiplicity"
+  ],
+  "created": "2026-03-20",
+  "updated": "2026-03-20",
+  "stratum": "",
+  "operator_class": "",
+  "xi_domain": "",
+  "csl_role": ""
+}

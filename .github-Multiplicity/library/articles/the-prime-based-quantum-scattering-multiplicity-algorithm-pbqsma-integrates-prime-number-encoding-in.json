@@ -1,0 +1,16 @@
+{
+  "slug": "the-prime-based-quantum-scattering-multiplicity-algorithm-pbqsma-integrates-prime-number-encoding-in",
+  "path": "articles/05-systems/algorithms/P-SCATTERINGM.md",
+  "title": "The **Prime-Based Quantum Scattering Multiplicity Algorithm (PBQSMA)** integrates **prime-number encoding** into the framework of **quantum scattering theory** and **multiplicity**. **Quantum scattering** describes how particles (such as electrons, photons, or atoms) interact and exchange energy when they collide or pass through a potential field. Scattering theory plays a fundamental role in quantum mechanics, quantum field theory, and particle physics, helping us understand phenomena like **cross-sections**, **phase shifts**, and **transition probabilities**.",
+  "status": "draft",
+  "version": "0.1.0",
+  "tags": [
+    "multiplicity"
+  ],
+  "created": "2026-03-20",
+  "updated": "2026-03-20",
+  "stratum": "",
+  "operator_class": "",
+  "xi_domain": "",
+  "csl_role": ""
+}

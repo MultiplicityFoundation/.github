@@ -1,0 +1,26 @@
+active_branches: []
+max_concurrent: 5
+policy: multiplicity-library-governance
+created_at: '2026-05-21T20:15:00Z'
+updated_at: '2026-05-21T20:25:00Z'
+levers:
+  - id: librarian-rebuild-index
+    name: "Librarian: Rebuild Master Index"
+    role: librarian
+    description: "Scans all articles and publications to regenerate index.json and master markdown indexes."
+    command: "python3 scripts/library_system.py build-index"
+  - id: librarian-ai-curate
+    name: "Librarian: AI Metadata Curation"
+    role: librarian
+    description: "Uses AI to suggest missing tags, strata, and operator classes for library content."
+    command: "python3 scripts/library_system.py ai-curate"
+  - id: mathematician-normalize-math
+    name: "Mathematician: Normalize Math Expressions"
+    role: mathematician
+    description: "Normalizes LaTeX and Unicode math expressions across all articles."
+    command: "python3 scripts/library_system.py normalize-math"
+  - id: mathematician-verify-rigor
+    name: "Mathematician: Verify Formal Rigor"
+    role: mathematician
+    description: "Runs formal verification scripts (e.g. Lean 4 checks) where available."
+    command: "python3 scripts/library_system.py verify-rigor"

@@ -1,0 +1,16 @@
+{
+  "slug": "adr-005-structural-evolution-engine-development-blueprint",
+  "path": "articles/05-systems/engines/ADR-005_Dev_Blueprint.md",
+  "title": "ADR-005 STRUCTURAL EVOLUTION ENGINE — DEVELOPMENT BLUEPRINT",
+  "status": "draft",
+  "version": "0.1.0",
+  "tags": [
+    "multiplicity"
+  ],
+  "created": "2026-03-20",
+  "updated": "2026-03-20",
+  "stratum": "",
+  "operator_class": "",
+  "xi_domain": "",
+  "csl_role": ""
+}

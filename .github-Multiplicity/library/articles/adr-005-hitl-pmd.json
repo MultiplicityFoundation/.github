@@ -1,0 +1,16 @@
+{
+  "slug": "adr-005-hitl-pmd",
+  "path": "articles/05-systems/engines/ADR-005 HITL-PMD.md",
+  "title": "ADR-005 HITL-PMD",
+  "status": "draft",
+  "version": "0.1.0",
+  "tags": [
+    "multiplicity"
+  ],
+  "created": "2026-03-20",
+  "updated": "2026-03-20",
+  "stratum": "",
+  "operator_class": "",
+  "xi_domain": "",
+  "csl_role": ""
+}

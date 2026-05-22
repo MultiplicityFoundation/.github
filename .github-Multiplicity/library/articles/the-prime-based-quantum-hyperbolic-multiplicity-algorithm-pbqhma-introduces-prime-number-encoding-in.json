@@ -1,0 +1,16 @@
+{
+  "slug": "the-prime-based-quantum-hyperbolic-multiplicity-algorithm-pbqhma-introduces-prime-number-encoding-in",
+  "path": "articles/05-systems/algorithms/P-HYPERBOLIC.md",
+  "title": "The **Prime-Based Quantum Hyperbolic Multiplicity Algorithm (PBQHMA)** introduces **prime-number encoding** into the **hyperbolic functions** used in **quantum systems** and their application to **quantum multiplicity**. Hyperbolic functions (such as **sinh**, **cosh**, **tanh**) arise naturally in many areas of physics, including **quantum mechanics**, **quantum field theory**, and **statistical mechanics**, particularly in problems involving exponential growth, decay, and wave functions in quantum systems. **Multiplicity**, in this context, refers to the repetition or combination of quantum states or processes, which can affect how quantum states evolve, interact, or contribute to quantum phenomena like **superposition** or **entanglement**.",
+  "status": "draft",
+  "version": "0.1.0",
+  "tags": [
+    "multiplicity"
+  ],
+  "created": "2026-03-20",
+  "updated": "2026-03-20",
+  "stratum": "",
+  "operator_class": "",
+  "xi_domain": "",
+  "csl_role": ""
+}

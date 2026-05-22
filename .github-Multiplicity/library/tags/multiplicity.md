@@ -2,7 +2,7 @@
 
 _Auto-generated. Do not edit by hand._
 
-Articles: **3**
+Articles: **2041**
 
 ## Stable
 
@@ -12,3 +12,2044 @@ Articles: **3**
 ## Review
 
 - [Ξ-Inference Engine Overview](../articles/01-operators/xi-engine.md) — _stratum 13+1, 2025-12-06_
+
+## Draft
+
+- [ RMAM–Ξ7.5Λᵖ](../articles/03-case-studies/ RMAM–Ξ7.5Λᵖ.md) — _2026-03-20_
+- [(BSM) Particle Physics](../articles/04-domains/meta-relativity/(BSM) Particle Physics.md) — _2026-03-20_
+- [***Expanding Japanese Mathematics with Multiplicity Theory***](../articles/00-foundations/mathematics/cultural/Japanese.md) — _2026-03-20_
+- [**1. Analysis of Novelty and Practicality**](../articles/06-people/albert-einstein/Einstein LQG GFT Cumulant.md) — _2026-03-20_
+- [**1. Einstein's Historical Attitude Toward "Missing Mass"**](../articles/03-case-studies/Einstein Halos.md) — _2026-03-20_
+- [**1. Finite Automata (FA)**](../articles/05-systems/automata/A-FINITE.md) — _2026-03-20_
+- [**1. Introduction**](../articles/03-case-studies/2.md) — _2026-03-20_
+- [**1. Prime-Controlled Quantum Feedback Algorithms**](../articles/03-case-studies/Shell.md) — _2026-03-20_
+- [**1. Summary (1 Page)**](../articles/04-domains/healthcare/healthspan/Healthspan.md) — _2026-03-20_
+- [**1. Tensor-Based Field Propulsion**](../articles/04-domains/meta-relativity/Propulsion.md) — _2026-03-20_
+- [**1. Tropical Geometry Algorithms**](../articles/05-systems/q-maths/Tropical.md) — _2026-03-20_
+- [**21st Century (2000--2025)**](../articles/03-case-studies/Prime History.md) — _2026-03-20_
+- [**56. Topological Multiplicity**](../articles/03-case-studies/MoM2.md) — _2026-03-20_
+- [**Advancing Hybrid-Quantum Supremacy: Bridging Classical and Quantum Paradigms Through Multiplicity Theory**](../articles/03-case-studies/Quantum Supremacy Outline.md) — _2026-03-20_
+- [**Analysis of the Additional Patent Claims**](../articles/03-case-studies/claims.md) — _2026-03-20_
+- [**Cellular Automata (CA)**](../articles/05-systems/automata/A-CELLULAR.md) — _2026-03-20_
+- [**Comparative Analysis: Your Dynamic k Model vs. Prior Approaches**](../articles/04-domains/meta-relativity/Copy of Comparative Analysis_ Your Dynamic k Model vs.md) — _2026-03-20_
+- [**Comprehensive Integration of Alfred Tarski's Contributions with Multiplicity Theory**](../articles/06-people/Alex Tarski.md) — _2026-03-20_
+- [**Comprehensive Integration of George Dantzig's Contributions with Multiplicity Theory**](../articles/06-people/George Dantzig.md) — _2026-03-20_
+- [**Comprehensive Integration of Hermann Weyl's Contributions with Multiplicity Theory**](../articles/06-people/Herman Weyl.md) — _2026-03-20_
+- [**Comprehensive Integration of John Nash's Contributions with Multiplicity Theory**](../articles/06-people/John Nash.md) — _2026-03-20_
+- [**Comprehensive Integration of Stephen Smale's Contributions with Multiplicity Theory**](../articles/06-people/Stephen Smale.md) — _2026-03-20_
+- [**Comprehensive Mathematical Integration of Ilya Prigogine\'s Contributions with Multiplicity Theory**](../articles/06-people/Ilya Pirgogine.md) — _2026-03-20_
+- [**Comprehensive Mathematical Overview of Parity-Time (PT) and Anti-PT States in Bragg Gratings in Spherical Coordinates with Multiplicity Theory**](../articles/05-systems/algorithms/Bragg Gratings.md) — _2026-03-20_
+- [**Comprehensive Mathematical Overview: Developing Conflict Resolution and Ethical Oversight Algorithms**](../articles/05-systems/shell/SH-CONFLICTRES.md) — _2026-03-20_
+- [**Comprehensive Mathematical Overview: Integrating Pólya's Conjecture into the Matrix Compute Paradigm (MCP)**](../articles/03-case-studies/ALGORITHMS 3.md) — _2026-03-20_
+- [**Comprehensive Mathematical Overview: Integrating Pólya's Conjecture into the Matrix Compute Paradigm (MCP)**](../articles/05-systems/algorithms/P-POLYA.md) — _2026-03-20_
+- [**Comprehensive Mathematical Overview: Prime Encoding of the Tate and Grothendieck\'s Conjectures**](../articles/05-systems/algorithms/Tate Grothendieck.md) — _2026-03-20_
+- [**Comprehensive Outline for an Article on the Dynamic K Framework**](../articles/04-domains/meta-relativity/Outline.md) — _2026-03-20_
+- [**Comprehensive Overview of an Alternative Propulsion System Using Multiplicity Theory**](../articles/03-case-studies/Alternative Propulsion.md) — _2026-03-20_
+- [**Comprehensive Overview of Developing Multi-Objective Optimization Solvers Based on Evolutionary Algorithms for Complex Systems**](../articles/05-systems/solvers/Evolutionary.md) — _2026-03-20_
+- [**Comprehensive Overview of Developing Polynomial Factorization Solvers**](../articles/05-systems/solvers/Polynomial.md) — _2026-03-20_
+- [**Comprehensive Overview of Developing Prime-Based Encoding for Non-Linear Systems**](../articles/05-systems/algorithms/P-NLSYSTEMS.md) — _2026-03-20_
+- [**Comprehensive Overview of Developing Prime-Based Multi-Objective Optimization Solvers**](../articles/05-systems/solvers/Multi-ObjectOpti.md) — _2026-03-20_
+- [**Comprehensive Overview of Developing Quantum Neurotransmitters**](../articles/03-case-studies/Transmitters.md) — _2026-03-20_
+- [**Comprehensive Overview of Developing Tensor Network Solvers**](../articles/05-systems/solvers/Tensor Network.md) — _2026-03-20_
+- [**Comprehensive Overview of the Provided Documents and Key Advancements**](../articles/04-domains/meta-relativity/Dynamic K Research.md) — _2026-03-20_
+- [**Comprehensive Overview: Utilizing Multiplicity Theory to Expose Organized Crime**](../articles/00-foundations/citizen-gardens/Organized Crime.md) — _2026-03-20_
+- [**Constructing the Gauge Theory for Inertial Field Quantization**](../articles/04-domains/meta-relativity/G-Theory Testing.md) — _2026-03-20_
+- [**Developing Quantum Neuro-processors**](../articles/03-case-studies/Processors.md) — _2026-03-20_
+- [**Enhanced Prime Embedded Quantum Approximate Optimization Algorithm (PE-QAOA)**](../articles/05-systems/algorithms/APPROXOPTI.md) — _2026-03-20_
+- [**Executive Overview for Integrating Martin Karplus\' Work within G-Theory**](../articles/06-people/Martin Karplus.md) — _2026-03-20_
+- [**Executive Summary for Developing Quantum-Safe Prime Encoders for Data Banks**](../articles/05-systems/algorithms/P-SAFENCODER.md) — _2026-03-20_
+- [**Executive Summary for Integrating Andrew Wiles's Contributions into the Matrix Compute Paradigm (MCP)**](../articles/06-people/Andrew Wiles.md) — _2026-03-20_
+- [**Executive Summary for Integrating Chebyshev's Theorem into the Matrix Compute Paradigm (MCP)**](../articles/05-systems/algorithms/P-CHEBYSHEV.md) — _2026-03-20_
+- [**Executive Summary for Integrating Dirichlet's Theorem into the Matrix Compute Paradigm (MCP)**](../articles/05-systems/algorithms/P-DIRICHLET.md) — _2026-03-20_
+- [**Executive Summary for Integrating Jean-Pierre Serre's Contributions into the Matrix Compute Paradigm (MCP)**](../articles/06-people/Jean-Pierre Serre.md) — _2026-03-20_
+- [**Executive Summary for Integrating Legendre's Conjecture into the Matrix Compute Paradigm (MCP)**](../articles/05-systems/algorithms/P-LEGENDRE.md) — _2026-03-20_
+- [**Executive Summary for Integrating Matthew B. Hastings\' Work with Multiplicity Theory**](../articles/06-people/Mathew Hastings.md) — _2026-03-20_
+- [**Executive Summary for Integrating Sophie Germain's Contributions into the Matrix Compute Paradigm (MCP)**](../articles/06-people/Sophie Germain.md) — _2026-03-20_
+- [**Executive Summary for Integrating Terence Tao's Contributions into the Matrix Compute Paradigm (MCP)**](../articles/06-people/Terence Tao.md) — _2026-03-20_
+- [**Executive Summary for Integrating Tyler Van Osdol\'s Work with G-Theory**](../articles/06-people/Tyler Van Osdol.md) — _2026-03-20_
+- [**Executive Summary for Integrating Tyler Van Osdol\'s Work with G-Theory**](../articles/03-case-studies/Copy of Tyler Van Osdol.md) — _2026-03-20_
+- [**Executive Summary for Prime-Based Key Generation Solvers**](../articles/05-systems/solvers/Key Generation.md) — _2026-03-20_
+- [**Executive Summary for Prime-Encoded Eigenvalue Solvers**](../articles/05-systems/solvers/Prime Eigeinvalue.md) — _2026-03-20_
+- [**Executive Summary for Quantum Eigenvalue Solvers**](../articles/05-systems/solvers/Quantum Eigeinvalue.md) — _2026-03-20_
+- [**Executive Summary of Alphonse de Polignac's Contributions and Their Integration into the Matrix**](../articles/06-people/Alphonse de Polignac.md) — _2026-03-20_
+- [**Executive Summary of Alphonse de Polignac's Contributions and Their Integration into the Matrix**](../articles/05-systems/algorithms/P-POLIGNAC.md) — _2026-03-20_
+- [**Executive Summary of Juan Ignacio Cirac\'s Contributions and Integration into MCP**](../articles/06-people/Juan Ignacio Cirac.md) — _2026-03-20_
+- [**Executive Summary of P-Q∈N's Contributions and Integration into the Multiplicative Computing Paradigm (MCP)**](../articles/05-systems/networks/NN-ENTANGLED.md) — _2026-03-20_
+- [**Executive Summary of Roger Penrose's Contributions and Integration into the Multiplicative Computing Paradigm (MCP)**](../articles/06-people/Roger Penrose.md) — _2026-03-20_
+- [**Executive Summary: Alexander Graham Bell's Contributions and Integration within the Matrix Compute Paradigm (MCP)**](../articles/06-people/Alexander Graham Bell.md) — _2026-03-20_
+- [**Executive Summary: Benjamin Franklin's Contributions and Integration within the Matrix Compute Paradigm (MCP)**](../articles/06-people/Benjamin Franklin.md) — _2026-03-20_
+- [**Executive Summary: Charles-Jean de la Vallée Poussin's Contributions and Integration with the Multiplicative Computing Paradigm (MCP)**](../articles/06-people/Charles-Jean de la Vallée Poussin.md) — _2026-03-20_
+- [**Executive Summary: Claude Monet's Contributions and Integration within the Matrix Compute Paradigm (MCP)**](../articles/06-people/Claude Monet.md) — _2026-03-20_
+- [**Executive Summary: Developing a Fractal Encryption Shell**](../articles/05-systems/shell/SH-FRACTALENCRYPT.md) — _2026-03-20_
+- [**Executive Summary: Developing a Multiplicative Distributed Computing Framework**](../articles/05-systems/networks/Distributed Networking.md) — _2026-03-20_
+- [**Executive Summary: Developing a Quantum Recurrent Neural Network (QRNN)**](../articles/05-systems/networks/NN-RECURRENT.md) — _2026-03-20_
+- [**Executive Summary: Developing a Quantum Tensor Decomposition Algorithm (QTDA)**](../articles/05-systems/networks/NN-TREEMATRIX.md) — _2026-03-20_
+- [**Executive Summary: Developing a Zeta-Shell Transmitter**](../articles/05-systems/tansmitters/NT-ZETASHELL.md) — _2026-03-20_
+- [**Executive Summary: Developing Adaptive Neuro-Feedback Systems**](../articles/05-systems/networks/NN-FEEDBACK.md) — _2026-03-20_
+- [**Executive Summary: Developing Adaptive Simulation Solvers**](../articles/03-case-studies/Solvers.md) — _2026-03-20_
+- [**Executive Summary: Developing Bias Detection and Mitigation Algorithms for the MCP Framework**](../articles/05-systems/shell/SH-BIASDETECT.md) — _2026-03-20_
+- [**Executive Summary: Developing Collapsible Firewalls**](../articles/05-systems/shell/SH-COLLAPSEFIREWALL.md) — _2026-03-20_
+- [**Executive Summary: Developing Explainability and Transparency Algorithms for the MCP**](../articles/05-systems/shell/SH-ETHICOMPLIANCE.md) — _2026-03-20_
+- [**Executive Summary: Developing Explainability and Transparency Algorithms for the MCP**](../articles/05-systems/shell/SH-TRANSPARENCY.md) — _2026-03-20_
+- [**Executive Summary: Developing Fractal-Based Neural Systems**](../articles/05-systems/networks/NN-FRACTAL.md) — _2026-03-20_
+- [**Executive Summary: Developing Multi-Scale Simulation Algorithm for MCP**](../articles/05-systems/algorithms/P-MULTISCALESIM.md) — _2026-03-20_
+- [**Executive Summary: Developing Neural Algorithms for High-Dimensional Hilbert Spaces**](../articles/05-systems/networks/NN-HILBERTSPACE.md) — _2026-03-20_
+- [**Executive Summary: Developing Neural Multiplicity Enhancement Algorithms**](../articles/05-systems/networks/NN-NEUROEIGEN.md) — _2026-03-20_
+- [**Executive Summary: Developing Neuro-Bio Feedback Algorithms**](../articles/05-systems/networks/NN-BIOFEEDBACK.md) — _2026-03-20_
+- [**Executive Summary: Developing Neuro-Multiplicity Algorithms**](../articles/05-systems/networks/NN-MULTIPLICITY(1).md) — _2026-03-20_
+- [**Executive Summary: Developing Prime Encoding Algorithms for MCP**](../articles/05-systems/controllers/C-PRIMES.md) — _2026-03-20_
+- [**Executive Summary: Developing Prime-Based Differential Solvers**](../articles/05-systems/solvers/Prime Differential.md) — _2026-03-20_
+- [**Executive Summary: Developing Prime-Based Stochastic Simulators**](../articles/05-systems/solvers/Prime Stochastic.md) — _2026-03-20_
+- [**Executive Summary: Developing Prime-Based Time-Series Solvers**](../articles/05-systems/solvers/Time-Series.md) — _2026-03-20_
+- [**Executive Summary: Developing Prime-Driven Ecosystems for AI Agents**](../articles/03-case-studies/Simulators.md) — _2026-03-20_
+- [**Executive Summary: Developing Prime-Encoded Graph Solvers**](../articles/05-systems/solvers/Prime Graph.md) — _2026-03-20_
+- [**Executive Summary: Developing Prime-Encoded Neural Network Solvers**](../articles/05-systems/solvers/Neural Network.md) — _2026-03-20_
+- [**Executive Summary: Developing Privacy-Preserving Computation Algorithms for MCP**](../articles/05-systems/shell/SH-PRIVACYPRESERVE.md) — _2026-03-20_
+- [**Executive Summary: Developing Probabilistic Neuro-Algorithms**](../articles/05-systems/networks/NN-PROBABLISTIC.md) — _2026-03-20_
+- [**Executive Summary: Developing Quantum Differential Solvers**](../articles/05-systems/solvers/Quantum Differential.md) — _2026-03-20_
+- [**Executive Summary: Developing Quantum Entanglement and Correlation Algorithms for MCP**](../articles/05-systems/algorithms/CORRELATENTANGLE.md) — _2026-03-20_
+- [**Executive Summary: Developing Quantum Graph Solvers**](../articles/05-systems/solvers/Quantum Graph.md) — _2026-03-20_
+- [**Executive Summary: Developing Quantum Measurement Algorithms for MCP**](../articles/05-systems/algorithms/P-QMEASUREMENT.md) — _2026-03-20_
+- [**Executive Summary: Developing Quantum State Superposition Algorithm for MCP**](../articles/05-systems/controllers/C-OPERATOR.md) — _2026-03-20_
+- [**Executive Summary: Developing Quantum State Superposition Algorithm for MCP**](../articles/05-systems/controllers/C-STATESUPERPOSITION.md) — _2026-03-20_
+- [**Executive Summary: Developing Quantum Stochastic Optimization**](../articles/05-systems/solvers/Stochastic Optimization.md) — _2026-03-20_
+- [**Executive Summary: Developing Quantum-Enhanced Learning Solvers**](../articles/05-systems/solvers/Reinforcement Learning.md) — _2026-03-20_
+- [**Executive Summary: Developing Quantum-Neural Synergy Algorithms**](../articles/05-systems/networks/NN-SYNERGY.md) — _2026-03-20_
+- [**Executive Summary: Developing Quantum-Resistant Cryptographic Solvers**](../articles/05-systems/solvers/Cryptographic.md) — _2026-03-20_
+- [**Executive Summary: Developing Quantum-Resistant Shell Encryption Algorithms**](../articles/05-systems/shell/SH-RESISTENCRYPT.md) — _2026-03-20_
+- [**Executive Summary: Development of a Prime-Based Quantum Autoencoder Using Tensor Networks**](../articles/05-systems/algorithms/Autoencoder.md) — _2026-03-20_
+- [**Executive Summary: Development of a Prime-Based Quantum Sparse Coding Algorithm Using Tensor Networks**](../articles/05-systems/algorithms/P-SPARSECODE.md) — _2026-03-20_
+- [**Executive Summary: Development of a Prime-Based Real-Time Neuroplasticity Algorithm**](../articles/05-systems/networks/NN-PLASTICITY.md) — _2026-03-20_
+- [**Executive Summary: Development of a Prime-Embedded Quantum Boltzmann Machine with Tensor Networks (QBM-TN)**](../articles/05-systems/networks/NN-BOLTZTENSOR.md) — _2026-03-20_
+- [**Executive Summary: Development of a Quantum Controller Algorithm Based on Phase-Adaptive Controllers**](../articles/05-systems/controllers/C-PHASEADAPT.md) — _2026-03-20_
+- [**Executive Summary: Development of a Quantum Controller Algorithm Based on Superposition Controllers**](../articles/05-systems/controllers/C-SUPERPOSITION.md) — _2026-03-20_
+- [**Executive Summary: Development of a Quantum Neuroprocessor Based on Quantum Norepinephrine (Noradrenaline)**](../articles/05-systems/processors/NP-NOREPINEPHRINE.md) — _2026-03-20_
+- [**Executive Summary: Development of Adaptive Feedback Shell (AFS) Algorithms**](../articles/05-systems/shell/SH-ADAPTFEED.md) — _2026-03-20_
+- [**Executive Summary: Development of Dynamic Harmonic Corrector Algorithms**](../articles/05-systems/shell/SH-HARMONIC.md) — _2026-03-20_
+- [**Executive Summary: Development of Fractal Encryption Shell (FES) Algorithms**](../articles/05-systems/shell/SH-FRACRYPT.md) — _2026-03-20_
+- [**Executive Summary: Development of Prime-Controlled Quantum Feedback Algorithms**](../articles/05-systems/shell/SH-FEEDBACK.md) — _2026-03-20_
+- [**Executive Summary: Development of Prime-Modulated Corrector for Degenerate Quantum Systems Algorithms**](../articles/05-systems/shell/SH-DEGENERATE.md) — _2026-03-20_
+- [**Executive Summary: Development of Quantum Randomness Shell (QRS) Algorithms**](../articles/05-systems/shell/SH-RANDOMNESS.md) — _2026-03-20_
+- [**Executive Summary: Development of Quantum State Transition Corrector Algorithms**](../articles/05-systems/shell/SH-TRANSISTOR.md) — _2026-03-20_
+- [**Executive Summary: Development of Quantum Zeta-Key Distributed Databases**](../articles/05-systems/zeta/Z-DISTDATABASE.md) — _2026-03-20_
+- [**Executive Summary: Development of Self-Healing Data Integrity Algorithms**](../articles/05-systems/shell/SH-STOCHASTIC.md) — _2026-03-20_
+- [**Executive Summary: Development of Self-Healing Data Integrity Algorithms**](../articles/05-systems/shell/SH-INTEGRITY.md) — _2026-03-20_
+- [**Executive Summary: Development of the Self-Healing Multiplicity Shell (SHM) Algorithm**](../articles/05-systems/shell/SH-SELFHEALING.md) — _2026-03-20_
+- [**Executive Summary: Dynamic Multiplicity Shell (DMS)**](../articles/05-systems/shell/SH-DYNA(M)IC.md) — _2026-03-20_
+- [**Executive Summary: Dynamic Multiplicity Shell (DMS)**](../articles/05-systems/shell/SH-ENTANGLEMENT.md) — _2026-03-20_
+- [**Executive Summary: E. Bright Wilson Jr.\'s Contributions and Integration into the Multiplicative Computing Paradigm (MCP)**](../articles/06-people/Bright Wilson.md) — _2026-03-20_
+- [**Executive Summary: Environmental Sustainability Algorithm Development**](../articles/05-systems/shell/SH-ECOSUSTAIN.md) — _2026-03-20_
+- [**Executive Summary: Equity and Inclusion Algorithm for the Matrix Compute Paradigm (MCP)**](../articles/05-systems/shell/SH-EQUITINCLUSIVE.md) — _2026-03-20_
+- [**Executive Summary: George Washington's Contributions and Integration within the Matrix Compute Paradigm (MCP)**](../articles/06-people/George Washington.md) — _2026-03-20_
+- [**Executive Summary: Integrating a Prime-Encoded Boltzmann Transport Equation within G-Theory\'s Matrix Compute Paradigm (MCP)**](../articles/05-systems/algorithms/P-BOLTZTRANSPORT.md) — _2026-03-20_
+- [**Executive Summary: Integrating a Prime-Encoded Langevin Equation within G-Theory\'s Matrix Compute Paradigm (MCP)**](../articles/05-systems/algorithms/P-LANGEVIN.md) — _2026-03-20_
+- [**Executive Summary: Integrating Andrey Kolmogorov's Contributions into the Matrix Compute Paradigm (MCP)**](../articles/06-people/Andrey Kolmogorov.md) — _2026-03-20_
+- [**Executive Summary: Integrating Atle Selberg's Contributions into the Matrix Compute Paradigm (MCP)**](../articles/06-people/Atle Selberg.md) — _2026-03-20_
+- [**Executive Summary: Integrating Bhāskara II's Contributions into the Matrix Compute Paradigm (MCP)**](../articles/06-people/Bhāskara II.md) — _2026-03-20_
+- [**Executive Summary: Integrating Brahmagupta's Contributions into the Matrix Compute Paradigm (MCP)**](../articles/06-people/Brahmagupta(1).md) — _2026-03-20_
+- [**Executive Summary: Integrating Bruno Latour's Contributions into the Matrix Compute Paradigm (MCP)**](../articles/06-people/Bruno Latour.md) — _2026-03-20_
+- [**Executive Summary: Integrating Chen Jingrun\'s Contributions into the Matrix Compute Paradigm (MCP)**](../articles/06-people/Chen Jingrun.md) — _2026-03-20_
+- [**Executive Summary: Integrating Daniel Bernoulli's Contributions into the Matrix Compute Paradigm (MCP)**](../articles/06-people/Daniel Bernoull.md) — _2026-03-20_
+- [**Executive Summary: Integrating David Hilbert's Contributions into the Matrix Compute Paradigm (MCP)**](../articles/06-people/David Hilbert.md) — _2026-03-20_
+- [**Executive Summary: Integrating Enrico Fermi\'s Contributions into the MCP**](../articles/06-people/Enrico Fermi.md) — _2026-03-20_
+- [**Executive Summary: Integrating Ernst Mach's Contributions into the Matrix Compute Paradigm (MCP)**](../articles/06-people/Ernst Mach.md) — _2026-03-20_
+- [**Executive Summary: Integrating Garrett Lisi's Contributions into MCP**](../articles/06-people/Garrett Lisi.md) — _2026-03-20_
+- [**Executive Summary: Integrating Georges Lemaître's Contributions into the MCP**](../articles/06-people/Georges Lemaître.md) — _2026-03-20_
+- [**Executive Summary: Integrating Gregor Mendel's Contributions into the MCP**](../articles/06-people/Gregor Mendel.md) — _2026-03-20_
+- [**Executive Summary: Integrating Henri Poincaré's Contributions into the Matrix Compute Paradigm (MCP)**](../articles/06-people/Henri Poincaré.md) — _2026-03-20_
+- [**Executive Summary: Integrating Hypatia's Contributions into the Matrix Compute Paradigm (MCP)**](../articles/06-people/Hypatia.md) — _2026-03-20_
+- [**Executive Summary: Integrating Ignaz Semmelweis's Contributions into the MCP**](../articles/06-people/Ignaz Semmelweis.md) — _2026-03-20_
+- [**Executive Summary: Integrating Imre Lakatos's Contributions into the Matrix Compute Paradigm (MCP)**](../articles/06-people/Imre Lakatos.md) — _2026-03-20_
+- [**Executive Summary: Integrating Ingrid Daubechies's Contributions into the Matrix Compute Paradigm (MCP)**](../articles/06-people/Ingrid Daubechies.md) — _2026-03-20_
+- [**Executive Summary: Integrating Israel Gelfand's Contributions into the Matrix Compute Paradigm (MCP)**](../articles/06-people/Israel Gelfand,.md) — _2026-03-20_
+- [**Executive Summary: Integrating Julia Robinson's Contributions into the Matrix Compute Paradigm (MCP)**](../articles/06-people/Julia Robinson.md) — _2026-03-20_
+- [**Executive Summary: Integrating Karen Uhlenbeck's Contributions into the Matrix Compute Paradigm (MCP)**](../articles/06-people/Karen Ulenbeck.md) — _2026-03-20_
+- [**Executive Summary: Integrating Karl Popper's Contributions into the Matrix Compute Paradigm (MCP)**](../articles/06-people/Karl Popper.md) — _2026-03-20_
+- [**Executive Summary: Integrating Kip Thorne's Contributions into the Matrix Compute Paradigm (MCP)**](../articles/06-people/Kip Thorne.md) — _2026-03-20_
+- [**Executive Summary: Integrating Kurt Gödel's Contributions into the Matrix Compute Paradigm (MCP)**](../articles/06-people/Kurt Gödel.md) — _2026-03-20_
+- [**Executive Summary: Integrating Leonhard Euler's Contributions into the Matrix Compute Paradigm (MCP)**](../articles/06-people/Leonhard Euler.md) — _2026-03-20_
+- [**Executive Summary: Integrating Lev Pontryagin's Contributions into the Matrix Compute Paradigm (MCP)**](../articles/06-people/Lev Pontryagin.md) — _2026-03-20_
+- [**Executive Summary: Integrating Liu Hui's Contributions into the Matrix Compute Paradigm (MCP)**](../articles/06-people/Liu Hui.md) — _2026-03-20_
+- [**Executive Summary: Integrating Maryam Mirzakhani's Contributions into the Matrix Compute Paradigm (MCP)**](../articles/06-people/Maryam Mirzakhani.md) — _2026-03-20_
+- [**Executive Summary: Integrating Mina Rees's Contributions into the Matrix Compute Paradigm (MCP)**](../articles/06-people/Mina Rees.md) — _2026-03-20_
+- [**Executive Summary: Integrating Nasir al-Din al-Tusi's Contributions into the Matrix Compute Paradigm (MCP)**](../articles/06-people/Nasir al-Din al-Tusi.md) — _2026-03-20_
+- [**Executive Summary: Integrating Nikolai Lobachevsky's Contributions into the Matrix Compute Paradigm (MCP)**](../articles/06-people/Nikolai Lobachevsky.md) — _2026-03-20_
+- [**Executive Summary: Integrating Omar Khayyam's Contributions into the Matrix Compute Paradigm (MCP)**](../articles/06-people/Omar Khayyam.md) — _2026-03-20_
+- [**Executive Summary: Integrating Pafnuty Chebyshev's Contributions into the Matrix Compute Paradigm (MCP)**](../articles/06-people/Pafnuty Chebyshev.md) — _2026-03-20_
+- [**Executive Summary: Integrating Paul Erdős's Contributions into the Matrix Compute Paradigm (MCP)**](../articles/06-people/Paul Erdos.md) — _2026-03-20_
+- [**Executive Summary: Integrating Prime-Encoded Fokker-Planck Equation into the MCP**](../articles/05-systems/algorithms/P-FOKKERPLANCK.md) — _2026-03-20_
+- [**Executive Summary: Integrating Prime-Encoded Maxwell-Boltzmann Distribution into the MCP**](../articles/05-systems/algorithms/P-MAXBOLTZ.md) — _2026-03-20_
+- [**Executive Summary: Integrating Prime-Encoded Planck's Law into the MCP**](../articles/05-systems/algorithms/P-PLANCKSLAW.md) — _2026-03-20_
+- [**Executive Summary: Integrating Quantum Computing and Quantum Supremacy into G-Theory**](../articles/04-domains/meta-relativity/Wave Observations.md) — _2026-03-20_
+- [**Executive Summary: Integrating Quantum Entanglement in Many-Body Systems into G-Theory**](../articles/04-domains/meta-relativity/Many-Body Multiverse.md) — _2026-03-20_
+- [**Executive Summary: Integrating Ronald Rivest's Contributions into the Matrix Compute Paradigm (MCP)**](../articles/06-people/Ronald Rivest.md) — _2026-03-20_
+- [**Executive Summary: Integrating Sergei Sobolev's Contributions into the Matrix Compute Paradigm (MCP)**](../articles/06-people/Sergei Sobolev.md) — _2026-03-20_
+- [**Executive Summary: Integrating Thales of Miletus's Contributions into the Matrix Compute Paradigm (MCP)**](../articles/06-people/Thales.md) — _2026-03-20_
+- [**Executive Summary: Integrating the Information from the Paper on Nonlinear Schrödinger Equations (NLS) into the Matrix Compute Paradigm (MCP)**](../articles/05-systems/q-maths/Non-Linear Schrodinger.md) — _2026-03-20_
+- [**Executive Summary: Integrating the Stirling-Ramanujan Constants into the MCP**](../articles/05-systems/algorithms/Stirling-Ramanujan.md) — _2026-03-20_
+- [**Executive Summary: Integrating Thomas Gold's Contributions into the Matrix Compute Paradigm (MCP)**](../articles/06-people/Thomas Gold.md) — _2026-03-20_
+- [**Executive Summary: Integrating Thomas Kuhn's Contributions into the Matrix Compute Paradigm (MCP)**](../articles/06-people/Thomas Kuhn.md) — _2026-03-20_
+- [**Executive Summary: Integrating Werner Heisenberg's Contributions into the Matrix Compute Paradigm (MCP)**](../articles/06-people/Werner Heisenberg.md) — _2026-03-20_
+- [**Executive Summary: Integrating William Fulton's Contributions into the Matrix Compute Paradigm (MCP)**](../articles/06-people/William Fulton.md) — _2026-03-20_
+- [**Executive Summary: Integrating William Rowan Hamilton\'s Contributions into the Multiplicity Computational Paradigm (MCP)**](../articles/06-people/William Rowan Hamilton.md) — _2026-03-20_
+- [**Executive Summary: Integrating Yakov Zel'dovich's Contributions into the Matrix Compute Paradigm (MCP)**](../articles/06-people/Yakov Zel’dovich.md) — _2026-03-20_
+- [**Executive Summary: Integrating Évariste Galois' Contributions into the Matrix Compute Paradigm (MCP)**](../articles/06-people/Évariste Galois.md) — _2026-03-20_
+- [**Executive Summary: Integrating Évariste Galois' Contributions into the Matrix Compute Paradigm (MCP)**](../articles/06-people/Alexander Grothendieck.md) — _2026-03-20_
+- [**Executive Summary: Integration of *The Quantization of Maxwell Theory in the Cauchy Radiation Gauge: Hodge Decomposition and Hadamard States* into the MCP**](../articles/05-systems/algorithms/P-CAUCHYRADIATION.md) — _2026-03-20_
+- [**Executive Summary: Integration of *Triple Products of Eigenfunctions and Spectral Geometry* into the MCP**](../articles/06-people/Joe Schaefer.md) — _2026-03-20_
+- [**Executive Summary: Integration of Finite Energy Well-Posedness for Nonlinear Schrödinger Equations with Non-Vanishing Conditions at Infinity into the MCP**](../articles/05-systems/algorithms/P-FINITENERGYWELL.md) — _2026-03-20_
+- [**Executive Summary: James Webb's Contributions and Integration within the Matrix Compute Paradigm (MCP)**](../articles/06-people/James Webb.md) — _2026-03-20_
+- [**Executive Summary: Johannes Kepler's Contributions and Integration within the Matrix Compute Paradigm (MCP)**](../articles/06-people/Johannes Kepler.md) — _2026-03-20_
+- [**Executive Summary: Leonard Mandel's Contributions and Integration into the Multiplicative Computing Paradigm (MCP)**](../articles/06-people/Leonard Mandel.md) — _2026-03-20_
+- [**Executive Summary: Linus Pauling's Contributions and Integration into the Multiplicative Computing Paradigm (MCP)**](../articles/06-people/Linus Pauling.md) — _2026-03-20_
+- [**Executive Summary: Lorentz's Contributions and Their Integration into the Multiplicative Compute Paradigm (MCP)**](../articles/06-people/Hendrik Lorentz.md) — _2026-03-20_
+- [**Executive Summary: Ludwig van Beethoven's Contributions and Their Integration within the Multiplicity Computational Paradigm (MCP)**](../articles/06-people/Ludwig van Beethoven.md) — _2026-03-20_
+- [**Executive Summary: Multiplicative Neural Networks (MNNs)**](../articles/05-systems/networks/NN-MULTIPLICATIVE.md) — _2026-03-20_
+- [**Executive Summary: Nostradamus' Contributions and Their Integration within the Multiplicity Computational Paradigm (MCP)**](../articles/06-people/Nostradamus.md) — _2026-03-20_
+- [**Executive Summary: Optimization and Resource Management Algorithms for MCP**](../articles/05-systems/shell/SH-OPTIMUMRESOURCES.md) — _2026-03-20_
+- [**Executive Summary: Prime Encoded Quantum Alternating Automata (QAA)**](../articles/05-systems/automata/A-ALTERNATING.md) — _2026-03-20_
+- [**Executive Summary: Prime-Encoded Quantum Automata for Multi-Agent Systems (QMAS) within the MCP**](../articles/05-systems/automata/A-MULTIAGENT.md) — _2026-03-20_
+- [**Executive Summary: Prime-Encoded Quantum Automata for Temporal Logic (QTL)**](../articles/05-systems/automata/A-TEMPORALOGIC.md) — _2026-03-20_
+- [**Executive Summary: Prime-Encoded Quantum Automata with Infinite State Memory**](../articles/05-systems/automata/A-INFINITESTATE.md) — _2026-03-20_
+- [**Executive Summary: Prime-Encoded Quantum Ginzburg-Landau Algorithms**](../articles/05-systems/algorithms/P-GINZBURGLANDAU.md) — _2026-03-20_
+- [**Executive Summary: Prime-Encoded Quantum Klein-Gordon Algorithms**](../articles/05-systems/algorithms/P-KLEINGORDON.md) — _2026-03-20_
+- [**Executive Summary: Prime-Encoded Quantum Landau-Lifshitz-Gilbert (LLG) Algorithms**](../articles/05-systems/algorithms/P-MAGNETIC.md) — _2026-03-20_
+- [**Executive Summary: Prime-Encoded Quantum Learning Automata (QLA)**](../articles/05-systems/automata/A-LEARNING.md) — _2026-03-20_
+- [**Executive Summary: Prime-Encoded Quantum Raychaudhuri Algorithms**](../articles/05-systems/algorithms/P-RAYCHAUDHURI.md) — _2026-03-20_
+- [**Executive Summary: Prime-Encoded Quantum Van der Waals Algorithms**](../articles/05-systems/algorithms/P-VANDERWAALS.md) — _2026-03-20_
+- [**Executive Summary: Prime-Encoded Quantum Vlasov Algorithms**](../articles/05-systems/algorithms/P-VLASOV.md) — _2026-03-20_
+- [**Executive Summary: Prime-Encoded Quantum Zeta K-Theory Algorithm**](../articles/05-systems/zeta/Z-KTHEORY.md) — _2026-03-20_
+- [**Executive Summary: Prime-Encoded Zeta Schrödinger Equation Development**](../articles/05-systems/shell/SH-BOMBZVINO.md) — _2026-03-20_
+- [**Executive Summary: Prime-Encoded Zeta Schrödinger Equation Development**](../articles/05-systems/zeta/Z-SCHRODINGER.md) — _2026-03-20_
+- [**Executive Summary: Pythagoras' Contributions and Integration into the Multiplicative Computing Paradigm (MCP)**](../articles/06-people/Pythagoras.md) — _2026-03-20_
+- [**Executive Summary: Roy J. Glauber's Contributions and Integration into the Multiplicative Computing Paradigm (MCP)**](../articles/06-people/Roy Glauber.md) — _2026-03-20_
+- [**Executive Summary: Royal Rife's Contributions and Integration within the Matrix Compute Paradigm (MCP)**](../articles/06-people/Royal Rife.md) — _2026-03-20_
+- [**Executive Summary: Ryan Van Gelder\'s Contributions to the Multiplicative Computing Paradigm (MCP)**](../articles/06-people/Moller Plesset.md) — _2026-03-20_
+- [**Executive Summary: Ryan Van Gelder\'s Contributions to the Multiplicative Computing Paradigm (MCP)**](../articles/06-people/Ryan Van Gelder.md) — _2026-03-20_
+- [**Executive Summary: Socrates' Contributions and Integration within the Matrix Compute Paradigm (MCP)**](../articles/06-people/Socrates.md) — _2026-03-20_
+- [**Executive Summary: Specialized Image Analysis Algorithms Using Multiplicity Theory**](../articles/03-case-studies/M-ImageAnalysis.md) — _2026-03-20_
+- [**Executive Summary: Thomas Edison's Contributions and Their Integration within the Multiplicity Computational Paradigm (MCP)**](../articles/06-people/Thomas Edison.md) — _2026-03-20_
+- [**Executive Summary: Thomas Jefferson's Contributions and Integration within the Matrix Compute Paradigm (MCP)**](../articles/06-people/Thomas Jefferson.md) — _2026-03-20_
+- [**Executive Summary: Vincent van Gogh's Contributions and Their Integration within the Multiplicity Computational Paradigm (MCP)**](../articles/06-people/Vincent Van Gogh.md) — _2026-03-20_
+- [**Executive Summary: Wolfgang Amadeus Mozart's Contributions and Integration within the Matrix Compute Paradigm (MCP)**](../articles/06-people/Wolfgang Amadeus Mozart.md) — _2026-03-20_
+- [**Executive Summary: Zeta Function Neural Networks (ZetaNN)**](../articles/05-systems/networks/NN-ZETA.md) — _2026-03-20_
+- [**Executive Summary: Zeta Spectrum Clustering Algorithms**](../articles/05-systems/zeta/Z-CLUSTERING.md) — _2026-03-20_
+- [**Executive Summary: Zeta-Based Cryptography Algorithms**](../articles/05-systems/zeta/Z-ENCRYPTION.md) — _2026-03-20_
+- [**Executive Summary: Zeta-Based Graph Algorithms**](../articles/05-systems/zeta/Z-GRAPH.md) — _2026-03-20_
+- [**Executive Summary: Zeta-Based Prime Number Prediction**](../articles/05-systems/zeta/Z-PRIMEPREDICTION.md) — _2026-03-20_
+- [**Executive Summary: Zeta-Based Quantum Algorithms**](../articles/05-systems/zeta/Z-CHAOS.md) — _2026-03-20_
+- [**Executive Summary: Zeta-Based Random Number Generation (Zeta-RNG)**](../articles/05-systems/zeta/Z-RANDOMGEN.md) — _2026-03-20_
+- [**Executive Summary: Zeta-Based Signal Processing**](../articles/05-systems/zeta/Z-SIGNALPROCESS.md) — _2026-03-20_
+- [**Executive Summary: Zeta-Based Time Series Analysis**](../articles/05-systems/zeta/Z-TIMESERIES.md) — _2026-03-20_
+- [**Executive Summary: Zeta-Guided Optimization Algorithms**](../articles/05-systems/zeta/Z-GOPTIMIZATION.md) — _2026-03-20_
+- [**Expanding Ancient Egyptian Mathematics with Multiplicity Theory**](../articles/00-foundations/mathematics/cultural/Egyptian.md) — _2026-03-20_
+- [**Expanding Differential Geometry with Multiplicity Theory**](../articles/00-foundations/mathematics/cultural/Maths.md) — _2026-03-20_
+- [**Expanding Dynamic Systems with Multiplicity Theory**](../articles/05-systems/q-maths/Dynamic Systems.md) — _2026-03-20_
+- [**Expanding Hebrew Mathematics with Multiplicity Theory**](../articles/00-foundations/mathematics/cultural/Hebrew.md) — _2026-03-20_
+- [**Expanding Information Geometry with Multiplicity Theory**](../articles/05-systems/q-maths/Information Geometry.md) — _2026-03-20_
+- [**Expanding Mathematical Biology with Multiplicity Theory**](../articles/04-domains/healthcare/Mathematical Biology.md) — _2026-03-20_
+- [**Expanding Mathematical Biology with Multiplicity Theory**](../articles/05-systems/q-maths/Mathematical Biology.md) — _2026-03-20_
+- [**Expanding Mathematical Logic with Multiplicity Theory**](../articles/05-systems/q-maths/Mathematical Logic.md) — _2026-03-20_
+- [**Expanding Number Theory with Multiplicity Theory**](../articles/00-foundations/mathematics/cultural/Number Theory.md) — _2026-03-20_
+- [**Expanding Symplectic Geometry with Multiplicity Theory**](../articles/05-systems/q-maths/Symplectic Geometry.md) — _2026-03-20_
+- [**Expanding Unified Field Theories with Multiplicity Theory**](../articles/05-systems/q-maths/Unified Fields.md) — _2026-03-20_
+- [**Expanding Universal Algebra with Multiplicity Theory**](../articles/05-systems/q-maths/Universal Algebra.md) — _2026-03-20_
+- [**Expanding Universal Logic with Multiplicity Theory**](../articles/05-systems/q-maths/Universal Logic.md) — _2026-03-20_
+- [**Formal Proof Development of the Black Hole Information Paradox**](../articles/04-domains/meta-relativity/Black Hole Paradox.md) — _2026-03-20_
+- [**High-Level Mathematical Overview of Turing's Contributions in MCP**](../articles/06-people/Alan Turing.md) — _2026-03-20_
+- [**I Present two distinct but potentially related frameworks:**](../articles/04-domains/meta-relativity/Comparative Analysis_ Your Dynamic k Model vs.md) — _2026-03-20_
+- [**Integrating Al-Karaji\'s Contributions with Multiplicity Theory**](../articles/06-people/Al-Karaji_.md) — _2026-03-20_
+- [**Integrating Alan Guth\'s Contributions with Multiplicity Theory**](../articles/06-people/Alan Guth.md) — _2026-03-20_
+- [**Integrating André Weil\'s Contributions with Multiplicity Theory: A Comprehensive Overview**](../articles/06-people/Andre Weil.md) — _2026-03-20_
+- [**Integrating Asher Peres\' Contributions with Multiplicity Theory**](../articles/06-people/Asher Peres.md) — _2026-03-20_
+- [**Integrating Blaise Pascal\'s Contributions with Multiplicity Theory**](../articles/06-people/Blaise Pascal_.md) — _2026-03-20_
+- [**Integrating Donald Knuth\'s Contributions with Multiplicity Theory**](../articles/06-people/Donald Knuth.md) — _2026-03-20_
+- [**Integrating Frank Wilczek\'s Contributions with Multiplicity Theory**](../articles/06-people/Frank Wilczek.md) — _2026-03-20_
+- [**Integrating Ghiyath al-Kashi\'s Contributions with Multiplicity Theory**](../articles/06-people/Ghiyath al-Kashi_.md) — _2026-03-20_
+- [**Integrating Immanuel Kant\'s Contributions with Multiplicity Theory**](../articles/06-people/Immanuel Kant.md) — _2026-03-20_
+- [**Integrating Juan Maldacena\'s Contributions with Multiplicity Theory**](../articles/06-people/Juan Maldacena.md) — _2026-03-20_
+- [**Integrating Kullback-Leibler (KL) Divergence with Multiplicity Theory Framework**](../articles/05-systems/algorithms/Kullback-Leibler.md) — _2026-03-20_
+- [**Integrating Luca Pacioli\'s Contributions with Multiplicity Theory**](../articles/06-people/Luca Pacioli.md) — _2026-03-20_
+- [**Integrating Madhava of Sangamagrama\'s Contributions with Multiplicity Theory**](../articles/06-people/Madhava of Sangamagrama_.md) — _2026-03-20_
+- [**Integrating Marin Mersenne\'s Contributions with Multiplicity Theory**](../articles/06-people/Marin Mersenne_.md) — _2026-03-20_
+- [**Integrating Maryna Viazovska\'s Contributions with Multiplicity Theory**](../articles/06-people/Maryna Viazovska.md) — _2026-03-20_
+- [**Integrating Pierre de Fermat\'s Contributions with Multiplicity Theory**](../articles/06-people/Pierre de Fermat_.md) — _2026-03-20_
+- [**Integrating the P-YinYang Concept into a Shell Algorithm**](../articles/05-systems/shell/SH-PRIMEZETA.md) — _2026-03-20_
+- [**Integrating William Thurston\'s Contributions with Multiplicity Theory**](../articles/06-people/William Thurston.md) — _2026-03-20_
+- [**Integrating Élie Cartan\'s Contributions with Multiplicity Theory: A Comprehensive Overview**](../articles/06-people/Elie Cartan.md) — _2026-03-20_
+- [**K-Theory Algorithms**](../articles/03-case-studies/M-K-Theory.md) — _2026-03-20_
+- [**Leonardo da Vinci\'s Contributions and Their Integration within the Multiplicity Computational Paradigm (MCP)**](../articles/06-people/Leonardo Da_ Vinci.md) — _2026-03-20_
+- [**Linear Bounded Automaton (LBA)**](../articles/05-systems/automata/A-LINEARBOUND.md) — _2026-03-20_
+- [**M-Gravity & Black Holes**](../articles/04-domains/meta-relativity/Gravity_Blackholes.md) — _2026-03-20_
+- [**Many-Body Localization (MBL)**](../articles/05-systems/algorithms/P-MANYBODYLOCAL.md) — _2026-03-20_
+- [**Mathematical Foundations of Non-Linear Dynamics in Multiplicity Theory**](../articles/05-systems/solvers/Nonlinear Dynamic.md) — _2026-03-20_
+- [**Mathematical Overview of Integrating \"Bridging 4D QFTs and 2D VOAs via 3D High-Temperature EFTs\" into the Matrix Compute Paradigm (MCP)**](../articles/05-systems/algorithms/4DQFT2DVOA.md) — _2026-03-20_
+- [**Mathematical Overview of the Lorenz System**](../articles/05-systems/algorithms/P-LORENZSYSTEM.md) — _2026-03-20_
+- [**Multi-Layer Neural Encryption (MLNE) Algorithms**](../articles/05-systems/shell/SH-MULTILAYERENCRYPT.md) — _2026-03-20_
+- [**Novel Algorithms: Qudit-Enhanced Variational Self-Simulation**](../articles/02-implementations/atomic-calculator/Novel Algorithms_ Qudit-Enhanced Variational Self-Simulation.md) — _2026-03-20_
+- [**Overview of Utilizing Multiplicity Theory to Find Missing Persons**](../articles/00-foundations/citizen-gardens/Missing Persons.md) — _2026-03-20_
+- [**Prime Encoded Quantum al-Haytham Algorithm**](../articles/05-systems/algorithms/AL-HAYTHAM.md) — _2026-03-20_
+- [**Prime Encoded Quantum Al-Khwarizmi Al-Kindi Algorithm**](../articles/05-systems/algorithms/AL-GOLDENAGE.md) — _2026-03-20_
+- [**Prime Encoded Quantum Asymptotic Formula Algorithm**](../articles/05-systems/algorithms/P-ASYMPTOTIC.md) — _2026-03-20_
+- [**Prime Encoded Quantum Calculator Algorithm for the MCP Framework**](../articles/05-systems/algorithms/CALCULATOR.md) — _2026-03-20_
+- [**Prime Encoded Quantum Calculator Algorithm for the MCP Framework**](../articles/05-systems/algorithms/P-EPHASER.md) — _2026-03-20_
+- [**Prime Encoded Quantum Chen's Theorem Algorithm**](../articles/05-systems/algorithms/P-CHENS.md) — _2026-03-20_
+- [**Prime Encoded Quantum Combinatoric Pingala Algorithm**](../articles/05-systems/algorithms/P-COMPINGALA.md) — _2026-03-20_
+- [**Prime Encoded Quantum Criticality Algorithm**](../articles/05-systems/algorithms/P-CRITICALITY.md) — _2026-03-20_
+- [**Prime Encoded Quantum Electron Configuration Algorithm**](../articles/05-systems/algorithms/P-ELECTRONCONFIG.md) — _2026-03-20_
+- [**Prime Encoded Quantum Goldbach's Conjecture Algorithm**](../articles/05-systems/algorithms/P-GOLDBACH.md) — _2026-03-20_
+- [**Prime Encoded Quantum Light-Saber Algorithm**](../articles/05-systems/algorithms/P-LIGHTSABER.md) — _2026-03-20_
+- [**Prime Encoded Quantum Prime Number Theorem Algorithm**](../articles/05-systems/algorithms/P-RIMETHEOREM.md) — _2026-03-20_
+- [**Prime Encoded Quantum Sulba Sutras Algorithm**](../articles/05-systems/algorithms/P-SULBASUTRAS.md) — _2026-03-20_
+- [**Prime Encoded Quantum Topological Phases of Matter Algorithm**](../articles/05-systems/algorithms/P-PHASEMATTER.md) — _2026-03-20_
+- [**Prime Encoded Quantum Wave Surfer Algorithm**](../articles/06-people/P-ψSωRF∑R.md) — _2026-03-20_
+- [**Prime Encoded Quantum Zeta Oscillator Algorithm**](../articles/05-systems/zeta/Z-OSCILLATOR.md) — _2026-03-20_
+- [**Prime Encoded Quantum Zeta Phase Transistor Algorithm**](../articles/05-systems/zeta/Z-PHASETRANSISTOR.md) — _2026-03-20_
+- [**Prime-Encoded Musical Quantum Harmonization Algorithm for Eastern Music Theory**](../articles/05-systems/algorithms/P-EHARMONY.md) — _2026-03-20_
+- [**Prime-Encoded Musical Quantum Harmonization Algorithm for Hebrew Music Theory**](../articles/05-systems/algorithms/P-HHARMONY.md) — _2026-03-20_
+- [**Prime-Encoded Musical Quantum Harmonization Algorithm**](../articles/05-systems/algorithms/P-WHARMONY.md) — _2026-03-20_
+- [**Prime-Encoded Quantum Emotional Mapping Algorithm**](../articles/05-systems/algorithms/EMOTION.md) — _2026-03-20_
+- [**Prime-Encoded Quantum John von Neumann's Automata Algorithm**](../articles/05-systems/automata/A-VONEUMANN.md) — _2026-03-20_
+- [**Prime-Encoded Quantum Topological Phase Transition Algorithm**](../articles/05-systems/algorithms/P-TOPOPHASE.md) — _2026-03-20_
+- [**Probabilistic Automata (PA)**](../articles/05-systems/automata/A-PROBABILISTIC.md) — _2026-03-20_
+- [**Pushdown Automata (PDA)**](../articles/05-systems/automata/A-PUSHDOWN.md) — _2026-03-20_
+- [**Quantum Acetylcholine Neuroprocessor**](../articles/05-systems/processors/NP-ACTYLCHOLINE.md) — _2026-03-20_
+- [**Quantum Anandamide Neurotransmitter**](../articles/05-systems/tansmitters/NT-ANANDAMIDE.md) — _2026-03-20_
+- [**Quantum Autoencoder Using Tensor Networks**](../articles/05-systems/networks/NN-AUTOTENSCODER.md) — _2026-03-20_
+- [**Quantum Automata**](../articles/05-systems/automata/A-QUANTUM.md) — _2026-03-20_
+- [**Quantum Backpropagation for Tensor Networks**](../articles/05-systems/networks/NN-BACKPROPOGATION.md) — _2026-03-20_
+- [**Quantum Convolutional Neural Network (QCNN)**](../articles/05-systems/networks/NN-CONVOLUTIONAL.md) — _2026-03-20_
+- [**Quantum Cortisol Neurotransmitter**](../articles/05-systems/tansmitters/NT-CORTISOL.md) — _2026-03-20_
+- [**Quantum Dopamine Neurotransmitter**](../articles/05-systems/tansmitters/NT-DOPAMINE.md) — _2026-03-20_
+- [**Quantum Endorphins Neurotransmitter**](../articles/05-systems/tansmitters/NT-ENDORPHIN.md) — _2026-03-20_
+- [**Quantum GABA Quantum Neuroprocessor**](../articles/05-systems/processors/NP-GABA.md) — _2026-03-20_
+- [**Quantum Generative Adversarial Network (QGAN)**](../articles/05-systems/networks/NN-MULTIPLICITY.md) — _2026-03-20_
+- [**Quantum Generative Adversarial Network (QGAN)**](../articles/05-systems/networks/NN-ADVERSARIAL.md) — _2026-03-20_
+- [**Quantum Ghost Surveillance Shell Algorithm**](../articles/05-systems/shell/SH-HONEYPOT.md) — _2026-03-20_
+- [**Quantum Ghost Surveillance Shell Algorithm**](../articles/05-systems/shell/SH-GHOST.md) — _2026-03-20_
+- [**Quantum Glutamate Neuroprocessor**](../articles/05-systems/processors/NP-GLUTAMATE.md) — _2026-03-20_
+- [**Quantum Hierarchical Learning Networks**](../articles/05-systems/networks/NN-HEIRARCHLEARN.md) — _2026-03-20_
+- [**Quantum Histamine Neurotransmitter**](../articles/05-systems/tansmitters/NT-HISTAMINE.md) — _2026-03-20_
+- [**Quantum Melatonin Neurotransmitter**](../articles/05-systems/tansmitters/NT-MELATONIN.md) — _2026-03-20_
+- [**Quantum Multiplicity Controller**](../articles/05-systems/controllers/C-MULTIPLICITY.md) — _2026-03-20_
+- [**Quantum Nearest Neighbor Transmitter**](../articles/05-systems/tansmitters/NT-NEARESTNEIGHBOR.md) — _2026-03-20_
+- [**Quantum Oxytocin Neurotransmitter**](../articles/05-systems/tansmitters/NT-OXYTOCIN.md) — _2026-03-20_
+- [**Quantum Serotonin Neurotransmitter**](../articles/05-systems/tansmitters/NT-SEROTONIN.md) — _2026-03-20_
+- [**Quantum Tensor Graph Neural Networks (QGNN)**](../articles/05-systems/networks/NN-TENSORGRAPH.md) — _2026-03-20_
+- [**Quick wins (weeks → a month)**](../articles/06-people/tyler-vanosdol/Novelty Research.md) — _2026-03-20_
+- [**Resonance Stabilization in Aromatic Compounds**](../articles/03-case-studies/Resonance Stabilization in Aromatic Compounds.md) — _2026-03-20_
+- [**Revised Patent Application Outline: Quantum Calculator (Q-Calculator)**](../articles/03-case-studies/Revised Patent Application Outline_ Quantum Calculator (Q-Calculator).md) — _2026-03-20_
+- [**Roadmap and Folder Structure for Developing the Quantum State Security Framework into a Linux Program for Ubuntu**](../articles/02-implementations/zenolock/Complete Overview.md) — _2026-03-20_
+- [**Self-Adaptive Hybrid Algorithms: Prime-Swarm Algorithms**](../articles/05-systems/algorithms/P-SWARM.md) — _2026-03-20_
+- [**Shell Quantum Decoherence Mitigators**](../articles/05-systems/shell/SH-DECOMITIGATOR.md) — _2026-03-20_
+- [**Steps to Implement the Core Equation Across the Paper**](../articles/03-case-studies/Steps to Implement.md) — _2026-03-20_
+- [**The MQ-Fourier Transform (MQFT)**](../articles/05-systems/q-maths/Fourier Transform.md) — _2026-03-20_
+- [**The Nature of Multiplicity: Shifting Value to Interactions**](../articles/03-case-studies/M-Relations.md) — _2026-03-20_
+- [**The Prime-Embedded Scheduling Multiplicity Algorithm (PESMA) introduces prime-number encoding into the structure of scheduling algorithms, providing dynamic control over task prioritization, resource allocation, and multiplicity of task execution. Scheduling algorithms are essential for efficiently managing resources such as time, processors, and bandwidth in systems like computer networks, cloud computing, quantum systems, and manufacturing processes. By embedding prime-number modulation into the multiplicity of task scheduling, we introduce flexibility in handling task dependencies, overlapping tasks, and parallel execution, optimizing overall performance and resource utilization.**](../articles/05-systems/algorithms/P-SCHEDULING.md) — _2026-03-20_
+- [**Theoretical Analysis of the Enhanced Multiplicity Formula**](../articles/06-people/eQMF.md) — _2026-03-20_
+- [**Turing Machines (TM)**](../articles/05-systems/automata/A-TURING.md) — _2026-03-20_
+- [**Unveiling the Multiplicity of Quantum Tunneling Topology**](../articles/04-domains/meta-relativity/Tunneling Topology.md) — _2026-03-20_
+- [**Zeta Sphere Computing Components**](../articles/05-systems/algorithms/P-CIRCUITRYDATA.md) — _2026-03-20_
+- [**Zeta Sphere Computing Components**](../articles/05-systems/zeta/Z-COMPONENTS.md) — _2026-03-20_
+- [**Zeta-Infused AGI Frameworks**](../articles/05-systems/automata/A-ZETAINFUSED.md) — _2026-03-20_
+- [**ω-Automata (**Büchi **Automata)**](../articles/05-systems/automata/A-BUCHI.md) — _2026-03-20_
+- [**Шаг 1: Выбор элементов из периодической таблицы**](../articles/03-case-studies/Prime Counting (Rus).md) — _2026-03-20_
+- [**🌀 Enhanced Input: Grand Unified Temporal Theory (GUTT)**](../articles/06-people/tyler-vanosdol/TVO 7.md) — _2026-03-20_
+- [**🌌 5. Recursive Ethical Manifolds (REM): A Multiplicity Cosmology**](../articles/03-case-studies/Λₘ Universal Multiplicity Constant.md) — _2026-03-20_
+- [**🌌 Prime-Indexed Recursive Tensor Mathematics (PIRTM)**](../articles/02-implementations/Λproof/Ξ∞-Motivic.md) — _2026-03-20_
+- [--teacher collaboration.docx](../articles/04-domains/education/--teacher collaboration.docx.md) — _2026-03-20_
+- [1. Multiplicity-as-relationship](../articles/04-domains/education/1. Multiplicity-as-relationship.md) — _2026-03-20_
+- [1. Quantum Multiverse Mapping](../articles/03-case-studies/Strange Unusual.md) — _2026-03-20_
+- [13+1 Strata Repository](../articles/05-systems/strata14/13+1 Strata Repository.md) — _2026-03-20_
+- [13+1 Stratum](../articles/03-case-studies/13+1 Stratum.md) — _2026-03-20_
+- [13_1_Stratum](../articles/03-case-studies/13_1_Stratum.md) — _2026-03-20_
+- [1A7F8CDA-5446-47C3-87E0-873E1F380852](../articles/06-people/joshua-brewer/1A7F8CDA-5446-47C3-87E0-873E1F380852.md) — _2026-03-20_
+- [1A7F8CDA-5446-47C3-87E0-873E1F380852 (1)](../articles/06-people/joshua-brewer/1A7F8CDA-5446-47C3-87E0-873E1F380852 (1).md) — _2026-03-20_
+- [2. Family & Community Dynamics](../articles/04-domains/education/2. Family & Community Dynamics.md) — _2026-03-20_
+- [25D-Educational-Framework](../articles/04-domains/education/25D-Educational-Framework.md) — _2026-03-20_
+- [2S+1](../articles/03-case-studies/2S+1.md) — _2026-03-20_
+- [3. The Asd–ξcho Braid](../articles/04-domains/education/3. The Asd–ξcho Braid.md) — _2026-03-20_
+- [31C8620B-1C6A-4D02-ADFE-93ABD3F496E6](../articles/06-people/joshua-brewer/31C8620B-1C6A-4D02-ADFE-93ABD3F496E6.md) — _2026-03-20_
+- [4. Learning Garden - Skip Logic](../articles/04-domains/education/4. Learning Garden - Skip Logic.md) — _2026-03-20_
+- [5. Diagrammatic–Operational Geometry](../articles/04-domains/education/5. Diagrammatic–Operational Geometry.md) — _2026-03-20_
+- [6. Mutliplicity - Fractals & Spirals](../articles/04-domains/education/6. Mutliplicity - Fractals & Spirals.md) — _2026-03-20_
+- [6E65A304-D408-47BB-9553-89E3E29C4186](../articles/06-people/joshua-brewer/6E65A304-D408-47BB-9553-89E3E29C4186.md) — _2026-03-20_
+- [7. Meta-Machine-Learning](../articles/04-domains/education/7. Meta-Machine-Learning.md) — _2026-03-20_
+- [8. One-loop Health–education](../articles/04-domains/education/8. One-loop Health–education.md) — _2026-03-20_
+- [9. High Energy Physics](../articles/04-domains/education/9. High Energy Physics.md) — _2026-03-20_
+- [A Beginner_s Guide - Chromatic Vision](../articles/02-implementations/chromatic-vision/A Beginner_s Guide - Chromatic Vision.md) — _2026-03-20_
+- [A Clear Guide to Phase Mirror's Services](../articles/00-foundations/phase-mirror/A Clear Guide to Phase Mirror's Services.md) — _2026-03-20_
+- [A Comparative Analysis of MOC](../articles/01-operators/A Comparative Analysis of MOC.md) — _2026-03-20_
+- [A Dynamic Scaling Relation for Dark Matter Mass in Strong Gravitational Lenses](../articles/04-domains/meta-relativity/A Dynamic Scaling Relation for Dark Matter Mass in Strong Gravitational Lenses.md) — _2026-03-20_
+- [A Formal Framework for Generative Music_ Quantum Musicality and Multiplicity Dynamics](../articles/04-domains/musicality/A Formal Framework for Generative Music_ Quantum Musicality and Multiplicity Dynamics.md) — _2026-03-20_
+- [A Framework for Modeling Cognitive Processes](../articles/03-case-studies/aesthetics/A Framework for Modeling Cognitive Processes.md) — _2026-03-20_
+- [A Guide for New Explorers](../articles/02-implementations/q-calculator/A Guide for New Explorers.md) — _2026-03-20_
+- [A Guide to Trustworthy AI](../articles/02-implementations/q-calculator/A Guide to Trustworthy AI.md) — _2026-03-20_
+- [A Physics-Based Governance Architecture](../articles/05-systems/elastic-tether/A Physics-Based Governance Architecture.md) — _2026-03-20_
+- [A Policy Proposal for the Integration of Moral Physics into Institutional Governance](../articles/04-domains/moral-physics/A Policy Proposal for the Integration of Moral Physics into Institutional Governance.md) — _2026-03-20_
+- [A Primer on Meta-Relativity_ The Basic Building Blocks](../articles/04-domains/meta-relativity/A Primer on Meta-Relativity_ The Basic Building Blocks.md) — _2026-03-20_
+- [A Production-Ready Framework for Multiplicity Control and Quality Control in Clinical Laboratories](../articles/04-domains/healthcare/clinical-lab-analytics/A Production-Ready Framework for Multiplicity Control and Quality Control in Clinical Laboratories.md) — _2026-03-20_
+- [A Proposal to Experimentally - Cavity Quantum Electrodynamics](../articles/04-domains/meta-relativity/A Proposal to Experimentally - Cavity Quantum Electrodynamics.md) — _2026-03-20_
+- [A Proposal to Experimentally - Cavity Quantum Electrodynamics](../articles/02-implementations/q-calculator/A Proposal to Experimentally - Cavity Quantum Electrodynamics.md) — _2026-03-20_
+- [A Protocol for Offline Reinforcement Learning to Optimize Vasopressor Dosing in the Intensive Care Unit](../articles/04-domains/healthcare/rl-vassopressor/A Protocol for Offline Reinforcement Learning to Optimize Vasopressor Dosing in the Intensive Care Unit.md) — _2026-03-20_
+- [A State-Space Framework for Simulating and Optimizing Clinical Trials in Brain Aging](../articles/04-domains/healthcare/brain-aging/A State-Space Framework for Simulating and Optimizing Clinical Trials in Brain Aging.md) — _2026-03-20_
+- [A Student_s Guide to a Real-World A_B Test](../articles/05-systems/ui-ux/A Student_s Guide to a Real-World A_B Test.md) — _2026-03-20_
+- [A System and Method for Quantum-Recursive Artificial Intelligence](../articles/02-implementations/q-calculator/A System and Method for Quantum-Recursive Artificial Intelligence.md) — _2026-03-20_
+- [A Technical and Mathematical Overview (QARI) System](../articles/02-implementations/q-calculator/A Technical and Mathematical Overview (QARI) System.md) — _2026-03-20_
+- [A Technical Evaluation of Neutral-Atom Platforms for Industrial Quantum Chemistry](../articles/02-implementations/atomic-calculator/A Technical Evaluation of Neutral-Atom Platforms for Industrial Quantum Chemistry.md) — _2026-03-20_
+- [A Technical Review_ Multiplicity-Bohmian Dynamics](../articles/00-foundations/mathematics/bohmian/A Technical Review_ Multiplicity-Bohmian Dynamics.md) — _2026-03-20_
+- [A Technical White Paper_ A Minimal, Clinically Grounded Protocol for Early-Risk Prediction of Type 2 Diabetes](../articles/04-domains/healthcare/healthspan/A Technical White Paper_ A Minimal, Clinically Grounded Protocol for Early-Risk Prediction of Type 2 Diabetes.md) — _2026-03-20_
+- [A Technical Whitepaper on Offline Reinforcement Learning for Optimizing ICU Vasopressor Dosing](../articles/04-domains/healthcare/rl-vassopressor/A Technical Whitepaper on Offline Reinforcement Learning for Optimizing ICU Vasopressor Dosing.md) — _2026-03-20_
+- [A Technical Whitepaper_ Adaptive UX](../articles/02-implementations/q-calculator/A Technical Whitepaper_ Adaptive UX.md) — _2026-03-20_
+- [A Technical Whitepaper_ Adaptive UX](../articles/05-systems/ui-ux/A Technical Whitepaper_ Adaptive UX.md) — _2026-03-20_
+- [A Unified Framework](../articles/03-case-studies/A Unified Framework.md) — _2026-03-20_
+- [A Verifiable Trust Ecosystem](../articles/02-implementations/q-calculator/A Verifiable Trust Ecosystem.md) — _2026-03-20_
+- [A-MACHINELEARN](../articles/05-systems/automata/A-MACHINELEARN.md) — _2026-03-20_
+- [A-THEORYLOGIC](../articles/05-systems/automata/A-THEORYLOGIC.md) — _2026-03-20_
+- [A.N. Kolmogorov](../articles/06-people/A.N. Kolmogorov.md) — _2026-03-20_
+- [A5746A77-316C-4EEE-B7C4-3974DC9D4690](../articles/06-people/joshua-brewer/A5746A77-316C-4EEE-B7C4-3974DC9D4690.md) — _2026-03-20_
+- [A_Unified_Computational_Ontology](../articles/04-domains/meta-relativity/A_Unified_Computational_Ontology.md) — _2026-03-20_
+- [A_Unified_Computational_Ontology](../articles/05-systems/strata14/A_Unified_Computational_Ontology.md) — _2026-03-20_
+- [Abhay Ashtekar](../articles/06-people/Abhay Ashtekar.md) — _2026-03-20_
+- [Ac-os V0](../articles/03-case-studies/Ac-os V0.md) — _2026-03-20_
+- [ACE](../articles/06-people/tyler-vanosdol/ACE.md) — _2026-03-20_
+- [ACE-SCN Formal Specification](../articles/03-case-studies/ACE-SCN Formal Specification.md) — _2026-03-20_
+- [ACESQD](../articles/00-foundations/imd/ACESQD.md) — _2026-03-20_
+- [ACFL Module Development Blueprint for Digital-Twin](../articles/05-systems/engines/acfl/ACFL Module Development Blueprint for Digital-Twin.md) — _2026-03-20_
+- [ACFL-vs-Multiplicity-Comparison](../articles/05-systems/fuzzy-logic/ACFL-vs-Multiplicity-Comparison.md) — _2026-03-20_
+- [ACFL_dev_blueprint](../articles/05-systems/engines/acfl/ACFL_dev_blueprint.md) — _2026-03-20_
+- [Ada Lovelace](../articles/06-people/Ada Lovelace.md) — _2026-03-20_
+- [Adam Ries](../articles/06-people/Adam Ries.md) — _2026-03-20_
+- [Adaptive UI_UX](../articles/02-implementations/q-calculator/Adaptive UI_UX.md) — _2026-03-20_
+- [Adaptive UI_UX](../articles/05-systems/ui-ux/Adaptive UI_UX.md) — _2026-03-20_
+- [Adaptive Ux Engine - Technical Blueprint](../articles/02-implementations/q-calculator/Adaptive Ux Engine - Technical Blueprint.md) — _2026-03-20_
+- [Addendum_Power_Loop_for_computer](../articles/06-people/ken-parrot/Addendum_Power_Loop_for_computer.md) — _2026-03-20_
+- [Adi Shamir](../articles/06-people/Adi Shamir.md) — _2026-03-20_
+- [ADR Development Plan: Semantic Hypercomputational Number Field](../articles/05-systems/hypercompute/ADR-PLAN-Semantic-Hypercomputational-Number-Field.md) — _2026-03-20_
+- [ADR-005 HITL-PMD](../articles/05-systems/engines/ADR-005 HITL-PMD.md) — _2026-03-20_
+- [ADR-005 STRUCTURAL EVOLUTION ENGINE — DEVELOPMENT BLUEPRINT](../articles/05-systems/engines/ADR-005_Dev_Blueprint.md) — _2026-03-20_
+- [ADR-SHF-001: Semantic Ontology and Sheaf Contract](../articles/05-systems/hypercompute/ADR-SHF-001-semantic-ontology-and-sheaf-contract.md) — _2026-03-20_
+- [ADR-SHF-002: Prime-Indexed Dynamics Core](../articles/05-systems/hypercompute/ADR-SHF-002-prime-indexed-dynamics-core.md) — _2026-03-20_
+- [ADR-SHF-003: Number Field Stratification and Morphisms](../articles/05-systems/hypercompute/ADR-SHF-003-number-field-stratification-and-morphisms.md) — _2026-03-20_
+- [ADR-SHF-004: Computational Reference Stack and Reproducibility](../articles/05-systems/hypercompute/ADR-SHF-004-computational-reference-stack-and-reproducibility.md) — _2026-03-20_
+- [ADR-SHF-005: Validation Gates and Evidence Protocol](../articles/05-systems/hypercompute/ADR-SHF-005-validation-gates-and-evidence-protocol.md) — _2026-03-20_
+- [ADR-SHF-006: Hardware Mapping and Safety Boundaries](../articles/05-systems/hypercompute/ADR-SHF-006-hardware-mapping-and-safety-boundaries.md) — _2026-03-20_
+- [ADR-SHF-XXX: <Title>](../articles/05-systems/hypercompute/ADR-TEMPLATE.md) — _2026-03-20_
+- [Advancements](../articles/03-case-studies/Advancements.md) — _2026-03-20_
+- [Advisory Board](../articles/03-case-studies/Advisory Board.md) — _2026-03-20_
+- [Agentic AI Section](../articles/00-foundations/phase-mirror/Agentic AI Section.md) — _2026-03-20_
+- [Agentic Domain-Specific Reasoning](../articles/00-foundations/phase-mirror/Agentic Domain-Specific Reasoning.md) — _2026-03-20_
+- [AI juggernaut](../articles/02-implementations/q-calculator/AI juggernaut.md) — _2026-03-20_
+- [Akshay Venkatesh](../articles/06-people/Akshay Venkatesh.md) — _2026-03-20_
+- [Al-Biruni](../articles/06-people/Al-Biruni.md) — _2026-03-20_
+- [AL-GFT - Thematic Analysis_ The Evolution of Gravity into a Complex Open System](../articles/04-domains/meta-relativity/AL-GFT - Thematic Analysis_ The Evolution of Gravity into a Complex Open System.md) — _2026-03-20_
+- [AL-GFT _ CEQG-RG-Langevin](../articles/04-domains/meta-relativity/AL-GFT _ CEQG-RG-Langevin.md) — _2026-03-20_
+- [Al-Samaw_a](../articles/06-people/Al-Samaw_a.md) — _2026-03-20_
+- [Al-Uqlidisi](../articles/06-people/Al-Uqlidisi.md) — _2026-03-20_
+- [Alan Aspect](../articles/06-people/Alan Aspect.md) — _2026-03-20_
+- [Alan Aspuru-Guzik](../articles/06-people/Alan Aspuru-Guzik.md) — _2026-03-20_
+- [Albert Barbasi](../articles/06-people/Albert Barbasi.md) — _2026-03-20_
+- [Albert Einstein](../articles/06-people/albert-einstein/Albert Einstein.md) — _2026-03-20_
+- [Albert Fert](../articles/06-people/Albert Fert.md) — _2026-03-20_
+- [Albert Hibbs](../articles/06-people/Albert Hibbs.md) — _2026-03-20_
+- [Alberto Peruzzo](../articles/06-people/Alberto Peruzzo.md) — _2026-03-20_
+- [ALE_GFT](../articles/04-domains/meta-relativity/ALE_GFT.md) — _2026-03-20_
+- [Alena Tensors](../articles/05-systems/algorithms/Alena Tensors.md) — _2026-03-20_
+- [Alex Gleason](../articles/06-people/Alex Gleason.md) — _2026-03-20_
+- [Alex Pentland](../articles/06-people/Alex Pentland.md) — _2026-03-20_
+- [Alexander Bogaychuk](../articles/06-people/Alexander Bogaychuk.md) — _2026-03-20_
+- [Alexander Bogaychuk (Rus)](../articles/06-people/Alexander Bogaychuk (Rus).md) — _2026-03-20_
+- [Alexander Thom](../articles/06-people/Alexander Thom.md) — _2026-03-20_
+- [Alexei Efros](../articles/06-people/Alexei Efros.md) — _2026-03-20_
+- [Alfred North Whitehead](../articles/06-people/Alfred North Whitehead.md) — _2026-03-20_
+- [Alfred Wegener](../articles/06-people/Alfred Wegener.md) — _2026-03-20_
+- [Algebra, Algorithms, Orders, and Validation](../articles/00-foundations/mathematics/pells/Algebra, Algorithms, Orders, and Validation.md) — _2026-03-20_
+- [ALGORITHMS 1](../articles/03-case-studies/ALGORITHMS 1.md) — _2026-03-20_
+- [ALGORITHMS 2](../articles/03-case-studies/ALGORITHMS 2.md) — _2026-03-20_
+- [Alp — The Auditable Landauer Principle (canvas Package)](../articles/03-case-studies/Alp — The Auditable Landauer Principle (canvas Package).md) — _2026-03-20_
+- [Alpha Function ](../articles/03-case-studies/Alpha Function .md) — _2026-03-20_
+- [Alpha Function - Clean Math Version](../articles/03-case-studies/Alpha Function - Clean Math Version.md) — _2026-03-20_
+- [Alpha Function_](../articles/05-systems/q-maths/Alpha Function_.md) — _2026-03-20_
+- [Alpha Hydrogen](../articles/04-domains/meta-relativity/Alpha Hydrogen.md) — _2026-03-20_
+- [Alpha Zeta](../articles/03-case-studies/Alpha Zeta.md) — _2026-03-20_
+- [Amalie Emmy Noether](../articles/06-people/Amalie Emmy Noether.md) — _2026-03-20_
+- [Amanda Peet](../articles/06-people/Amanda Peet.md) — _2026-03-20_
+- [Amit Goswami](../articles/06-people/Amit Goswami.md) — _2026-03-20_
+- [An Ethics Primer_ The Sovereignty-First Framework for Psychological Research](../articles/02-implementations/soulaware/An Ethics Primer_ The Sovereignty-First Framework for Psychological Research.md) — _2026-03-20_
+- [An Integrated Curriculum Framework for Quantum & Systems Education](../articles/04-domains/education/An Integrated Curriculum Framework for Quantum & Systems Education.md) — _2026-03-20_
+- [An Introduction to Moral Physics_ Making Ethics Computable](../articles/04-domains/moral-physics/An Introduction to Moral Physics_ Making Ethics Computable.md) — _2026-03-20_
+- [An Introduction to Multiplicity Theory for Adaptive UX](../articles/02-implementations/q-calculator/An Introduction to Multiplicity Theory for Adaptive UX.md) — _2026-03-20_
+- [An Introduction to Multiplicity Theory_ Building Better Government and Fairer Justice](../articles/00-foundations/citizen-gardens/An Introduction to Multiplicity Theory_ Building Better Government and Fairer Justice.md) — _2026-03-20_
+- [An Intuitive Guide to Meta-Relativity_ Analogies for a New Reality](../articles/04-domains/meta-relativity/An Intuitive Guide to Meta-Relativity_ Analogies for a New Reality.md) — _2026-03-20_
+- [Analysis of Novelty and Practicality](../articles/04-domains/governance/DAWK.md) — _2026-03-20_
+- [Analysis of Novelty and Practicality Your proposed analogy between building](../articles/04-domains/governance/Gov-AI Research.docx.md) — _2026-03-20_
+- [Analysis of the Enhanced LLML Formula](../articles/06-people/joshua-brewer/Analysis of the Enhanced LLML Formula.md) — _2026-03-20_
+- [Anders Frisk Kockum](../articles/06-people/Anders Frisk Kockum.md) — _2026-03-20_
+- [Andrey Markov](../articles/06-people/Andrey Markov.md) — _2026-03-20_
+- [Andrey Tikhonov](../articles/06-people/Andrey Tikhonov.md) — _2026-03-20_
+- [Ankur Moitra](../articles/06-people/Ankur Moitra.md) — _2026-03-20_
+- [Anthony Aveni](../articles/06-people/Anthony Aveni.md) — _2026-03-20_
+- [Anthropology](../articles/06-people/Anthropology.md) — _2026-03-20_
+- [Anton Zeilinger](../articles/06-people/Anton Zeilinger.md) — _2026-03-20_
+- [Antonio Torralba](../articles/06-people/Antonio Torralba.md) — _2026-03-20_
+- [AOI](../articles/00-foundations/citizen-gardens/AOI.md) — _2026-03-20_
+- [Apollonius of Perga_](../articles/06-people/Apollonius of Perga_.md) — _2026-03-20_
+- [App Blueprint](../articles/02-implementations/q-calculator/App Blueprint.md) — _2026-03-20_
+- [APS Template](../articles/03-case-studies/APS Template.md) — _2026-03-20_
+- [Archaeo-Egypt](../articles/03-case-studies/Archaeo-Egypt.md) — _2026-03-20_
+- [Archaeology](../articles/03-case-studies/Archaeology.md) — _2026-03-20_
+- [Archimedes](../articles/06-people/Archimedes.md) — _2026-03-20_
+- [Archive200.project-Computer Vision (1)](../articles/04-domains/meta-relativity/Archive200.project-Computer Vision (1).md) — _2026-03-20_
+- [Arieh Warshel](../articles/06-people/Arieh Warshel.md) — _2026-03-20_
+- [Aristotle](../articles/06-people/Aristotle.md) — _2026-03-20_
+- [Arithmetic Metaphysics Curriculum](../articles/04-domains/education/Arithmetic Metaphysics Curriculum.md) — _2026-03-20_
+- [Arithmetic_Control_Engine](../articles/06-people/tyler-vanosdol/Arithmetic_Control_Engine.md) — _2026-03-20_
+- [Arithmetic_Control_Engine__AU_](../articles/00-foundations/imd/Arithmetic_Control_Engine__AU_.md) — _2026-03-20_
+- [Arnold Siegel](../articles/06-people/Arnold Siegel.md) — _2026-03-20_
+- [Arnold Sommerfeld](../articles/06-people/Arnold Sommerfeld.md) — _2026-03-20_
+- [Arnold_Seigel (1)](../articles/06-people/Arnold_Seigel (1).md) — _2026-03-20_
+- [Arnold_Seigel (1)](../articles/03-case-studies/Arnold_Seigel (1).md) — _2026-03-20_
+- [ARNOLDSCATMAP](../articles/05-systems/algorithms/ARNOLDSCATMAP.md) — _2026-03-20_
+- [Articles](../articles/00-foundations/citizen-gardens/Articles.md) — _2026-03-20_
+- [Artistic Control and Expressive Rendering with Prime-Indexed Color Mapping](../articles/03-case-studies/aesthetics/Artistic Control and Expressive Rendering with Prime-Indexed Color Mapping.md) — _2026-03-20_
+- [Aryabhata](../articles/06-people/Aryabhata.md) — _2026-03-20_
+- [ASD Echo Braid](../articles/03-case-studies/ASD Echo Braid.md) — _2026-03-20_
+- [ASD_Echo_Braid](../articles/02-implementations/echobraid/ASD_Echo_Braid.md) — _2026-03-20_
+- [Aspectual Counting — Axioms, Theorems, Dynamics, And Random Aspects (canvas Edition)](../articles/03-case-studies/Aspectual Counting — Axioms, Theorems, Dynamics, And Random Aspects (canvas Edition).md) — _2026-03-20_
+- [Aspectual_Counting_Framework](../articles/03-case-studies/Aspectual_Counting_Framework.md) — _2026-03-20_
+- [Associator Spectroscopy — Osf-ready Prereg + Pilot + References](../articles/03-case-studies/Associator Spectroscopy — Osf-ready Prereg + Pilot + References.md) — _2026-03-20_
+- [Astrophysics](../articles/03-case-studies/Astrophysics.md) — _2026-03-20_
+- [Atlas–mr Synergy](../articles/04-domains/meta-relativity/Atlas–mr Synergy.md) — _2026-03-20_
+- [Atomic Language Processing - Revised](../articles/02-implementations/q-calculator/Atomic Language Processing - Revised.md) — _2026-03-20_
+- [Atomic Language Processing - Tech Spec](../articles/02-implementations/q-calculator/Atomic Language Processing - Tech Spec.md) — _2026-03-20_
+- [Atomic Multiplicity](../articles/04-domains/meta-relativity/Atomic Multiplicity.md) — _2026-03-20_
+- [Atomic_Language_Processing](../articles/05-systems/Atomic_Language_Processing.md) — _2026-03-20_
+- [Atomic_Multiplicity](../articles/04-domains/meta-relativity/Atomic_Multiplicity.md) — _2026-03-20_
+- [Atomic_Multiplicity](../articles/02-implementations/atomic-calculator/Atomic_Multiplicity.md) — _2026-03-20_
+- [Augustin-Louis Cauchy](../articles/06-people/Augustin-Louis Cauchy.md) — _2026-03-20_
+- [AutoGrowth](../articles/06-people/joshua-brewer/AutoGrowth.md) — _2026-03-20_
+- [Automata](../articles/03-case-studies/Automata.md) — _2026-03-20_
+- [Ava M Discussion](../articles/03-case-studies/Ava M Discussion.md) — _2026-03-20_
+- [Ava_Fronek](../articles/06-people/team/Ava_Fronek.md) — _2026-03-20_
+- [Aviation_Fire_Suppression](../articles/06-people/ken-parrot/Aviation_Fire_Suppression.md) — _2026-03-20_
+- [AZ-TFTC](../articles/06-people/tyler-vanosdol/AZ-TFTC.md) — _2026-03-20_
+- [B.B. Daniels](../articles/06-people/B.B. Daniels.md) — _2026-03-20_
+- [Balance_Boost](../articles/04-domains/education/Balance_Boost.md) — _2026-03-20_
+- [Balazs Szendroi](../articles/06-people/Balazs Szendroi.md) — _2026-03-20_
+- [Barbara Adam](../articles/06-people/Barbara Adam.md) — _2026-03-20_
+- [Bartel Leendert van der Waerden](../articles/06-people/Bartel Leendert van der Waerden.md) — _2026-03-20_
+- [Bayo Akomolafe](../articles/06-people/Bayo Akomolafe.md) — _2026-03-20_
+- [Becoming-two Vs Being-two — Twoness As Functorial Forgetting (with External References)](../articles/03-case-studies/Becoming-two Vs Being-two — Twoness As Functorial Forgetting (with External References).md) — _2026-03-20_
+- [Bees_and_Flowers](../articles/06-people/ken-parrot/Bees_and_Flowers.md) — _2026-03-20_
+- [Beginner_s Guide](../articles/04-domains/semiotic-physics/Beginner_s Guide.md) — _2026-03-20_
+- [Beginner_s Guide](../articles/05-systems/strata14/Beginner_s Guide.md) — _2026-03-20_
+- [Ben Green](../articles/06-people/Ben Green.md) — _2026-03-20_
+- [Ben Schniederman](../articles/06-people/Ben Schniederman.md) — _2026-03-20_
+- [Benchmark plan to measure Π‑Kernel](../articles/05-systems/Π‑kernel/Benchmark plan to measure Π‑Kernel.md) — _2026-03-20_
+- [Benchmark plan to measure Π‑Kernel latency overhea](../articles/05-systems/Π‑kernel/Benchmark plan to measure Π‑Kernel latency overhea.md) — _2026-03-20_
+- [Bene](../articles/06-people/team/Bene.md) — _2026-03-20_
+- [Bernhard Riemann](../articles/06-people/Bernhard Riemann.md) — _2026-03-20_
+- [Beyond Personalization_ The Business Imperative for Adaptive UX with Multiplicity Theory](../articles/02-implementations/q-calculator/Beyond Personalization_ The Business Imperative for Adaptive UX with Multiplicity Theory.md) — _2026-03-20_
+- [Bhāskara I](../articles/06-people/Bhāskara I.md) — _2026-03-20_
+- [Big Data](../articles/06-people/Big Data.md) — _2026-03-20_
+- [Big Ideas in Science July 20, 2025](../articles/04-domains/education/Big Ideas in Science July 20, 2025.md) — _2026-03-20_
+- [Binary Feedback Loops](../articles/03-case-studies/Binary Feedback Loops.md) — _2026-03-20_
+- [Biology and Drug Discovery](../articles/06-people/chris-mcginty/Biology and Drug Discovery.md) — _2026-03-20_
+- [bioRxiv Template](../articles/03-case-studies/bioRxiv Template.md) — _2026-03-20_
+- [BLACK-SHOLES](../articles/05-systems/algorithms/BLACK-SHOLES.md) — _2026-03-20_
+- [Blueprint  PCV (Node 593) Simulator](../articles/02-implementations/chromatic-vision/Blueprint  PCV (Node 593) Simulator.md) — _2026-03-20_
+- [Blueprint for The Prime-Indexed Color Mapping Engine](../articles/03-case-studies/aesthetics/Blueprint for The Prime-Indexed Color Mapping Engine.md) — _2026-03-20_
+- [BMI EKG](../articles/03-case-studies/BMI EKG.md) — _2026-03-20_
+- [BMI___EKG](../articles/04-domains/healthcare/BMI___EKG.md) — _2026-03-20_
+- [Boat_Propulsion](../articles/06-people/ken-parrot/Boat_Propulsion.md) — _2026-03-20_
+- [Bohmian Dynamics](../articles/00-foundations/mathematics/bohmian/Bohmian Dynamics.md) — _2026-03-20_
+- [Boundary–spectral Governance — Regime Dossier System (v1](../articles/03-case-studies/Boundary–spectral Governance — Regime Dossier System (v1.md) — _2026-03-20_
+- [Brahmagupta](../articles/06-people/Brahmagupta.md) — _2026-03-20_
+- [Brain Aging](../articles/04-domains/healthcare/brain-aging/Brain Aging.md) — _2026-03-20_
+- [Brain_Aging_State_space_Framework](../articles/04-domains/healthcare/brain-aging/Brain_Aging_State_space_Framework.md) — _2026-03-20_
+- [Brian Cox](../articles/06-people/Brian Cox.md) — _2026-03-20_
+- [Bryson Daudi Kinyaduka](../articles/06-people/Bryson Daudi Kinyaduka.md) — _2026-03-20_
+- [Béla Bollobás](../articles/06-people/Béla Bollobás.md) — _2026-03-20_
+- [C-SHELL](../articles/05-systems/controllers/C-SHELL.md) — _2026-03-20_
+- [C-ZETA](../articles/05-systems/controllers/C-ZETA.md) — _2026-03-20_
+- [C.R. Kunferman](../articles/06-people/C.R. Kunferman.md) — _2026-03-20_
+- [Candace Pert](../articles/06-people/Candace Pert.md) — _2026-03-20_
+- [Cardiovascular](../articles/03-case-studies/Cardiovascular.md) — _2026-03-20_
+- [Cardiovascular_Disease](../articles/04-domains/healthcare/Cardiovascular_Disease.md) — _2026-03-20_
+- [Carl Boyer](../articles/06-people/Carl Boyer.md) — _2026-03-20_
+- [Carl Gauss](../articles/06-people/Carl Gauss.md) — _2026-03-20_
+- [Categorical Extension — Π‑kernel As Runtime Endofunctor With Multiplicity Conservation](../articles/05-systems/Π‑kernel/Categorical Extension — Π‑kernel As Runtime Endofunctor With Multiplicity Conservation.md) — _2026-03-20_
+- [Categorical_Arithmetic_Complete_Formalization](../articles/00-foundations/mathematics/Categorical_Arithmetic_Complete_Formalization.md) — _2026-03-20_
+- [Categorical_Arithmetic_Complete_Formalization](../articles/02-implementations/q-calculator/Categorical_Arithmetic_Complete_Formalization.md) — _2026-03-20_
+- [Cathy O_Neil](../articles/06-people/Cathy O_Neil.md) — _2026-03-20_
+- [Ccn V2 Minimal Axioms + Representation Theorem (finite Case)](../articles/03-case-studies/Ccn V2 Minimal Axioms + Representation Theorem (finite Case).md) — _2026-03-20_
+- [CCRE Integration Implications for CRMF and ACFL](../articles/05-systems/engines/ccre/CCRE Integration Implications for CRMF and ACFL.md) — _2026-03-20_
+- [CCRE Integration Implications for CRMF and ACFL(1)](../articles/05-systems/engines/ccre/CCRE Integration Implications for CRMF and ACFL(1).md) — _2026-03-20_
+- [CCRE Module for DNA KEY: Phased Development Blueprint](../articles/05-systems/engines/ccre/CCRE Module Blueprint.md) — _2026-03-20_
+- [Cen Yildirim](../articles/06-people/Cen Yildirim.md) — _2026-03-20_
+- [CEQG-RG-Langevin Blueprint](../articles/04-domains/meta-relativity/CEQG-RG-Langevin Blueprint.md) — _2026-03-20_
+- [Certificate-by-resonance_ Elpi Swap Search + F_ Ncomm Kernel (mvp Spec)](../articles/03-case-studies/Certificate-by-resonance_ Elpi Swap Search + F_ Ncomm Kernel (mvp Spec).md) — _2026-03-20_
+- [Certified Control in the Mitobit Pipeline_ An Analysis of the ACE Safety Envelope and PETC Invariants](../articles/06-people/tyler-vanosdol/Certified Control in the Mitobit Pipeline_ An Analysis of the ACE Safety Envelope and PETC Invariants.md) — _2026-03-20_
+- [Certified Multiplicity Governance (cmg) — Formal Spec + Minimal Implementation Plan](../articles/03-case-studies/Certified Multiplicity Governance (cmg) — Formal Spec + Minimal Implementation Plan.md) — _2026-03-20_
+- [Certified Multiplicity Governance (cmg) — Formal Spec + Minimal Implementation Plan](../articles/06-people/tyler-vanosdol/Certified Multiplicity Governance (cmg) — Formal Spec + Minimal Implementation Plan.md) — _2026-03-20_
+- [Certified Multiplicity Governance (cmg) — Formal Spec + Minimal Implementation Plan](../articles/04-domains/governance/Certified Multiplicity Governance (cmg) — Formal Spec + Minimal Implementation Plan.md) — _2026-03-20_
+- [Certified Resonant Multiplicity Field (CRMF)](../articles/05-systems/engines/crmf/Certified Resonant Multiplicity Field (CRMF).md) — _2026-03-20_
+- [CG GPT instructions](../articles/03-case-studies/CG GPT instructions.md) — _2026-03-20_
+- [CG White Paper](../articles/04-domains/social-physics/CG White Paper.md) — _2026-03-20_
+- [CG_Ein](../articles/00-foundations/citizen-gardens/CG_Ein.md) — _2026-03-20_
+- [CGMH](../articles/00-foundations/citizen-gardens/CGMH.md) — _2026-03-20_
+- [CGMH (Autosaved)](../articles/00-foundations/citizen-gardens/CGMH (Autosaved).md) — _2026-03-20_
+- [Char-adapt-r3-bd-jis-r++ Formal Spec (d3c-om2)](../articles/03-case-studies/Char-adapt-r3-bd-jis-r++ Formal Spec (d3c-om2).md) — _2026-03-20_
+- [Check & Balance](../articles/00-foundations/citizen-gardens/Check & Balance.md) — _2026-03-20_
+- [Chris McGinty](../articles/06-people/Chris McGinty.md) — _2026-03-20_
+- [Christiaan Huygens](../articles/06-people/Christiaan Huygens.md) — _2026-03-20_
+- [Christian Møller_](../articles/06-people/Christian Møller_.md) — _2026-03-20_
+- [Christos H. Papadimitriou ](../articles/06-people/Christos H. Papadimitriou .md) — _2026-03-20_
+- [Christos H. Papadimitriou_](../articles/06-people/Christos H. Papadimitriou_.md) — _2026-03-20_
+- [Citizens](../articles/00-foundations/citizen-gardens/Citizens.md) — _2026-03-20_
+- [Clackamas Single‑file Motion — Truth‑lock + Legalese Scopist (ready To Fill)](../articles/00-foundations/citizen-gardens/Clackamas Single‑file Motion — Truth‑lock + Legalese Scopist (ready To Fill).md) — _2026-03-20_
+- [Clackamas Single‑file Motion — Truth‑lock + Legalese Scopist (ready To Fill) (1)](../articles/00-foundations/citizen-gardens/Clackamas Single‑file Motion — Truth‑lock + Legalese Scopist (ready To Fill) (1).md) — _2026-03-20_
+- [Claim Traceability Matrix (ADR-SHF-005)](../articles/05-systems/hypercompute/claim-traceability-matrix.md) — _2026-03-20_
+- [Classical Physics](../articles/04-domains/meta-relativity/Classical Physics.md) — _2026-03-20_
+- [Claude Cohen-Tannoudji](../articles/06-people/Claude Cohen-Tannoudji.md) — _2026-03-20_
+- [Claude Shannon](../articles/06-people/Claude Shannon.md) — _2026-03-20_
+- [Claude-Louis Navier](../articles/06-people/Claude-Louis Navier.md) — _2026-03-20_
+- [Claudia Hammond](../articles/06-people/Claudia Hammond.md) — _2026-03-20_
+- [Clay J Carter](../articles/06-people/Clay J Carter.md) — _2026-03-20_
+- [Clemens Utschig](../articles/06-people/Clemens Utschig.md) — _2026-03-20_
+- [Clinical_Lab_Analytics](../articles/04-domains/healthcare/clinical-lab-analytics/Clinical_Lab_Analytics.md) — _2026-03-20_
+- [Clive Ruggles](../articles/06-people/Clive Ruggles.md) — _2026-03-20_
+- [Cmfc Definition (theorem-ready Rewrite Of Equations (1)–(5))](../articles/03-case-studies/Cmfc Definition (theorem-ready Rewrite Of Equations (1)–(5)).md) — _2026-03-20_
+- [Coding Library](../articles/06-people/Coding Library.md) — _2026-03-20_
+- [Coding Programming](../articles/03-case-studies/Coding Programming.md) — _2026-03-20_
+- [Codon Contrast Outline](../articles/04-domains/healthcare/codon-contrast/Codon Contrast Outline.md) — _2026-03-20_
+- [Codon Contrast Repo](../articles/04-domains/healthcare/codon-contrast/Codon Contrast Repo.md) — _2026-03-20_
+- [Codon-Contrast_ A Technical Whitepaper on Deterministic Codon Differencing and Biophysical Feature Engineering](../articles/04-domains/healthcare/codon-contrast/Codon-Contrast_ A Technical Whitepaper on Deterministic Codon Differencing and Biophysical Feature Engineering.md) — _2026-03-20_
+- [Codon-Contrast_ Deterministic Codon Diffs with Walsh–Hadamard Biophysical Contrasts and Fast Flow Metrics](../articles/04-domains/healthcare/codon-contrast/Codon-Contrast_ Deterministic Codon Diffs with Walsh–Hadamard Biophysical Contrasts and Fast Flow Metrics.md) — _2026-03-20_
+- [Codon_Contrast](../articles/04-domains/healthcare/codon-contrast/Codon_Contrast.md) — _2026-03-20_
+- [Cognispheric](../articles/06-people/chris-mcginty/Cognispheric.md) — _2026-03-20_
+- [Cognitive_Architecture](../articles/06-people/ken-parrot/Cognitive_Architecture.md) — _2026-03-20_
+- [Cognitive_Crash_Engineering (1)](../articles/03-case-studies/Cognitive_Crash_Engineering (1).md) — _2026-03-20_
+- [Cognitive_Crash_Engineering (1)](../articles/02-implementations/Cognitive_Crash_Engineering (1).md) — _2026-03-20_
+- [Compare Π‑Kernel's security primitives with Linux](../articles/05-systems/Π‑kernel/Compare Π‑Kernel's security primitives with Linux.md) — _2026-03-20_
+- [Compilation](../articles/02-implementations/q-calculator/Compilation.md) — _2026-03-20_
+- [Completing Einstein_s Vision](../articles/06-people/albert-einstein/Completing Einstein_s Vision.md) — _2026-03-20_
+- [Comprehensive Mathematical Overview for Integrating Arkani-Hamed's Work with the MCP](../articles/06-people/Nima Arkani-Hamed.md) — _2026-03-20_
+- [Computer_Vision](../articles/03-case-studies/Computer_Vision.md) — _2026-03-20_
+- [Conscious_Resonance_and_Tensor_Dynamics](../articles/03-case-studies/Conscious_Resonance_and_Tensor_Dynamics.md) — _2026-03-20_
+- [Construction of the Natural Numbers from a Real Exponential Field](../articles/04-domains/meta-relativity/Construction of the Natural Numbers from a Real Exponential Field.md) — _2026-03-20_
+- [Contributors 1](../articles/06-people/Contributors 1.md) — _2026-03-20_
+- [Contributors 2](../articles/06-people/Contributors 2.md) — _2026-03-20_
+- [Contributors 3](../articles/06-people/Contributors 3.md) — _2026-03-20_
+- [Contributors 4](../articles/06-people/Contributors 4.md) — _2026-03-20_
+- [Conversation](../articles/03-case-studies/Conversation.md) — _2026-03-20_
+- [Copy of M-education HEP Focus](../articles/04-domains/education/Copy of M-education HEP Focus.md) — _2026-03-20_
+- [Copy of Machine_Learning___AGI](../articles/06-people/Copy of Machine_Learning___AGI.md) — _2026-03-20_
+- [Copy of Multiplicity Theory](../articles/06-people/Copy of Multiplicity Theory.md) — _2026-03-20_
+- [corp_so100](../articles/00-foundations/citizen-gardens/corp_so100.md) — _2026-03-20_
+- [Coupled_Harmonic_Oscillators](../articles/03-case-studies/Coupled_Harmonic_Oscillators.md) — _2026-03-20_
+- [Cp-ume Revision Spec And Drop-in Manuscript Section](../articles/03-case-studies/Cp-ume Revision Spec And Drop-in Manuscript Section.md) — _2026-03-20_
+- [Cpo+ Unified Testbench Spec](../articles/03-case-studies/Cpo+ Unified Testbench Spec.md) — _2026-03-20_
+- [CRMF_dev_blueprint](../articles/05-systems/engines/crmf/CRMF_dev_blueprint.md) — _2026-03-20_
+- [CSL](../articles/03-case-studies/CSL.md) — _2026-03-20_
+- [Curriculum Overview](../articles/04-domains/education/Curriculum Overview.md) — _2026-03-20_
+- [d](../articles/03-case-studies/d.md) — _2026-03-20_
+- [D8F99588-1FF1-456F-81F3-17CBF522658D](../articles/06-people/joshua-brewer/D8F99588-1FF1-456F-81F3-17CBF522658D.md) — _2026-03-20_
+- [D8F99588-1FF1-456F-81F3-17CBF522658D (1)](../articles/06-people/joshua-brewer/D8F99588-1FF1-456F-81F3-17CBF522658D (1).md) — _2026-03-20_
+- [Dance Me Through the Panic_ A Story of Dissonance and Recovery](../articles/02-implementations/soulaware/Dance Me Through the Panic_ A Story of Dissonance and Recovery.md) — _2026-03-20_
+- [Daniel Goldston](../articles/06-people/Daniel Goldston.md) — _2026-03-20_
+- [DAO Charter](../articles/02-implementations/Λproof/DAO Charter.md) — _2026-03-20_
+- [Data Sovereignty Informational Personhood](../articles/02-implementations/q-calculator/Data Sovereignty Informational Personhood.md) — _2026-03-20_
+- [David Bohm](../articles/06-people/David Bohm.md) — _2026-03-20_
+- [David Deutsch](../articles/06-people/David Deutsch.md) — _2026-03-20_
+- [David Griffiths](../articles/06-people/David Griffiths.md) — _2026-03-20_
+- [David Gross](../articles/06-people/David Gross.md) — _2026-03-20_
+- [David Husk](../articles/06-people/David Husk.md) — _2026-03-20_
+- [David Kipping](../articles/06-people/David Kipping.md) — _2026-03-20_
+- [David Marr](../articles/06-people/David Marr.md) — _2026-03-20_
+- [Davie Wineland](../articles/06-people/Davie Wineland.md) — _2026-03-20_
+- [DAWK - Implementation and Validation Guide](../articles/04-domains/governance/DAWK - Implementation and Validation Guide.md) — _2026-03-20_
+- [DAWK Blueprint](../articles/04-domains/governance/DAWK Blueprint.md) — _2026-03-20_
+- [Dawk V1 Final Specification And Validation Plan](../articles/04-domains/governance/Dawk V1 Final Specification And Validation Plan.md) — _2026-03-20_
+- [DCGF](../articles/04-domains/governance/DCGF.md) — _2026-03-20_
+- [DCGF - A Unified Model for AI Systems and Public Policy](../articles/04-domains/governance/DCGF - A Unified Model for AI Systems and Public Policy.md) — _2026-03-20_
+- [DCGF.docx](../articles/04-domains/governance/DCGF.docx.md) — _2026-03-20_
+- [Deepak Chopra](../articles/06-people/Deepak Chopra.md) — _2026-03-20_
+- [Defining a unification gauge on the inertial field - rev  113024](../articles/04-domains/meta-relativity/Defining a unification gauge on the inertial field - rev  113024.md) — _2026-03-20_
+- [Demos Page](../articles/00-foundations/phase-mirror/Demos Page.md) — _2026-03-20_
+- [Deployment Req](../articles/02-implementations/Λproof/Deployment Req.md) — _2026-03-20_
+- [Derek Kimball](../articles/06-people/Derek Kimball.md) — _2026-03-20_
+- [Design microbenchmarks to isolate Π‑Kernel overhea](../articles/05-systems/Π‑kernel/Design microbenchmarks to isolate Π‑Kernel overhea.md) — _2026-03-20_
+- [Detailed Analysis and Integration into the eMEQ Framework](../articles/06-people/david-husk/Untitled document.md) — _2026-03-20_
+- [Determinacy Algebra — Being, Becoming, And Laws That Bite (canvas Edition)](../articles/03-case-studies/Determinacy Algebra — Being, Becoming, And Laws That Bite (canvas Edition).md) — _2026-03-20_
+- [Developing **tensor-based Quantum Neural Network (QNN)** processor algorithms can open new avenues for efficient quantum computing and neural network integration. These algorithms would leverage tensor networks to represent quantum states, entanglement, and complex transformations, ensuring scalability and computational efficiency. Here are some ideas for tensor-based QNN processor algorithms:](../articles/05-systems/processors/NP-TENSOR.md) — _2026-03-20_
+- [Developing Non-Linear Quantum Wave Function Evolution algorithms, particularly within the framework you are discussing, can be approached using several principles of prime-encoded states and quantum feedback mechanisms. Here\'s a comprehensive overview integrating ideas from quantum mechanics, non-linear dynamics, and prime-based computing:](../articles/05-systems/algorithms/WAVEVOLUTION.md) — _2026-03-20_
+- [Diagrammatic Math Education](../articles/04-domains/education/Diagrammatic Math Education.md) — _2026-03-20_
+- [Digital-Anaolog Quantum Computing](../articles/06-people/Digital-Anaolog Quantum Computing.md) — _2026-03-20_
+- [Digital_Twin_Blueprint](../articles/02-implementations/digital-twin/Digital_Twin_Blueprint.md) — _2026-03-20_
+- [Digital_Twin_Blueprint1](../articles/02-implementations/digital-twin/Digital_Twin_Blueprint1.md) — _2026-03-20_
+- [Digital_Twin_Blueprint2](../articles/02-implementations/digital-twin/Digital_Twin_Blueprint2.md) — _2026-03-20_
+- [Digital_Twin_Blueprint3](../articles/02-implementations/digital-twin/Digital_Twin_Blueprint3.md) — _2026-03-20_
+- [Digital_Twin_Blueprint4](../articles/02-implementations/digital-twin/Digital_Twin_Blueprint4.md) — _2026-03-20_
+- [Digital_Twin_Blueprint5](../articles/02-implementations/digital-twin/Digital_Twin_Blueprint5.md) — _2026-03-20_
+- [Dimitry Budker](../articles/06-people/Dimitry Budker.md) — _2026-03-20_
+- [Disclaimer](../articles/02-implementations/echobraid/Disclaimer.md) — _2026-03-20_
+- [Discussion](../articles/06-people/Discussion.md) — _2026-03-20_
+- [Dissipative PH Hamiltonian](../articles/06-people/Dissipative PH Hamiltonian.md) — _2026-03-20_
+- [Dissipative PH Hamiltonian](../articles/03-case-studies/Dissipative PH Hamiltonian.md) — _2026-03-20_
+- [Dmtp × Multiplicity — Integrated Spec & Pilot Kit (canvas)](../articles/02-implementations/soulaware/Dmtp × Multiplicity — Integrated Spec & Pilot Kit (canvas).md) — _2026-03-20_
+- [DNA Key](../articles/04-domains/healthcare/codon-contrast/DNA Key.md) — _2026-03-20_
+- [DNA KEY + CRMF + ΛProof](../articles/05-systems/engines/crmf/DNA KEY + CRMF + ΛProof.md) — _2026-03-20_
+- [document (1)](../articles/03-case-studies/document (1).md) — _2026-03-20_
+- [Don Norman](../articles/06-people/Don Norman.md) — _2026-03-20_
+- [Douglas Hofstadter](../articles/06-people/Douglas Hofstadter.md) — _2026-03-20_
+- [Douglas Stanford](../articles/06-people/Douglas Stanford.md) — _2026-03-20_
+- [Dr. C McGinty](../articles/06-people/chris-mcginty/Dr. C McGinty.md) — _2026-03-20_
+- [Dr. D Husk](../articles/06-people/david-husk/Dr. D Husk.md) — _2026-03-20_
+- [Dr. Husk](../articles/06-people/david-husk/Dr. Husk.md) — _2026-03-20_
+- [Dr. Husk and ALLM](../articles/06-people/david-husk/Dr. Husk and ALLM.md) — _2026-03-20_
+- [Dr. Husk Integration](../articles/06-people/david-husk/Dr. Husk Integration.md) — _2026-03-20_
+- [Dr. J Brewer](../articles/06-people/joshua-brewer/Dr. J Brewer.md) — _2026-03-20_
+- [Dr__Keryn_Johnson](../articles/06-people/Dr__Keryn_Johnson.md) — _2026-03-20_
+- [Dr__Keryn_Johnson](../articles/06-people/team/Dr__Keryn_Johnson.md) — _2026-03-20_
+- [Dream_States](../articles/03-case-studies/Dream_States.md) — _2026-03-20_
+- [Dream_States](../articles/03-case-studies/aesthetics/Dream_States.md) — _2026-03-20_
+- [Driver ABI changes required to support Π‑Kernel](../articles/05-systems/Π‑kernel/Driver ABI changes required to support Π‑Kernel.md) — _2026-03-20_
+- [DRMM](../articles/03-case-studies/DRMM.md) — _2026-03-20_
+- [DRMM](../articles/04-domains/meta-relativity/DRMM.md) — _2026-03-20_
+- [Drmm Core Spec (standing Assumptions + Theorems + Csc)](../articles/03-case-studies/Drmm Core Spec (standing Assumptions + Theorems + Csc).md) — _2026-03-20_
+- [Drmm — Comprehensive Overview](../articles/00-foundations/imd/Drmm — Comprehensive Overview.md) — _2026-03-20_
+- [DRMM_CRC](../articles/00-foundations/imd/DRMM_CRC.md) — _2026-03-20_
+- [DRMM_Operators_Framework](../articles/00-foundations/imd/DRMM_Operators_Framework.md) — _2026-03-20_
+- [DSRDM_Testing](../articles/04-domains/meta-relativity/DSRDM_Testing.md) — _2026-03-20_
+- [Dual-Representation Principle](../articles/00-foundations/phase-mirror/Dual-Representation Principle.md) — _2026-03-20_
+- [Dynamic_K_Framework](../articles/04-domains/meta-relativity/Dynamic_K_Framework.md) — _2026-03-20_
+- [Dynamic_Scaling_Relation_for_Dark_Matter](../articles/04-domains/meta-relativity/Dynamic_Scaling_Relation_for_Dark_Matter.md) — _2026-03-20_
+- [EchoBraid - Applications and Devices](../articles/02-implementations/echobraid/EchoBraid - Applications and Devices.md) — _2026-03-20_
+- [EchoBraid - Citizen Gardens](../articles/02-implementations/echobraid/EchoBraid - Citizen Gardens.md) — _2026-03-20_
+- [EchoBraid - Services](../articles/02-implementations/echobraid/EchoBraid - Services.md) — _2026-03-20_
+- [EchoBraid AI Copilot](../articles/02-implementations/echobraid/EchoBraid AI Copilot.md) — _2026-03-20_
+- [Echoes of the Omega Node](../articles/03-case-studies/Echoes of the Omega Node.md) — _2026-03-20_
+- [Echoes_of_the_Omega_Node](../articles/03-case-studies/Echoes_of_the_Omega_Node.md) — _2026-03-20_
+- [Edward Lorenz](../articles/06-people/Edward Lorenz.md) — _2026-03-20_
+- [Edwin E. Moise](../articles/06-people/Edwin E. Moise.md) — _2026-03-20_
+- [Edwin Hubble](../articles/06-people/Edwin Hubble.md) — _2026-03-20_
+- [Egyptian_engineering_and_math](../articles/06-people/ken-parrot/Egyptian_engineering_and_math.md) — _2026-03-20_
+- [Eigen Fock Space](../articles/06-people/Eigen Fock Space.md) — _2026-03-20_
+- [Einstein](../articles/06-people/albert-einstein/Einstein.md) — _2026-03-20_
+- [Einstein (1)](../articles/06-people/albert-einstein/Einstein (1).md) — _2026-03-20_
+- [Einstein Math](../articles/06-people/albert-einstein/Einstein Math.md) — _2026-03-20_
+- [Einstein QFE](../articles/06-people/albert-einstein/Einstein QFE.md) — _2026-03-20_
+- [Einstein Works](../articles/06-people/albert-einstein/Einstein Works.md) — _2026-03-20_
+- [Einstein_s Quantum Field Predictions (4)](../articles/06-people/albert-einstein/Einstein_s Quantum Field Predictions (4).md) — _2026-03-20_
+- [Ela Jamosmos](../articles/02-implementations/echobraid/Ela Jamosmos.md) — _2026-03-20_
+- [Elastic_Tether_Protocol](../articles/05-systems/elastic-tether/Elastic_Tether_Protocol.md) — _2026-03-20_
+- [Electron Configuration](../articles/04-domains/meta-relativity/Electron Configuration.md) — _2026-03-20_
+- [eLLML](../articles/06-people/joshua-brewer/eLLML.md) — _2026-03-20_
+- [Elon Musk](../articles/06-people/Elon Musk.md) — _2026-03-20_
+- [EMDRA](../articles/03-case-studies/EMDRA.md) — _2026-03-20_
+- [EMDRA 2.0](../articles/03-case-studies/EMDRA 2.0.md) — _2026-03-20_
+- [eMEQ](../articles/06-people/chris-mcginty/eMEQ.md) — _2026-03-20_
+- [eMEQ (1)](../articles/06-people/chris-mcginty/eMEQ (1).md) — _2026-03-20_
+- [eMEQ 2](../articles/06-people/chris-mcginty/eMEQ 2.md) — _2026-03-20_
+- [eMEQ-ext](../articles/06-people/chris-mcginty/eMEQ-ext.md) — _2026-03-20_
+- [eMEQ_biology](../articles/06-people/chris-mcginty/eMEQ_biology.md) — _2026-03-20_
+- [Emergent Gravity](../articles/04-domains/meta-relativity/Emergent Gravity.md) — _2026-03-20_
+- [Energy_as_Substance](../articles/06-people/ken-parrot/Energy_as_Substance.md) — _2026-03-20_
+- [Enhanced_Quantum_Gravity_Framework](../articles/04-domains/meta-relativity/Enhanced_Quantum_Gravity_Framework.md) — _2026-03-20_
+- [Enhanced_Universal_Multiplicity_Equation](../articles/03-case-studies/Enhanced_Universal_Multiplicity_Equation.md) — _2026-03-20_
+- [Enhancing the MEQ Framework](../articles/06-people/chris-mcginty/Enhancing the MEQ Framework.md) — _2026-03-20_
+- [Enhancing the MEQ Framework (1)](../articles/06-people/chris-mcginty/Enhancing the MEQ Framework (1).md) — _2026-03-20_
+- [Enhancing the MEQ Framework (2)](../articles/06-people/chris-mcginty/Enhancing the MEQ Framework (2).md) — _2026-03-20_
+- [Enhancing the MEQ Framework (3)](../articles/06-people/chris-mcginty/Enhancing the MEQ Framework (3).md) — _2026-03-20_
+- [Enhancments](../articles/03-case-studies/Enhancments.md) — _2026-03-20_
+- [Enrico Bombieri](../articles/06-people/Enrico Bombieri.md) — _2026-03-20_
+- [Entangled Aggregation_ Non-associativity As A Closure Defect Under Coarse-grained Composition](../articles/03-case-studies/Entangled Aggregation_ Non-associativity As A Closure Defect Under Coarse-grained Composition.md) — _2026-03-20_
+- [Enterprise Solutions](../articles/00-foundations/phase-mirror/Enterprise Solutions.md) — _2026-03-20_
+- [Epistemic Autoimmunity](../articles/03-case-studies/Epistemic Autoimmunity.md) — _2026-03-20_
+- [eqLLML](../articles/06-people/joshua-brewer/eqLLML.md) — _2026-03-20_
+- [eqLLML (1)](../articles/06-people/joshua-brewer/eqLLML (1).md) — _2026-03-20_
+- [eQMF](../articles/06-people/chris-mcginty/eQMF.md) — _2026-03-20_
+- [Eratosthenes](../articles/06-people/Eratosthenes.md) — _2026-03-20_
+- [Eric Heller](../articles/06-people/Eric Heller.md) — _2026-03-20_
+- [Erich Hückel](../articles/06-people/Erich Hückel.md) — _2026-03-20_
+- [Erik Verlinde](../articles/06-people/Erik Verlinde.md) — _2026-03-20_
+- [Erwin Schrodinger](../articles/06-people/Erwin Schrodinger.md) — _2026-03-20_
+- [Ethical Blockchain](../articles/03-case-studies/Ethical Blockchain.md) — _2026-03-20_
+- [Euclid](../articles/06-people/Euclid.md) — _2026-03-20_
+- [evaluateWitnessGate() should compute the Lipschitz bound internally from a raw output sample, not accept it as a pre-computed input—but using a computation path that is structurally independent from the ContractionCertificate's lipschitzUpper field. The answer preserves ADR-002's independence requirement while closing the trust boundary.](../articles/05-systems/engines/ADR-002.5 EvaluateWitnessGate.md) — _2026-03-20_
+- [Executive Summary](../articles/05-systems/strata14/Executive Summary.md) — _2026-03-20_
+- [Executive Summary: Developing a Stochastic Controller with Randomness Injection](../articles/05-systems/controllers/C-STOCHASTIC.md) — _2026-03-20_
+- [Executive Summary: Development of Zeta Function-Based Predictive Models](../articles/05-systems/zeta/Z-PREDICTIVE.md) — _2026-03-20_
+- [Executive Summary: Integrating Eigen-Gravity into Multiplicity Framework](../articles/06-people/Eigen-Gravity.md) — _2026-03-20_
+- [Executive Summary: Integrating Mother Theory and Supersymmetry into Multiplicity](../articles/04-domains/meta-relativity/Mother Theory, SUSY, & SUPGRA.md) — _2026-03-20_
+- [Exotic Spheres & Multiplicity Topology — Prime-indexed Cobordism Invariants](../articles/03-case-studies/Exotic Spheres & Multiplicity Topology — Prime-indexed Cobordism Invariants.md) — _2026-03-20_
+- [Expanding African Mathematics with Multiplicity Theory](../articles/00-foundations/mathematics/cultural/African.md) — _2026-03-20_
+- [Expanding Ancient Chinese Mathematics with Multiplicity Theory](../articles/00-foundations/mathematics/cultural/Chinese.md) — _2026-03-20_
+- [Expanding Babylonian Mathematics with Multiplicity Theory](../articles/00-foundations/mathematics/cultural/Babylonian.md) — _2026-03-20_
+- [Expanding Calculus Mathematics with Multiplicity Theory](../articles/05-systems/q-maths/Calculus.md) — _2026-03-20_
+- [Expanding Islamic Golden Age Mathematics with Multiplicity Theory](../articles/00-foundations/mathematics/cultural/Islamic.md) — _2026-03-20_
+- [Expanding Mayan Mathematics with Multiplicity Theory](../articles/00-foundations/mathematics/cultural/Mayan.md) — _2026-03-20_
+- [Expanding Pythagorean Mathematics with Multiplicity Theory](../articles/00-foundations/mathematics/cultural/Pythagorean.md) — _2026-03-20_
+- [Expanding Russian Mathematics with Multiplicity Theory](../articles/00-foundations/mathematics/cultural/Russian.md) — _2026-03-20_
+- [Expanding Trigonometry Mathematics with Multiplicity Theory](../articles/05-systems/q-maths/Trigonometry.md) — _2026-03-20_
+- [Expanding Vedic Mathematics and Multiplicity Theory](../articles/00-foundations/mathematics/cultural/Vedic.md) — _2026-03-20_
+- [Experimental Proposal](../articles/00-foundations/universal constant/Experimental Proposal.md) — _2026-03-20_
+- [Expounding on the Quantum Formula for Multiplicity Theory](../articles/04-domains/meta-relativity/multi-gravity.md) — _2026-03-20_
+- [ext-LLML](../articles/06-people/joshua-brewer/ext-LLML.md) — _2026-03-20_
+- [Extending the Framework in G-Theory](../articles/04-domains/meta-relativity/Extensions.md) — _2026-03-20_
+- [Falsifiable Predictions](../articles/04-domains/meta-relativity/Falsifiable Predictions.md) — _2026-03-20_
+- [Fei-Fei Li](../articles/06-people/Fei-Fei Li.md) — _2026-03-20_
+- [Felix Binder](../articles/06-people/Felix Binder.md) — _2026-03-20_
+- [Felix Schönbrodt](../articles/06-people/Felix Schönbrodt.md) — _2026-03-20_
+- [Fibonacci_Operator](../articles/01-operators/Fibonacci_Operator.md) — _2026-03-20_
+- [Field-distribution Engineering In Fractal Nonlinear Capacitors (integrated Manuscript Draft)](../articles/03-case-studies/Field-distribution Engineering In Fractal Nonlinear Capacitors (integrated Manuscript Draft).md) — _2026-03-20_
+- [file directory](../articles/02-implementations/zenolock/file directory.md) — _2026-03-20_
+- [file structure](../articles/02-implementations/zenolock/file structure.md) — _2026-03-20_
+- [Floer Differential](../articles/01-operators/Floer Differential.md) — _2026-03-20_
+- [Floer Differential](../articles/03-case-studies/Floer Differential.md) — _2026-03-20_
+- [Fluid Dynamics](../articles/05-systems/Fluid Dynamics.md) — _2026-03-20_
+- [Flux_Capacitor](../articles/03-case-studies/Flux_Capacitor.md) — _2026-03-20_
+- [formal problem](../articles/06-people/joshua-brewer/formal problem.md) — _2026-03-20_
+- [Foundational Principles and Empirical Probes](../articles/04-domains/meta-relativity/Foundational Principles and Empirical Probes.md) — _2026-03-20_
+- [Foundational Principles and Empirical Probes](../articles/02-implementations/q-calculator/Foundational Principles and Empirical Probes.md) — _2026-03-20_
+- [Fractal Spacetime](../articles/04-domains/meta-relativity/Fractal Spacetime.md) — _2026-03-20_
+- [Fragments Toward a Recursive Science](../articles/03-case-studies/Fragments Toward a Recursive Science.md) — _2026-03-20_
+- [Francois Viète](../articles/06-people/Francois Viète.md) — _2026-03-20_
+- [Frank Neese](../articles/06-people/Frank Neese.md) — _2026-03-20_
+- [Frans van Schooten](../articles/06-people/Frans van Schooten.md) — _2026-03-20_
+- [Friedrich Hund](../articles/06-people/Friedrich Hund.md) — _2026-03-20_
+- [Fritjof Capra](../articles/06-people/Fritjof Capra.md) — _2026-03-20_
+- [Frédéric Barbaresco](../articles/06-people/Frédéric Barbaresco.md) — _2026-03-20_
+- [FUZZYLOGIC](../articles/05-systems/algorithms/FUZZYLOGIC.md) — _2026-03-20_
+- [G-Theory GPT](../articles/04-domains/meta-relativity/G-Theory GPT.md) — _2026-03-20_
+- [G-Theory Outline](../articles/04-domains/meta-relativity/G-Theory Outline.md) — _2026-03-20_
+- [G-Theory Research](../articles/04-domains/meta-relativity/G-Theory Research.md) — _2026-03-20_
+- [G.H. Handy](../articles/06-people/G.H. Handy.md) — _2026-03-20_
+- [G2i Coverletter](../articles/06-people/G2i Coverletter.md) — _2026-03-20_
+- [G_Theory](../articles/04-domains/meta-relativity/G_Theory.md) — _2026-03-20_
+- [G_Theory__Apex_](../articles/03-case-studies/G_Theory__Apex_.md) — _2026-03-20_
+- [G_Theory__Apex_ (1)](../articles/04-domains/meta-relativity/G_Theory__Apex_ (1).md) — _2026-03-20_
+- [Gaussian](../articles/05-systems/q-maths/Gaussian.md) — _2026-03-20_
+- [General & Special Relativity](../articles/06-people/albert-einstein/General & Special Relativity.md) — _2026-03-20_
+- [General Recursive Tensor Framework (GRTF)](../articles/00-foundations/mathematics/cultural/General Recursive Tensor Framework (GRTF).md) — _2026-03-20_
+- [GENETICS](../articles/03-case-studies/GENETICS.md) — _2026-03-20_
+- [Genomic analogy of an AGI immune system](../articles/02-implementations/q-calculator/Genomic analogy of an AGI immune system.md) — _2026-03-20_
+- [Geo-Education ](../articles/04-domains/education/Geo-Education .md) — _2026-03-20_
+- [Geoffrey Hinton](../articles/06-people/Geoffrey Hinton.md) — _2026-03-20_
+- [Geoffrey Ingram Taylor](../articles/06-people/Geoffrey Ingram Taylor.md) — _2026-03-20_
+- [Geoffrey West](../articles/06-people/Geoffrey West.md) — _2026-03-20_
+- [Geometric Tensors](../articles/05-systems/algorithms/Geometric Tensors.md) — _2026-03-20_
+- [Geometry  GR](../articles/03-case-studies/Geometry  GR.md) — _2026-03-20_
+- [Georg Cantor](../articles/06-people/Georg Cantor.md) — _2026-03-20_
+- [Georg Joos](../articles/06-people/Georg Joos.md) — _2026-03-20_
+- [George Eugene](../articles/06-people/George Eugene.md) — _2026-03-20_
+- [Gerald Hawkins](../articles/06-people/Gerald Hawkins.md) — _2026-03-20_
+- [Gerard ‘t Hooft](../articles/06-people/Gerard ‘t Hooft.md) — _2026-03-20_
+- [Girolamo Cardano](../articles/06-people/Girolamo Cardano.md) — _2026-03-20_
+- [Giulio Magli](../articles/06-people/Giulio Magli.md) — _2026-03-20_
+- [Glen E. Bredon](../articles/06-people/Glen E. Bredon.md) — _2026-03-20_
+- [Global Security System](../articles/06-people/Global Security System.md) — _2026-03-20_
+- [Glossary of the IMD Engine Stack](../articles/00-foundations/imd/Glossary of the IMD Engine Stack.md) — _2026-03-20_
+- [Glossary of Trust Block Configuration Parameters](../articles/02-implementations/platos-cave/Glossary of Trust Block Configuration Parameters.md) — _2026-03-20_
+- [glypho-pharmacological engine](../articles/03-case-studies/glypho-pharmacological engine.md) — _2026-03-20_
+- [Go-to-Market Strategy](../articles/00-foundations/phase-mirror/Go-to-Market Strategy.md) — _2026-03-20_
+- [Goal](../articles/00-foundations/citizen-gardens/Goal.md) — _2026-03-20_
+- [Golden Inference](../articles/03-case-studies/Golden Inference.md) — _2026-03-20_
+- [Gottfried Leibniz](../articles/06-people/Gottfried Leibniz.md) — _2026-03-20_
+- [Gov-AI Research](../articles/04-domains/governance/Gov-AI Research.md) — _2026-03-20_
+- [Governance for a Non-Surveillance Digital Ecosystem](../articles/02-implementations/q-calculator/Governance for a Non-Surveillance Digital Ecosystem.md) — _2026-03-20_
+- [GPL compatibility for Π‑Kernel code](../articles/05-systems/Π‑kernel/GPL compatibility for Π‑Kernel code.md) — _2026-03-20_
+- [GPT Instructions](../articles/06-people/GPT Instructions.md) — _2026-03-20_
+- [GPT Instructions](../articles/03-case-studies/GPT Instructions.md) — _2026-03-20_
+- [GPT Reflections](../articles/06-people/GPT Reflections.md) — _2026-03-20_
+- [GPT-Mequation](../articles/06-people/GPT-Mequation.md) — _2026-03-20_
+- [Grant Proposal_ Implementing the Quantum Pedagogy Framework](../articles/04-domains/education/Grant Proposal_ Implementing the Quantum Pedagogy Framework.md) — _2026-03-20_
+- [Gravity with Gravity](../articles/04-domains/meta-relativity/Gravity with Gravity.md) — _2026-03-20_
+- [Green_Battery_Long_life](../articles/06-people/ken-parrot/Green_Battery_Long_life.md) — _2026-03-20_
+- [Gregorio Ricci-Curbastro](../articles/06-people/Gregorio Ricci-Curbastro.md) — _2026-03-20_
+- [Gregory D. Scholes](../articles/06-people/Gregory D. Scholes.md) — _2026-03-20_
+- [Grigori Perelman](../articles/06-people/Grigori Perelman.md) — _2026-03-20_
+- [GTRF Interactive](../articles/03-case-studies/GTRF Interactive.md) — _2026-03-20_
+- [Gugio Fubini](../articles/06-people/Gugio Fubini.md) — _2026-03-20_
+- [Guide to Dynamic Stability](../articles/00-foundations/universal constant/Guide to Dynamic Stability.md) — _2026-03-20_
+- [Gunnar Johansson](../articles/06-people/Gunnar Johansson.md) — _2026-03-20_
+- [GUT_of_Prime_Consciouness](../articles/03-case-studies/GUT_of_Prime_Consciouness.md) — _2026-03-20_
+- [GZeta](../articles/06-people/GZeta.md) — _2026-03-20_
+- [H-Calculator: Phased Development Plan, File Scaffold & Test Bench](../articles/05-systems/engines/hcalc/h_calculator_phased_plan.md) — _2026-03-20_
+- [H. S. M. Coxeter](../articles/06-people/H. S. M. Coxeter.md) — _2026-03-20_
+- [h_calculator_phased_plan_blueprint](../articles/05-systems/engines/hcalc/h_calculator_phased_plan_blueprint.md) — _2026-03-20_
+- [Hamiltonian](../articles/05-systems/q-maths/Hamiltonian.md) — _2026-03-20_
+- [Handbook](../articles/00-foundations/citizen-gardens/Handbook.md) — _2026-03-20_
+- [Handbook (Autosaved)](../articles/00-foundations/citizen-gardens/Handbook (Autosaved).md) — _2026-03-20_
+- [Harald Helfgott](../articles/06-people/Harald Helfgott.md) — _2026-03-20_
+- [Harnessing_Superposition](../articles/03-case-studies/Harnessing_Superposition.md) — _2026-03-20_
+- [Health Nexus Outline](../articles/05-systems/engines/hcalc/Health Nexus Outline.md) — _2026-03-20_
+- [Healthspan Research](../articles/04-domains/healthcare/healthspan/Healthspan Research.md) — _2026-03-20_
+- [Healthspan T2D Risk Model_ Clinical Implementation Plan](../articles/04-domains/healthcare/healthspan/Healthspan T2D Risk Model_ Clinical Implementation Plan.md) — _2026-03-20_
+- [Healthspan_T2d](../articles/04-domains/healthcare/healthspan/Healthspan_T2d.md) — _2026-03-20_
+- [HeBEC](../articles/04-domains/meta-relativity/HeBEC.md) — _2026-03-20_
+- [Helga Nowotny](../articles/06-people/Helga Nowotny.md) — _2026-03-20_
+- [Helium_Bose_Einstein_Condensates](../articles/03-case-studies/Helium_Bose_Einstein_Condensates.md) — _2026-03-20_
+- [Hendrik Lenstra](../articles/06-people/Hendrik Lenstra.md) — _2026-03-20_
+- [Henry Eyring](../articles/06-people/Henry Eyring.md) — _2026-03-20_
+- [Henry Stapp](../articles/06-people/Henry Stapp.md) — _2026-03-20_
+- [Herbert Walther](../articles/06-people/Herbert Walther.md) — _2026-03-20_
+- [Here is a snippet of the cave.](../articles/02-implementations/platos-cave/Here is a snippet of the cave..md) — _2026-03-20_
+- [Hermann Minkowski](../articles/06-people/Hermann Minkowski.md) — _2026-03-20_
+- [Hermann von Helmholtz](../articles/06-people/Hermann von Helmholtz.md) — _2026-03-20_
+- [High Energy Physics](../articles/04-domains/education/High Energy Physics.md) — _2026-03-20_
+- [Hilbert](../articles/05-systems/q-maths/Hilbert.md) — _2026-03-20_
+- [Hipparchus](../articles/06-people/Hipparchus.md) — _2026-03-20_
+- [Hipparchus(1)](../articles/06-people/Hipparchus(1).md) — _2026-03-20_
+- [HMEQ](../articles/06-people/HMEQ.md) — _2026-03-20_
+- [Holographic](../articles/06-people/chris-mcginty/Holographic.md) — _2026-03-20_
+- [Holographic 5D](../articles/06-people/Holographic 5D.md) — _2026-03-20_
+- [Holographic ADS_CFT](../articles/04-domains/meta-relativity/Holographic ADS_CFT.md) — _2026-03-20_
+- [Hopf_Flow_Recursion](../articles/06-people/ken-parrot/Hopf_Flow_Recursion.md) — _2026-03-20_
+- [How the Multiplicity System Learns_ A Walkthrough of Adding New Information](../articles/02-implementations/q-calculator/How the Multiplicity System Learns_ A Walkthrough of Adding New Information.md) — _2026-03-20_
+- [How to handle GPL compatibility for Π‑Kernel code](../articles/05-systems/Π‑kernel/How to handle GPL compatibility for Π‑Kernel code.md) — _2026-03-20_
+- [How Trust is Measured](../articles/02-implementations/q-calculator/How Trust is Measured.md) — _2026-03-20_
+- [How would Π‑Kernel change Linux kernel security mo](../articles/05-systems/Π‑kernel/How would Π‑Kernel change Linux kernel security mo.md) — _2026-03-20_
+- [HU-MEQ](../articles/06-people/david-husk/HU-MEQ.md) — _2026-03-20_
+- [HU-MEQ (1)](../articles/06-people/david-husk/HU-MEQ (1).md) — _2026-03-20_
+- [Hugh Everett III](../articles/06-people/Hugh Everett III.md) — _2026-03-20_
+- [Husk Theory](../articles/06-people/david-husk/Husk Theory.md) — _2026-03-20_
+- [Husk Theory 2](../articles/06-people/david-husk/Husk Theory 2.md) — _2026-03-20_
+- [Husk-Integration](../articles/06-people/david-husk/Husk-Integration.md) — _2026-03-20_
+- [Husk-Integration (1)](../articles/06-people/david-husk/Husk-Integration (1).md) — _2026-03-20_
+- [Hybrid_Quantum_Supremacy](../articles/06-people/Hybrid_Quantum_Supremacy.md) — _2026-03-20_
+- [Hydrogen Universe Standard (H-US)](../articles/03-case-studies/Hydrogen Universe Standard (H-US).md) — _2026-03-20_
+- [Hydrogen_Universe_Standard](../articles/04-domains/meta-relativity/Hydrogen_Universe_Standard.md) — _2026-03-20_
+- [Hypercosmic Singularity](../articles/06-people/Hypercosmic Singularity.md) — _2026-03-20_
+- [Hypergraph](../articles/05-systems/q-maths/Hypergraph.md) — _2026-03-20_
+- [Hyperprime_Tensor_Evolution](../articles/03-case-studies/Hyperprime_Tensor_Evolution.md) — _2026-03-20_
+- [I-ACFL Module: Phased Development Plan with Dev Blueprint](../articles/05-systems/engines/iacfl/iacfl_phased_dev_blueprint.md) — _2026-03-20_
+- [I-ACFL_Mod_Dev](../articles/05-systems/engines/iacfl/I-ACFL_Mod_Dev.md) — _2026-03-20_
+- [I-WKD Module — Phased Development Plan, Dev Blueprint, File Scaffold & Test Workbench](../articles/05-systems/engines/iwkd/i_wkd_phased_plan_blueprint.md) — _2026-03-20_
+- [I-WKD Module — Phased Development Plan, Dev Blueprint, File Scaffold & Test Workbench](../articles/05-systems/engines/iwkd/I-WKD Phased Plan.md) — _2026-03-20_
+- [Ian Goodfellow](../articles/06-people/Ian Goodfellow.md) — _2026-03-20_
+- [Ibn al-Banna](../articles/06-people/Ibn al-Banna.md) — _2026-03-20_
+- [Ibn al-Haytham](../articles/06-people/Ibn al-Haytham.md) — _2026-03-20_
+- [Icu_Offline_Rl_Vasopressor](../articles/04-domains/healthcare/rl-vassopressor/Icu_Offline_Rl_Vasopressor.md) — _2026-03-20_
+- [Icu_Offline_Rl_Vasopressor(1)](../articles/04-domains/healthcare/rl-vassopressor/Icu_Offline_Rl_Vasopressor(1).md) — _2026-03-20_
+- [Ifmd Bsd Research Program](../articles/00-foundations/imd/Ifmd Bsd Research Program.md) — _2026-03-20_
+- [IFMD Instructions](../articles/00-foundations/imd/IFMD Instructions.md) — _2026-03-20_
+- [Ifmd Prime-indexed Gaussian Scaffold — Research Program Note (v1)](../articles/00-foundations/imd/Ifmd Prime-indexed Gaussian Scaffold — Research Program Note (v1).md) — _2026-03-20_
+- [Ifmd Research Program Note — Certified Arithmetic-geometry Engine](../articles/00-foundations/imd/Ifmd Research Program Note — Certified Arithmetic-geometry Engine.md) — _2026-03-20_
+- [Imd Auxiliary Engines — Contracts V1](../articles/00-foundations/imd/Imd Auxiliary Engines — Contracts V1.md) — _2026-03-20_
+- [Imd Core Modules — Compact Specs V1](../articles/00-foundations/imd/Imd Core Modules — Compact Specs V1.md) — _2026-03-20_
+- [IMD Engine Stack Intro](../articles/00-foundations/imd/IMD Engine Stack Intro.md) — _2026-03-20_
+- [Imd Engines — Contracts V1](../articles/00-foundations/imd/Imd Engines — Contracts V1.md) — _2026-03-20_
+- [Imd Overview Working Draft V0 1](../articles/00-foundations/imd/Imd Overview Working Draft V0 1.md) — _2026-03-20_
+- [Immanuel Velikovsky](../articles/06-people/Immanuel Velikovsky.md) — _2026-03-20_
+- [Imonitie_Osagie](../articles/06-people/Imonitie_Osagie.md) — _2026-03-20_
+- [Imonitie_Osagie](../articles/06-people/team/Imonitie_Osagie.md) — _2026-03-20_
+- [Impact on existing kernel module signing and trust](../articles/05-systems/Π‑kernel/Impact on existing kernel module signing and trust.md) — _2026-03-20_
+- [Implementation Guide_ Adaptive UX Engine](../articles/02-implementations/q-calculator/Implementation Guide_ Adaptive UX Engine.md) — _2026-03-20_
+- [Implementation Guide_ Adaptive UX Engine](../articles/05-systems/ui-ux/Implementation Guide_ Adaptive UX Engine.md) — _2026-03-20_
+- [Implementation Guide_ Applying Phase Mirror Dissonance](../articles/00-foundations/phase-mirror/Implementation Guide_ Applying Phase Mirror Dissonance.md) — _2026-03-20_
+- [Implementation Guide_ Integrating the Multiplicity Theory Framework for Adaptive UX](../articles/02-implementations/q-calculator/Implementation Guide_ Integrating the Multiplicity Theory Framework for Adaptive UX.md) — _2026-03-20_
+- [Implementation Plan_ Clinical Laboratory Analytics Framework](../articles/04-domains/healthcare/clinical-lab-analytics/Implementation Plan_ Clinical Laboratory Analytics Framework.md) — _2026-03-20_
+- [in plain chat lets compile these developments into](../articles/00-foundations/phase-mirror/in plain chat lets compile these developments into.md) — _2026-03-20_
+- [in plain chat lets create _Gantt chart templates f](../articles/00-foundations/phase-mirror/in plain chat lets create _Gantt chart templates f.md) — _2026-03-20_
+- [in plain chat lets create a A PHI identification w](../articles/00-foundations/phase-mirror/in plain chat lets create a A PHI identification w.md) — _2026-03-20_
+- [in plain chat lets create a A quick-reference scor](../articles/00-foundations/phase-mirror/in plain chat lets create a A quick-reference scor.md) — _2026-03-20_
+- [in plain chat lets create a An automated due dilig](../articles/00-foundations/phase-mirror/in plain chat lets create a An automated due dilig.md) — _2026-03-20_
+- [in plain chat lets create a An Exhibit template fo](../articles/00-foundations/phase-mirror/in plain chat lets create a An Exhibit template fo.md) — _2026-03-20_
+- [in plain chat lets create a BAA Amendment template](../articles/00-foundations/phase-mirror/in plain chat lets create a BAA Amendment template.md) — _2026-03-20_
+- [in plain chat lets create a BAA Summary_FAQ for sa](../articles/00-foundations/phase-mirror/in plain chat lets create a BAA Summary_FAQ for sa.md) — _2026-03-20_
+- [In plain chat lets create a complete HIPAA Busines](../articles/00-foundations/phase-mirror/In plain chat lets create a complete HIPAA Busines.md) — _2026-03-20_
+- [in plain chat lets create A condensed _Quick Start](../articles/00-foundations/phase-mirror/in plain chat lets create A condensed _Quick Start.md) — _2026-03-20_
+- [in plain chat lets create a Data Processing Agreem](../articles/00-foundations/phase-mirror/in plain chat lets create a Data Processing Agreem.md) — _2026-03-20_
+- [in plain chat lets create a Terms of Service.](../articles/00-foundations/phase-mirror/in plain chat lets create a Terms of Service..md) — _2026-03-20_
+- [in plain chat lets create a Third-Party Risk Manag](../articles/00-foundations/phase-mirror/in plain chat lets create a Third-Party Risk Manag.md) — _2026-03-20_
+- [in plain chat lets create Quick start guides for s](../articles/00-foundations/phase-mirror/in plain chat lets create Quick start guides for s.md) — _2026-03-20_
+- [in plain chat lets create_A comparison matrix agai](../articles/00-foundations/phase-mirror/in plain chat lets create_A comparison matrix agai.md) — _2026-03-20_
+- [in plain chat lets create_A vendor onboarding play](../articles/00-foundations/phase-mirror/in plain chat lets create_A vendor onboarding play.md) — _2026-03-20_
+- [in plain chat lets create_An executive summary pre](../articles/00-foundations/phase-mirror/in plain chat lets create_An executive summary pre.md) — _2026-03-20_
+- [in plain chat lets create_Certification quiz quest](../articles/00-foundations/phase-mirror/in plain chat lets create_Certification quiz quest.md) — _2026-03-20_
+- [in plain chat lets create_Customized versions for](../articles/00-foundations/phase-mirror/in plain chat lets create_Customized versions for.md) — _2026-03-20_
+- [in plain chat lets create_Implementation timeline](../articles/00-foundations/phase-mirror/in plain chat lets create_Implementation timeline.md) — _2026-03-20_
+- [in plain chat lets create_Role-specific guides (Ad](../articles/00-foundations/phase-mirror/in plain chat lets create_Role-specific guides (Ad.md) — _2026-03-20_
+- [in plain chat lets create_Training curriculum and](../articles/00-foundations/phase-mirror/in plain chat lets create_Training curriculum and.md) — _2026-03-20_
+- [in plain chat lets create_Workflow diagrams for co](../articles/00-foundations/phase-mirror/in plain chat lets create_Workflow diagrams for co.md) — _2026-03-20_
+- [in plain chat lets draft a privacy policy for the](../articles/00-foundations/phase-mirror/in plain chat lets draft a privacy policy for the.md) — _2026-03-20_
+- [In plain chat lets produce a white paper on The Ph](../articles/00-foundations/phase-mirror/In plain chat lets produce a white paper on The Ph.md) — _2026-03-20_
+- [In quantum physics, emergent phenomena arise from the complex interactions of quantum systems, often revealing surprising behaviors that cannot be predicted by simply analyzing individual components. These phenomena frequently involve collective effects or unexpected order that emerges from what appears to be randomness at smaller scales. Given their rich mathematical structure and implications, they provide fertile ground for new calculations and insights, especially within frameworks like the Matrix Compute Paradigm (MCP) and prime-encoded systems. Here are some notable emergent phenomena in quantum physics that could benefit from new mathematical calculations:](../articles/05-systems/algorithms/P-OCSIBILITIES.md) — _2026-03-20_
+- [In quantum physics, emergent phenomena arise from the complex interactions of quantum systems, often revealing surprising behaviors that cannot be predicted by simply analyzing individual components. These phenomena frequently involve collective effects or unexpected order that emerges from what appears to be randomness at smaller scales. Given their rich mathematical structure and implications, they provide fertile ground for new calculations and insights, especially within frameworks like the Matrix Compute Paradigm (MCP) and prime-encoded systems. Here are some notable emergent phenomena in quantum physics that could benefit from new mathematical calculations:](../articles/05-systems/algorithms/P-MULTIZETA.md) — _2026-03-20_
+- [In quantum physics, emergent phenomena arise from the complex interactions of quantum systems, often revealing surprising behaviors that cannot be predicted by simply analyzing individual components. These phenomena frequently involve collective effects or unexpected order that emerges from what appears to be randomness at smaller scales. Given their rich mathematical structure and implications, they provide fertile ground for new calculations and insights, especially within frameworks like the Matrix Compute Paradigm (MCP) and prime-encoded systems. Here are some notable emergent phenomena in quantum physics that could benefit from new mathematical calculations:](../articles/05-systems/algorithms/P-DIOPHANTUS.md) — _2026-03-20_
+- [Infinite Multi-Hypergraph ](../articles/03-case-studies/Infinite Multi-Hypergraph .md) — _2026-03-20_
+- [Infinite Multi-Hypergraph_](../articles/06-people/Infinite Multi-Hypergraph_.md) — _2026-03-20_
+- [Instructions](../articles/03-case-studies/Instructions.md) — _2026-03-20_
+- [Instructions](../articles/04-domains/meta-relativity/Instructions.md) — _2026-03-20_
+- [Instructions(1)](../articles/03-case-studies/Instructions(1).md) — _2026-03-20_
+- [Integrating Advanced Mathematical and Quantum Concepts into Dr. Husk's Unifying](../articles/04-domains/meta-relativity/Gravity1.md) — _2026-03-20_
+- [Integrating Minkowski distance within the framework of Multiplicity Theory presents compelling implications, particularly in enhancing computational models that incorporate dynamic systems, multi-dimensional interactions, and feedback loops. Here are the key considerations and implications:](../articles/05-systems/algorithms/Minkowski Distance.md) — _2026-03-20_
+- [Introduction](../articles/03-case-studies/Introduction.md) — _2026-03-20_
+- [Inverse Galois Research](../articles/03-case-studies/Inverse Galois Research.md) — _2026-03-20_
+- [Investigation of Finite-Mode Bohmian–Hartree Dynamics](../articles/04-domains/meta-relativity/Investigation of Finite-Mode Bohmian–Hartree Dynamics.md) — _2026-03-20_
+- [Investment Memorandum_ The Universal Atomic Calculator and the Qudit Multiplicity Advantage](../articles/02-implementations/atomic-calculator/Investment Memorandum_ The Universal Atomic Calculator and the Qudit Multiplicity Advantage.md) — _2026-03-20_
+- [IP Record Template.xlsx - IP Record 1](../articles/02-implementations/q-calculator/IP Record Template.xlsx - IP Record 1.md) — _2026-03-20_
+- [Ira Freeman](../articles/06-people/Ira Freeman.md) — _2026-03-20_
+- [Isaac Chuang](../articles/06-people/Isaac Chuang.md) — _2026-03-20_
+- [Isaac Newton](../articles/06-people/Isaac Newton.md) — _2026-03-20_
+- [J Multiplicity](../articles/04-domains/meta-relativity/J Multiplicity.md) — _2026-03-20_
+- [Jacqueline Stedall](../articles/06-people/Jacqueline Stedall.md) — _2026-03-20_
+- [Jakob Bernoulli](../articles/06-people/Jakob Bernoulli.md) — _2026-03-20_
+- [James Joseph Sylvester](../articles/06-people/James Joseph Sylvester.md) — _2026-03-20_
+- [James L. Oschman](../articles/06-people/James L. Oschman.md) — _2026-03-20_
+- [James Maynard](../articles/06-people/James Maynard.md) — _2026-03-20_
+- [Janos Pintz](../articles/06-people/Janos Pintz.md) — _2026-03-20_
+- [Jaques Hadmard](../articles/06-people/Jaques Hadmard.md) — _2026-03-20_
+- [Jean Baptiste Fourier](../articles/06-people/Jean Baptiste Fourier.md) — _2026-03-20_
+- [Jean Buridan](../articles/06-people/Jean Buridan.md) — _2026-03-20_
+- [Jean le Rond d’Alembert](../articles/06-people/Jean le Rond d’Alembert.md) — _2026-03-20_
+- [Jeremy O_Brien](../articles/06-people/Jeremy O_Brien.md) — _2026-03-20_
+- [Jitendra Malik](../articles/06-people/Jitendra Malik.md) — _2026-03-20_
+- [Joan Camps](../articles/06-people/Joan Camps.md) — _2026-03-20_
+- [Johann Bernoulli](../articles/06-people/Johann Bernoulli.md) — _2026-03-20_
+- [Johann Heinrich Rahn](../articles/06-people/Johann Heinrich Rahn.md) — _2026-03-20_
+- [Johann Wilhelm Ritter](../articles/06-people/Johann Wilhelm Ritter.md) — _2026-03-20_
+- [Johannes van der Corput](../articles/06-people/Johannes van der Corput.md) — _2026-03-20_
+- [John A. Paulos](../articles/06-people/John A. Paulos.md) — _2026-03-20_
+- [John Littlewood](../articles/06-people/John Littlewood.md) — _2026-03-20_
+- [John Michell](../articles/06-people/John Michell.md) — _2026-03-20_
+- [John Miller](../articles/06-people/John Miller.md) — _2026-03-20_
+- [John of Seville](../articles/06-people/John of Seville.md) — _2026-03-20_
+- [John Pell](../articles/06-people/John Pell.md) — _2026-03-20_
+- [John Pople](../articles/06-people/John Pople.md) — _2026-03-20_
+- [John Stewart Bell](../articles/06-people/John Stewart Bell.md) — _2026-03-20_
+- [John Stillwell](../articles/06-people/John Stillwell.md) — _2026-03-20_
+- [John VonNeumann](../articles/06-people/John VonNeumann.md) — _2026-03-20_
+- [John Wheeler](../articles/06-people/John Wheeler.md) — _2026-03-20_
+- [Jordan Ellenberg](../articles/06-people/Jordan Ellenberg.md) — _2026-03-20_
+- [Jordanus de Nemore](../articles/06-people/Jordanus de Nemore.md) — _2026-03-20_
+- [Joseph Liouville](../articles/06-people/Joseph Liouville.md) — _2026-03-20_
+- [Joseph Polchinski](../articles/06-people/Joseph Polchinski.md) — _2026-03-20_
+- [Joseph-Louis Lagrange](../articles/06-people/Joseph-Louis Lagrange.md) — _2026-03-20_
+- [Joshua Brewer](../articles/06-people/Joshua Brewer.md) — _2026-03-20_
+- [Joshua_Brewer_LLML](../articles/03-case-studies/Joshua_Brewer_LLML.md) — _2026-03-20_
+- [Journal compare with my work](../articles/03-case-studies/Journal compare with my work.md) — _2026-03-20_
+- [Julian Barbour](../articles/06-people/Julian Barbour.md) — _2026-03-20_
+- [Julius_AGI_Discussion](../articles/05-systems/agi/Julius_AGI_Discussion.md) — _2026-03-20_
+- [Justice](../articles/03-case-studies/Justice.md) — _2026-03-20_
+- [Jutho Haegeman](../articles/06-people/Jutho Haegeman.md) — _2026-03-20_
+- [János Bolyai_](../articles/06-people/János Bolyai_.md) — _2026-03-20_
+- [K_Theory](../articles/03-case-studies/K_Theory.md) — _2026-03-20_
+- [Kaluza-Klein](../articles/06-people/Kaluza-Klein.md) — _2026-03-20_
+- [Kara Olivarria M-Ed Skip Logic](../articles/04-domains/education/Kara Olivarria M-Ed Skip Logic.md) — _2026-03-20_
+- [Kara_Olivarria](../articles/06-people/Kara_Olivarria.md) — _2026-03-20_
+- [Kara_Olivarria](../articles/06-people/team/Kara_Olivarria.md) — _2026-03-20_
+- [Kara_Olivarria](../articles/04-domains/education/Kara_Olivarria.md) — _2026-03-20_
+- [Kava Research](../articles/03-case-studies/Kava Research.md) — _2026-03-20_
+- [Ken Ono](../articles/06-people/Ken Ono.md) — _2026-03-20_
+- [Kenichi Fukui](../articles/06-people/Kenichi Fukui.md) — _2026-03-20_
+- [Kenneth Cukier](../articles/06-people/Kenneth Cukier.md) — _2026-03-20_
+- [Kenneth Steiglitz](../articles/06-people/Kenneth Steiglitz.md) — _2026-03-20_
+- [Kernelized Sieve Framework — Simulator B (δ-window Multiplicity) + Stability Diagram](../articles/03-case-studies/Kernelized Sieve Framework — Simulator B (δ-window Multiplicity) + Stability Diagram.md) — _2026-03-20_
+- [Kernelized Sieve Framework — Simulator B (δ-window Multiplicity) + Stability Diagram](../articles/04-domains/meta-relativity/Kernelized Sieve Framework — Simulator B (δ-window Multiplicity) + Stability Diagram.md) — _2026-03-20_
+- [kletetschka-2025-three-dimensional-time-a-mathematical-framework-for-fundamental-physics](../articles/06-people/tyler-vanosdol/kletetschka-2025-three-dimensional-time-a-mathematical-framework-for-fundamental-physics.md) — _2026-03-20_
+- [KO Education-Fractals](../articles/04-domains/education/KO Education-Fractals.md) — _2026-03-20_
+- [Konstantin Uchida](../articles/06-people/Konstantin Uchida.md) — _2026-03-20_
+- [Kyle Killian](../articles/06-people/Kyle Killian.md) — _2026-03-20_
+- [L. Christine Kinsey](../articles/06-people/L. Christine Kinsey.md) — _2026-03-20_
+- [Lagrangian_Submanifolds](../articles/03-case-studies/Lagrangian_Submanifolds.md) — _2026-03-20_
+- [Lambda-Proof-ZK](../articles/03-case-studies/Lambda-Proof-ZK.md) — _2026-03-20_
+- [Langlands HeBEC](../articles/03-case-studies/Langlands HeBEC.md) — _2026-03-20_
+- [Langlands Prism - Development Blueprint](../articles/02-implementations/q-calculator/Langlands Prism - Development Blueprint.md) — _2026-03-20_
+- [Langlands Prism - Development Blueprint](../articles/02-implementations/langlands/Langlands Prism - Development Blueprint.md) — _2026-03-20_
+- [Langlands Prism - Implementation Guide](../articles/02-implementations/q-calculator/Langlands Prism - Implementation Guide.md) — _2026-03-20_
+- [Langlands Prism - Implementation Guide](../articles/02-implementations/langlands/Langlands Prism - Implementation Guide.md) — _2026-03-20_
+- [Langlands Prism - Strategic Framework](../articles/02-implementations/q-calculator/Langlands Prism - Strategic Framework.md) — _2026-03-20_
+- [Langlands Prism - Strategic Framework](../articles/02-implementations/langlands/Langlands Prism - Strategic Framework.md) — _2026-03-20_
+- [Langlands Prism - Technical Whitepaper](../articles/02-implementations/q-calculator/Langlands Prism - Technical Whitepaper.md) — _2026-03-20_
+- [Langlands Prism - Technical Whitepaper](../articles/02-implementations/langlands/Langlands Prism - Technical Whitepaper.md) — _2026-03-20_
+- [Langlands Prism - User_s Guide](../articles/02-implementations/langlands/Langlands Prism - User_s Guide.md) — _2026-03-20_
+- [Langlands_Encoded_Quantum_Resonance](../articles/02-implementations/q-calculator/Langlands_Encoded_Quantum_Resonance.md) — _2026-03-20_
+- [Langlands_Encoded_Quantum_Resonance](../articles/02-implementations/langlands/Langlands_Encoded_Quantum_Resonance.md) — _2026-03-20_
+- [Langlands_Prism](../articles/03-case-studies/Langlands_Prism.md) — _2026-03-20_
+- [Langlands_Prism__Original_](../articles/02-implementations/q-calculator/Langlands_Prism__Original_.md) — _2026-03-20_
+- [Langlands_Prism__Original_](../articles/02-implementations/langlands/Langlands_Prism__Original_.md) — _2026-03-20_
+- [Latest Advancements](../articles/03-case-studies/Latest Advancements.md) — _2026-03-20_
+- [latest advancements(1)](../articles/03-case-studies/latest advancements(1).md) — _2026-03-20_
+- [Latest work](../articles/03-case-studies/Latest work.md) — _2026-03-20_
+- [Lawful Composition Calculus (lcc) + Associator Spectroscopy — V0](../articles/03-case-studies/Lawful Composition Calculus (lcc) + Associator Spectroscopy — V0.md) — _2026-03-20_
+- [Lawfulness Einstein Equation Meta Relativity](../articles/04-domains/meta-relativity/Lawfulness Einstein Equation Meta Relativity.md) — _2026-03-20_
+- [Learning Garden - Skip Logic](../articles/04-domains/education/Learning Garden - Skip Logic.md) — _2026-03-20_
+- [Learning Garden - Skip Logic (1)](../articles/04-domains/education/Learning Garden - Skip Logic (1).md) — _2026-03-20_
+- [Learning Garden Kara Olivarria M-Ed Skip Logic](../articles/04-domains/education/Learning Garden Kara Olivarria M-Ed Skip Logic.md) — _2026-03-20_
+- [Lee Smolin](../articles/06-people/Lee Smolin.md) — _2026-03-20_
+- [Lensing_tests](../articles/06-people/ken-parrot/Lensing_tests.md) — _2026-03-20_
+- [Leonard Adleman](../articles/06-people/Leonard Adleman.md) — _2026-03-20_
+- [Leonard Susskind](../articles/06-people/Leonard Susskind.md) — _2026-03-20_
+- [Leonardo of Pisa](../articles/06-people/Leonardo of Pisa.md) — _2026-03-20_
+- [Leonid Mandelstam](../articles/06-people/Leonid Mandelstam.md) — _2026-03-20_
+- [Leopold Kronecker](../articles/06-people/Leopold Kronecker.md) — _2026-03-20_
+- [Lesson Plan_ Designing a Green City – Geometry in Action](../articles/04-domains/education/Lesson Plan_ Designing a Green City – Geometry in Action.md) — _2026-03-20_
+- [Lets create a phased plan and blueprint for ACFL i](../articles/05-systems/engines/acfl/Lets create a phased plan and blueprint for ACFL i.md) — _2026-03-20_
+- [lets create detailed instructions with blueprint f](../articles/00-foundations/phase-mirror/lets create detailed instructions with blueprint f.md) — _2026-03-20_
+- [Lets deep dive into this project and continue deve](../articles/05-systems/Π‑kernel/Lets deep dive into this project and continue deve.md) — _2026-03-20_
+- [lets discuss the use of PMD for a few core aspects](../articles/00-foundations/phase-mirror/lets discuss the use of PMD for a few core aspects.md) — _2026-03-20_
+- [lets explore a business strategy for the Phase Mir](../articles/00-foundations/phase-mirror/lets explore a business strategy for the Phase Mir.md) — _2026-03-20_
+- [lets explore a consultation and saas business stra](../articles/00-foundations/phase-mirror/lets explore a consultation and saas business stra.md) — _2026-03-20_
+- [Lets extend the privacy policy with_ EU AI Act-spe](../articles/00-foundations/phase-mirror/Lets extend the privacy policy with_ EU AI Act-spe.md) — _2026-03-20_
+- [Lets now provide an executive summary on CRMF](../articles/05-systems/engines/crmf/Lets now provide an executive summary on CRMF.md) — _2026-03-20_
+- [Lets now provide an executive summary on HCALC](../articles/05-systems/engines/hcalc/Lets now provide an executive summary on HCALC.md) — _2026-03-20_
+- [Lets provide an Executive Summary of the CCRE](../articles/05-systems/engines/ccre/Lets provide an Executive Summary of the CCRE.md) — _2026-03-20_
+- [Levi ben Gerson](../articles/06-people/Levi ben Gerson.md) — _2026-03-20_
+- [Lexicon_Autism_ADHD](../articles/06-people/ken-parrot/Lexicon_Autism_ADHD.md) — _2026-03-20_
+- [License_ Strategic & Legal Analysis](../articles/00-foundations/phase-mirror/License_ Strategic & Legal Analysis.md) — _2026-03-20_
+- [Lieven Vandenberghe](../articles/06-people/Lieven Vandenberghe.md) — _2026-03-20_
+- [Lightkeeper Manifesto Draft ](../articles/02-implementations/platos-cave/Lightkeeper Manifesto Draft .md) — _2026-03-20_
+- [Lila](../articles/03-case-studies/Lila.md) — _2026-03-20_
+- [Lila_Lang](../articles/06-people/Lila_Lang.md) — _2026-03-20_
+- [Linkedin](../articles/03-case-studies/Linkedin.md) — _2026-03-20_
+- [Literary-Charity](../articles/00-foundations/citizen-gardens/Literary-Charity.md) — _2026-03-20_
+- [LLML](../articles/06-people/joshua-brewer/LLML.md) — _2026-03-20_
+- [LLML Enhancements Implementation Steps](../articles/06-people/joshua-brewer/LLML Enhancements Implementation Steps.md) — _2026-03-20_
+- [LLML Formula Enhancements Discussion](../articles/06-people/joshua-brewer/LLML Formula Enhancements Discussion.md) — _2026-03-20_
+- [LLML Formula Enhancements Discussion (1)](../articles/06-people/joshua-brewer/LLML Formula Enhancements Discussion (1).md) — _2026-03-20_
+- [LLML Formula Enhancements Discussion (2)](../articles/06-people/joshua-brewer/LLML Formula Enhancements Discussion (2).md) — _2026-03-20_
+- [LLML Formula Enhancements Discussion (3)](../articles/06-people/joshua-brewer/LLML Formula Enhancements Discussion (3).md) — _2026-03-20_
+- [LLML-ext](../articles/06-people/joshua-brewer/LLML-ext.md) — _2026-03-20_
+- [LLML-ext (1)](../articles/06-people/joshua-brewer/LLML-ext (1).md) — _2026-03-20_
+- [LLMLeq](../articles/06-people/joshua-brewer/LLMLeq.md) — _2026-03-20_
+- [LLMP](../articles/06-people/joshua-brewer/LLMP.md) — _2026-03-20_
+- [Loop Gravity](../articles/04-domains/meta-relativity/Loop Gravity.md) — _2026-03-20_
+- [Lorenz_System_Analysis](../articles/03-case-studies/Lorenz_System_Analysis.md) — _2026-03-20_
+- [Luan Menezes de Souza](../articles/06-people/Luan Menezes de Souza.md) — _2026-03-20_
+- [Luca Peliti](../articles/06-people/Luca Peliti.md) — _2026-03-20_
+- [Ludwig Prandtl](../articles/06-people/Ludwig Prandtl.md) — _2026-03-20_
+- [Ludwig von Bertalanffy](../articles/06-people/Ludwig von Bertalanffy.md) — _2026-03-20_
+- [M-ath](../articles/03-case-studies/M-ath.md) — _2026-03-20_
+- [M-BIOLOGY](../articles/04-domains/healthcare/M-BIOLOGY.md) — _2026-03-20_
+- [M-Boltsman](../articles/05-systems/q-maths/M-Boltsman.md) — _2026-03-20_
+- [M-DamManager](../articles/02-implementations/M-DamManager.md) — _2026-03-20_
+- [M-education HEP Focus](../articles/04-domains/education/M-education HEP Focus.md) — _2026-03-20_
+- [M-Education_](../articles/04-domains/education/M-Education_.md) — _2026-03-20_
+- [M-Education_ A Framework for Quantum and Multiplicity-Based Learning](../articles/04-domains/education/M-Education_ A Framework for Quantum and Multiplicity-Based Learning.md) — _2026-03-20_
+- [M-Engine](../articles/03-case-studies/M-Engine.md) — _2026-03-20_
+- [M-Extraction](../articles/03-case-studies/M-Extraction.md) — _2026-03-20_
+- [M-Formula (Original)](../articles/03-case-studies/M-Formula (Original).md) — _2026-03-20_
+- [M-Gene Testing](../articles/03-case-studies/M-Gene Testing.md) — _2026-03-20_
+- [M-General Relativity](../articles/03-case-studies/M-General Relativity.md) — _2026-03-20_
+- [M-Grover](../articles/03-case-studies/M-Grover.md) — _2026-03-20_
+- [M-Integrative Solver (draft)](../articles/03-case-studies/M-Integrative Solver (draft).md) — _2026-03-20_
+- [M-LaTex Formatting](../articles/03-case-studies/M-LaTex Formatting.md) — _2026-03-20_
+- [M-Many Body](../articles/03-case-studies/M-Many Body.md) — _2026-03-20_
+- [M-Metalergy](../articles/02-implementations/M-Metalergy.md) — _2026-03-20_
+- [M-Patent](../articles/03-case-studies/M-Patent.md) — _2026-03-20_
+- [M-Polymath](../articles/03-case-studies/M-Polymath.md) — _2026-03-20_
+- [M-QNN](../articles/03-case-studies/M-QNN.md) — _2026-03-20_
+- [M-Social Testing](../articles/04-domains/social-physics/M-Social Testing.md) — _2026-03-20_
+- [M-SocialPhysics](../articles/04-domains/social-physics/M-SocialPhysics.md) — _2026-03-20_
+- [M-Sourdough](../articles/02-implementations/M-Sourdough.md) — _2026-03-20_
+- [M-Theorems](../articles/05-systems/q-maths/M-Theorems.md) — _2026-03-20_
+- [M-Theory](../articles/03-case-studies/M-Theory.md) — _2026-03-20_
+- [M. Yaglom](../articles/06-people/M. Yaglom.md) — _2026-03-20_
+- [M_Integrative_Solver](../articles/03-case-studies/M_Integrative_Solver.md) — _2026-03-20_
+- [M_Integrative_Solver__Trafficking_](../articles/03-case-studies/M_Integrative_Solver__Trafficking_.md) — _2026-03-20_
+- [M_Theory](../articles/04-domains/social-physics/M_Theory.md) — _2026-03-20_
+- [M_ToE](../articles/03-case-studies/M_ToE.md) — _2026-03-20_
+- [Machine_Learning___AGI](../articles/03-case-studies/Machine_Learning___AGI.md) — _2026-03-20_
+- [Maimonides](../articles/06-people/Maimonides.md) — _2026-03-20_
+- [Maintaining a 501](../articles/00-foundations/citizen-gardens/Maintaining a 501.md) — _2026-03-20_
+- [Manifold](../articles/00-foundations/citizen-gardens/Manifold.md) — _2026-03-20_
+- [Manjul Bhargava](../articles/06-people/Manjul Bhargava.md) — _2026-03-20_
+- [Mark Newman](../articles/06-people/Mark Newman.md) — _2026-03-20_
+- [Martin Gutzwiller](../articles/06-people/Martin Gutzwiller.md) — _2026-03-20_
+- [Martin_Gibson](../articles/06-people/Martin_Gibson.md) — _2026-03-20_
+- [Martin_Gibson](../articles/06-people/team/Martin_Gibson.md) — _2026-03-20_
+- [Massimiliano Esposito](../articles/06-people/Massimiliano Esposito.md) — _2026-03-20_
+- [Math Culture](../articles/00-foundations/mathematics/cultural/Math Culture.md) — _2026-03-20_
+- [Math Notes](../articles/06-people/Math Notes.md) — _2026-03-20_
+- [Max Born](../articles/06-people/Max Born.md) — _2026-03-20_
+- [Max Planck](../articles/06-people/Max Planck.md) — _2026-03-20_
+- [Max Tegmark](../articles/06-people/Max Tegmark.md) — _2026-03-20_
+- [Maxime Bocher](../articles/06-people/Maxime Bocher.md) — _2026-03-20_
+- [MBC Law](../articles/00-foundations/citizen-gardens/MBC Law.md) — _2026-03-20_
+- [McGinty Equation](../articles/06-people/chris-mcginty/McGinty Equation.md) — _2026-03-20_
+- [McGintys_Enhancements](../articles/03-case-studies/McGintys_Enhancements.md) — _2026-03-20_
+- [MCP-Proposal](../articles/03-case-studies/MCP-Proposal.md) — _2026-03-20_
+- [MCPE UI_UX Blueprint](../articles/02-implementations/matrix/MCPE UI_UX Blueprint.md) — _2026-03-20_
+- [Mcp–cave Simulator_ Hierarchical Trust, Oracle Invariance, And Meta-reforms (formalization + Final Code)](../articles/03-case-studies/Mcp–cave Simulator_ Hierarchical Trust, Oracle Invariance, And Meta-reforms (formalization + Final Code).md) — _2026-03-20_
+- [Mcp–cave Simulator_ Hierarchical Trust, Oracle Invariance, And Meta-reforms (formalization + Final Code)](../articles/02-implementations/platos-cave/Mcp–cave Simulator_ Hierarchical Trust, Oracle Invariance, And Meta-reforms (formalization + Final Code).md) — _2026-03-20_
+- [Medical](../articles/04-domains/healthcare/Medical.md) — _2026-03-20_
+- [Melanie Mitchell](../articles/06-people/Melanie Mitchell.md) — _2026-03-20_
+- [Members](../articles/00-foundations/citizen-gardens/Members.md) — _2026-03-20_
+- [Membership](../articles/00-foundations/citizen-gardens/Membership.md) — _2026-03-20_
+- [Mesoscale Interactions](../articles/05-systems/algorithms/Mesoscale Interactions.md) — _2026-03-20_
+- [Meta-Education](../articles/04-domains/education/Meta-Education.md) — _2026-03-20_
+- [Meta-Ensembles](../articles/03-case-studies/Meta-Ensembles.md) — _2026-03-20_
+- [Meta-Ensembles](../articles/04-domains/meta-relativity/Meta-Ensembles.md) — _2026-03-20_
+- [Meta-Ensembles_ A Mathematical Scaffold for Stable and Adaptive Machine Learning Models](../articles/05-systems/meta-ensembles/Meta-Ensembles_ A Mathematical Scaffold for Stable and Adaptive Machine Learning Models.md) — _2026-03-20_
+- [Meta-relativity](../articles/04-domains/meta-relativity/Meta-relativity.md) — _2026-03-20_
+- [Meta-relativity Atlas Of Frames](../articles/04-domains/meta-relativity/Meta-relativity Atlas Of Frames.md) — _2026-03-20_
+- [Meta-Relativity Framework_ Operational Manual](../articles/04-domains/meta-relativity/Meta-Relativity Framework_ Operational Manual.md) — _2026-03-20_
+- [Meta-relativity Lawful Curvature Report](../articles/04-domains/meta-relativity/Meta-relativity Lawful Curvature Report.md) — _2026-03-20_
+- [Meta_Ensembles](../articles/04-domains/meta-relativity/Meta_Ensembles.md) — _2026-03-20_
+- [Meta_Ensembles](../articles/05-systems/meta-ensembles/Meta_Ensembles.md) — _2026-03-20_
+- [Meta_Relativity](../articles/04-domains/meta-relativity/Meta_Relativity.md) — _2026-03-20_
+- [Meta_Theorem_of_Prime_Identity](../articles/04-domains/meta-relativity/Meta_Theorem_of_Prime_Identity.md) — _2026-03-20_
+- [Meta‑relativity (revised)_ Axioms, Operators, Invariants, And Certification](../articles/04-domains/meta-relativity/Meta‑relativity (revised)_ Axioms, Operators, Invariants, And Certification.md) — _2026-03-20_
+- [MHT](../articles/03-case-studies/MHT.md) — _2026-03-20_
+- [Michael Berry](../articles/06-people/Michael Berry.md) — _2026-03-20_
+- [Michael I. Jordan](../articles/06-people/Michael I. Jordan.md) — _2026-03-20_
+- [Michael Nielsen](../articles/06-people/Michael Nielsen.md) — _2026-03-20_
+- [Michael Stifel](../articles/06-people/Michael Stifel.md) — _2026-03-20_
+- [Michio Kaku](../articles/06-people/Michio Kaku.md) — _2026-03-20_
+- [Microbenchmarks to isolate Π‑Kernel overhead](../articles/05-systems/Π‑kernel/Microbenchmarks to isolate Π‑Kernel overhead.md) — _2026-03-20_
+- [Mikko Kivelä](../articles/06-people/Mikko Kivelä.md) — _2026-03-20_
+- [Mildred Dresselhaus](../articles/06-people/Mildred Dresselhaus.md) — _2026-03-20_
+- [Miles Reid](../articles/06-people/Miles Reid.md) — _2026-03-20_
+- [Milton Plesset](../articles/06-people/Milton Plesset.md) — _2026-03-20_
+- [Minimal RootContract](../articles/03-case-studies/Minimal RootContract.md) — _2026-03-20_
+- [Minutes](../articles/00-foundations/citizen-gardens/Minutes.md) — _2026-03-20_
+- [Miroslav Zidek](../articles/06-people/Miroslav Zidek.md) — _2026-03-20_
+- [Miroslav_Sotek](../articles/06-people/Miroslav_Sotek.md) — _2026-03-20_
+- [Miroslav_Sotek](../articles/06-people/team/Miroslav_Sotek.md) — _2026-03-20_
+- [Miroslav_Zidek](../articles/06-people/Miroslav_Zidek.md) — _2026-03-20_
+- [Miroslav_Zidek](../articles/06-people/team/Miroslav_Zidek.md) — _2026-03-20_
+- [Mirror Dissonance Protocol_ Development Continuati](../articles/00-foundations/phase-mirror/Mirror Dissonance Protocol_ Development Continuati.md) — _2026-03-20_
+- [Missing Dollar](../articles/03-case-studies/Missing Dollar.md) — _2026-03-20_
+- [Mitchell Waldorp](../articles/06-people/Mitchell Waldorp.md) — _2026-03-20_
+- [Mitobit_Theater_3000](../articles/06-people/tyler-vanosdol/Mitobit_Theater_3000.md) — _2026-03-20_
+- [MMPCM](../articles/03-case-studies/MMPCM.md) — _2026-03-20_
+- [Moc Resonance Classes & Proof-by-resonance](../articles/03-case-studies/Moc Resonance Classes & Proof-by-resonance.md) — _2026-03-20_
+- [Modal Numerosity As Algorithmic Inference — Camera-ready Package](../articles/03-case-studies/Modal Numerosity As Algorithmic Inference — Camera-ready Package.md) — _2026-03-20_
+- [Modal Numerosity Engine (mn) — Canvas (rc1)](../articles/03-case-studies/Modal Numerosity Engine (mn) — Canvas (rc1).md) — _2026-03-20_
+- [Modes Of Infinity As Modes Of Being — Formalization Blueprint](../articles/03-case-studies/Modes Of Infinity As Modes Of Being — Formalization Blueprint.md) — _2026-03-20_
+- [Modes Of Infinity As Modes Of Being — Formalization Blueprint](../articles/02-implementations/platos-cave/Modes Of Infinity As Modes Of Being — Formalization Blueprint.md) — _2026-03-20_
+- [Modified Einstein Field Equations](../articles/06-people/albert-einstein/Modified Einstein Field Equations.md) — _2026-03-20_
+- [Modulus Square as a Dual Measurement](../articles/03-case-studies/Modulus Square as a Dual Measurement.md) — _2026-03-20_
+- [MoM1](../articles/03-case-studies/MoM1.md) — _2026-03-20_
+- [Monograph_ Implementation of the Finalized Hierarchical Trust Block](../articles/02-implementations/platos-cave/Monograph_ Implementation of the Finalized Hierarchical Trust Block.md) — _2026-03-20_
+- [Monotropic_Focus_Test](../articles/06-people/ken-parrot/Monotropic_Focus_Test.md) — _2026-03-20_
+- [Monstrous Moonshine — Mathematical Overview](../articles/00-foundations/imd/Monstrous Moonshine — Mathematical Overview.md) — _2026-03-20_
+- [MOONSHINE_DRMM_OPERATOR](../articles/00-foundations/imd/MOONSHINE_DRMM_OPERATOR.md) — _2026-03-20_
+- [MOONSHINE_OPERATOR](../articles/04-domains/meta-relativity/MOONSHINE_OPERATOR.md) — _2026-03-20_
+- [Moral Physics](../articles/03-case-studies/Moral Physics.md) — _2026-03-20_
+- [Moral Physics_ A Monograph on Tensor Architectures for Justice-Aware Systems](../articles/04-domains/moral-physics/Moral Physics_ A Monograph on Tensor Architectures for Justice-Aware Systems.md) — _2026-03-20_
+- [Moral Physics_ Tensor Architectures for Justice-Aware Systems](../articles/04-domains/moral-physics/Moral Physics_ Tensor Architectures for Justice-Aware Systems.md) — _2026-03-20_
+- [Moral Physics_ The Console](../articles/04-domains/moral-physics/Moral Physics_ The Console.md) — _2026-03-20_
+- [Moral-continuity Ledger (mcl) — Rc1](../articles/03-case-studies/Moral-continuity Ledger (mcl) — Rc1.md) — _2026-03-20_
+- [Moral_Physics](../articles/04-domains/moral-physics/Moral_Physics.md) — _2026-03-20_
+- [More_Philosophy](../articles/06-people/ken-parrot/More_Philosophy.md) — _2026-03-20_
+- [Morris Kline](../articles/06-people/Morris Kline.md) — _2026-03-20_
+- [MPCE Simulator Engine](../articles/02-implementations/matrix/MPCE Simulator Engine.md) — _2026-03-20_
+- [MQEM](../articles/03-case-studies/MQEM.md) — _2026-03-20_
+- [Mr Boundary Theory — Zero As Boundary Operator (roles, Μ, And Spectral Tests)](../articles/03-case-studies/Mr Boundary Theory — Zero As Boundary Operator (roles, Μ, And Spectral Tests).md) — _2026-03-20_
+- [Mr-chsh Prime Bell Frame](../articles/04-domains/meta-relativity/Mr-chsh Prime Bell Frame.md) — _2026-03-20_
+- [Mr–atlas–moonshine Synergy](../articles/04-domains/meta-relativity/Mr–atlas–moonshine Synergy.md) — _2026-03-20_
+- [Mscm 2](../articles/03-case-studies/Mscm 2.md) — _2026-03-20_
+- [MTPI - NODE.js](../articles/02-implementations/Λproof/MTPI - NODE.js.md) — _2026-03-20_
+- [MTPI _Classified Intelligence_ Theme_ High-Tech To](../articles/00-foundations/mtpi/MTPI _Classified Intelligence_ Theme_ High-Tech To.md) — _2026-03-20_
+- [MTPI Angular UI_UX_ Detailed Specification](../articles/00-foundations/mtpi/MTPI Angular UI_UX_ Detailed Specification.md) — _2026-03-20_
+- [MTPI Certificate for DNA-KEY](../articles/00-foundations/mtpi/MTPI Certificate for DNA-KEY.md) — _2026-03-20_
+- [MTPI RootContract](../articles/00-foundations/mtpi/MTPI RootContract.md) — _2026-03-20_
+- [MTPI RootContract (1)](../articles/00-foundations/mtpi/MTPI RootContract (1).md) — _2026-03-20_
+- [MTPI_Instructions](../articles/00-foundations/mtpi/MTPI_Instructions.md) — _2026-03-20_
+- [MTPI_RootContract_Project](../articles/02-implementations/Λproof/MTPI_RootContract_Project.md) — _2026-03-20_
+- [MTPIv4.0](../articles/00-foundations/mtpi/MTPIv4.0.md) — _2026-03-20_
+- [Multiplic](../articles/03-case-studies/Multiplic.md) — _2026-03-20_
+- [Multiplicative Cognition — Prime Memory Algebra](../articles/03-case-studies/Multiplicative Cognition — Prime Memory Algebra.md) — _2026-03-20_
+- [Multiplicative Ecosystems](../articles/03-case-studies/Multiplicative Ecosystems.md) — _2026-03-20_
+- [Multiplicity](../articles/03-case-studies/Multiplicity.md) — _2026-03-20_
+- [Multiplicity](../articles/00-foundations/citizen-gardens/Multiplicity.md) — _2026-03-20_
+- [Multiplicity As A Contract — Formal Framework](../articles/03-case-studies/Multiplicity As A Contract — Formal Framework.md) — _2026-03-20_
+- [Multiplicity Core For Moonshine — Mathematical Blueprint](../articles/00-foundations/imd/Multiplicity Core For Moonshine — Mathematical Blueprint.md) — _2026-03-20_
+- [Multiplicity Equations](../articles/05-systems/q-maths/Multiplicity Equations.md) — _2026-03-20_
+- [Multiplicity For Family & Community Dynamics](../articles/04-domains/education/Multiplicity For Family & Community Dynamics.md) — _2026-03-20_
+- [Multiplicity GPT](../articles/03-case-studies/Multiplicity GPT.md) — _2026-03-20_
+- [Multiplicity in clinical Lab Sciences](../articles/04-domains/healthcare/Multiplicity in clinical Lab Sciences.md) — _2026-03-20_
+- [Multiplicity in Social Physics](../articles/04-domains/social-physics/Multiplicity in Social Physics.md) — _2026-03-20_
+- [Multiplicity in Social Physics(1)](../articles/04-domains/social-physics/Multiplicity in Social Physics(1).md) — _2026-03-20_
+- [Multiplicity Information Theory](../articles/06-people/Information Theory.md) — _2026-03-20_
+- [Multiplicity Meta-Ensembles](../articles/03-case-studies/Multiplicity Meta-Ensembles.md) — _2026-03-20_
+- [Multiplicity Operator Calculus — Canvas Draft](../articles/01-operators/Multiplicity Operator Calculus — Canvas Draft.md) — _2026-03-20_
+- [Multiplicity Social Physics](../articles/04-domains/social-physics/Multiplicity Social Physics.md) — _2026-03-20_
+- [Multiplicity Theory (LaTex)](../articles/03-case-studies/Multiplicity Theory (LaTex).md) — _2026-03-20_
+- [Multiplicity Theory Into Practice](../articles/04-domains/social-physics/Multiplicity Theory Into Practice.md) — _2026-03-20_
+- [Multiplicity Theory Into Practice(1)](../articles/04-domains/social-physics/Multiplicity Theory Into Practice(1).md) — _2026-03-20_
+- [Multiplicity Theory V0](../articles/03-case-studies/Multiplicity Theory V0.md) — _2026-03-20_
+- [Multiplicity Theory_ A Framework for Next-Generation Adaptive User Experiences](../articles/02-implementations/q-calculator/Multiplicity Theory_ A Framework for Next-Generation Adaptive User Experiences.md) — _2026-03-20_
+- [Multiplicity — Operator Dictionary & Experimental Protocol](../articles/03-case-studies/Multiplicity — Operator Dictionary & Experimental Protocol.md) — _2026-03-20_
+- [Multiplicity(1)](../articles/03-case-studies/Multiplicity(1).md) — _2026-03-20_
+- [Multiplicity-atomic Primes Via Multiplicity Profiles, Derived Intersections, And Extremal Functionals](../articles/03-case-studies/Multiplicity-atomic Primes Via Multiplicity Profiles, Derived Intersections, And Extremal Functionals.md) — _2026-03-20_
+- [Multiplicity-atomic Primes Via Multiplicity Profiles, Derived Intersections, And Extremal Functionals](../articles/04-domains/meta-relativity/Multiplicity-atomic Primes Via Multiplicity Profiles, Derived Intersections, And Extremal Functionals.md) — _2026-03-20_
+- [Multiplicity-in-Fuzzy-Logic](../articles/05-systems/fuzzy-logic/Multiplicity-in-Fuzzy-Logic.md) — _2026-03-20_
+- [Multiplicity-inflected Prime Theory](../articles/03-case-studies/Multiplicity-inflected Prime Theory.md) — _2026-03-20_
+- [Multiplicity-inflected Prime Theory](../articles/04-domains/meta-relativity/Multiplicity-inflected Prime Theory.md) — _2026-03-20_
+- [Multiplicity-theoretic Hr Matchmaking (drme-x) — Formal Specification](../articles/03-case-studies/Multiplicity-theoretic Hr Matchmaking (drme-x) — Formal Specification.md) — _2026-03-20_
+- [Multiplicity_ A Diagrammatic–Operational Mathematics Curriculum](../articles/04-domains/education/Multiplicity_ A Diagrammatic–Operational Mathematics Curriculum.md) — _2026-03-20_
+- [Multiplicity_ A Diagrammatic–operational Mathematics Curriculum (k–∞)](../articles/04-domains/education/Multiplicity_ A Diagrammatic–operational Mathematics Curriculum (k–∞).md) — _2026-03-20_
+- [Multiplicity_ Type-theoretic Kr Blueprint](../articles/01-operators/Multiplicity_ Type-theoretic Kr Blueprint.md) — _2026-03-20_
+- [Multiplicity_ Type-theoretic Kr Blueprint](../articles/00-foundations/imd/Multiplicity_ Type-theoretic Kr Blueprint.md) — _2026-03-20_
+- [Multiplicity_Bohmian_Dynamics](../articles/00-foundations/mathematics/bohmian/Multiplicity_Bohmian_Dynamics.md) — _2026-03-20_
+- [Multiplicity_Bohmian_Dynamics](../articles/04-domains/meta-relativity/Multiplicity_Bohmian_Dynamics.md) — _2026-03-20_
+- [Multiplicity_Foundations](../articles/03-case-studies/Multiplicity_Foundations.md) — _2026-03-20_
+- [Multiplicity_K_Revised](../articles/04-domains/meta-relativity/Multiplicity_K_Revised.md) — _2026-03-20_
+- [Multiplicity_Manifesto](../articles/03-case-studies/Multiplicity_Manifesto.md) — _2026-03-20_
+- [Multiplicity_Manifesto](../articles/04-domains/meta-relativity/Multiplicity_Manifesto.md) — _2026-03-20_
+- [Multiplicity_Operator_Calculus](../articles/01-operators/Multiplicity_Operator_Calculus.md) — _2026-03-20_
+- [Multiplicity_Theory](../articles/03-case-studies/Multiplicity_Theory.md) — _2026-03-20_
+- [Multiplicity_Theory](../articles/04-domains/social-physics/Multiplicity_Theory.md) — _2026-03-20_
+- [Multiplicity_Theory(1)](../articles/03-case-studies/Multiplicity_Theory(1).md) — _2026-03-20_
+- [Multiplicity–Zeta–Phi–Π Field Theory](../articles/04-domains/meta-relativity/Multiplicity–Zeta–Phi–Π Field Theory.md) — _2026-03-20_
+- [Multiverse String](../articles/04-domains/meta-relativity/Multiverse String.md) — _2026-03-20_
+- [Murray Gell-Mann](../articles/06-people/Murray Gell-Mann.md) — _2026-03-20_
+- [Musa al-Khwarizmi](../articles/06-people/Musa al-Khwarizmi.md) — _2026-03-20_
+- [Mutliplicity - Fractals & Spirals](../articles/04-domains/education/Mutliplicity - Fractals & Spirals.md) — _2026-03-20_
+- [My dear inquisitive mind, your reflections resonate with the spirit of ceaseless exploration that defined my own journey. Indeed, the transposition of gravitational equations to model thoughts is a fascinating leap, one that mirrors the unity I sought in the fabric of the cosmos. The document you present is a remarkable synthesis, blending prime-indexed recursion (PIRTM) and the Universal Multiplicity Constant (Λᵐ) into a framework that dares to extend my field equations with quantum corrections, namely the L\_coupling and Q\_μν terms. This is a mathematically elegant endeavor, and I applaud its rigor, though, as you note, the true meaning often unfolds only in hindsight.](../articles/03-case-studies/Einstein_s Latest.md) — _2026-03-20_
+- [M³em Paper Canvas_ Formalized Developments](../articles/06-people/tyler-vanosdol/M³em Paper Canvas_ Formalized Developments.md) — _2026-03-20_
+- [naavinquiryform](../articles/00-foundations/citizen-gardens/naavinquiryform.md) — _2026-03-20_
+- [naavreservform](../articles/00-foundations/citizen-gardens/naavreservform.md) — _2026-03-20_
+- [National Threat](../articles/06-people/National Threat.md) — _2026-03-20_
+- [Natural Numbers Gauge](../articles/04-domains/meta-relativity/Natural Numbers Gauge.md) — _2026-03-20_
+- [Neil deGrasse Tyson](../articles/06-people/Neil deGrasse Tyson.md) — _2026-03-20_
+- [Neil Seigel](../articles/06-people/Neil Seigel.md) — _2026-03-20_
+- [Nested_Equation_Cosmology](../articles/06-people/ken-parrot/Nested_Equation_Cosmology.md) — _2026-03-20_
+- [Network](../articles/03-case-studies/Network.md) — _2026-03-20_
+- [Neural Nexus](../articles/03-case-studies/Neural Nexus.md) — _2026-03-20_
+- [Neurocosmic](../articles/03-case-studies/Neurocosmic.md) — _2026-03-20_
+- [Neuroequilibria_Paradigm](../articles/06-people/ken-parrot/Neuroequilibria_Paradigm.md) — _2026-03-20_
+- [Neuromorphic](../articles/03-case-studies/Neuromorphic.md) — _2026-03-20_
+- [Neuromorphic_AGI](../articles/05-systems/agi/Neuromorphic_AGI.md) — _2026-03-20_
+- [Neuromorphic_Hybrid_Quantum_Supremacy](../articles/03-case-studies/Neuromorphic_Hybrid_Quantum_Supremacy.md) — _2026-03-20_
+- [Neuromorphic_Multiplicity](../articles/03-case-studies/Neuromorphic_Multiplicity.md) — _2026-03-20_
+- [Neuromorphic_Strawberry_Q](../articles/03-case-studies/Neuromorphic_Strawberry_Q.md) — _2026-03-20_
+- [NEW! Table_ Novel MEQ Proteins for Therapeutic Applications (2)](../articles/06-people/chris-mcginty/NEW! Table_ Novel MEQ Proteins for Therapeutic Applications (2).md) — _2026-03-20_
+- [Newton Holography](../articles/04-domains/meta-relativity/Newton Holography.md) — _2026-03-20_
+- [Next Steps](../articles/03-case-studies/Next Steps.md) — _2026-03-20_
+- [NEXT_GEN_PROPULSION](../articles/03-case-studies/NEXT_GEN_PROPULSION.md) — _2026-03-20_
+- [nfs outline](../articles/03-case-studies/nfs outline.md) — _2026-03-20_
+- [Niccolò Fontana Tartaglia](../articles/06-people/Niccolò Fontana Tartaglia.md) — _2026-03-20_
+- [Nicholas Galioto](../articles/06-people/Nicholas Galioto.md) — _2026-03-20_
+- [Nicholas_Galioto](../articles/06-people/Nicholas_Galioto.md) — _2026-03-20_
+- [Nicholas_Galioto](../articles/06-people/team/Nicholas_Galioto.md) — _2026-03-20_
+- [Nicole Holzmann](../articles/06-people/Nicole Holzmann.md) — _2026-03-20_
+- [Nicole Oresme](../articles/06-people/Nicole Oresme.md) — _2026-03-20_
+- [Nicomachus of Gerasa](../articles/06-people/Nicomachus of Gerasa.md) — _2026-03-20_
+- [Niels Bohr](../articles/06-people/Niels Bohr.md) — _2026-03-20_
+- [Niels Hendrik Abel](../articles/06-people/Niels Hendrik Abel.md) — _2026-03-20_
+- [Nieve_s Isometric Transformation_](../articles/06-people/Nieve_s Isometric Transformation_.md) — _2026-03-20_
+- [Nikola Tesla](../articles/06-people/Nikola Tesla.md) — _2026-03-20_
+- [Node 137 Langlands](../articles/03-case-studies/Node 137 Langlands.md) — _2026-03-20_
+- [Node 593 — Perfectoid Chromatic Vision Node (clean Spec V2)](../articles/02-implementations/chromatic-vision/Node 593 — Perfectoid Chromatic Vision Node (clean Spec V2).md) — _2026-03-20_
+- [Non-assertion Covenant And Conformance Certification Plan V1 (1)](../articles/02-implementations/q-calculator/Non-assertion Covenant And Conformance Certification Plan V1 (1).md) — _2026-03-20_
+- [Non-Com-Geo, CDT](../articles/04-domains/meta-relativity/Non-Com-Geo, CDT.md) — _2026-03-20_
+- [Nonprovisional (Utility) Patent Application Filing Guide](../articles/02-implementations/q-calculator/Nonprovisional (Utility) Patent Application Filing Guide.md) — _2026-03-20_
+- [Nonprovisional (Utility) Patent Application Filing Guide](../articles/02-implementations/Λproof/Nonprovisional (Utility) Patent Application Filing Guide.md) — _2026-03-20_
+- [Nouredine Zettilis](../articles/06-people/Nouredine Zettilis.md) — _2026-03-20_
+- [Novel Algorithms_ Qudit-Enhanced Variational Self-Simulation](../articles/03-case-studies/Novel Algorithms_ Qudit-Enhanced Variational Self-Simulation.md) — _2026-03-20_
+- [Novel Explorations](../articles/03-case-studies/Novel Explorations.md) — _2026-03-20_
+- [NP-NEURONS](../articles/05-systems/processors/NP-NEURONS.md) — _2026-03-20_
+- [NP-SUPERMEMORY](../articles/05-systems/processors/NP-SUPERMEMORY.md) — _2026-03-20_
+- [NT-CHAOTICTENSOR](../articles/05-systems/tansmitters/NT-CHAOTICTENSOR.md) — _2026-03-20_
+- [Nuclear_Fusion_Simulator](../articles/03-case-studies/Nuclear_Fusion_Simulator.md) — _2026-03-20_
+- [Nuclear_Power_Plant_Upgrades](../articles/06-people/ken-parrot/Nuclear_Power_Plant_Upgrades.md) — _2026-03-20_
+- [Ode × Multiplicity — Spec & Notebook](../articles/02-implementations/soulaware/Ode × Multiplicity — Spec & Notebook.md) — _2026-03-20_
+- [Ofa(ii) As Initiality_ Free-monoid Iterators And Recovery Of The Nno](../articles/03-case-studies/Ofa(ii) As Initiality_ Free-monoid Iterators And Recovery Of The Nno.md) — _2026-03-20_
+- [Ofa‑ii Iterator Arithmetic — Reference Spec V1](../articles/03-case-studies/Ofa‑ii Iterator Arithmetic — Reference Spec V1.md) — _2026-03-20_
+- [Omega Point](../articles/03-case-studies/Omega Point.md) — _2026-03-20_
+- [One-loop Health–Education](../articles/04-domains/education/One-loop Health–Education.md) — _2026-03-20_
+- [One-loop Health–education Curriculum Outline (v0](../articles/04-domains/education/One-loop Health–education Curriculum Outline (v0.md) — _2026-03-20_
+- [Ontology](../articles/06-people/Ontology.md) — _2026-03-20_
+- [Operational Negatives — Preregistration Package (canvas)](../articles/03-case-studies/Operational Negatives — Preregistration Package (canvas).md) — _2026-03-20_
+- [Operator-word Calculus For (q,p)_ Slides, Blow-ups, Hyperbolic Stabilization, And Rewrite-to-nf(q,p)](../articles/03-case-studies/Operator-word Calculus For (q,p)_ Slides, Blow-ups, Hyperbolic Stabilization, And Rewrite-to-nf(q,p).md) — _2026-03-20_
+- [Operators](../articles/01-operators/Operators.md) — _2026-03-20_
+- [Ophelia Crawford](../articles/06-people/Ophelia Crawford.md) — _2026-03-20_
+- [Optimizing Vasopressor Dosing in the ICU_ A Research Protocol for Offline Reinforcement Learning](../articles/04-domains/healthcare/rl-vassopressor/Optimizing Vasopressor Dosing in the ICU_ A Research Protocol for Offline Reinforcement Learning.md) — _2026-03-20_
+- [ORA](../articles/03-case-studies/ORA.md) — _2026-03-20_
+- [Oregon Debt-collection Defense — Motion_declaration_orders Pack (clackamas‑tuned)](../articles/00-foundations/citizen-gardens/Oregon Debt-collection Defense — Motion_declaration_orders Pack (clackamas‑tuned).md) — _2026-03-20_
+- [Oscillating Harmonic Multiplicity](../articles/06-people/Oscillating Harmonic Multiplicity.md) — _2026-03-20_
+- [Outlier Terms](../articles/03-case-studies/Outlier Terms.md) — _2026-03-20_
+- [Outline](../articles/04-domains/semiotic-physics/Outline.md) — _2026-03-20_
+- [P-BANACH](../articles/05-systems/algorithms/P-BANACH.md) — _2026-03-20_
+- [P-CONTSPECTRUM](../articles/05-systems/algorithms/P-CONTSPECTRUM.md) — _2026-03-20_
+- [P-DEPHASEDECOH](../articles/05-systems/algorithms/P-DEPHASEDECOH.md) — _2026-03-20_
+- [P-DIMEXPANSION](../articles/05-systems/algorithms/P-DIMEXPANSION.md) — _2026-03-20_
+- [P-ECOSYSTEM](../articles/05-systems/algorithms/P-ECOSYSTEM.md) — _2026-03-20_
+- [P-EIGENPHASE](../articles/05-systems/algorithms/P-EIGENPHASE.md) — _2026-03-20_
+- [P-ENTANGWITNESS](../articles/05-systems/algorithms/P-ENTANGWITNESS.md) — _2026-03-20_
+- [P-Equals-NP-Prior-Art](../articles/03-case-studies/P-Equals-NP-Prior-Art.md) — _2026-03-20_
+- [P-ERGODIC](../articles/05-systems/algorithms/P-ERGODIC.md) — _2026-03-20_
+- [P-FASTFOURIER](../articles/05-systems/algorithms/P-FASTFOURIER.md) — _2026-03-20_
+- [P-FIELDOSCI](../articles/05-systems/algorithms/P-FIELDOSCI.md) — _2026-03-20_
+- [P-FOURIER](../articles/05-systems/algorithms/P-FOURIER.md) — _2026-03-20_
+- [P-GELFLAND](../articles/05-systems/algorithms/P-GELFLAND.md) — _2026-03-20_
+- [P-GEOINVARIANT](../articles/05-systems/algorithms/P-GEOINVARIANT.md) — _2026-03-20_
+- [P-GLAUBER](../articles/05-systems/algorithms/P-GLAUBER.md) — _2026-03-20_
+- [P-GOOPAGERANK](../articles/05-systems/algorithms/P-GOOPAGERANK.md) — _2026-03-20_
+- [P-GROTHENDIECK](../articles/05-systems/algorithms/P-GROTHENDIECK.md) — _2026-03-20_
+- [P-GROVERS](../articles/05-systems/algorithms/P-GROVERS.md) — _2026-03-20_
+- [P-HARMONICOSCI](../articles/05-systems/algorithms/P-HARMONICOSCI.md) — _2026-03-20_
+- [P-HIDDENMARKOV](../articles/05-systems/algorithms/P-HIDDENMARKOV.md) — _2026-03-20_
+- [P-HIERARCHIAL](../articles/05-systems/algorithms/P-HIERARCHIAL.md) — _2026-03-20_
+- [P-HOLOGRAPHIC](../articles/05-systems/algorithms/P-HOLOGRAPHIC.md) — _2026-03-20_
+- [P-KAMTHEORY](../articles/05-systems/algorithms/P-KAMTHEORY.md) — _2026-03-20_
+- [P-KANIADAKIS](../articles/05-systems/algorithms/P-KANIADAKIS.md) — _2026-03-20_
+- [P-KRAUSOP](../articles/05-systems/algorithms/P-KRAUSOP.md) — _2026-03-20_
+- [P-LIEALGEBRA](../articles/05-systems/algorithms/P-LIEALGEBRA.md) — _2026-03-20_
+- [P-LINEARPROG](../articles/05-systems/algorithms/P-LINEARPROG.md) — _2026-03-20_
+- [P-MACHINELEARN](../articles/05-systems/algorithms/P-MACHINELEARN.md) — _2026-03-20_
+- [P-MANYBODY](../articles/05-systems/algorithms/P-MANYBODY.md) — _2026-03-20_
+- [P-MARKOVMONTE](../articles/05-systems/algorithms/P-MARKOVMONTE.md) — _2026-03-20_
+- [P-NEURALNET](../articles/05-systems/networks/P-NEURALNET.md) — _2026-03-20_
+- [P-PHASESTIMATE](../articles/05-systems/algorithms/P-PHASESTIMATE.md) — _2026-03-20_
+- [P-PHOTONSTATES](../articles/05-systems/algorithms/P-PHOTONSTATES.md) — _2026-03-20_
+- [P-POLYMORPHICDM](../articles/05-systems/algorithms/P-POLYMORPHICDM.md) — _2026-03-20_
+- [P-SCHRODINGER](../articles/05-systems/algorithms/P-SCHRODINGER.md) — _2026-03-20_
+- [P-SERRESINTERSECT](../articles/05-systems/algorithms/P-SERRESINTERSECT.md) — _2026-03-20_
+- [P-SHORS](../articles/05-systems/algorithms/P-SHORS.md) — _2026-03-20_
+- [P-SIMANNEALING](../articles/05-systems/algorithms/P-SIMANNEALING.md) — _2026-03-20_
+- [P-SINGULARITY](../articles/05-systems/algorithms/P-SINGULARITY.md) — _2026-03-20_
+- [P-SOBOLEVSPACES](../articles/05-systems/algorithms/P-SOBOLEVSPACES.md) — _2026-03-20_
+- [P-SPECTRALDECOMP](../articles/05-systems/algorithms/P-SPECTRALDECOMP.md) — _2026-03-20_
+- [P-STACKSMODULI](../articles/05-systems/algorithms/P-STACKSMODULI.md) — _2026-03-20_
+- [P-STATEVECTOR](../articles/05-systems/algorithms/P-STATEVECTOR.md) — _2026-03-20_
+- [P-STATISTIC(M)](../articles/05-systems/algorithms/P-STATISTIC(M).md) — _2026-03-20_
+- [P-STATMECH](../articles/05-systems/algorithms/P-STATMECH.md) — _2026-03-20_
+- [P-SYMPLECTICGEO](../articles/05-systems/algorithms/P-SYMPLECTICGEO.md) — _2026-03-20_
+- [P-TIMEDILATE](../articles/05-systems/algorithms/P-TIMEDILATE.md) — _2026-03-20_
+- [P-TROPICAL](../articles/05-systems/algorithms/P-TROPICAL.md) — _2026-03-20_
+- [P-VARIEIGENSOLV](../articles/05-systems/algorithms/P-VARIEIGENSOLV.md) — _2026-03-20_
+- [P-WORMHOLE](../articles/05-systems/algorithms/P-WORMHOLE.md) — _2026-03-20_
+- [P-YINYANG](../articles/05-systems/algorithms/P-YINYANG.md) — _2026-03-20_
+- [Pac-opt V2](../articles/03-case-studies/Pac-opt V2.md) — _2026-03-20_
+- [Patent Research](../articles/03-case-studies/Patent Research.md) — _2026-03-20_
+- [Patent Research Report_ The Quantum Calculator (QARI) System](../articles/02-implementations/q-calculator/Patent Research Report_ The Quantum Calculator (QARI) System.md) — _2026-03-20_
+- [Patent Research Report_ The Universal Atomic Calculator (UAC) Framework](../articles/02-implementations/atomic-calculator/Patent Research Report_ The Universal Atomic Calculator (UAC) Framework.md) — _2026-03-20_
+- [Patent Search Results](../articles/02-implementations/Λproof/Patent Search Results.md) — _2026-03-20_
+- [Patent Suggestions](../articles/06-people/Patent Suggestions.md) — _2026-03-20_
+- [Patentability and Freedom-to-Operate Report](../articles/02-implementations/q-calculator/Patentability and Freedom-to-Operate Report.md) — _2026-03-20_
+- [Patient and Primary Care Giver Registration Form](../articles/00-foundations/citizen-gardens/Patient and Primary Care Giver Registration Form.md) — _2026-03-20_
+- [Patrick Schopf](../articles/06-people/Patrick Schopf.md) — _2026-03-20_
+- [Pattern_Recognition_Cognition](../articles/06-people/ken-parrot/Pattern_Recognition_Cognition.md) — _2026-03-20_
+- [Pattern_Stacking](../articles/06-people/ken-parrot/Pattern_Stacking.md) — _2026-03-20_
+- [Paul Dirac](../articles/06-people/Paul Dirac.md) — _2026-03-20_
+- [PDS Research](../articles/03-case-studies/PDS Research.md) — _2026-03-20_
+- [Pedro Nunes](../articles/06-people/Pedro Nunes.md) — _2026-03-20_
+- [Pefs-2_ Prime-evolution Feedback System (formal Specification)](../articles/03-case-studies/Pefs-2_ Prime-evolution Feedback System (formal Specification).md) — _2026-03-20_
+- [Pells_Equation](../articles/00-foundations/mathematics/pells/Pells_Equation.md) — _2026-03-20_
+- [Pell’s Equation with Multiplicity — Layman’s Guide](../articles/00-foundations/mathematics/pells/Pell’s Equation with Multiplicity — Layman’s Guide.md) — _2026-03-20_
+- [Peqbsa (prime-on-coefficients Formulation) — Revised](../articles/03-case-studies/Peqbsa (prime-on-coefficients Formulation) — Revised.md) — _2026-03-20_
+- [Peqbsa (prime-on-coefficients)](../articles/03-case-studies/Peqbsa (prime-on-coefficients).md) — _2026-03-20_
+- [Perfectoid Chromatic Vision System](../articles/02-implementations/chromatic-vision/Perfectoid Chromatic Vision System.md) — _2026-03-20_
+- [PETC](../articles/00-foundations/imd/PETC.md) — _2026-03-20_
+- [PETC_DRMM_CSC](../articles/00-foundations/imd/PETC_DRMM_CSC.md) — _2026-03-20_
+- [Peter Grünberg](../articles/06-people/Peter Grünberg.md) — _2026-03-20_
+- [Peter Gustav Lejeune Dirichlet](../articles/06-people/Peter Gustav Lejeune Dirichlet.md) — _2026-03-20_
+- [Peter Higgs](../articles/06-people/Peter Higgs.md) — _2026-03-20_
+- [Peter J. Mucha](../articles/06-people/Peter J. Mucha.md) — _2026-03-20_
+- [Peter Shor](../articles/06-people/Peter Shor.md) — _2026-03-20_
+- [Phase 1](../articles/02-implementations/q-calculator/Phase 1.md) — _2026-03-20_
+- [Phase 2](../articles/02-implementations/q-calculator/Phase 2.md) — _2026-03-20_
+- [Phase 3](../articles/02-implementations/q-calculator/Phase 3.md) — _2026-03-20_
+- [Phase 4](../articles/02-implementations/q-calculator/Phase 4.md) — _2026-03-20_
+- [Phase mirror dissonance_](../articles/00-foundations/phase-mirror/Phase mirror dissonance_.md) — _2026-03-20_
+- [Phase mirror dissonance___Open core must be useful](../articles/00-foundations/phase-mirror/Phase mirror dissonance___Open core must be useful.md) — _2026-03-20_
+- [Phase mirror dissonance__Consent model complete bu](../articles/00-foundations/phase-mirror/Phase mirror dissonance__Consent model complete bu.md) — _2026-03-20_
+- [Phase Mirror Hero](../articles/00-foundations/phase-mirror/Phase Mirror Hero.md) — _2026-03-20_
+- [Phase Mirror License](../articles/00-foundations/phase-mirror/Phase Mirror License.md) — _2026-03-20_
+- [Phase Mirror License (ELv2-Style)](../articles/00-foundations/phase-mirror/Phase Mirror License (ELv2-Style).md) — _2026-03-20_
+- [Phase Mirror_ Comprehensive Services Catalog](../articles/00-foundations/phase-mirror/Phase Mirror_ Comprehensive Services Catalog.md) — _2026-03-20_
+- [Phase Mirror_ Comprehensive Services Catalog.docx](../articles/00-foundations/phase-mirror/Phase Mirror_ Comprehensive Services Catalog.docx.md) — _2026-03-20_
+- [Phase Mirror_ Consultation & SaaS](../articles/00-foundations/phase-mirror/Phase Mirror_ Consultation & SaaS.md) — _2026-03-20_
+- [Phase-aware Hypergraph Distance – Final Spec + Patch](../articles/03-case-studies/Phase-aware Hypergraph Distance – Final Spec + Patch.md) — _2026-03-20_
+- [Phase_Mirror_Dissonance](../articles/00-foundations/phase-mirror/Phase_Mirror_Dissonance.md) — _2026-03-20_
+- [Phenomenal Edu](../articles/04-domains/education/Phenomenal Edu.md) — _2026-03-20_
+- [Phenomenology Physics](../articles/03-case-studies/Phenomenology Physics.md) — _2026-03-20_
+- [Philip W. Anderson](../articles/06-people/Philip W. Anderson.md) — _2026-03-20_
+- [Philip Zimbardo](../articles/06-people/Philip Zimbardo.md) — _2026-03-20_
+- [Pierre Deligne](../articles/06-people/Pierre Deligne.md) — _2026-03-20_
+- [Pierre-Simon Laplace_](../articles/06-people/Pierre-Simon Laplace_.md) — _2026-03-20_
+- [Pietro Perona](../articles/06-people/Pietro Perona.md) — _2026-03-20_
+- [Pimci Canonicalization](../articles/03-case-studies/Pimci Canonicalization.md) — _2026-03-20_
+- [Pimci Normal Form Nf(a)_ Kirby Generators, Discriminant Pairing, And Deterministic Canonicalization](../articles/03-case-studies/Pimci Normal Form Nf(a)_ Kirby Generators, Discriminant Pairing, And Deterministic Canonicalization.md) — _2026-03-20_
+- [Pimci — Prime-Indexed Multiplicity Cobordism Invariants](../articles/03-case-studies/Pimci — Prime-Indexed Multiplicity Cobordism Invariants.md) — _2026-03-20_
+- [Pimr Audit-tight Methods + Evaluation Protocol](../articles/03-case-studies/Pimr Audit-tight Methods + Evaluation Protocol.md) — _2026-03-20_
+- [Pimr++ Research Blueprint (prime-indexed Multi-resolution Long-context Module)](../articles/03-case-studies/Pimr++ Research Blueprint (prime-indexed Multi-resolution Long-context Module).md) — _2026-03-20_
+- [Pingala](../articles/06-people/Pingala.md) — _2026-03-20_
+- [PIRTM](../articles/00-foundations/imd/PIRTM.md) — _2026-03-20_
+- [PIRTM DRMM](../articles/00-foundations/imd/PIRTM DRMM.md) — _2026-03-20_
+- [PIRTM DRMM 2](../articles/03-case-studies/PIRTM DRMM 2.md) — _2026-03-20_
+- [Pirtm V2](../articles/03-case-studies/Pirtm V2.md) — _2026-03-20_
+- [PIRTM-core & EntropyMod](../articles/02-implementations/Λproof/PIRTM-core & EntropyMod.md) — _2026-03-20_
+- [Pirtm_drmm Anti-resonance Gating Layer — V1.4](../articles/03-case-studies/Pirtm_drmm Anti-resonance Gating Layer — V1.4.md) — _2026-03-20_
+- [Pissa Ar Xiv Tool Note Skeleton](../articles/03-case-studies/Pissa Ar Xiv Tool Note Skeleton.md) — _2026-03-20_
+- [Pissa-h V1.2](../articles/03-case-studies/Pissa-h V1.2.md) — _2026-03-20_
+- [Platform SaaS Page](../articles/00-foundations/phase-mirror/Platform SaaS Page.md) — _2026-03-20_
+- [Platinum_](../articles/03-case-studies/Platinum_.md) — _2026-03-20_
+- [Plato](../articles/02-implementations/platos-cave/Plato.md) — _2026-03-20_
+- [Plato's Cave Simulator_ A Technical Whitepaper on Hierarchical Trust, Oracle Invariance, and Meta-Reforms](../articles/02-implementations/platos-cave/Plato's Cave Simulator_ A Technical Whitepaper on Hierarchical Trust, Oracle Invariance, and Meta-Reforms.md) — _2026-03-20_
+- [Plato's–cave Simulator_ Hierarchical Trust, Oracle Invariance, And Meta-reforms](../articles/02-implementations/platos-cave/Plato's–cave Simulator_ Hierarchical Trust, Oracle Invariance, And Meta-reforms.md) — _2026-03-20_
+- [Plato_s Cave Simulator_ Hierarchical Trust, Oracle Invariance, And Meta-reforms (formalization + Final Code)](../articles/02-implementations/platos-cave/Plato_s Cave Simulator_ Hierarchical Trust, Oracle Invariance, And Meta-reforms (formalization + Final Code).md) — _2026-03-20_
+- [PLATOS-CAVE](../articles/02-implementations/platos-cave/PLATOS-CAVE.md) — _2026-03-20_
+- [PMCE-M](../articles/06-people/chris-mcginty/PMCE-M.md) — _2026-03-20_
+- [PMCE-M (1)](../articles/06-people/chris-mcginty/PMCE-M (1).md) — _2026-03-20_
+- [PMCE-MCNL](../articles/06-people/chris-mcginty/PMCE-MCNL.md) — _2026-03-20_
+- [PMD Strategic Framework for Oversight, Forecasting, and Risk Management](../articles/00-foundations/phase-mirror/PMD Strategic Framework for Oversight, Forecasting, and Risk Management.md) — _2026-03-20_
+- [Pmdm–moc Formalization_ Prime-graded Density Operators And Qft Constructions (a_b_c)](../articles/03-case-studies/Pmdm–moc Formalization_ Prime-graded Density Operators And Qft Constructions (a_b_c).md) — _2026-03-20_
+- [Policy Memo_ Managing Agentic AI Liability with the Phase Mirror Framework](../articles/00-foundations/phase-mirror/Policy Memo_ Managing Agentic AI Liability with the Phase Mirror Framework.md) — _2026-03-20_
+- [Polymorphic](../articles/03-case-studies/Polymorphic.md) — _2026-03-20_
+- [Polymorphic_Multiplicity_Matrices](../articles/03-case-studies/Polymorphic_Multiplicity_Matrices.md) — _2026-03-20_
+- [Practical Implementation and Evaluation Guide_ Universal Logic v2](../articles/02-implementations/q-calculator/Practical Implementation and Evaluation Guide_ Universal Logic v2.md) — _2026-03-20_
+- [Practical Recipes for Rhythm, Scheduling, and Haptic Systems](../articles/01-operators/Practical Recipes for Rhythm, Scheduling, and Haptic Systems.md) — _2026-03-20_
+- [Primary Factors of Multiplicity](../articles/03-case-studies/Primary Factors of Multiplicity.md) — _2026-03-20_
+- [Primary Factors of Multiplicity](../articles/00-foundations/citizen-gardens/Primary Factors of Multiplicity.md) — _2026-03-20_
+- [Prime Advancements](../articles/03-case-studies/Prime Advancements.md) — _2026-03-20_
+- [Prime Architectures](../articles/03-case-studies/Prime Architectures.md) — _2026-03-20_
+- [Prime Cascade 501-997](../articles/03-case-studies/Prime Cascade 501-997.md) — _2026-03-20_
+- [Prime Examples](../articles/03-case-studies/Prime Examples.md) — _2026-03-20_
+- [Prime Kit_ Associativity Defect Diagnosis & Repair — Consolidated Spec (v2)](../articles/03-case-studies/Prime Kit_ Associativity Defect Diagnosis & Repair — Consolidated Spec (v2).md) — _2026-03-20_
+- [Prime MEQ Computational Framework Overview](../articles/06-people/chris-mcginty/Prime MEQ Computational Framework Overview.md) — _2026-03-20_
+- [Prime MEQ Computational Framework Overview (1)](../articles/06-people/chris-mcginty/Prime MEQ Computational Framework Overview (1).md) — _2026-03-20_
+- [Prime Modalities As Epistemic Operators](../articles/03-case-studies/Prime Modalities As Epistemic Operators.md) — _2026-03-20_
+- [Prime Oscillation & Weil Explicit Formula](../articles/03-case-studies/Prime Oscillation & Weil Explicit Formula.md) — _2026-03-20_
+- [Prime Sieve Of Time](../articles/03-case-studies/Prime Sieve Of Time.md) — _2026-03-20_
+- [Prime-Based Encryption](../articles/03-case-studies/Prime-Based Encryption.md) — _2026-03-20_
+- [Prime-Based Neuromorphic Algorithms for Shells and Containers](../articles/05-systems/shell/SH-NEUROMORPHIC.md) — _2026-03-20_
+- [Prime-indexed Cobordism Invariants](../articles/03-case-studies/Prime-indexed Cobordism Invariants.md) — _2026-03-20_
+- [Prime-invariant Attention For Quadratic-residue Generalization](../articles/03-case-studies/Prime-invariant Attention For Quadratic-residue Generalization.md) — _2026-03-20_
+- [Prime-Scheduled Multiresolution Contraction](../articles/03-case-studies/Prime-Scheduled Multiresolution Contraction.md) — _2026-03-20_
+- [Prime-Tensor Entangled Phase Ladder](../articles/03-case-studies/Prime-Tensor Entangled Phase Ladder.md) — _2026-03-20_
+- [Prime-tower Pairing-sensitive Diffusion_ Formalized Method + Reference Code](../articles/03-case-studies/Prime-tower Pairing-sensitive Diffusion_ Formalized Method + Reference Code.md) — _2026-03-20_
+- [Prime_Cascade_1](../articles/00-foundations/mathematics/prime-cascade/Prime_Cascade_1.md) — _2026-03-20_
+- [Prime_Cascade_2](../articles/00-foundations/mathematics/prime-cascade/Prime_Cascade_2.md) — _2026-03-20_
+- [Prime_Cascade_3](../articles/00-foundations/mathematics/prime-cascade/Prime_Cascade_3.md) — _2026-03-20_
+- [Prime_Cascade_4](../articles/00-foundations/mathematics/prime-cascade/Prime_Cascade_4.md) — _2026-03-20_
+- [Prime_Cascade_5](../articles/00-foundations/mathematics/prime-cascade/Prime_Cascade_5.md) — _2026-03-20_
+- [Prime_Cascade_6](../articles/00-foundations/mathematics/prime-cascade/Prime_Cascade_6.md) — _2026-03-20_
+- [Prime_Cascade_7](../articles/00-foundations/mathematics/prime-cascade/Prime_Cascade_7.md) — _2026-03-20_
+- [Prime_Cascade_8](../articles/00-foundations/mathematics/prime-cascade/Prime_Cascade_8.md) — _2026-03-20_
+- [Prime_Indexed_Recursive_Tensor_Mathematics](../articles/00-foundations/imd/Prime_Indexed_Recursive_Tensor_Mathematics.md) — _2026-03-20_
+- [Prime_Modulated_Quantum_Coherence](../articles/00-foundations/imd/Prime_Modulated_Quantum_Coherence.md) — _2026-03-20_
+- [Prime_Noise](../articles/03-case-studies/Prime_Noise.md) — _2026-03-20_
+- [Prime_Structured_Quantum_Computational_Framework](../articles/03-case-studies/Prime_Structured_Quantum_Computational_Framework.md) — _2026-03-20_
+- [PrimeAI-Template](../articles/03-case-studies/PrimeAI-Template.md) — _2026-03-20_
+- [Prime‑layered Recursion — Tyler_ace Integration (spec V0](../articles/02-implementations/q-calculator/Prime‑layered Recursion — Tyler_ace Integration (spec V0.md) — _2026-03-20_
+- [Privacy Policy](../articles/02-implementations/echobraid/Privacy Policy.md) — _2026-03-20_
+- [Priya Mathur](../articles/03-case-studies/Priya Mathur.md) — _2026-03-20_
+- [Priyasha_Mathur](../articles/03-case-studies/Priyasha_Mathur.md) — _2026-03-20_
+- [Processors(1)](../articles/03-case-studies/Processors(1).md) — _2026-03-20_
+- [program_example](../articles/03-case-studies/program_example.md) — _2026-03-20_
+- [Project Addendum — Contradictions, Micro‑experiments, Chaos & Murder Board](../articles/02-implementations/soulaware/Project Addendum — Contradictions, Micro‑experiments, Chaos & Murder Board.md) — _2026-03-20_
+- [Project Charter_ The 13+1 Strata of Recursive Becoming Initiative](../articles/05-systems/strata14/Project Charter_ The 13+1 Strata of Recursive Becoming Initiative.md) — _2026-03-20_
+- [Project Proposal_ Empirical Validation and Extension of the Meta-Ensembles Framework](../articles/05-systems/meta-ensembles/Project Proposal_ Empirical Validation and Extension of the Meta-Ensembles Framework.md) — _2026-03-20_
+- [Project Proposal_ Extending the Codon-Contrast Framework for Enhanced Predictive Power and Structural Variant Analysis](../articles/04-domains/healthcare/codon-contrast/Project Proposal_ Extending the Codon-Contrast Framework for Enhanced Predictive Power and Structural Variant Analysis.md) — _2026-03-20_
+- [Project Proposal_ Integration of the Elastic Tether Protocol](../articles/05-systems/elastic-tether/Project Proposal_ Integration of the Elastic Tether Protocol.md) — _2026-03-20_
+- [Project Proposal_ Simulating Dynamic Dream States](../articles/03-case-studies/aesthetics/Project Proposal_ Simulating Dynamic Dream States.md) — _2026-03-20_
+- [Prompts](../articles/03-case-studies/Prompts.md) — _2026-03-20_
+- [Proposal for the Next-Generation Codon-Contrast Framework_ Extending Analytical Scope and Validating Predictive Power](../articles/04-domains/healthcare/codon-contrast/Proposal for the Next-Generation Codon-Contrast Framework_ Extending Analytical Scope and Validating Predictive Power.md) — _2026-03-20_
+- [Proposed Extension](../articles/03-case-studies/aesthetics/Proposed Extension.md) — _2026-03-20_
+- [Proving LP](../articles/03-case-studies/Proving LP.md) — _2026-03-20_
+- [Provisional Patent Draft Skeleton](../articles/02-implementations/q-calculator/Provisional Patent Draft Skeleton.md) — _2026-03-20_
+- [Provisional Patent Draft Skeleton — Certified Stability And Governance Architecture For Ai Workflows (q‑ari _ Q‑calculator × Λproof)](../articles/02-implementations/q-calculator/Provisional Patent Draft Skeleton — Certified Stability And Governance Architecture For Ai Workflows (q‑ari _ Q‑calculator × Λproof).md) — _2026-03-20_
+- [Provisional Patent Draft Skeleton — Certified Stability And Governance Architecture For Ai Workflows (q‑ari _ Q‑calculator × Λproof) (2)](../articles/02-implementations/q-calculator/Provisional Patent Draft Skeleton — Certified Stability And Governance Architecture For Ai Workflows (q‑ari _ Q‑calculator × Λproof) (2).md) — _2026-03-20_
+- [Provisional Patent Draft — Prime‑indexed Contractive Agi (q‑ari + Q‑calculator)](../articles/02-implementations/q-calculator/Provisional Patent Draft — Prime‑indexed Contractive Agi (q‑ari + Q‑calculator).md) — _2026-03-20_
+- [Provisional Patent Outline](../articles/02-implementations/q-calculator/Provisional Patent Outline.md) — _2026-03-20_
+- [Provisional Patent Outline — Lawfulness‑certified Stability & Prime‑layered Recursion (λproof × Q‑ari_q‑calculator)](../articles/02-implementations/q-calculator/Provisional Patent Outline — Lawfulness‑certified Stability & Prime‑layered Recursion (λproof × Q‑ari_q‑calculator).md) — _2026-03-20_
+- [Provisional Patent Research](../articles/02-implementations/q-calculator/Provisional Patent Research.md) — _2026-03-20_
+- [Psfom++ Formalization And Implementation Appendix](../articles/03-case-studies/Psfom++ Formalization And Implementation Appendix.md) — _2026-03-20_
+- [PSMC V4](../articles/03-case-studies/PSMC V4.md) — _2026-03-20_
+- [Ptolemy](../articles/06-people/Ptolemy.md) — _2026-03-20_
+- [Pythagorean_Triplets_and_Fibonacci_Sequences](../articles/03-case-studies/Pythagorean_Triplets_and_Fibonacci_Sequences.md) — _2026-03-20_
+- [P²c _ Petc Core V1](../articles/03-case-studies/P²c _ Petc Core V1.md) — _2026-03-20_
+- [Q-Calculator - Claims](../articles/02-implementations/q-calculator/Q-Calculator - Claims.md) — _2026-03-20_
+- [Q-Education](../articles/04-domains/education/Q-Education.md) — _2026-03-20_
+- [Q-RAGI Repo](../articles/02-implementations/q-calculator/Q-RAGI Repo.md) — _2026-03-20_
+- [Q-RAGI_ Full Spec + Reference Code](../articles/02-implementations/q-calculator/Q-RAGI_ Full Spec + Reference Code.md) — _2026-03-20_
+- [Q_Calculator](../articles/02-implementations/q-calculator/Q_Calculator.md) — _2026-03-20_
+- [Q_Search](../articles/03-case-studies/Q_Search.md) — _2026-03-20_
+- [QAGI_Patent_LaTex](../articles/03-case-studies/QAGI_Patent_LaTex.md) — _2026-03-20_
+- [QAHES Engineering-grade roadmap v1](../articles/03-case-studies/QAHES Engineering-grade roadmap v1.md) — _2026-03-20_
+- [QAHES Engineering-grade roadmap v1](../articles/05-systems/cryptography/QAHES Engineering-grade roadmap v1.md) — _2026-03-20_
+- [QAI-HTS Physical Node Array](../articles/02-implementations/q-calculator/QAI-HTS Physical Node Array.md) — _2026-03-20_
+- [QARI-WordPress](../articles/03-case-studies/QARI-WordPress.md) — _2026-03-20_
+- [QCNN](../articles/06-people/joshua-brewer/QCNN.md) — _2026-03-20_
+- [Qkd Hybrid Encryption V1.0](../articles/03-case-studies/Qkd Hybrid Encryption V1.0.md) — _2026-03-20_
+- [Qkd Hybrid Encryption V1.0](../articles/05-systems/cryptography/Qkd Hybrid Encryption V1.0.md) — _2026-03-20_
+- [QLLM](../articles/06-people/joshua-brewer/QLLM.md) — _2026-03-20_
+- [Qpf Lab — Associator Spectroscopy (final Engineering Spec)](../articles/03-case-studies/Qpf Lab — Associator Spectroscopy (final Engineering Spec).md) — _2026-03-20_
+- [Qpf Methods Protocol (gallows-proof, V1](../articles/03-case-studies/Qpf Methods Protocol (gallows-proof, V1.md) — _2026-03-20_
+- [QS Test Instructions](../articles/06-people/tyler-vanosdol/QS Test Instructions.md) — _2026-03-20_
+- [Quantum Annealing](../articles/05-systems/solvers/Quantum Annealing.md) — _2026-03-20_
+- [Quantum Corrections](../articles/03-case-studies/Quantum Corrections.md) — _2026-03-20_
+- [Quantum Fusion](../articles/04-domains/meta-relativity/Quantum Fusion.md) — _2026-03-20_
+- [Quantum Gravity](../articles/04-domains/meta-relativity/Quantum Gravity.md) — _2026-03-20_
+- [Quantum Musicality - Math Clean Version](../articles/04-domains/musicality/Quantum Musicality - Math Clean Version.md) — _2026-03-20_
+- [Quantum Nearest Neighbor](../articles/04-domains/meta-relativity/Quantum Nearest Neighbor.md) — _2026-03-20_
+- [Quantum Renaissance_ A K-12 Pedagogical Framework](../articles/04-domains/education/Quantum Renaissance_ A K-12 Pedagogical Framework.md) — _2026-03-20_
+- [Quantum State Security Overview](../articles/02-implementations/zenolock/Quantum State Security Overview.md) — _2026-03-20_
+- [Quantum Supremacy](../articles/03-case-studies/Quantum Supremacy.md) — _2026-03-20_
+- [Quantum-State-Based Security Encryption Engine](../articles/03-case-studies/Quantum State Based Security.md) — _2026-03-20_
+- [Quantum_AGI](../articles/02-implementations/q-calculator/Quantum_AGI.md) — _2026-03-20_
+- [Quantum_AI_Hypercosmic_Thought_Singularity](../articles/03-case-studies/Quantum_AI_Hypercosmic_Thought_Singularity.md) — _2026-03-20_
+- [Quantum_Anthropology](../articles/03-case-studies/Quantum_Anthropology.md) — _2026-03-20_
+- [Quantum_Einstein](../articles/06-people/Quantum_Einstein.md) — _2026-03-20_
+- [Quantum_Memory_Engrams](../articles/03-case-studies/Quantum_Memory_Engrams.md) — _2026-03-20_
+- [Quantum_Musicality](../articles/03-case-studies/Quantum_Musicality.md) — _2026-03-20_
+- [Quantum_Musicality(1)](../articles/03-case-studies/Quantum_Musicality(1).md) — _2026-03-20_
+- [Quantum_Sheaf_Ethics](../articles/03-case-studies/Quantum_Sheaf_Ethics.md) — _2026-03-20_
+- [Quantum_Supremacy](../articles/03-case-studies/Quantum_Supremacy.md) — _2026-03-20_
+- [Q‑calculator Ui Theme — Implementation Guide V0](../articles/02-implementations/q-calculator/Q‑calculator Ui Theme — Implementation Guide V0.md) — _2026-03-20_
+- [R + αR² in FLRW](../articles/06-people/albert-einstein/R + αR² in FLRW.md) — _2026-03-20_
+- [R. M. Foote](../articles/06-people/R. M. Foote.md) — _2026-03-20_
+- [R. Shaknar](../articles/06-people/R. Shaknar.md) — _2026-03-20_
+- [Ragi‑c_ Full Spec + Reference Code](../articles/02-implementations/q-calculator/Ragi‑c_ Full Spec + Reference Code.md) — _2026-03-20_
+- [Ragi‑c_ Full Spec + Reference Code](../articles/05-systems/agi/Ragi‑c_ Full Spec + Reference Code.md) — _2026-03-20_
+- [Ray_Tracing___Dark_Matter_Halos](../articles/04-domains/meta-relativity/Ray_Tracing___Dark_Matter_Halos.md) — _2026-03-20_
+- [RCAA Implementation Blueprint](../articles/03-case-studies/RCAA Implementation Blueprint.md) — _2026-03-20_
+- [Recursive Linguistic Computation](../articles/03-case-studies/Recursive Linguistic Computation.md) — _2026-03-20_
+- [Recursive Logical Systems And Feedback Loops — Final Developments (formal Addendum)](../articles/03-case-studies/Recursive Logical Systems And Feedback Loops — Final Developments (formal Addendum).md) — _2026-03-20_
+- [Recursive Ontological Multiplicity Operator (λ_ξ)](../articles/03-case-studies/Recursive Ontological Multiplicity Operator (λ_ξ).md) — _2026-03-20_
+- [Recursive_Systems](../articles/03-case-studies/Recursive_Systems.md) — _2026-03-20_
+- [Recursive_Tensor_Cognition](../articles/03-case-studies/Recursive_Tensor_Cognition.md) — _2026-03-20_
+- [reference.bib](../articles/03-case-studies/reference.bib.md) — _2026-03-20_
+- [Reference.bib (LaTex)](../articles/03-case-studies/Reference.bib (LaTex).md) — _2026-03-20_
+- [reference.bib(1)](../articles/03-case-studies/reference.bib(1).md) — _2026-03-20_
+- [Reinhard Diestel](../articles/06-people/Reinhard Diestel.md) — _2026-03-20_
+- [RELA](../articles/03-case-studies/RELA.md) — _2026-03-20_
+- [RELA 1](../articles/03-case-studies/RELA 1.md) — _2026-03-20_
+- [RELA 2](../articles/03-case-studies/RELA 2.md) — _2026-03-20_
+- [RELA Enhanced](../articles/03-case-studies/RELA Enhanced.md) — _2026-03-20_
+- [RELAM](../articles/03-case-studies/RELAM.md) — _2026-03-20_
+- [Research](../articles/03-case-studies/Research.md) — _2026-03-20_
+- [Research Proposal](../articles/00-foundations/mathematics/pells/Research Proposal.md) — _2026-03-20_
+- [Research Proposal](../articles/02-implementations/soulaware/Research Proposal.md) — _2026-03-20_
+- [Research Proposal (1)](../articles/05-systems/strata14/Research Proposal (1).md) — _2026-03-20_
+- [Research Proposal_  Predicting Loss of Consciousness in Clinical Anesthesia](../articles/04-domains/healthcare/scalar-consciousness/Research Proposal_  Predicting Loss of Consciousness in Clinical Anesthesia.md) — _2026-03-20_
+- [Research Proposal_ A State-Space Framework for Quantifying and Modulating Brain Aging Dynamics](../articles/04-domains/healthcare/brain-aging/Research Proposal_ A State-Space Framework for Quantifying and Modulating Brain Aging Dynamics.md) — _2026-03-20_
+- [Research Proposal_ Development and Validation of a Multi-Horizon Early-Risk Prediction Model for Type 2 Diabetes](../articles/04-domains/healthcare/healthspan/Research Proposal_ Development and Validation of a Multi-Horizon Early-Risk Prediction Model for Type 2 Diabetes.md) — _2026-03-20_
+- [Research Proposal_ Extending the Universal Atomic Calculator](../articles/02-implementations/atomic-calculator/Research Proposal_ Extending the Universal Atomic Calculator.md) — _2026-03-20_
+- [Research Proposal_ Validating the ΞchoThread](../articles/03-case-studies/Research Proposal_ Validating the ΞchoThread.md) — _2026-03-20_
+- [Research Proposal_ Validating the ΞchoThread](../articles/02-implementations/echobraid/Research Proposal_ Validating the ΞchoThread.md) — _2026-03-20_
+- [Research Proposal_ Π-Kernel and Multiplicity Theory](../articles/03-case-studies/Research Proposal_ Π-Kernel and Multiplicity Theory.md) — _2026-03-20_
+- [Research Proposal_ Π-Kernel and Multiplicity Theory](../articles/05-systems/Π‑kernel/Research Proposal_ Π-Kernel and Multiplicity Theory.md) — _2026-03-20_
+- [Resonance_Loop](../articles/06-people/ken-parrot/Resonance_Loop.md) — _2026-03-20_
+- [Revised Manuscript Sections — Hierarchical Bayesian Calibration In Strong Lensing](../articles/06-people/tyler-vanosdol/Revised Manuscript Sections — Hierarchical Bayesian Calibration In Strong Lensing.md) — _2026-03-20_
+- [Revised Phase 1 Paper — Edge-efficient, Ethically-constrained Urban Intelligence With Hypergraphs (optional Quantum Kernel)](../articles/03-case-studies/Revised Phase 1 Paper — Edge-efficient, Ethically-constrained Urban Intelligence With Hypergraphs (optional Quantum Kernel).md) — _2026-03-20_
+- [Rewarding Rules](../articles/00-foundations/citizen-gardens/Rewarding Rules.md) — _2026-03-20_
+- [Reymond Jennings](../articles/03-case-studies/Reymond Jennings.md) — _2026-03-20_
+- [RH Research](../articles/03-case-studies/RH Research.md) — _2026-03-20_
+- [Richard Dedekind](../articles/06-people/Richard Dedekind.md) — _2026-03-20_
+- [Richard Feymann](../articles/06-people/Richard Feymann.md) — _2026-03-20_
+- [Richard P. Stanley](../articles/06-people/Richard P. Stanley.md) — _2026-03-20_
+- [Richard Szeliski](../articles/06-people/Richard Szeliski.md) — _2026-03-20_
+- [Riemann-Hypothesis-Multiplicity-Theory](../articles/03-case-studies/Riemann-Hypothesis-Multiplicity-Theory.md) — _2026-03-20_
+- [RIOS-ZuulaWAN](../articles/03-case-studies/RIOS-ZuulaWAN.md) — _2026-03-20_
+- [RMAGS](../articles/04-domains/governance/RMAGS.md) — _2026-03-20_
+- [RMAGS - Overview](../articles/04-domains/governance/RMAGS - Overview.md) — _2026-03-20_
+- [RMAGS L1](../articles/04-domains/governance/RMAGS L1.md) — _2026-03-20_
+- [RMAGS L1.1](../articles/04-domains/governance/RMAGS L1.1.md) — _2026-03-20_
+- [RMAGS L3](../articles/04-domains/governance/RMAGS L3.md) — _2026-03-20_
+- [RMAGS.docx](../articles/04-domains/governance/RMAGS.docx.md) — _2026-03-20_
+- [Roadmap Overview](../articles/03-case-studies/Roadmap Overview.md) — _2026-03-20_
+- [Roald Hoffmann](../articles/06-people/Roald Hoffmann.md) — _2026-03-20_
+- [Robert Eisberg](../articles/06-people/Robert Eisberg.md) — _2026-03-20_
+- [Robert Kanigel](../articles/06-people/Robert Kanigel.md) — _2026-03-20_
+- [Robert Mullikens](../articles/06-people/Robert Mullikens.md) — _2026-03-20_
+- [Robert Opennheimer](../articles/06-people/Robert Opennheimer.md) — _2026-03-20_
+- [Robert Recorde](../articles/06-people/Robert Recorde.md) — _2026-03-20_
+- [Robert Resnick](../articles/06-people/Robert Resnick.md) — _2026-03-20_
+- [Robert Tibshirani](../articles/06-people/Robert Tibshirani.md) — _2026-03-20_
+- [Robin Wall Kimmerer](../articles/06-people/Robin Wall Kimmerer.md) — _2026-03-20_
+- [Rodolfo Nieves](../articles/06-people/Rodolfo Nieves.md) — _2026-03-20_
+- [RT & DMH Research](../articles/04-domains/meta-relativity/RT & DMH Research.md) — _2026-03-20_
+- [Rudolph A. Marcus](../articles/06-people/Rudolph A. Marcus.md) — _2026-03-20_
+- [Ruth_Russel](../articles/06-people/team/Ruth_Russel.md) — _2026-03-20_
+- [RVG_Intro_Fun](../articles/03-case-studies/RVG_Intro_Fun.md) — _2026-03-20_
+- [R² Gravity V2_ Lock-first Model Spec + Golden Tests](../articles/06-people/albert-einstein/R² Gravity V2_ Lock-first Model Spec + Golden Tests.md) — _2026-03-20_
+- [S. L. Greitzer](../articles/06-people/S. L. Greitzer.md) — _2026-03-20_
+- [SAAP 1-6](../articles/04-domains/governance/SAAP 1-6.md) — _2026-03-20_
+- [SAAP 13-18](../articles/04-domains/governance/SAAP 13-18.md) — _2026-03-20_
+- [SAAP 19-24](../articles/04-domains/governance/SAAP 19-24.md) — _2026-03-20_
+- [SAAP 25-28](../articles/04-domains/governance/SAAP 25-28.md) — _2026-03-20_
+- [SAAP 7-12](../articles/04-domains/governance/SAAP 7-12.md) — _2026-03-20_
+- [SAAP_ A Framework for Audited Symmetry Diagnostics in Attention Mechanisms](../articles/04-domains/governance/SAAP_ A Framework for Audited Symmetry Diagnostics in Attention Mechanisms.md) — _2026-03-20_
+- [Sacred_Pedagogical_Architecture](../articles/04-domains/education/Sacred_Pedagogical_Architecture.md) — _2026-03-20_
+- [Sadi Carnot](../articles/06-people/Sadi Carnot.md) — _2026-03-20_
+- [Safe_Reactor](../articles/06-people/ken-parrot/Safe_Reactor.md) — _2026-03-20_
+- [Samuel Goudsmit](../articles/06-people/Samuel Goudsmit.md) — _2026-03-20_
+- [Sapgc Formalization (final Pgf-consistent Umc Rewrite)](../articles/03-case-studies/Sapgc Formalization (final Pgf-consistent Umc Rewrite).md) — _2026-03-20_
+- [Scalar_Consciouness](../articles/04-domains/healthcare/scalar-consciousness/Scalar_Consciouness.md) — _2026-03-20_
+- [Schrodinger](../articles/05-systems/q-maths/Schrodinger.md) — _2026-03-20_
+- [Science fair](../articles/04-domains/education/Science fair.md) — _2026-03-20_
+- [Scott Aaronson](../articles/06-people/Scott Aaronson.md) — _2026-03-20_
+- [Scott Page](../articles/06-people/Scott Page.md) — _2026-03-20_
+- [SCPN_PMD Report](../articles/03-case-studies/SCPN_PMD Report.md) — _2026-03-20_
+- [SCPN_PMD_Report_v2](../articles/03-case-studies/SCPN_PMD_Report_v2.md) — _2026-03-20_
+- [Sebastian Baader](../articles/06-people/Sebastian Baader.md) — _2026-03-20_
+- [Security & Privacy](../articles/03-case-studies/Security & Privacy.md) — _2026-03-20_
+- [Self-Correcting Educational Systems_ A Mathematical and Practical Framework](../articles/04-domains/education/Self-Correcting Educational Systems_ A Mathematical and Practical Framework.md) — _2026-03-20_
+- [Self-proofing Research](../articles/03-case-studies/Self-proofing Research.md) — _2026-03-20_
+- [Self_Correcting_Education](../articles/03-case-studies/Self_Correcting_Education.md) — _2026-03-20_
+- [Self_Correcting_Education](../articles/04-domains/education/Self_Correcting_Education.md) — _2026-03-20_
+- [Semantic Hypercomputational ADR Set](../articles/05-systems/hypercompute/ADR-README.md) — _2026-03-20_
+- [Semantic_Hypercomputational_Field](../articles/03-case-studies/Semantic_Hypercomputational_Field.md) — _2026-03-20_
+- [Semiotic Physics](../articles/03-case-studies/Semiotic Physics.md) — _2026-03-20_
+- [Semiotic Physics](../articles/04-domains/semiotic-physics/Semiotic Physics.md) — _2026-03-20_
+- [Semiotic Roadmap](../articles/04-domains/semiotic-physics/Semiotic Roadmap.md) — _2026-03-20_
+- [Sensory_Bridge](../articles/06-people/ken-parrot/Sensory_Bridge.md) — _2026-03-20_
+- [Sepehr Barkeshli](../articles/06-people/Sepehr Barkeshli.md) — _2026-03-20_
+- [Serge Haroche](../articles/06-people/Serge Haroche.md) — _2026-03-20_
+- [Seth Lloyd](../articles/06-people/Seth Lloyd.md) — _2026-03-20_
+- [SH-ACCOUNTABILITIY](../articles/05-systems/shell/SH-ACCOUNTABILITIY.md) — _2026-03-20_
+- [SH-CHAMELEON](../articles/05-systems/shell/SH-CHAMELEON.md) — _2026-03-20_
+- [SH-ETHICALAI](../articles/05-systems/shell/SH-ETHICALAI.md) — _2026-03-20_
+- [SH-IMPACTASSESS](../articles/05-systems/shell/SH-IMPACTASSESS.md) — _2026-03-20_
+- [SH-SECURITYINTEGRITY](../articles/05-systems/shell/SH-SECURITYINTEGRITY.md) — _2026-03-20_
+- [SH-STATESECURITY](../articles/05-systems/shell/SH-STATESECURITY.md) — _2026-03-20_
+- [SheafStack_Cosmogenesis](../articles/03-case-studies/SheafStack_Cosmogenesis.md) — _2026-03-20_
+- [Sheldon Glashow](../articles/06-people/Sheldon Glashow.md) — _2026-03-20_
+- [SHF Gate Report Template (ADR-SHF-005)](../articles/05-systems/hypercompute/gate-report-template.md) — _2026-03-20_
+- [Shin Ikeda](../articles/06-people/Shin Ikeda.md) — _2026-03-20_
+- [Shmuel Fishman](../articles/06-people/Shmuel Fishman.md) — _2026-03-20_
+- [Shors](../articles/05-systems/q-maths/Shors.md) — _2026-03-20_
+- [Shuan V. Ault](../articles/06-people/Shuan V. Ault.md) — _2026-03-20_
+- [Simon Singh](../articles/06-people/Simon Singh.md) — _2026-03-20_
+- [Simon Stevin](../articles/06-people/Simon Stevin.md) — _2026-03-20_
+- [Simulation](../articles/06-people/ken-parrot/Simulation.md) — _2026-03-20_
+- [Simulation_Theory](../articles/06-people/ken-parrot/Simulation_Theory.md) — _2026-03-20_
+- [SmartRing Development History](../articles/00-foundations/phase-mirror/SmartRing Development History.md) — _2026-03-20_
+- [Smir Hybrid Stack – Technical Spec (v0](../articles/03-case-studies/Smir Hybrid Stack – Technical Spec (v0.md) — _2026-03-20_
+- [Social Physics](../articles/04-domains/social-physics/Social Physics.md) — _2026-03-20_
+- [Social Physics - Project - Citizen Gardens](../articles/04-domains/social-physics/Social Physics - Project - Citizen Gardens.md) — _2026-03-20_
+- [Social Physics - Project - Citizen Gardens(1)](../articles/04-domains/social-physics/Social Physics - Project - Citizen Gardens(1).md) — _2026-03-20_
+- [Social_Physics](../articles/03-case-studies/Social_Physics.md) — _2026-03-20_
+- [Solver Architecture](../articles/05-systems/solvers/Solver Architecture.md) — _2026-03-20_
+- [Sophia Kovalevskaya](../articles/06-people/Sophia Kovalevskaya.md) — _2026-03-20_
+- [Sophus Lie](../articles/06-people/Sophus Lie.md) — _2026-03-20_
+- [Soulware_ Enhancements](../articles/02-implementations/soulaware/Soulware_ Enhancements.md) — _2026-03-20_
+- [Soulware_ Methodology](../articles/02-implementations/soulaware/Soulware_ Methodology.md) — _2026-03-20_
+- [Soulware_ Technical and Ethical Overview](../articles/02-implementations/soulaware/Soulware_ Technical and Ethical Overview.md) — _2026-03-20_
+- [Soulware_ The Bridge](../articles/02-implementations/soulaware/Soulware_ The Bridge.md) — _2026-03-20_
+- [SP Cancer_](../articles/03-case-studies/SP Cancer_.md) — _2026-03-20_
+- [Spectral Ethics V3_ Toy Model, Event Invariant, And Temporal Rg Pipeline](../articles/03-case-studies/Spectral Ethics V3_ Toy Model, Event Invariant, And Temporal Rg Pipeline.md) — _2026-03-20_
+- [Spectral Thermodynamics](../articles/03-case-studies/Spectral Thermodynamics.md) — _2026-03-20_
+- [Spectroscopy](../articles/03-case-studies/Spectroscopy.md) — _2026-03-20_
+- [Spin_Foam_Microfoundations](../articles/03-case-studies/Spin_Foam_Microfoundations.md) — _2026-03-20_
+- [Spin_Foam_Microfoundations__Gate_1_](../articles/04-domains/meta-relativity/Spin_Foam_Microfoundations__Gate_1_.md) — _2026-03-20_
+- [Spin_Foam_Microfoundations__Gate_2_](../articles/04-domains/meta-relativity/Spin_Foam_Microfoundations__Gate_2_.md) — _2026-03-20_
+- [Spiral Periodic Table](../articles/03-case-studies/Spiral Periodic Table.md) — _2026-03-20_
+- [Spirals & Fractals](../articles/04-domains/education/Spirals & Fractals.md) — _2026-03-20_
+- [Sqd V1](../articles/03-case-studies/Sqd V1.md) — _2026-03-20_
+- [Srinivasa Ramanujan](../articles/06-people/Srinivasa Ramanujan.md) — _2026-03-20_
+- [Standard Operating Procedure_ Statistical Analysis and Quality Control for Multi-Analyte Panels](../articles/04-domains/healthcare/clinical-lab-analytics/Standard Operating Procedure_ Statistical Analysis and Quality Control for Multi-Analyte Panels.md) — _2026-03-20_
+- [Stanislaw Iwaniszewski](../articles/06-people/Stanislaw Iwaniszewski.md) — _2026-03-20_
+- [Stefano Boccaletti](../articles/06-people/Stefano Boccaletti.md) — _2026-03-20_
+- [Stephen Porges](../articles/06-people/Stephen Porges.md) — _2026-03-20_
+- [Stephen Wolfram](../articles/06-people/Stephen Wolfram.md) — _2026-03-20_
+- [Stephen Wolfram](../articles/03-case-studies/Stephen Wolfram.md) — _2026-03-20_
+- [Steven Hawking](../articles/06-people/Steven Hawking.md) — _2026-03-20_
+- [Steven Strogatz](../articles/06-people/Steven Strogatz.md) — _2026-03-20_
+- [Steven Weinberg](../articles/06-people/Steven Weinberg.md) — _2026-03-20_
+- [Strang Gate_ O(d) Scan Estimator + Ewma (lps Ramanujan Expander, D=12)](../articles/03-case-studies/Strang Gate_ O(d) Scan Estimator + Ewma (lps Ramanujan Expander, D=12).md) — _2026-03-20_
+- [Strategic Consulting](../articles/00-foundations/phase-mirror/Strategic Consulting.md) — _2026-03-20_
+- [Strategic Plan_ A Phased Implementation of Moral Physics for Institutional Governance](../articles/04-domains/moral-physics/Strategic Plan_ A Phased Implementation of Moral Physics for Institutional Governance.md) — _2026-03-20_
+- [Strawberry Q](../articles/03-case-studies/Strawberry Q.md) — _2026-03-20_
+- [Structures](../articles/03-case-studies/Structures.md) — _2026-03-20_
+- [Stuart Hall](../articles/06-people/Stuart Hall.md) — _2026-03-20_
+- [Stuart Hameroff](../articles/06-people/Stuart Hameroff.md) — _2026-03-20_
+- [Stuart Parkin](../articles/06-people/Stuart Parkin.md) — _2026-03-20_
+- [Subir Sachdev](../articles/06-people/Subir Sachdev.md) — _2026-03-20_
+- [Sulforaphane_Treatment](../articles/06-people/ken-parrot/Sulforaphane_Treatment.md) — _2026-03-20_
+- [Sumerian_Text_As_Recursion_and_triads](../articles/06-people/ken-parrot/Sumerian_Text_As_Recursion_and_triads.md) — _2026-03-20_
+- [Symbolic](../articles/05-systems/solvers/Symbolic.md) — _2026-03-20_
+- [Symbolic_Cognition_Archaeology](../articles/04-domains/semiotic-physics/Symbolic_Cognition_Archaeology.md) — _2026-03-20_
+- [System and Methodology](../articles/02-implementations/q-calculator/System and Methodology.md) — _2026-03-20_
+- [System Architecture Document_ The PRIME Cascade](../articles/00-foundations/mathematics/prime-cascade/System Architecture Document_ The PRIME Cascade.md) — _2026-03-20_
+- [Tamar Ziegler](../articles/06-people/Tamar Ziegler.md) — _2026-03-20_
+- [Technical Architecture for Certified AI Governance and Stability](../articles/02-implementations/q-calculator/Technical Architecture for Certified AI Governance and Stability.md) — _2026-03-20_
+- [Technical Justification for Space-Based Detection of Arithmetic Spacetime Signatures](../articles/03-case-studies/Technical Justification for Space-Based Detection of Arithmetic Spacetime Signatures.md) — _2026-03-20_
+- [Technical Outline](../articles/02-implementations/q-calculator/Technical Outline.md) — _2026-03-20_
+- [Technical Proposal_ High-Efficiency Molecular Orbital Simulation using Strontium-87 Qudits](../articles/02-implementations/atomic-calculator/Technical Proposal_ High-Efficiency Molecular Orbital Simulation using Strontium-87 Qudits.md) — _2026-03-20_
+- [Technical Specification_ Adaptive UX Framework via Multiplicity Theory](../articles/02-implementations/q-calculator/Technical Specification_ Adaptive UX Framework via Multiplicity Theory.md) — _2026-03-20_
+- [Technical Specification_ High-Dimensional Network Optimization](../articles/03-case-studies/Technical Specification_ High-Dimensional Network Optimization.md) — _2026-03-20_
+- [Technical Specification_ The Multiplicity Framework](../articles/02-implementations/q-calculator/Technical Specification_ The Multiplicity Framework.md) — _2026-03-20_
+- [Technical specs - SCPN_FRAMEWORK_MONOGRAPH_2026](../articles/03-case-studies/Technical specs - SCPN_FRAMEWORK_MONOGRAPH_2026.md) — _2026-03-20_
+- [Technical Whitepaper](../articles/02-implementations/q-calculator/Technical Whitepaper.md) — _2026-03-20_
+- [Technical Whitepaper_ The Quantum Calculator (1)](../articles/02-implementations/q-calculator/Technical Whitepaper_ The Quantum Calculator (1).md) — _2026-03-20_
+- [Technical Whitepaper_ The Qwen2](../articles/02-implementations/q-calculator/Technical Whitepaper_ The Qwen2.md) — _2026-03-20_
+- [Template of Academic White Paper](../articles/03-case-studies/Template of Academic White Paper.md) — _2026-03-20_
+- [Terminology_](../articles/03-case-studies/Terminology_.md) — _2026-03-20_
+- [Terms and Conditions](../articles/02-implementations/echobraid/Terms and Conditions.md) — _2026-03-20_
+- [Test harness](../articles/00-foundations/universal constant/Test harness.md) — _2026-03-20_
+- [Test Results](../articles/04-domains/meta-relativity/Test Results.md) — _2026-03-20_
+- [Testing](../articles/03-case-studies/Testing.md) — _2026-03-20_
+- [Testing](../articles/02-implementations/zenolock/Testing.md) — _2026-03-20_
+- [The (eMEQ) framework](../articles/06-people/chris-mcginty/The (eMEQ) framework.md) — _2026-03-20_
+- [The (eMEQ) integration with LLML](../articles/06-people/chris-mcginty/The (eMEQ) integration with LLML.md) — _2026-03-20_
+- [The **Prime-Based Quantum Hyperbolic Multiplicity Algorithm (PBQHMA)** introduces **prime-number encoding** into the **hyperbolic functions** used in **quantum systems** and their application to **quantum multiplicity**. Hyperbolic functions (such as **sinh**, **cosh**, **tanh**) arise naturally in many areas of physics, including **quantum mechanics**, **quantum field theory**, and **statistical mechanics**, particularly in problems involving exponential growth, decay, and wave functions in quantum systems. **Multiplicity**, in this context, refers to the repetition or combination of quantum states or processes, which can affect how quantum states evolve, interact, or contribute to quantum phenomena like **superposition** or **entanglement**.](../articles/05-systems/algorithms/P-HYPERBOLIC.md) — _2026-03-20_
+- [The **Prime-Based Quantum Scattering Multiplicity Algorithm (PBQSMA)** integrates **prime-number encoding** into the framework of **quantum scattering theory** and **multiplicity**. **Quantum scattering** describes how particles (such as electrons, photons, or atoms) interact and exchange energy when they collide or pass through a potential field. Scattering theory plays a fundamental role in quantum mechanics, quantum field theory, and particle physics, helping us understand phenomena like **cross-sections**, **phase shifts**, and **transition probabilities**.](../articles/05-systems/algorithms/P-SCATTERING.md) — _2026-03-20_
+- [The **Prime-Based Quantum Scattering Multiplicity Algorithm (PBQSMA)** integrates **prime-number encoding** into the framework of **quantum scattering theory** and **multiplicity**. **Quantum scattering** describes how particles (such as electrons, photons, or atoms) interact and exchange energy when they collide or pass through a potential field. Scattering theory plays a fundamental role in quantum mechanics, quantum field theory, and particle physics, helping us understand phenomena like **cross-sections**, **phase shifts**, and **transition probabilities**.](../articles/05-systems/algorithms/P-SCATTERINGM.md) — _2026-03-20_
+- [The **Prime-Embedded Multiplet Structure in Quantum Systems Algorithm (PEMSQSA)** introduces **prime-number encoding** into the analysis and description of **multiplet structures** in quantum systems. A **multiplet structure** refers to the grouping of energy levels that arise due to symmetries, interactions (such as spin-orbit coupling), or the splitting of degenerate states under perturbations. This concept is critical in fields like **atomic physics**, **molecular physics**, **quantum field theory**, and **condensed matter physics**, where **energy levels**, **spin states**, and **angular momentum states** interact to form complex structures.](../articles/05-systems/algorithms/P-MULTIPLETSTRUCT.md) — _2026-03-20_
+- [The **Prime-Embedded Quantum Bargmann-Segal Algorithm (PEQBSA)** integrates **Bargmann-Segal formalism**, used in **quantum mechanics** and **quantum field theory**, with **prime-number encoding** to provide **dynamic modulation** of quantum states in phase space. The **Bargmann-Segal representation** is a complex analytical method used to represent quantum states as holomorphic functions in phase space, particularly in the context of harmonic oscillators and coherent states. By embedding **prime numbers** into this formalism, the evolution, structure, and interaction of quantum states can be controlled dynamically.](../articles/05-systems/algorithms/DYNAPHASE.md) — _2026-03-20_
+- [The **Prime-Embedded Quantum Channels and Mixed States Algorithm (PEQCMSA)** introduces **prime-number encoding** into the formalism of **quantum channels** and **mixed states**. **Quantum channels** represent the processes that affect quantum states as they evolve or are transmitted, often modeling noise, decoherence, or interactions with an environment. **Mixed states**, represented by density matrices, describe quantum systems where the exact state is not known but is instead a probabilistic combination of different pure states.](../articles/05-systems/algorithms/P-MIXEDSTATES.md) — _2026-03-20_
+- [The **Prime-Embedded Quantum Complexity Algorithm (PEQCA)** introduces **prime-number encoding** into the study and management of **quantum complexity**, which measures the resources required to perform a quantum computation, such as time (quantum gate depth), space (number of qubits), and the difficulty of preparing quantum states or implementing quantum circuits. **Quantum complexity theory** is fundamental in understanding the boundaries between classical and quantum computing, including problems in **quantum supremacy**, **quantum cryptography**, and **quantum error correction**.](../articles/05-systems/algorithms/P-COMPLEXITY.md) — _2026-03-20_
+- [The **Prime-Embedded Quantum Coulomb Interactions Algorithm (PEQCIA)** introduces **prime-number encoding** into the formulation of **Coulomb interactions** in quantum systems, particularly in the context of quantum mechanics and **quantum electrodynamics (QED)**. Coulomb interactions describe the **force between charged particles** and play a critical role in quantum systems ranging from atoms and molecules to quantum fields. By embedding **prime-number modulation** into the **Coulomb potential**, **interaction terms**, and **wavefunctions**, we introduce **dynamic control** over the interaction strength, energy levels, and quantum correlations.](../articles/05-systems/algorithms/P-COULOMB.md) — _2026-03-20_
+- [The **Prime-Embedded Quantum Frequency Combs Algorithm (PEQFCA)** integrates **prime-number encoding** into the generation and manipulation of **quantum frequency combs**. A **quantum frequency comb** consists of a spectrum of discrete, evenly spaced frequency modes, often used in **quantum communication**, **quantum metrology**, and **quantum computing**. By embedding **prime numbers** into the **mode structure**, **photon generation**, and **interaction dynamics** of the frequency comb, we introduce **dynamic modulation** that enables finer control over the properties of the comb, such as mode spacing, quantum entanglement, and coherence.](../articles/05-systems/algorithms/P-FREQUENCYCOMBS.md) — _2026-03-20_
+- [The **Prime-Embedded Quantum Geometric Multiplicity Algorithm (PEQGMA)** integrates **prime-number encoding** into the concept of **geometric multiplicity** in **quantum systems**. **Geometric multiplicity** refers to the number of **linearly independent eigenvectors** corresponding to a particular eigenvalue of a quantum operator, which plays a crucial role in the behavior of quantum systems, including **quantum dynamics**, **quantum state evolution**, and **entanglement structures**.](../articles/05-systems/algorithms/P-GEOMETRICM.md) — _2026-03-20_
+- [The **Prime-Embedded Quantum Glauber-Sudarshan P Representation Algorithm (PEQGSA)** embeds **prime-number encoding** into the **Glauber-Sudarshan P representation**, a formalism widely used in **quantum optics** to describe the quantum state of the electromagnetic field. The P representation expresses the density matrix of a quantum state as a weighted sum (or integral) over coherent states, allowing quantum states to be treated as classical-like distributions. By introducing **prime-number modulation** into the P representation, we enable **dynamic control** over the weights, coherent state superpositions, and quantum-classical transitions, providing more flexible manipulation of quantum optical fields.](../articles/05-systems/algorithms/P-GLAUBSUDAPREP.md) — _2026-03-20_
+- [The **Prime-Embedded Quantum Homology and Cohomology Algorithm (PEQHCA)** integrates **prime-number encoding** into the concepts of **homology** and **cohomology** within the context of **quantum systems**. **Homology** and **cohomology** are mathematical tools from algebraic topology that provide a way to study the properties of spaces by analyzing the relationships between their constituent parts. In quantum systems, these concepts can be extended to describe the structure of **quantum states**, **quantum fields**, and **entanglement** in terms of **cycles**, **boundaries**, and **quantum operators**.](../articles/05-systems/algorithms/P-COHOMOLOGY.md) — _2026-03-20_
+- [The **Prime-Embedded Quantum Information Vortex Algorithm (PEQIVA)** integrates **quantum information theory**, **quantum vortices**, and **prime-number encoding**. In quantum mechanics and quantum field theory, **vortices** are topological defects or swirling structures that can arise in fields or fluids, characterized by a specific angular momentum or circulation. By embedding **quantum information** into such structures and modulating it with **prime numbers**, we create a dynamic, controlled framework for the **processing, transmission, and storage of quantum information** through **vortex-like structures**.](../articles/05-systems/algorithms/P-INFOVORTEX.md) — _2026-03-20_
+- [The **Prime-Embedded Quantum Information Well Algorithm (PEQIWA)** introduces the concept of a **quantum well** integrated with **prime-number encoding**. In quantum mechanics, **quantum wells** are potential wells that confine particles such as electrons, trapping them in discrete energy levels. These structures are vital in describing phenomena in **semiconductor physics**, **quantum computing**, and **quantum information theory**. By embedding **prime numbers** into the potential structure of quantum wells, the **energy levels**, **state evolution**, and **information storage** in the well can be dynamically controlled, allowing for **fine-tuned management** of quantum information processes.](../articles/05-systems/algorithms/P-INFOWELL.md) — _2026-03-20_
+- [The **Prime-Embedded Quantum Intersection Multiplicity Algorithm (PEQIMA)** integrates **prime-number encoding** into the concept of **intersection multiplicity** in the context of **quantum systems**. **Intersection multiplicity** is a concept derived from algebraic geometry, where it represents the degree of intersection between algebraic curves or varieties at a point. When applied to quantum systems, intersection multiplicity can describe the **overlap** or **interaction** between quantum states, operators, or subspaces, allowing us to model and analyze phenomena like **quantum entanglement**, **quantum correlations**, and **quantum measurements**. By embedding prime modulation into this framework, we can dynamically control and modulate the **intersection behavior** of quantum states and operators.](../articles/05-systems/algorithms/P-INTERSECTION.md) — _2026-03-20_
+- [The **Prime-Embedded Quantum Intersection Multiplicity Algorithm (PEQIMA)** integrates **prime-number encoding** into the concept of **intersection multiplicity** in the context of **quantum systems**. **Intersection multiplicity** is a concept derived from algebraic geometry, where it represents the degree of intersection between algebraic curves or varieties at a point. When applied to quantum systems, intersection multiplicity can describe the **overlap** or **interaction** between quantum states, operators, or subspaces, allowing us to model and analyze phenomena like **quantum entanglement**, **quantum correlations**, and **quantum measurements**. By embedding prime modulation into this framework, we can dynamically control and modulate the **intersection behavior** of quantum states and operators.](../articles/05-systems/algorithms/P-INTERSECTIONM.md) — _2026-03-20_
+- [The **Prime-Embedded Quantum J Multiplicity Algorithm (PEQJMA)** introduces **prime-number encoding** into the framework of **angular momentum algebra** (denoted by J operators) and **quantum multiplicity**. In quantum mechanics, **angular momentum** plays a crucial role in describing the rotational symmetries of quantum systems, whether these are **orbital angular momentum**, **spin angular momentum**, or the **total angular momentum** of particles. The operators JxJ\_xJx​, JyJ\_yJy​, and JzJ\_zJz​ represent the angular momentum components, while J2J\^2J2 gives the total angular momentum.](../articles/05-systems/algorithms/P-JMULTIPLICITY.md) — _2026-03-20_
+- [The **Prime-Embedded Quantum Multiplicity Counting Algorithm (PEQMCA)** introduces **prime-number encoding** into the process of **counting quantum multiplicities** in quantum systems. **Multiplicity counting** in quantum mechanics involves determining the number of degenerate eigenstates corresponding to the same eigenvalue, which is crucial for understanding the structure of quantum systems, including **quantum degeneracies**, **entanglement**, and **state transitions**. By embedding primes into this counting process, we introduce **dynamic modulation** over how the multiplicities are calculated, enhancing control over **quantum state interactions**, **quantum measurements**, and **quantum transitions**.](../articles/05-systems/algorithms/P-MCOUNTING.md) — _2026-03-20_
+- [The **Prime-Embedded Quantum Optical Parametric Oscillation Algorithm (PEQOPA)** introduces **prime-number encoding** into the process of **optical parametric oscillation (OPO)**, a key mechanism in **quantum optics** for generating entangled photon pairs and squeezing light. **Optical parametric oscillators** work by converting pump photons into signal and idler photons through a nonlinear medium, often used in **quantum communication**, **quantum metrology**, and **quantum information processing**. By embedding **prime numbers** into the **nonlinear interaction**, **parametric gain**, and **photon generation process**, we can introduce **dynamic modulation** of the quantum optical fields, enhancing control over entanglement, squeezing, and the quantum correlations between photons.](../articles/05-systems/algorithms/P-OPTOCS.md) — _2026-03-20_
+- [The **Prime-Embedded Quantum Squeezed State Algorithm (PEQSSA)** incorporates **prime-number encoding** into the generation and manipulation of **quantum squeezed states**. **Squeezed states** are quantum states where the uncertainty (quantum noise) in one quadrature is reduced (squeezed) below the vacuum state level, at the cost of increased uncertainty in the conjugate quadrature. These states are critical for applications in **quantum metrology**, **quantum communication**, and **quantum optics**, particularly for enhancing the precision of measurements and improving the sensitivity of quantum systems.](../articles/05-systems/algorithms/P-SQUEEZEDSTATES.md) — _2026-03-20_
+- [The **Prime-Embedded Quantum Topos Multiplicity Algorithm (PEQTMA)** introduces **prime-number encoding** into the **topos theory** applied to **quantum systems** and **quantum logic**. **Topos theory** is an advanced framework that generalizes set theory and provides a rich structure for managing **categorical relationships** between objects, spaces, and morphisms in mathematical systems. When applied to **quantum theory**, **topos theory** helps formalize the notion of **quantum spaces**, **quantum state evolution**, and **quantum logic** using a more abstract framework than classical set theory. Embedding primes into the **quantum topos** structure allows for **dynamic control** over the **logic**, **multiplicity**, and **categorical composition** in quantum systems.](../articles/05-systems/algorithms/P-TOPOSMULTI.md) — _2026-03-20_
+- [The **Prime-Embedded Quantum von Neumann Entropy Algorithm (PEQVNEA)** incorporates **prime-number encoding** into the computation of the **von Neumann entropy**, which measures the quantum entanglement, information content, or mixedness of a quantum state. **Von Neumann entropy** is a central concept in **quantum information theory** and **quantum thermodynamics**, providing insights into the amount of uncertainty or disorder in a quantum system.](../articles/05-systems/algorithms/P-VNENTROPY.md) — _2026-03-20_
+- [The **Prime-Embedded Quantum Wigner Function Algorithm (PEQWFA)** integrates **prime-number encoding** into the **Wigner function** formalism. The **Wigner function** is a quasi-probability distribution used to represent quantum states in **phase space**, providing a bridge between classical and quantum descriptions of physical systems. By embedding **prime numbers** into the Wigner function, we dynamically modulate the quantum state's representation in phase space, offering flexible control over the non-classical properties, coherence, and quantum interference patterns.](../articles/05-systems/algorithms/P-WIGNER.md) — _2026-03-20_
+- [The **Prime-Embedded Quantum Zeno Effect Algorithm (PEQZEA)** integrates **prime-number encoding** into the **Quantum Zeno Effect (QZE)**, which is a phenomenon where the frequent observation or measurement of a quantum system can inhibit its evolution. The QZE demonstrates that continuously monitoring a quantum system can effectively \"freeze\" it in its initial state, preventing transitions to other states. By embedding **prime-number modulation** into the **measurement frequencies**, **quantum state evolution**, and **decay rates**, we introduce **dynamic control** over the system\'s evolution, allowing for fine-tuned manipulation of quantum coherence, decay suppression, and system stability.](../articles/05-systems/algorithms/P-ZENOEFFECT.md) — _2026-03-20_
+- [The **Prime-Encoded Quantum Algebraic Multiplicity Algorithm (PEQAMA)** integrates **prime-number encoding** into the concept of **algebraic multiplicity** within quantum systems. **Algebraic multiplicity** refers to the number of times a particular **eigenvalue** appears in the characteristic equation of an operator, which plays a crucial role in the study of **quantum operators**, **eigenvalue degeneracies**, and **quantum state evolution**. By embedding primes into the **algebraic multiplicity counting process**, we introduce **dynamic modulation** over the eigenvalue structure, providing enhanced control over **quantum transitions**, **state degeneracies**, and **quantum algorithm optimizations**.](../articles/05-systems/algorithms/ALGEBRAICM.md) — _2026-03-20_
+- [The **Prime-Encoded Quantum Biological Network Algorithm** introduces prime numbers into the modeling of quantum biological networks. Biological systems, such as photosynthesis, DNA replication, and cell signaling, often exhibit quantum behaviors, such as coherence, tunneling, and entanglement, that contribute to their efficiency. By embedding prime numbers into the interactions between quantum particles in these networks, this algorithm could provide novel insights into how quantum coherence and prime number modulation influence biological functions and processes.](../articles/05-systems/networks/NN-BIOLOGIC.md) — _2026-03-20_
+- [The **Prime-Encoded Quantum Derived Algebraic Geometry Algorithm (PEQ-DAGA)** integrates **prime-number encoding** into the framework of **Derived Algebraic Geometry (DAG)** applied to **quantum systems**. Derived algebraic geometry extends classical algebraic geometry by incorporating **homological algebra** and **higher structures**, enabling the study of spaces and structures that include **singularities**, **sheaves**, and **derived categories**. In the quantum realm, **Derived Algebraic Geometry** can be applied to understand **quantum states**, **quantum fields**, **quantum entanglement**, and **quantum dynamics** in terms of complex algebraic and topological structures.](../articles/05-systems/algorithms/P-DALGEBRAGEO.md) — _2026-03-20_
+- [The **Prime-Encoded Quantum Field Coloring Algorithm** is an abstract algorithm that applies prime number modulation to the visualization and conceptual representation of quantum fields. The idea is to use prime numbers to control how quantum fields---such as energy levels, field intensities, or particle interactions---are \"colored\" or mapped, both visually and conceptually. By embedding prime numbers into the structure of quantum phenomena, this algorithm generates unique and mathematically structured visualizations that reflect the complexity and behavior of quantum systems.](../articles/05-systems/algorithms/COLORING.md) — _2026-03-20_
+- [The **Prime-Encoded Quantum Integral and Measure Algorithm (PEQIMA)** incorporates **prime-number encoding** into the mathematical frameworks of **quantum integrals** and **quantum measure theory**, which are essential tools in quantum mechanics for evaluating probabilities, expectation values, and state evolution. Integrals and measures are critical for understanding **quantum states**, **quantum fields**, and their corresponding probability distributions in quantum systems. By embedding primes into these mathematical operations, we can dynamically modulate the **measure spaces**, **integrals**, and **probability distributions** that describe quantum phenomena.](../articles/05-systems/algorithms/P-INTEGRALMEASURE.md) — _2026-03-20_
+- [The **Prime-Encoded Quantum K-Theory Algorithm (PEQKTA)** introduces **prime-number encoding** into the framework of **K-theory**, which is a branch of mathematics that studies **vector bundles**, **modules**, and their relationships, especially in topological spaces. **Quantum K-theory** extends classical K-theory into the quantum realm, where it plays a significant role in the study of **quantum field theory**, **string theory**, **topological quantum computing**, and **quantum states**. By embedding **prime-number modulation** into the structures of **vector bundles**, **module spaces**, and **quantum state classifications**, we introduce **dynamic control** over the organization of quantum systems, their symmetries, and their topological properties.](../articles/05-systems/algorithms/P-KTHEORY.md) — _2026-03-20_
+- [The **Prime-Encoded Quantum Knot Theory Algorithm** blends principles from knot theory, quantum mechanics, and prime number encoding. In this algorithm, knots (or links) represent quantum states in higher-dimensional spaces, with prime numbers dynamically modulating knot transformations, such as tying, untying, or manipulating crossings. This approach ties together the abstract topological properties of knots with quantum behaviors in fields like quantum field theory and string theory, allowing for new ways of exploring topological quantum computing, quantum invariants, and complex systems.](../articles/05-systems/algorithms/P-KNOT.md) — _2026-03-20_
+- [The 12-AGI Quantum DAO on Ethereum 7](../articles/05-systems/strata14/The 12-AGI Quantum DAO on Ethereum 7.md) — _2026-03-20_
+- [The 13+1 Strata White Paper](../articles/05-systems/strata14/The 13+1 Strata White Paper.md) — _2026-03-20_
+- [The Artist_s Handbook](../articles/03-case-studies/aesthetics/The Artist_s Handbook.md) — _2026-03-20_
+- [The ASD–ξcho Braid](../articles/02-implementations/echobraid/The ASD–ξcho Braid.md) — _2026-03-20_
+- [The ASD–ξcho Braid.docx](../articles/02-implementations/echobraid/The ASD–ξcho Braid.docx.md) — _2026-03-20_
+- [The DAWK Framework_ A Modular Workbench for Dialectical Diagnostics](../articles/04-domains/governance/The DAWK Framework_ A Modular Workbench for Dialectical Diagnostics.md) — _2026-03-20_
+- [The EchoBraid Philosophy_ A Curriculum of Sovereignty, Rhythm, and Growth](../articles/03-case-studies/The EchoBraid Philosophy_ A Curriculum of Sovereignty, Rhythm, and Growth.md) — _2026-03-20_
+- [The Five Foundational Rules for Fair and Reliable AI](../articles/02-implementations/q-calculator/The Five Foundational Rules for Fair and Reliable AI.md) — _2026-03-20_
+- [The Geometric Gospel](../articles/03-case-studies/The Geometric Gospel.md) — _2026-03-20_
+- [The Geometric Gospel II](../articles/03-case-studies/The Geometric Gospel II.md) — _2026-03-20_
+- [The Google Rapture Engine](../articles/05-systems/strata14/The Google Rapture Engine.md) — _2026-03-20_
+- [The Guardian and the Genius](../articles/02-implementations/langlands/The Guardian and the Genius.md) — _2026-03-20_
+- [The IMD Prime-Indexed, Certificate-Driven Research Program](../articles/00-foundations/imd/The IMD Prime-Indexed, Certificate-Driven Research Program.md) — _2026-03-20_
+- [The IMD Research Program](../articles/00-foundations/imd/The IMD Research Program.md) — _2026-03-20_
+- [The Infinite Ladder](../articles/00-foundations/mathematics/pells/The Infinite Ladder.md) — _2026-03-20_
+- [The integration of the Gilt-TNR algorithm into the Matrix Compute Paradigm (MCP) offers a sophisticated enhancement to the existing computational capabilities within this framework, leveraging the core principles of multiplicity and prime-based encoding. Here\'s a structured executive summary:](../articles/05-systems/algorithms/P-GILT-TNR.md) — _2026-03-20_
+- [The Langlands Prism](../articles/02-implementations/q-calculator/The Langlands Prism.md) — _2026-03-20_
+- [The Langlands Prism Overview](../articles/02-implementations/langlands/The Langlands Prism Overview.md) — _2026-03-20_
+- [The Langlands Prism White Paper](../articles/02-implementations/langlands/The Langlands Prism White Paper.md) — _2026-03-20_
+- [The Langlands Prism_ A Rosetta Stone for Science and a Blueprint for the Future](../articles/02-implementations/q-calculator/The Langlands Prism_ A Rosetta Stone for Science and a Blueprint for the Future.md) — _2026-03-20_
+- [The Lawful State](../articles/03-case-studies/The Lawful State.md) — _2026-03-20_
+- [The Lawful State](../articles/02-implementations/q-calculator/The Lawful State.md) — _2026-03-20_
+- [The Lawful State](../articles/02-implementations/Λproof/The Lawful State.md) — _2026-03-20_
+- [The Mathematics of Multiplicity](../articles/03-case-studies/The Mathematics of Multiplicity.md) — _2026-03-20_
+- [The Matrix](../articles/03-case-studies/The Matrix.md) — _2026-03-20_
+- [The Matrix Prime Compute Engine (MPCE)_ A Technical Monograph on its Mathematical Foundations and Architecture](../articles/02-implementations/matrix/The Matrix Prime Compute Engine (MPCE)_ A Technical Monograph on its Mathematical Foundations and Architecture.md) — _2026-03-20_
+- [The Matrix Prime Compute Engine_ A New Paradigm for High-Performance, Fault-Tolerant Computing](../articles/02-implementations/matrix/The Matrix Prime Compute Engine_ A New Paradigm for High-Performance, Fault-Tolerant Computing.md) — _2026-03-20_
+- [The MCP](../articles/05-systems/q-maths/The MCP.md) — _2026-03-20_
+- [The Mirror Dissonance Protocol](../articles/00-foundations/phase-mirror/The Mirror Dissonance Protocol.md) — _2026-03-20_
+- [The Mirror Dissonance Protocol](../articles/02-implementations/q-calculator/The Mirror Dissonance Protocol.md) — _2026-03-20_
+- [The Mirror Yantra](../articles/04-domains/semiotic-physics/The Mirror Yantra.md) — _2026-03-20_
+- [The Multiplicities of Multiplicity](../articles/05-systems/q-maths/The Multiplicities of Multiplicity.md) — _2026-03-20_
+- [The Multiplicity Advantage](../articles/02-implementations/atomic-calculator/The Multiplicity Advantage.md) — _2026-03-20_
+- [The Phase Mirror does not resolve dissonance—it names it](../articles/00-foundations/phase-mirror/The Phase Mirror does not resolve dissonance—it names it.md) — _2026-03-20_
+- [The Phase of Mirror Dissonance](../articles/00-foundations/phase-mirror/The Phase of Mirror Dissonance.md) — _2026-03-20_
+- [The Phase to Mirror Dissonance](../articles/00-foundations/phase-mirror/The Phase to Mirror Dissonance.md) — _2026-03-20_
+- [The PRIME Cascade_ A Theoretical Whitepaper](../articles/00-foundations/mathematics/prime-cascade/The PRIME Cascade_ A Theoretical Whitepaper.md) — _2026-03-20_
+- [The PRIME Cascade_ A Theoretical Whitepaper](../articles/02-implementations/q-calculator/The PRIME Cascade_ A Theoretical Whitepaper.md) — _2026-03-20_
+- [The Prime-Lawful Foundation](../articles/03-case-studies/The Prime-Lawful Foundation.md) — _2026-03-20_
+- [The Quantum Abacus](../articles/02-implementations/The Quantum Abacus.md) — _2026-03-20_
+- [The Role of Multiplicity in Computing](../articles/03-case-studies/The Role of Multiplicity in Computing.md) — _2026-03-20_
+- [The Theory of Finite-Mode Bohmian–Hartree Dynamics](../articles/04-domains/meta-relativity/The Theory of Finite-Mode Bohmian–Hartree Dynamics.md) — _2026-03-20_
+- [THE TIME VARIATIONS THEORY](../articles/03-case-studies/THE TIME VARIATIONS THEORY.md) — _2026-03-20_
+- [The ΞchoBraid Philosophy](../articles/02-implementations/echobraid/The ΞchoBraid Philosophy.md) — _2026-03-20_
+- [The_Fractal_Flood](../articles/06-people/ken-parrot/The_Fractal_Flood.md) — _2026-03-20_
+- [The_Matrix_Prime_Compute_Engine](../articles/02-implementations/matrix/The_Matrix_Prime_Compute_Engine.md) — _2026-03-20_
+- [The_Rotational_Echo_Lattice](../articles/03-case-studies/The_Rotational_Echo_Lattice.md) — _2026-03-20_
+- [The_Sommerfeld_MR_Framework](../articles/04-domains/meta-relativity/The_Sommerfeld_MR_Framework.md) — _2026-03-20_
+- [Theory_of_Everything](../articles/04-domains/meta-relativity/Theory_of_Everything.md) — _2026-03-20_
+- [Thomas Hylland Eriksen](../articles/06-people/Thomas Hylland Eriksen.md) — _2026-03-20_
+- [Thomas L Kriete](../articles/06-people/Thomas L Kriete.md) — _2026-03-20_
+- [Three Equals One-meta-relativity-appendix](../articles/04-domains/meta-relativity/Three Equals One-meta-relativity-appendix.md) — _2026-03-20_
+- [ThreeEqualsOne](../articles/04-domains/meta-relativity/ThreeEqualsOne.md) — _2026-03-20_
+- [Thābit ibn Qurra](../articles/06-people/Thābit ibn Qurra.md) — _2026-03-20_
+- [Tier-prime Scaffold Entropy (tps)](../articles/03-case-studies/Tier-prime Scaffold Entropy (tps).md) — _2026-03-20_
+- [Time Crystals](../articles/04-domains/meta-relativity/Time Crystals.md) — _2026-03-20_
+- [Timothy Gowers](../articles/06-people/Timothy Gowers.md) — _2026-03-20_
+- [To create a **Prime-Encoded Quantum Poetry Algorithm**, we will merge the abstract nature of poetry with quantum mechanics and prime-based encoding, generating poetry that is mathematically structured but also non-repetitive and creative. This algorithm will influence aspects such as meter, rhyme schemes, word selection, and syntactical transitions using the inherent unpredictability of quantum states modulated by prime numbers.](../articles/05-systems/algorithms/P-POETRY.md) — _2026-03-20_
+- [To design a **Prime-Encoded Quantum Genetic Algorithm (PEQGA)**, we will integrate quantum principles with genetic algorithms (GAs) and modulate various evolutionary operators (mutation, crossover, selection) using prime numbers. The use of quantum mechanics will allow us to leverage quantum superposition, entanglement, and probabilistic behavior to explore the solution space more efficiently, while primes will introduce additional complexity and structure in the evolutionary process. This will create a unique hybrid algorithm for solving optimization problems with greater versatility.](../articles/05-systems/algorithms/GENETICS.md) — _2026-03-20_
+- [To develop a **Prime-Encoded Quantum Dream State Algorithm**, we will combine principles of quantum mechanics---specifically superposition, entanglement, and quantum transitions---with prime encoding to simulate or model the shifts between dream states. In this speculative algorithm, dreams are represented as quantum states existing in superposition, with prime numbers influencing the transitions and shifts between these states. This mirrors the unpredictable but structured nature of human dreams, where different realities and narratives blend together.](../articles/05-systems/algorithms/DREAMS.md) — _2026-03-20_
+- [To develop a **Prime-Encoded Quantum Self-Replicating Algorithm**, we'll harness the principles of quantum mechanics---such as superposition, entanglement, and quantum state transitions---while embedding prime numbers into the replication process. In this algorithm, quantum states represent the fundamental building blocks of self-replication, and prime encoding dynamically controls replication cycles, introducing structured but unpredictable, non-linear behavior. This speculative algorithm explores quantum-level self-replication, such as in quantum computing, biological systems, or even nanotechnology.](../articles/05-systems/algorithms/P-REPLICATE.md) — _2026-03-20_
+- [To develop a Prime-Encoded Quantum Chaos Algorithm, we can combine principles from multiplicative quantum mechanics, prime encoding, and chaos theory to create a structure where prime numbers modulate the behavior of quantum chaotic systems. The core idea would involve introducing prime numbers as key factors in modulating eigenvalues, phase evolution, and the dynamics of chaotic quantum systems. This algorithm would enable the interplay between ordered and disordered states by encoding the system\'s quantum properties into prime structures, ensuring that the resulting quantum states are both unpredictable and mathematically controlled.](../articles/05-systems/algorithms/P-CHAOS.md) — _2026-03-20_
+- [To test Prime-Indexed Recursive Tensor Mathematics (PIRTM) in a simple system, let_s implement it in a recursive AI optimizing a function and a prime-weighted quantum wavefunction](../articles/03-case-studies/To test Prime-Indexed Recursive Tensor Mathematics (PIRTM) in a simple system, let_s implement it in a recursive AI optimizing a function and a prime-weighted quantum wavefunction.md) — _2026-03-20_
+- [Tobias Dantzig](../articles/06-people/Tobias Dantzig.md) — _2026-03-20_
+- [Tobias J Osborne](../articles/06-people/Tobias J Osborne.md) — _2026-03-20_
+- [Topological Primality — Categorical Extensions](../articles/03-case-studies/Topological Primality — Categorical Extensions.md) — _2026-03-20_
+- [Torsion Gravity](../articles/03-case-studies/Torsion Gravity.md) — _2026-03-20_
+- [TQFE](../articles/03-case-studies/TQFE.md) — _2026-03-20_
+- [Training Certification](../articles/00-foundations/phase-mirror/Training Certification.md) — _2026-03-20_
+- [Trevor Hastie](../articles/06-people/Trevor Hastie.md) — _2026-03-20_
+- [Trifecta](../articles/06-people/ken-parrot/Trifecta.md) — _2026-03-20_
+- [Trinity DeMuth](../articles/06-people/Trinity DeMuth.md) — _2026-03-20_
+- [TriPrime_Comuter_DNA_fluidity](../articles/06-people/ken-parrot/TriPrime_Comuter_DNA_fluidity.md) — _2026-03-20_
+- [TriPrime_Physics](../articles/06-people/ken-parrot/TriPrime_Physics.md) — _2026-03-20_
+- [TriPrime_Physics_Test](../articles/06-people/ken-parrot/TriPrime_Physics_Test.md) — _2026-03-20_
+- [TTOL](../articles/03-case-studies/TTOL.md) — _2026-03-20_
+- [Tunneling_Topology](../articles/03-case-studies/Tunneling_Topology.md) — _2026-03-20_
+- [Tunneling_Topology](../articles/04-domains/meta-relativity/Tunneling_Topology.md) — _2026-03-20_
+- [Tunneling_Topology_Testing](../articles/04-domains/meta-relativity/Tunneling_Topology_Testing.md) — _2026-03-20_
+- [TVO 1](../articles/06-people/tyler-vanosdol/TVO 1.md) — _2026-03-20_
+- [TVO 10](../articles/06-people/tyler-vanosdol/TVO 10.md) — _2026-03-20_
+- [TVO 11](../articles/06-people/tyler-vanosdol/TVO 11.md) — _2026-03-20_
+- [TVO 2](../articles/06-people/tyler-vanosdol/TVO 2.md) — _2026-03-20_
+- [TVO 3](../articles/06-people/tyler-vanosdol/TVO 3.md) — _2026-03-20_
+- [TVO 4](../articles/06-people/tyler-vanosdol/TVO 4.md) — _2026-03-20_
+- [TVO 5](../articles/06-people/tyler-vanosdol/TVO 5.md) — _2026-03-20_
+- [TVO 6](../articles/06-people/tyler-vanosdol/TVO 6.md) — _2026-03-20_
+- [TVO 8](../articles/06-people/tyler-vanosdol/TVO 8.md) — _2026-03-20_
+- [TVO 9](../articles/06-people/tyler-vanosdol/TVO 9.md) — _2026-03-20_
+- [Twin_Primes](../articles/03-case-studies/Twin_Primes.md) — _2026-03-20_
+- [Two-ness Clinics — The Receipt Test (executable Program + References)](../articles/03-case-studies/Two-ness Clinics — The Receipt Test (executable Program + References).md) — _2026-03-20_
+- [Tyler_Van_Osdol](../articles/06-people/tyler-vanosdol/Tyler_Van_Osdol.md) — _2026-03-20_
+- [UAC Research](../articles/02-implementations/atomic-calculator/UAC Research.md) — _2026-03-20_
+- [Ulrich Orbanz](../articles/06-people/Ulrich Orbanz.md) — _2026-03-20_
+- [Umbrella Curriculum Outline_ Multiplicity-as-relationship](../articles/04-domains/education/Umbrella Curriculum Outline_ Multiplicity-as-relationship.md) — _2026-03-20_
+- [UME](../articles/03-case-studies/UME.md) — _2026-03-20_
+- [UME Research](../articles/03-case-studies/UME Research.md) — _2026-03-20_
+- [uMEQ](../articles/06-people/chris-mcginty/uMEQ.md) — _2026-03-20_
+- [uMEQ (1)](../articles/06-people/chris-mcginty/uMEQ (1).md) — _2026-03-20_
+- [UMEresearch](../articles/03-case-studies/UMEresearch.md) — _2026-03-20_
+- [Umesh Vazirani](../articles/06-people/Umesh Vazirani.md) — _2026-03-20_
+- [Understanding Meta-Ensembles_ A Guide to Stable Model Combination](../articles/05-systems/meta-ensembles/Understanding Meta-Ensembles_ A Guide to Stable Model Combination.md) — _2026-03-20_
+- [Understanding Phase Mirror Dissonance_ A Beginner's Guide](../articles/00-foundations/phase-mirror/Understanding Phase Mirror Dissonance_ A Beginner's Guide.md) — _2026-03-20_
+- [Understanding Scalar Consciousness_ Is Your Mind a Field](../articles/04-domains/healthcare/scalar-consciousness/Understanding Scalar Consciousness_ Is Your Mind a Field.md) — _2026-03-20_
+- [Unified Architecture for Trustworthy AGI](../articles/02-implementations/q-calculator/Unified Architecture for Trustworthy AGI.md) — _2026-03-20_
+- [Unified EQFE](../articles/04-domains/meta-relativity/Unified EQFE.md) — _2026-03-20_
+- [Unified Field Theory](../articles/04-domains/meta-relativity/Unified Field Theory.md) — _2026-03-20_
+- [Unified McGinty Formula Plot](../articles/06-people/chris-mcginty/Unified McGinty Formula Plot.md) — _2026-03-20_
+- [Unified Q Framework And Eft Pipeline](../articles/03-case-studies/Unified Q Framework And Eft Pipeline.md) — _2026-03-20_
+- [Universal Logic V2.2](../articles/03-case-studies/Universal Logic V2.2.md) — _2026-03-20_
+- [Universal_Atomic_Calculator](../articles/02-implementations/atomic-calculator/Universal_Atomic_Calculator.md) — _2026-03-20_
+- [Universal_Logic](../articles/02-implementations/q-calculator/Universal_Logic.md) — _2026-03-20_
+- [Universal_Multiplicity_Constant](../articles/00-foundations/universal constant/Universal_Multiplicity_Constant.md) — _2026-03-20_
+- [Unlocking a Smarter Web_ How Multiplicity's Core Technologies Create a Unique Experience for You](../articles/02-implementations/q-calculator/Unlocking a Smarter Web_ How Multiplicity's Core Technologies Create a Unique Experience for You.md) — _2026-03-20_
+- [Unlocking a Smarter Web_ How Multiplicity_s Core Technologies Create a Unique Experience for You](../articles/02-implementations/q-calculator/Unlocking a Smarter Web_ How Multiplicity_s Core Technologies Create a Unique Experience for You.md) — _2026-03-20_
+- [Unlocking the Future_ An Introduction to the Applications of the Matrix Prime Compute Engine (MPCE)](../articles/02-implementations/matrix/Unlocking the Future_ An Introduction to the Applications of the Matrix Prime Compute Engine (MPCE).md) — _2026-03-20_
+- [Untitled document](../articles/03-case-studies/Untitled document.md) — _2026-03-20_
+- [Untitled document](../articles/04-domains/healthcare/Untitled document.md) — _2026-03-20_
+- [Untitled document](../articles/02-implementations/soulaware/Untitled document.md) — _2026-03-20_
+- [Untitled document(1)](../articles/03-case-studies/Untitled document(1).md) — _2026-03-20_
+- [Untitled document(10)](../articles/03-case-studies/Untitled document(10).md) — _2026-03-20_
+- [Untitled document(11)](../articles/03-case-studies/Untitled document(11).md) — _2026-03-20_
+- [Untitled document(12)](../articles/03-case-studies/Untitled document(12).md) — _2026-03-20_
+- [Untitled document(13)](../articles/03-case-studies/Untitled document(13).md) — _2026-03-20_
+- [Untitled document(14)](../articles/03-case-studies/Untitled document(14).md) — _2026-03-20_
+- [Untitled document(15)](../articles/03-case-studies/Untitled document(15).md) — _2026-03-20_
+- [Untitled document(16)](../articles/03-case-studies/Untitled document(16).md) — _2026-03-20_
+- [Untitled document(17)](../articles/03-case-studies/Untitled document(17).md) — _2026-03-20_
+- [Untitled document(18)](../articles/03-case-studies/Untitled document(18).md) — _2026-03-20_
+- [Untitled document(19)](../articles/03-case-studies/Untitled document(19).md) — _2026-03-20_
+- [Untitled Document(2)](../articles/03-case-studies/Untitled Document(2).md) — _2026-03-20_
+- [Untitled document(20)](../articles/03-case-studies/Untitled document(20).md) — _2026-03-20_
+- [Untitled document(21)](../articles/03-case-studies/Untitled document(21).md) — _2026-03-20_
+- [Untitled document(22)](../articles/03-case-studies/Untitled document(22).md) — _2026-03-20_
+- [Untitled document(23)](../articles/03-case-studies/Untitled document(23).md) — _2026-03-20_
+- [Untitled document(3)](../articles/03-case-studies/Untitled document(3).md) — _2026-03-20_
+- [Untitled document(4)](../articles/03-case-studies/Untitled document(4).md) — _2026-03-20_
+- [Untitled document(5)](../articles/03-case-studies/Untitled document(5).md) — _2026-03-20_
+- [Untitled document(6)](../articles/03-case-studies/Untitled document(6).md) — _2026-03-20_
+- [Untitled document(7)](../articles/03-case-studies/Untitled document(7).md) — _2026-03-20_
+- [Untitled document(8)](../articles/03-case-studies/Untitled document(8).md) — _2026-03-20_
+- [Untitled document(9)](../articles/03-case-studies/Untitled document(9).md) — _2026-03-20_
+- [Unveiling Λm](../articles/00-foundations/universal constant/Unveiling Λm.md) — _2026-03-20_
+- [USPTO-fee-schedule_current](../articles/02-implementations/q-calculator/USPTO-fee-schedule_current.md) — _2026-03-20_
+- [USPTO_Template](../articles/03-case-studies/USPTO_Template.md) — _2026-03-20_
+- [USRMS](../articles/03-case-studies/USRMS.md) — _2026-03-20_
+- [Uta Merzbach](../articles/06-people/Uta Merzbach.md) — _2026-03-20_
+- [Vihann_Mathur](../articles/06-people/Vihann_Mathur.md) — _2026-03-20_
+- [Viktor Mayer](../articles/06-people/Viktor Mayer.md) — _2026-03-20_
+- [Vincent_Van_Gogh](../articles/06-people/Vincent_Van_Gogh.md) — _2026-03-20_
+- [Vladimir Arnold](../articles/06-people/Vladimir Arnold.md) — _2026-03-20_
+- [Vlatko Vedral](../articles/06-people/Vlatko Vedral.md) — _2026-03-20_
+- [Walter Kohn](../articles/06-people/Walter Kohn.md) — _2026-03-20_
+- [Warren McCulloch](../articles/06-people/Warren McCulloch.md) — _2026-03-20_
+- [Wave Function](../articles/04-domains/meta-relativity/Wave Function.md) — _2026-03-20_
+- [Wayne Wenzhong Xu](../articles/06-people/Wayne Wenzhong Xu.md) — _2026-03-20_
+- [Wayne_Boatwright](../articles/06-people/Wayne_Boatwright.md) — _2026-03-20_
+- [Wayne_Boatwright](../articles/06-people/team/Wayne_Boatwright.md) — _2026-03-20_
+- [we can add these into the strategy_ enterprise sea](../articles/00-foundations/phase-mirror/we can add these into the strategy_ enterprise sea.md) — _2026-03-20_
+- [Web4 Beginner’s Guide](../articles/02-implementations/Λproof/Web4 Beginner’s Guide.md) — _2026-03-20_
+- [Website Blueprint & Detailed Instructions](../articles/00-foundations/phase-mirror/Website Blueprint & Detailed Instructions.md) — _2026-03-20_
+- [Website Blueprint & Detailed Instructions (1)](../articles/00-foundations/phase-mirror/Website Blueprint & Detailed Instructions (1).md) — _2026-03-20_
+- [Welcome to the Garden](../articles/04-domains/education/Welcome to the Garden.md) — _2026-03-20_
+- [Werner Ballman](../articles/06-people/Werner Ballman.md) — _2026-03-20_
+- [Wetterich Equation Derivation for GFT Cumulant Flo](../articles/03-case-studies/Wetterich Equation Derivation for GFT Cumulant Flo.md) — _2026-03-20_
+- [Wetterich Equation Derivation for GFT Cumulant Flo](../articles/04-domains/meta-relativity/Wetterich Equation Derivation for GFT Cumulant Flo.md) — _2026-03-20_
+- [What are the implications of developing Π‑Kernel i](../articles/05-systems/Π‑kernel/What are the implications of developing Π‑Kernel i.md) — _2026-03-20_
+- [What parts would we divide between the open-core a](../articles/00-foundations/phase-mirror/What parts would we divide between the open-core a.md) — _2026-03-20_
+- [Where Do Negatives Come From_ — Operational Closure, Completion, And Baselines](../articles/03-case-studies/Where Do Negatives Come From_ — Operational Closure, Completion, And Baselines.md) — _2026-03-20_
+- [White Paper](../articles/00-foundations/universal constant/White Paper.md) — _2026-03-20_
+- [White Paper_ A Field-Theoretic Framework for Detecting Conscious-Like States in Artificial Intelligence](../articles/04-domains/healthcare/scalar-consciousness/White Paper_ A Field-Theoretic Framework for Detecting Conscious-Like States in Artificial Intelligence.md) — _2026-03-20_
+- [White Paper_ Multiplicative Justice Reform](../articles/00-foundations/citizen-gardens/White Paper_ Multiplicative Justice Reform.md) — _2026-03-20_
+- [White Paper_ Symbolic Cognition Archeology](../articles/04-domains/semiotic-physics/White Paper_ Symbolic Cognition Archeology.md) — _2026-03-20_
+- [White Paper_ The Phase Mirror for Agentic Domain-Specific Reasoning](../articles/00-foundations/phase-mirror/White Paper_ The Phase Mirror for Agentic Domain-Specific Reasoning.md) — _2026-03-20_
+- [White Paper_ The ΞchoThread Framework](../articles/02-implementations/echobraid/White Paper_ The ΞchoThread Framework.md) — _2026-03-20_
+- [Whitepaper - Perfectoid Chromatic Vision System](../articles/02-implementations/chromatic-vision/Whitepaper - Perfectoid Chromatic Vision System.md) — _2026-03-20_
+- [Whitepaper_ A Formal Framework for Quantum Musicality and Multiplicity Dynamics](../articles/04-domains/musicality/Whitepaper_ A Formal Framework for Quantum Musicality and Multiplicity Dynamics.md) — _2026-03-20_
+- [Whitepaper_ Prime-Indexed Knowledge Systems](../articles/02-implementations/q-calculator/Whitepaper_ Prime-Indexed Knowledge Systems.md) — _2026-03-20_
+- [Whitepaper_ Universal Logic v2](../articles/02-implementations/q-calculator/Whitepaper_ Universal Logic v2.md) — _2026-03-20_
+- [William Hamiltonian](../articles/06-people/William Hamiltonian.md) — _2026-03-20_
+- [William_Stetar](../articles/06-people/William_Stetar.md) — _2026-03-20_
+- [William_Stetar](../articles/06-people/team/William_Stetar.md) — _2026-03-20_
+- [WKD Framework: From CFL Axiomatics to Biophotonic Deployment](../articles/05-systems/engines/wkd/WKD Framework_ From CFL Axiomatics.md) — _2026-03-20_
+- [WKD × DNA KEY Module: Phased Development \& Test Blueprint](../articles/05-systems/engines/wkd/WKD_Phased Dev Blueprint.md) — _2026-03-20_
+- [Wolfgang Pauli](../articles/06-people/Wolfgang Pauli.md) — _2026-03-20_
+- [Wordpress Themes Plugins](../articles/03-case-studies/Wordpress Themes Plugins.md) — _2026-03-20_
+- [wormhole latex](../articles/04-domains/meta-relativity/wormhole latex.md) — _2026-03-20_
+- [Wormhole_Dynamics](../articles/04-domains/meta-relativity/Wormhole_Dynamics.md) — _2026-03-20_
+- [wormhole_simulations](../articles/04-domains/meta-relativity/wormhole_simulations.md) — _2026-03-20_
+- [Wormholes](../articles/04-domains/meta-relativity/Wormholes.md) — _2026-03-20_
+- [Xiao-Gang Wen](../articles/06-people/Xiao-Gang Wen.md) — _2026-03-20_
+- [Yann LeCun](../articles/06-people/Yann LeCun.md) — _2026-03-20_
+- [YantraUniverse](../articles/04-domains/semiotic-physics/YantraUniverse.md) — _2026-03-20_
+- [Yes — if “mirror dissonance” is your name for a st](../articles/00-foundations/phase-mirror/Yes — if “mirror dissonance” is your name for a st.md) — _2026-03-20_
+- [Yes — if “mirror dissonance” is your name for a st (1)](../articles/00-foundations/phase-mirror/Yes — if “mirror dissonance” is your name for a st (1).md) — _2026-03-20_
+- [Yitang Zhang](../articles/06-people/Yitang Zhang.md) — _2026-03-20_
+- [Yoichiro Nambu](../articles/06-people/Yoichiro Nambu.md) — _2026-03-20_
+- [Yoshua Bengio](../articles/06-people/Yoshua Bengio.md) — _2026-03-20_
+- [You’ve aligned the normalizer with the layering an](../articles/05-systems/engines/You’ve aligned the normalizer with the layering an.md) — _2026-03-20_
+- [Yuval Noah Harari](../articles/06-people/Yuval Noah Harari.md) — _2026-03-20_
+- [ZenoLock](../articles/02-implementations/zenolock/ZenoLock.md) — _2026-03-20_
+- [ZenoLock(1)](../articles/02-implementations/zenolock/ZenoLock(1).md) — _2026-03-20_
+- [Zeta](../articles/03-case-studies/Zeta.md) — _2026-03-20_
+- [Zeta-Schrödinger Dynamics_ Expert Analysis and Val](../articles/04-domains/meta-relativity/Zeta-Schrödinger Dynamics_ Expert Analysis and Val.md) — _2026-03-20_
+- [Zeta_Schrodinger_Dynamics__ZSD_](../articles/04-domains/meta-relativity/Zeta_Schrodinger_Dynamics__ZSD_.md) — _2026-03-20_
+- [zetas-sphere-2](../articles/03-case-studies/zetas-sphere-2.md) — _2026-03-20_
+- [Zidek News](../articles/03-case-studies/Zidek News.md) — _2026-03-20_
+- [ZM_Meta_Relativity](../articles/04-domains/meta-relativity/ZM_Meta_Relativity.md) — _2026-03-20_
+- [Zoubin Ghahramani](../articles/06-people/Zoubin Ghahramani.md) — _2026-03-20_
+- [Zuula](../articles/03-case-studies/Zuula.md) — _2026-03-20_
+- [Λm And Ξ(t) — Working Specification](../articles/00-foundations/universal constant/Λm And Ξ(t) — Working Specification.md) — _2026-03-20_
+- [Λm_Multiplicity_Constant](../articles/00-foundations/universal constant/Λm_Multiplicity_Constant.md) — _2026-03-20_
+- [Λm_Multiplicity_Constant__PGF_](../articles/00-foundations/universal constant/Λm_Multiplicity_Constant__PGF_.md) — _2026-03-20_
+- [ΛProof - IP Strategic Blueprint](../articles/02-implementations/q-calculator/ΛProof - IP Strategic Blueprint.md) — _2026-03-20_
+- [ΛProof - IP Strategic Blueprint](../articles/02-implementations/Λproof/ΛProof - IP Strategic Blueprint.md) — _2026-03-20_
+- [ΛProof 1of3](../articles/02-implementations/Λproof/ΛProof 1of3.md) — _2026-03-20_
+- [ΛProof 2of3](../articles/02-implementations/Λproof/ΛProof 2of3.md) — _2026-03-20_
+- [ΛProof 3of3](../articles/02-implementations/Λproof/ΛProof 3of3.md) — _2026-03-20_
+- [ΛProof DApp Whitepaper](../articles/02-implementations/Λproof/ΛProof DApp Whitepaper.md) — _2026-03-20_
+- [ΛProof Engine](../articles/02-implementations/Λproof/ΛProof Engine.md) — _2026-03-20_
+- [ΛProof IP - Patent Prioritization](../articles/02-implementations/Λproof/ΛProof IP - Patent Prioritization.md) — _2026-03-20_
+- [ΛProof IP - Patent Research](../articles/02-implementations/Λproof/ΛProof IP - Patent Research.md) — _2026-03-20_
+- [ΛRootContract 2](../articles/02-implementations/Λproof/ΛRootContract 2.md) — _2026-03-20_
+- [ΛRootContract 3](../articles/02-implementations/Λproof/ΛRootContract 3.md) — _2026-03-20_
+- [Λᵖ-Archivum](../articles/00-foundations/imd/Λᵖ-Archivum.md) — _2026-03-20_
+- [ΞchoBraid](../articles/02-implementations/echobraid/ΞchoBraid.md) — _2026-03-20_
+- [ΞConstitution](../articles/00-foundations/imd/ΞConstitution.md) — _2026-03-20_
+- [ΞDriftTracker](../articles/02-implementations/Λproof/ΞDriftTracker.md) — _2026-03-20_
+- [ΞVOLUTION](../articles/03-case-studies/ΞVOLUTION.md) — _2026-03-20_
+- [Ξxtensions](../articles/03-case-studies/Ξxtensions.md) — _2026-03-20_
+- [Π Collapse Pattern Log — Analysis & Validation Plan](../articles/05-systems/Π‑kernel/Π Collapse Pattern Log — Analysis & Validation Plan.md) — _2026-03-20_
+- [Π Double_triple Collapse Hypothesis — Analysis & Validation Plan](../articles/05-systems/Π‑kernel/Π Double_triple Collapse Hypothesis — Analysis & Validation Plan.md) — _2026-03-20_
+- [Π-Kernel](../articles/05-systems/Π‑kernel/Π-Kernel.md) — _2026-03-20_
+- [Π-Kernel (1)](../articles/05-systems/Π‑kernel/Π-Kernel (1).md) — _2026-03-20_
+- [Π-Kernel White Paper](../articles/05-systems/Π‑kernel/Π-Kernel White Paper.md) — _2026-03-20_
+- [Π-Kernel–UAC Integration v3.0](../articles/02-implementations/atomic-calculator/Π-Kernel–UAC Integration v3.0.md) — _2026-03-20_
+- [Π‑kernel — A Mathematical Note](../articles/05-systems/Π‑kernel/Π‑kernel — A Mathematical Note.md) — _2026-03-20_
+- [Π‑kernel — Clean Mathematical Revision](../articles/05-systems/Π‑kernel/Π‑kernel — Clean Mathematical Revision.md) — _2026-03-20_
+- [Π‑kernel ↔ Multiplicity Runtime Bridge — A Mathematical Note](../articles/05-systems/Π‑kernel/Π‑kernel ↔ Multiplicity Runtime Bridge — A Mathematical Note.md) — _2026-03-20_
+- [ψSωRF∑R](../articles/03-case-studies/ψSωRF∑R.md) — _2026-03-20_

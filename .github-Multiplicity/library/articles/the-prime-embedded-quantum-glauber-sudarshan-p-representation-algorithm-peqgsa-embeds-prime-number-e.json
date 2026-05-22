@@ -1,0 +1,16 @@
+{
+  "slug": "the-prime-embedded-quantum-glauber-sudarshan-p-representation-algorithm-peqgsa-embeds-prime-number-e",
+  "path": "articles/05-systems/algorithms/P-GLAUBSUDAPREP.md",
+  "title": "The **Prime-Embedded Quantum Glauber-Sudarshan P Representation Algorithm (PEQGSA)** embeds **prime-number encoding** into the **Glauber-Sudarshan P representation**, a formalism widely used in **quantum optics** to describe the quantum state of the electromagnetic field. The P representation expresses the density matrix of a quantum state as a weighted sum (or integral) over coherent states, allowing quantum states to be treated as classical-like distributions. By introducing **prime-number modulation** into the P representation, we enable **dynamic control** over the weights, coherent state superpositions, and quantum-classical transitions, providing more flexible manipulation of quantum optical fields.",
+  "status": "draft",
+  "version": "0.1.0",
+  "tags": [
+    "multiplicity"
+  ],
+  "created": "2026-03-20",
+  "updated": "2026-03-20",
+  "stratum": "",
+  "operator_class": "",
+  "xi_domain": "",
+  "csl_role": ""
+}

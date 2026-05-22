@@ -1,0 +1,16 @@
+{
+  "slug": "the-prime-embedded-quantum-channels-and-mixed-states-algorithm-peqcmsa-introduces-prime-number-encod",
+  "path": "articles/05-systems/algorithms/P-MIXEDSTATES.md",
+  "title": "The **Prime-Embedded Quantum Channels and Mixed States Algorithm (PEQCMSA)** introduces **prime-number encoding** into the formalism of **quantum channels** and **mixed states**. **Quantum channels** represent the processes that affect quantum states as they evolve or are transmitted, often modeling noise, decoherence, or interactions with an environment. **Mixed states**, represented by density matrices, describe quantum systems where the exact state is not known but is instead a probabilistic combination of different pure states.",
+  "status": "draft",
+  "version": "0.1.0",
+  "tags": [
+    "multiplicity"
+  ],
+  "created": "2026-03-20",
+  "updated": "2026-03-20",
+  "stratum": "",
+  "operator_class": "",
+  "xi_domain": "",
+  "csl_role": ""
+}
