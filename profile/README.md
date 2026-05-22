@@ -291,8 +291,8 @@ Citizen Gardens is open to **everyone**. Membership starts with showing up.
 
 ### Contact
 
-- **Founder**: Ryan O. Van Gelder — Lead Multiplicity Theorist
-- **Email**: ryann@citizengardens.org
+- **Founder**: Ryan O. Van Gelder — Chief Visionary Officer
+- **Email**: info@citizengardens.org
 - **Phone**: 860-333-8443
 
 ---
